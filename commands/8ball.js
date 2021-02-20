@@ -38,17 +38,16 @@ module.exports.run = async (bot, message, args) => {
             "🟠 It is decidedly so.",
         ];
 
-    let result = Math.floor((Math.random() * replies.length));
+    let result = Math.floor(Math.random() * replies.length);
 
     let question = args.join(" ");
 
 
     const embed = new Discord.MessageEmbed()
         .setTitle(`8ball has answered! `)
-    if (question.endsWith("?")) embed.addField(`Question : `, `${question}`, true)
-    else if (!question.endsWith("?")) embed.addField(`Question : `, `${question}?`, true)
-    embed.addField(`🎱 ➣ Answer : `, ` ${replies[result]}`)
-    embed.setColor(NiceRed)
+    .addField(`Question : `, `${question}`, true)
+    .addField(`🎱 ➣ Answer : `, ` ${replies[result]}`)
+    .setColor("RANDOM")
     message.channel.send(embed)
 }
 
