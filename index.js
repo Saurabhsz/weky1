@@ -28,15 +28,6 @@ fs.readdir("./commands/", (err, files) => {
         });
     });
 });
-bot.on('guildMemberAdd', async member => {
-	const channel = member.guild.channels.cache.find(ch => ch.name === '💬︱general');
-	if (!channel) return;
-const embed = new Discord.MessageEmbed()
-.setAuthor(member.displayAvatarURL + member.username + member.discriminator)
-.setDescription(`**${member.username}** welcome to this server!'n Please read the rules before starting , thanks!`)
-
-	channel.send(embed);
-});
 bot.on("message", async message => {
     bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
 
