@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
 
     let result = Math.floor(Math.random() * replies.length);
 
-    let question = args[1].join(" ");
+    let question = args.splice(1).join(" ");
 
 
     const embed = new Discord.MessageEmbed()
