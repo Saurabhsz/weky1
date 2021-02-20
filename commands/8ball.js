@@ -44,9 +44,9 @@ module.exports.run = async (bot, message, args) => {
 
 
     const embed = new Discord.MessageEmbed()
-        .setTitle(`8ball has answered! `)
-    .addField(`Question : ${question}`, true)
-    .addField(`🎱 ➣ Answer : ${replies[result]}`)
+    .setAuthor(message.author.displayAvatarURL() + message.author.name + "#" + message.author.discriminator)
+    .setTitle(question)
+    .addField(`🎱 ➣ **Answer** : \n${replies[result]}`)
     .setColor("RANDOM")
     message.channel.send(embed)
 }
