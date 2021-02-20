@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const Canvas = require('canvas');
 module.exports.run = async (bot, message, args) => {
     const fetch = require('node-fetch');
-    const res = await (await fetch('https://api.monkedev.com/fun/8ball?key=' + 'scNyfoysHunZd79reAL5VEsQV'))
+    const res = await (await fetch('https://api.monkedev.com/fun/8ball?key=' + 'scNyfoysHunZd79reAL5VEsQV')).json()
     message.channel.send(res);
 }
 
