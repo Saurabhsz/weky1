@@ -40,13 +40,13 @@ module.exports.run = async (bot, message, args) => {
 
     let result = Math.floor(Math.random() * replies.length);
 
-    let question = args.join(" ");
+    let question = args[1].join(" ");
 
 
     const embed = new Discord.MessageEmbed()
         .setTitle(`8ball has answered! `)
-    .addField(`Question : `, `${question}`, true)
-    .addField(`🎱 ➣ Answer : `, ` ${replies[result]}`)
+    .addField(`Question : ${question}`, true)
+    .addField(`🎱 ➣ Answer : ${replies[result]}`)
     .setColor("RANDOM")
     message.channel.send(embed)
 }
