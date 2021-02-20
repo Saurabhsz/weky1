@@ -42,9 +42,10 @@ module.exports.run = async (bot, message, args) => {
 
     let question = args.splice(1).join(" ");
 
+    let user = message.guild.members.cache.get(message.author.id);
 
     const embed = new Discord.MessageEmbed()
-    .setAuthor(message.author.displayAvatarURL() + message.author.name + "#" + message.author.discriminator)
+    .setAuthor(message.author.name + "#" + message.author.discriminator, message.member.user.displayAvatarURL())
     .setTitle(question)
     .setDescription(`🎱 ➣ **Answer** : ${replies[result]}`)
     .setColor("RANDOM")
