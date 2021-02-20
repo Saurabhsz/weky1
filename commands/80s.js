@@ -1,12 +1,9 @@
 const Discord = require('discord.js');
 const Canvas = require('canvas');
 module.exports.run = async (bot, message, args) => {
-
-const member = message.mentions.members.first() || message.member;
-const avatar = member.user.displayAvatarURL({ format: 'jpg' });
-const att =     `https://api.monkedev.com/fun/8ball?key=scNyfoysHunZd79reAL5VEsQV`
-    const attachment = new Discord.MessageAttachment(att , `80s.jpg`);
-    message.channel.send(attachment);
+    const fetch = require('node-fetch');
+    const res = await (await fetch('https://api.monkedev.com/fun/8ball?key=' + 'scNyfoysHunZd79reAL5VEsQV')).json();
+    console.log(res);
 }
 
 module.exports.config = {
