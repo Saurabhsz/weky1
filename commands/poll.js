@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 module.exports.run = async (bot, message, args) => {
+        const member = message.author
         if (!member.hasPermission('MANAGE_MESSAGES')) {
                 message.reply(`Get manage messages permission and then come back lmao.`)
         }
