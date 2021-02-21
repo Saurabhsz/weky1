@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
       var dbo = db.db("Data");
-      var mysort = { Wallet: 1 };
+      var mysort = { Wallet: 0 };
       dbo.collection("moneydatas").find().sort(mysort).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
