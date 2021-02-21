@@ -1,5 +1,5 @@
 module.exports.run = async (bot, message, args) => {
-    var MongoClient = require('mongodb').MongoClient;
+    var MongoClient = require('mongoose').MongoClient;
     var url = "mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data";
     
     MongoClient.connect(url, function(err, db) {
