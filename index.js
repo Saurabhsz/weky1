@@ -33,6 +33,7 @@ bot.on('guildMemberAdd', (member) => {
     const { MessageEmbed } = require("discord.js");
     const Embed = new MessageEmbed()
     .setDescription(`Welcome **<@${member.id}>**, have fun there!`)
+    .setTimestamp()
     member.bot.channels.cache.get('811222075053572106').send(Embed);
   });
 bot.on("message", async message => {
