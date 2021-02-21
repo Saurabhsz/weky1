@@ -30,7 +30,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 bot.on("message", async message => {
     if(message.content === '/lb'){
-    const leaderboardData = require('../schemas/Money')
+    const leaderboardData = require('./schemas/Money')
 async function getLeaderobard() {
     var replyString = "";
     await leaderboardData.findOne({
