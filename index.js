@@ -45,7 +45,7 @@ async function getLeaderboard() {
             
             Array_names = JSON.parse(data.id)
             Array_values = JSON.parse(data.Wallet)
-            var first_num = Math.max(Array_values)
+            var first_num = Math.max(...Array_values)
 
             for (let index = 0; index < Array_values.length; index++) {
                 const element = Array_values[index];
@@ -58,7 +58,7 @@ async function getLeaderboard() {
 break;
             }
         }
-        var first_num = Math.max(Array_values)
+        var first_num = Math.max(...Array_values)
 
         for (let index = 0; index < Array_values.length; index++) {
             const element = Array_values[index];
