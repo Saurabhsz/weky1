@@ -71,7 +71,7 @@ break;
 break;
         }
     }) 
-    message.channel.send(replyString)
+    console.log(replyString)
 }
 getLeaderboard();
     }
