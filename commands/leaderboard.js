@@ -1,7 +1,7 @@
 module.exports.run = async (bot, message, args) => {
     const mongo = require("mongoose");
     
-    const rawLeaderboard = await mongo.fetchLeaderboard(message.guild.id, 10); // We grab top 10 users with most xp in the current server.
+    const rawLeaderboard = await mongo.fetch(message.guild.id, 10); // We grab top 10 users with most xp in the current server.
      
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
      
