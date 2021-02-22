@@ -40,17 +40,29 @@ bot.on("message", async message => {
     bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
 
     if(message.author.bot || message.channel.type === "dm") return;
+    const black = require('./schemas/Ban')
+    black.findOne({
+      id: message.author.id
+    }, (err,data) => {
+      if(err) console.log(err);
+      if(!data){
+        let prefix = botsettings.prefix;
+        let messageArray = message.content.split(" ");
+        const input = message.content.slice(prefix.length).trim().split(' ');
+          const commandArgs = input.join(' ');
+          const args = message.content.slice(prefix.length).trim().split(/ +/);
+          let cmd = messageArray[0];
+    
+        if(!message.content.startsWith(prefix)) return;
+        let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
+        if(commandfile) commandfile.run(bot,message,args)
+        
+      } else {
+return;
+      }
+    });
 
-    let prefix = botsettings.prefix;
-    let messageArray = message.content.split(" ");
-    const input = message.content.slice(prefix.length).trim().split(' ');
-      const commandArgs = input.join(' ');
-      const args = message.content.slice(prefix.length).trim().split(/ +/);
-      let cmd = messageArray[0];
-
-    if(!message.content.startsWith(prefix)) return;
-    let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
-    if(commandfile) commandfile.run(bot,message,args)
+    
 
 })
 
