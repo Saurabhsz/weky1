@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 } else {
     var num = parseFloat(args[1])
     if (num.isNaN) return message.channel.send("Thats not a valid number");
-    const Money = require('../../schemas/Money')
+    const Money = require('../schemas/Money')
 Money.findOne({
   id: message.author.id
 }, (err,data) => {
