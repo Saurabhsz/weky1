@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
-    const Money = require("../schemas/Money")
+    const Money = require("../../schemas/Money")
 Money.findOne({
     id: message.author.id
 },

@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 } else {
     var num = parseFloat(args[1])
     if (num.isNaN) return message.channel.send("Thats not a valid number");
-    const Money = require('../schemas/Money')
+    const Money = require('../../schemas/Money')
 Money.findOne({
   id: message.author.id
 }, (err,data) => {
@@ -22,13 +22,13 @@ Money.findOne({
     newD.save();
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-  } else if(num > data.Bank) {
+  } else if(num > data.Wallet) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
   } else {
-    data.Wallet += num;
-   data.Bank -= num;
+    data.Wallet -= num;
+   data.Bank += num;
    data.save();
-   message.channel.send("Withdrawn **" + num + '** coins.')
+   message.channel.send("Deposited **" + num + '** coins.')
 }
 });
 }
@@ -39,9 +39,9 @@ talkedRecently.add(message.author.id);
          
   }
   module.exports.config = {
-    name: "withdraw",
-    description: "withdraw the money, i think you want to buy something :o",
-    usage: "/withdraw (amount)",
+    name: "deposit",
+    description: "deposit your money, a shild for antirobbers",
+    usage: "/deposit (amount)",
     accessableby: "Members",
-    aliases: ["with"]
+    aliases: ["dep"]
 }
