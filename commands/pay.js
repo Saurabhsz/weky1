@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const talkedRecently = new Set();
 
 module.exports.run = async (bot, message, args) => {
-    const member = message.mentions.members.first();
   if (talkedRecently.has(message.author.id)) {
     const embed = new Discord.MessageEmbed()
     .setAuthor(`Wait 5 more seconds`)
@@ -32,6 +31,7 @@ Money.findOne({
    message.channel.send(`You gave ${member} ${num} coins, your new balance is ${data.Wallet} coins`)
 }
 });
+const member = message.mentions.members.first();
 Money.findOne({
     id: member.id
   }, (err,data) => {
