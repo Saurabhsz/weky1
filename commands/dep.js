@@ -25,6 +25,10 @@ Money.findOne({
   } else if(num > data.Wallet) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
   }
+  if(data.space = data.space) {
+    return message.channel.send(`Looks like your bank is full :) go get some scripts`)
+
+  }
   if(num > data.space){
    return message.channel.send(`Looks like your bank is full :) go get some scripts`)
   } else {
