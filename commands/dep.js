@@ -29,11 +29,8 @@ Money.findOne({
   if(thesame){
     return message.channel.send(`Looks like your bank is full :) go get some scripts`)
 
-  }
-  if(num > data.space){
-   return message.channel.send(`Looks like your bank is full :) go get some scripts`)
   } else {
-    data.Wallet -= num;
+   data.Wallet -= num;
    data.Bank += num;
    data.save();
    message.channel.send("Deposited **" + num + '** coins.')
