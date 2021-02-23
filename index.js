@@ -11,16 +11,23 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
-fs.readdir("./commands/", (err, files, dir) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(` "${commandName}" LOADED`);
-    bot.commands.set(commandName, props);
+fs.readdir("./commands/", (err, files) => {
+
+  if(err) console.log(err)
+
+  let jsfile = files.filter(f => f.split(".").pop() === "js") 
+  if(jsfile.length <= 0) {
+       return console.log("[LOGS] Couldn't Find Commands!");
+  }
+
+  jsfile.forEach((f, i) => {
+      let pull = require(`./commands/${f}`);
+      bot.commands.set(pull.config.name, pull);  
+      pull.config.aliases.forEach(alias => {
+          bot.aliases.set(alias, pull.config.name)
+      });
   });
-});  
+});        
 bot.on('guildMemberAdd', (member) => {
     const embed = new MessageEmbed();
     const { MessageEmbed } = require("discord.js");
