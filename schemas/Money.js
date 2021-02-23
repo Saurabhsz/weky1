@@ -13,6 +13,10 @@ const profileSchema = mongoose.Schema({
       type: Number,
       default: 0
     },
+    space: {
+      type: Number,
+      default: 0
+    },
     Phone: {
         type: Number,
         default: 0
