@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(embed);
 } else {
     var num = parseFloat(args[2])
+    if(!num) return message.channel.send(`How many coins you want to give?`)
     if (num.isNaN) return message.channel.send("Thats not a valid number");
     const Money = require('../schemas/Money')
 Money.findOne({
