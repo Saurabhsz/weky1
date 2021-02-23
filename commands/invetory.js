@@ -15,6 +15,7 @@ Money.findOne({
 var resp = "";
 
 if(data.Laptop != 0) resp += `**💻 Laptop - ** ${data.Laptop}\n`
+if(data.Laptop != 0) resp += `**👾 Space Script - ** ${data.banknote}\n`
 
         const { MessageEmbed } = require("discord.js");
         const Embed = new MessageEmbed()
