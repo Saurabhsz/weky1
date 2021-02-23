@@ -11,58 +11,16 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
-fs.readdir("./commands/currency", (err, files, dir) => {
+fs.readdir("./commands/", (err, files, dir) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) return;
-    // Load the command file itself
-    let props = require(`./commands/currency/${file}`);
-    // Get just the command name from the file name
+    let props = require(`./commands/${file}`);
     let commandName = file.split(".")[0];
     console.log(` "${commandName}" LOADED`);
-    // Here we simply store the whole thing in the command Enmap. We're not running it right now.
     bot.commands.set(commandName, props);
   });
 });  
-fs.readdir("./commands/fun", (err, files, dir) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    // Load the command file itself
-    let props = require(`./commands/fun/${file}`);
-    // Get just the command name from the file name
-    let commandName = file.split(".")[0];
-    console.log(` "${commandName}" LOADED`);
-    // Here we simply store the whole thing in the command Enmap. We're not running it right now.
-    bot.commands.set(commandName, props);
-  });
-});  
-fs.readdir("./commands/image", (err, files, dir) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    // Load the command file itself
-    let props = require(`./commands/image/${file}`);
-    // Get just the command name from the file name
-    let commandName = file.split(".")[0];
-    console.log(` "${commandName}" LOADED`);
-    // Here we simply store the whole thing in the command Enmap. We're not running it right now.
-    bot.commands.set(commandName, props);
-  });
-});  
-fs.readdir("./commands/utility", (err, files, dir) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    // Load the command file itself
-    let props = require(`./commands/utility/${file}`);
-    // Get just the command name from the file name
-    let commandName = file.split(".")[0];
-    console.log(` "${commandName}" LOADED`);
-    // Here we simply store the whole thing in the command Enmap. We're not running it right now.
-    bot.commands.set(commandName, props);
-  });
-});
 bot.on('guildMemberAdd', (member) => {
     const embed = new MessageEmbed();
     const { MessageEmbed } = require("discord.js");

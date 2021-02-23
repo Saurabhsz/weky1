@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
                         data.Laptop += num;
                         data.save();
                         const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                        .setAuthor(message.author.username+`#`+message.author.descriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought **1 Laptop**`)
                         message.channel.send(embed)
                     }
@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
                         data.Laptop += num;
                         data.save();
                         const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                        .setAuthor(message.author.username+`#`+message.author.descriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought **${num} Laptop**`)
                         message.channel.send(embed)
                 }
