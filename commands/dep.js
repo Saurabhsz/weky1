@@ -24,6 +24,8 @@ Money.findOne({
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
   } else if(num > data.Wallet) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
+  } else if(data.space > num){
+   return message.channel.send(`Looks like your bank is full :) go get some scripts`)
   } else {
     data.Wallet -= num;
    data.Bank += num;

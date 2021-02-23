@@ -15,7 +15,7 @@ const profileSchema = mongoose.Schema({
     },
     space: {
       type: Number,
-      default: 0
+      default: 5000
     },
     Phone: {
         type: Number,
