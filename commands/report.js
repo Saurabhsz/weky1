@@ -2,7 +2,7 @@ const { DiscordAPIError } = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-const channel = bot.channels.cache.get('812602214954565672')
+const channel = bot.channels.cache.get('795647180995559434')
 
 
 const query = args.slice(1).join(' ');
