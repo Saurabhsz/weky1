@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 } else {
     const target = message.mentions.users.first() || message.author
     const targetId = target.id
-    const Money = require('../../schemas/Money')
+    const Money = require('../schemas/Money')
 Money.findOne({
   id: targetId
 }, (err,data) => {
