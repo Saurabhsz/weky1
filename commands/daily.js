@@ -20,11 +20,12 @@ Money.findOne({
     newD.save();
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-  }
+  } else {
    data.Wallet += 1400;
    data.save();
    message.channel.send("You collected your daily 1400 coins, nice")
-})
+  }
+  })
 }
 talkedRecently.add(message.author.id);
                 setTimeout(() => {
