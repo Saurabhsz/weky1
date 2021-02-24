@@ -33,8 +33,8 @@ Money.findOne({
     if(number < 100){
         return message.channel.send("You can gamble only 100 above coins")
     }
-    if(number > 75000){
-        return message.channel.send(`You can't gamble more than 75,000 coins.`)
+    if(number > 500000){
+        return message.channel.send(`You can't gamble more than 500,000 coins.`)
     }
    const ok = [
        `tails`,
