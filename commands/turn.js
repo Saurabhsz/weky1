@@ -1,7 +1,8 @@
 const usedCommand = new Set();
 const talkedRecently = new Set();
+const Discord = require('discord.js')
 module.exports.run = async (bot, message, args) => {
-    if (talkedRecently.has(message.author.id)) {
+    if (talkedRecently.has(message.author.id)) { 
         const embed = new Discord.MessageEmbed()
         .setAuthor(`Wait 45 more seconds`)
         .setDescription(`😡 Dont you dare to frikin tryna break me, please wait \`45s\` to use this command again idot :D`)
