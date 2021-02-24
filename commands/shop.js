@@ -8,8 +8,8 @@ module.exports.run = async (bot, message, args) => {
 
     if(!useArgs[0] || useArgs[0] === '1') {
         const embed = new Discord.MessageEmbed()
-                        .addField(`💻 **Laptop** -> \`4000\``,`This item is used to play on it, not doing many things,it just give some coins`)
-                                         .addField(`👾 **Space Script** -> \`10000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
+                        .addField(`💻 **Laptop** -> \`4,000\``,`This item is used to play on it, not doing many things,it just give some coins`)
+                                         .addField(`👾 **Space Script** -> \`100,000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
                         message.channel.send(embed)
         
     }
