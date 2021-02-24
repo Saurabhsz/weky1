@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
                     `You went to go to the anti-virus website but got on the wrong site, you didnt got anything`,
                     `You went to fly on Minecraft but... got.....down somehow, no coins`,
                     `You failed a checkmark test in DBD, so nah,  no coins`,
-                    `You died in minecraft, witch means your alive in real life, but no coins`,
+                    `You died in minecraft,which means your alive in real life, but no coins`,
                     `You played on your PC on Weky and got **${randomCoins}** coins for using your laptop`,
                     `Nani, you got **${randomCoins}** coins by just downloading Malware Anti Corona VIRUS`,
                     `You passed the human verification and got **${randomCoins}** coins for trying their new system.`,

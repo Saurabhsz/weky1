@@ -72,7 +72,7 @@ module.exports.run = async (bot, message, args) => {
                         data.save();
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought 👾 **1 Space Script**`)
+                        .setDescription(`You sucessfully bought <:space_scroll:814120368083173386> **1 Space Script**`)
                         message.channel.send(embed)
                     }
                 } else {
@@ -82,7 +82,7 @@ module.exports.run = async (bot, message, args) => {
                         data.save();
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought 👾 **${num} Space Scripts**`)
+                        .setDescription(`You sucessfully bought <:space_scroll:814120368083173386> **${num} Space Scripts**`)
                         message.channel.send(embed)
                 }
             }
