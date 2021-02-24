@@ -30,6 +30,12 @@ Money.findOne({
     if(number > data.Wallet) {
         return message.channel.send("You dont have that much money why you bad at me bro :/");
     }
+    if(number < 100){
+        return message.channel.send("You can gamble only 100 above coins")
+    }
+    if(number > 75000){
+        return message.channel.send(`You can't gamble more than 500,000 coins.`)
+    }
    const ok = [
        `tails`,
        `heads`
