@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 } else {
     const target = message.mentions.users.first() || message.author
     const targetId = target.id
-    const Money = require('../../schemas/Money')
+    const Money = require('../schemas/Money')
     var number = parseFloat(args[1])
     if(!number) return message.channel.send(`Please specify how much you want to bet!`)
     if (number.isNaN) return message.channel.send("Thats not a valid number");
