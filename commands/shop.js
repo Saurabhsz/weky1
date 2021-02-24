@@ -29,7 +29,7 @@ Money.findOne({
 if(useArgs[0] === 'laptop'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Laptop`)
-    .addField(`${message.author} Owns: ${data.Laptop}\n,
+    .setDescription(`${message.author} Owns: ${data.Laptop}\n,
                Cost: \`4,000\`\n
                ID: \`laptop\`\n\n
                      This item is used to play on it, not doing many things,it just give some coins`)
@@ -41,7 +41,7 @@ if(useArgs[0] === 'laptop'){
 if(useArgs[0] === 'script' || useArgs[0] === 'space'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Space Script`)
-    .addField(`${message.author} Owns: ${data.banknote}\n,
+    .setDescription(`${message.author} Owns: ${data.banknote}\n,
                      Cost: \`100,000\`\n
                      ID: \`spacescript\`\n\n
                      Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
@@ -51,8 +51,8 @@ if(useArgs[0] === 'script' || useArgs[0] === 'space'){
 }
 if(useArgs[0] === 'moon' || useArgs[0] === 'wekymoon'){
     const embed = new Discord.MessageEmbed()
-    .setTitle(`Space Script`)
-    .addField(`${message.author} Owns: ${data.banknote}\n,
+    .setTitle(`Weky's Moon`)
+    .setDescription(`${message.author} Owns: ${data.banknote}\n,
                      Cost: \`100,000\`\n
                      ID: \`wekymoon\`\n\n
                      This item is used to flex on the kids who can\`t get it`)
