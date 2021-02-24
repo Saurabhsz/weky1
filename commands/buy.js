@@ -115,7 +115,7 @@ module.exports.run = async (bot, message, args) => {
                         data.save();
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought 🌕 **1 Weky's Moon**`)
+                        .setDescription(`You sucessfully bought 🌝 **1 Weky's Moon**`)
                         message.channel.send(embed)
                     }
                 } else {
@@ -125,7 +125,7 @@ module.exports.run = async (bot, message, args) => {
                         data.save();
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought 🌕 **${num} Weky's Moons**`)
+                        .setDescription(`You sucessfully bought 🌝 **${num} Weky's Moons**`)
                         message.channel.send(embed)
                 }
             }
