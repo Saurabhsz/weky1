@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if(!useArgs[0] || useArgs[0] === '1') {
         const embed = new Discord.MessageEmbed()
                         .addField(`💻 **Laptop** -> \`4,000\``,`This item is used to play on it, not doing many things,it just give some coins`)
-                        .addField(`<:space_scroll:814120368083173386> **Space Script** -> \`100,000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
+                        .addField(`<:spacescript:814122006437167134> **Space Script** -> \`100,000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
                         .addField(`**🌕 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it`)
                         message.channel.send(embed)
         
