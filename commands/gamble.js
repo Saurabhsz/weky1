@@ -36,6 +36,7 @@ Money.findOne({
     if(number > 500000){
         return message.channel.send(`You can't gamble more than 500,000 coins.`)
     }
+    
    const ok = [
        `tails`,
        `heads`
