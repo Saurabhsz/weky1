@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
   if (talkedRecently.has(message.author.id)) {
     const embed = new Discord.MessageEmbed()
-    .setAuthor(`Wait 6 more seconds`)
+    .setAuthor(`Wait 45 more seconds`)
     .setDescription(`😡 Dont you dare to frikin tryna break me, please wait \`6s\` to use this command again idot :D`)
     .setFooter(`This timer dont update in real time`)
     message.channel.send(embed);
@@ -31,19 +31,19 @@ Money.findOne({
         return message.channel.send("You dont have that much money why you bad at me bro :/");
     }
     if(number < 100){
-        return message.channel.send("You can gamble only 100 above coins")
-    }
-    if(number > 500000){
-        return message.channel.send(`You can't gamble more than 500,000 coins.`)
-    }
-    
+      return message.channel.send("You can gamble only 100 above coins")
+  }
+  if(number > 75000){
+      return message.channel.send(`You can't gamble more than 500,000 coins.`)
+  }
    const ok = [
        `tails`,
        `heads`
    ]
-   var num = Math.floor(Math.random() * ok.length);
-if(num != 1) {
+   const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
+const chance = random > 0 && random < 80; // the conidtion which is the chance
 
+if (chance) {
   data.Wallet -= number;    
   let embed = new Discord.MessageEmbed()
   .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
@@ -54,8 +54,8 @@ if(num != 1) {
   .setFooter(`Loser`)
 message.channel.send(embed)
   data.save(); 
-} else if (num != 0){
-    data.Wallet += number*2;
+} else {
+  data.Wallet += number*2;
     let embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
     .setDescription(`**You won!**\n
@@ -66,13 +66,14 @@ message.channel.send(embed)
   message.channel.send(embed)
   data.save()
 }
+
 }
 });
 }
 talkedRecently.add(message.author.id);
                 setTimeout(() => {
                 talkedRecently.delete(message.author.id);
-                }, 6000);
+                }, 3000);
          
 }
   module.exports.config = {
