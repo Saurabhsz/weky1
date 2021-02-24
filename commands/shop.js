@@ -52,7 +52,7 @@ if(useArgs[0] === 'script' || useArgs[0] === 'space'){
 if(useArgs[0] === 'moon' || useArgs[0] === 'wekymoon'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Weky's Moon`)
-    .setDescription(`${message.author} Owns: ${data.banknote}\n,
+    .setDescription(`${message.author} Owns: ${data.wekymoon}\n,
                      Cost: \`100,000\`\n
                      ID: \`wekymoon\`\n\n
                      This item is used to flex on the kids who can\`t get it`)
