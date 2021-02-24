@@ -67,3 +67,4 @@ return;
 })
 
 
+bot.login(process.env.token);
