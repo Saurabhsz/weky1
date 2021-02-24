@@ -29,12 +29,12 @@ Money.findOne({
 if(useArgs[0] === 'laptop'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Laptop`)
+    .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/814137739326390312/laptop.png`)
     .addField(`${message.author.username} Owns: ${data.Laptop}\n`,
                `Cost: \`4,000\`\n
                ID: \`laptop\`\n\n
                Description: This item is used to play on it, not doing many things,it just give some coins`)
                      
-    .setThumbnail(`https://cdn.discordapp.com/attachments/811222144997916692/814129669623382016/bb69d1f4be3e217021a5d317825df452-removebg-preview.png`)
     .setTimestamp()
     message.channel.send(embed)
 
@@ -42,22 +42,23 @@ if(useArgs[0] === 'laptop'){
 if(useArgs[0] === 'script' || useArgs[0] === 'space'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Space Script`)
+    .setThumbnail(`https://cdn.discordapp.com/attachments/811222144997916692/814122580441038858/1f4dc.png`)
     .addField(`${message.author.username} Owns: ${data.banknote}\n`,
                      `Cost: \`100,000\`\n
                      ID: \`spacescript\`\n\n
                      Description: Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
-    .setThumbnail(`https://cdn.discordapp.com/attachments/811222144997916692/814122580441038858/1f4dc.png`)
     .setTimestamp() 
     message.channel.send(embed)
 }
 if(useArgs[0] === 'moon' || useArgs[0] === 'wekymoon'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Weky's Moon`)
+    .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/814135983455993916/moon.png`)
+
     .addField(`${message.author.username} Owns: ${data.wekymoon}\n`,
                      `Cost: \`100,000\`\n
                      ID: \`wekymoon\`\n\n
                      Description: This item is used to flex on the kids who can\`t get it`)
-    .setThumbnail(`https://cdn.discordapp.com/attachments/811222144997916692/814131488265469962/full-moon-with-face-emoji-by-twitter-removebg-preview.png`)
     .setTimestamp()
     message.channel.send(embed)
 
