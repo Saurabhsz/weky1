@@ -33,13 +33,9 @@ Money.findOne({
     if(number < 100){
       return message.channel.send("You can gamble only 100 above coins")
   }
-  if(number > 75000){
+  if(number > 500,000){
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
-   const ok = [
-       `tails`,
-       `heads`
-   ]
    const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
 const chance = random > 0 && random < 80; // the conidtion which is the chance
 
