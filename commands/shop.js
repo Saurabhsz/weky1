@@ -22,7 +22,9 @@ Money.findOne({
         const embed = new Discord.MessageEmbed()
                         .addField(`<:laptop:814147340947554314> **Laptop** -> \`4,000\``,`This item is used to play on it, not doing many things,it just give some coins`)
                         .addField(`<:spacescript:814122006437167134> **Space Script** -> \`100,000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
-                        .addField(`**🌝 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it`)
+                        .addField(`**🌝 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it, also it gives 2.4 multiplier, and 50% chance to win.`)
+                        .addField(`**♾️ Weky's Rip Off** -> \`12,000,000\``,`This item is used to flex on the kids who can\`t get it, and 2.6 multiplier + 60% chance to win in gamble games.`)
+                        .setFooter(`Run /item (item) for more info.`)
                         message.channel.send(embed)
         
     }
@@ -56,11 +58,23 @@ if(useArgs[0] === 'moon' || useArgs[0] === 'wekymoon'){
     .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/814135983455993916/moon.png`)
 
     .addField(`${message.author.username} Owns: ${data.wekymoon}\n`,
-                     `Cost: \`100,000\`\n
+                     `Cost: \`2,000,000\`\n
                      ID: \`wekymoon\`\n\n
-                     Description: This item is used to flex on the kids who can\`t get it`)
+                     Description: This item is used to flex on the kids who can\`t get it, also it gives 2.4 multiplier, and 50% chance to win.`)
     .setTimestamp()
     message.channel.send(embed)
+
+}
+if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyrip' || useArgs[0] === 'wekyoff'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Laptop`)
+  .addField(`${message.author.username} Owns: ${data.Laptop}\n`,
+             `Cost: \`12,000,000\`\n
+             ID: \`wekyrip\`\n\n
+             Description: This item is used to flex on the kids who can\`t get it, and 2.6 multiplier + 60% chance to win in gamble games.`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
 
 }
 }

@@ -17,7 +17,8 @@ var resp = "";
 if(data.Laptop != 0) resp += `**<:laptop:814147340947554314> Laptop - ** ${data.Laptop}\n`
 if(data.Laptop != 0) resp += `**<:spacescript:814122006437167134> Space Script - ** ${data.banknote}\n`
 if(data.wekymoon != 0) resp += `**🌝 Weky's Moon - ** ${data.wekymoon}\n`
-        const { MessageEmbed } = require("discord.js");
+if(data.wekyripoff != 0) resp += `**♾️ Weky's Rip Off - ** ${data.wekyripoff}\n`
+const { MessageEmbed } = require("discord.js");
         const Embed = new MessageEmbed()
         .setTitle(`${message.author.username}\' Inventory`)
         .setDescription(resp)
