@@ -66,7 +66,7 @@ module.exports.run = async (bot, message, args) => {
             user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
             } else {
                 if(!num){
-                    if(4000 > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} laptops, make sure that you have the money in wallet`);} else {
+                    if(4000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 script, make sure that you have the money in wallet`);} else {
                         data.Wallet -= 10000;
                         data.banknote += 1;
                         data.save();
@@ -76,7 +76,7 @@ module.exports.run = async (bot, message, args) => {
                         message.channel.send(embed)
                     }
                 } else {
-                    if(4000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} laptops, make sure that you have the money in wallet`);} else {
+                    if(4000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} scripts, make sure that you have the money in wallet`);} else {
                         data.Wallet -= 10000*num;
                         data.banknote += num;
                         data.save();
