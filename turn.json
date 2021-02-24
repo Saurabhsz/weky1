@@ -1,0 +1,5 @@
+
+	{
+		"question": "__What would you like to do on laptop?__\n**W** - Watch YouTube\n**E** - Reading\n**K** - Hacking\n**Y** - Playing Games",
+		"answers": ["W", "E", "K", "Y"]
+	}
