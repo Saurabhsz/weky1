@@ -20,16 +20,16 @@ Money.findOne({
 
     if(!useArgs[0] || useArgs[0] === '1') {
         const embed = new Discord.MessageEmbed()
-                        .addField(`💻 **Laptop** -> \`4,000\``,`This item is used to play on it, not doing many things,it just give some coins`)
+                        .addField(`<:laptop:814147340947554314> **Laptop** -> \`4,000\``,`This item is used to play on it, not doing many things,it just give some coins`)
                         .addField(`<:spacescript:814122006437167134> **Space Script** -> \`100,000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
-                        .addField(`**🌕 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it`)
+                        .addField(`**🌝 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it`)
                         message.channel.send(embed)
         
     }
 if(useArgs[0] === 'laptop'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Laptop`)
-    .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/814137739326390312/laptop.png`)
+    .setThumbnail(`https://cdn.discordapp.com/attachments/811222075053572106/814147054119944212/lmo.png`)
     .addField(`${message.author.username} Owns: ${data.Laptop}\n`,
                `Cost: \`4,000\`\n
                ID: \`laptop\`\n\n
