@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
             return message.channel.send(`Dude, i\'m pregnant, i quit the Europa services to make the users days happy, im done serving a shit community since 15 years. Do something with your life and leave me fucking alone`)
         }
 
-        if (!args[0]) {
+        if (!args[1]) {
             message.channel.send("Hey Face, what to evaluate :)?")
         }
 
