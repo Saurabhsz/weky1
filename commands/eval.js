@@ -1,7 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const beautify = require('beautify');
-module.exports.run = async (client, message, args) => {
-    if(message.author.id === client.user.id) return;
+module.exports.run = async (bot, message, args) => {
         if (message.author.id !== "778518819055861761") {
             return message.channel.send(`Dude, i\'m pregnant, i quit the Europa services to make the users days happy, im done serving a shit community since 15 years. Do something with your life and leave me fucking alone`)
         }
@@ -18,7 +17,7 @@ module.exports.run = async (client, message, args) => {
             const embed = new MessageEmbed()
             .setColor("#00FF00")
             .setTimestamp()
-            .setFooter(client.user.username, client.user.displayAvatarURL())
+            .setFooter(bot.user.username, bot.user.displayAvatarURL())
             .setTitle("Eval")
             .addField("To evaluate", `\`\`\`js\n${beautify(args.join(" "), { format: "js" })}\n\`\`\``)
             .addField("Evaluated", `\`${evaluated}\``)
@@ -32,7 +31,7 @@ module.exports.run = async (client, message, args) => {
             .setColor("#FF0000")
             .setTitle(":x: Error!")
             .setDescription(e)
-            .setFooter(client.user.username, client.user.displayAvatarURL());
+            .setFooter(bot.user.username, bot.user.displayAvatarURL());
 
             message.channel.send(embed);
 

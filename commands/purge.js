@@ -1,6 +1,5 @@
 const { MessageEmbed } = require("discord.js")
 module.exports.run = async (client, message, args) => {
-    if(message.author.id === client.user.id) return;
         if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You don\'t have permission to use this command').then(m => m.delete({timeout: 5000}));
         if (!message.guild.me.hasPermission(['MANAGE_MESSAGES'])) return message.channel.send('I don\'t have permission to use that command').then(m => m.delete({timeout: 5000}))
         
