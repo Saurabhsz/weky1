@@ -1,7 +1,7 @@
 var Discord = require('discord.js');
 var ms = require('ms');
 
-exports.run = async(client, msg, args) => {
+module.exports.run = async (bot, message, args) => {
     if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
 
     var user = msg.mentions.users.first();
