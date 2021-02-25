@@ -56,11 +56,13 @@ if(data.wekyripoff < 0){
   message.channel.send(embed)
     data.save(); 
   } else {
-    data.Wallet += number*2;
+    const arrray = ["1.1","1.5","1.4","1.3","1.2"]
+    const r = Math.floor(Math.random() * arrray.length);
+    data.Wallet += number*r;
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${number*2}; Multi: x2.0`,
+                       `Gambled: ${number}; Won: ${number*r}; Multi: x${r}`,
                        `**New balance: ${data.Wallet}**`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
@@ -82,11 +84,13 @@ if(data.wekyripoff < 0){
   message.channel.send(embed)
     data.save(); 
   } else {
-    data.Wallet += number*2.4;
+    const arrray = ["1.6","1.7","1.8","1.9","2"]
+    const r = Math.floor(Math.random() * arrray.length);
+    data.Wallet += number*r;
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${number*2.4}; Multi: x2.6`,
+                       `Gambled: ${number}; Won: ${number*2.4}; Multi: x${r}`,
                        `**New balance: ${data.Wallet}**`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
