@@ -12,7 +12,6 @@ module.exports.run = async (bot, message, args) => {
     const targetId = target.id
     const Money = require('../schemas/Money')
     const rndom = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
-      const chace = rndom > 0 && rndom < 60; // the conidtion which is the chance
       const hance = rndom > 0 && rndom < 70; // the conidtion which is the chance
       if(message.content.includes('.') || message.content.includes(',')) return message.channel.send(`In your message CAN'T be . and ,`)
 

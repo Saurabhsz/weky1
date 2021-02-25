@@ -39,7 +39,27 @@ let questions = [
     title: "What was the first name for the pepe meme",
     options: ["FeelsBadMan", "PepeTheFrog", "FeelsWeirdMan", "FeelsBanMan"],
     correct: 2,
-  }
+  },
+  {
+    title: "Mario in 2003 was a ",
+    options: [" a 3d game", "a pixel", "a 2d game", "a editing software"],
+    correct: 2,
+  },
+  {
+    title: "Reddit was launched in",
+    options: ["July 3, 2004", "June 23, 2005", "January 9, 2007", "August 6, 2012"],
+    correct: 2,
+  },
+  {
+    title: "The first roblox logo was designed in",
+    options: ["2004", "2007", "2003", "2016"],
+    correct: 1,
+  },
+  {
+    title: "How much times was roblox searched on google",
+    options: ["182,000,000 results", "182,090,120 results", "182,086,456 results", "126,426,766 results"],
+    correct: 1,
+  },
 ];
 
 module.exports.run = async (bot, message, args) => {
