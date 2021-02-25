@@ -129,7 +129,7 @@ module.exports.run = async (bot, message, args) => {
                         message.channel.send(embed)
                 }
             }
-            if(buyArgs[0] === 'ripoff' || buyArgs[0] === 'wekyrip' || buyArgs[0] === 'wekyoff') {
+            if(buyArgs[0] === 'wekyrip' || buyArgs[0] === 'wekyoff') {
                 var num = parseFloat(args[2])
         
                 Money.findOne({
