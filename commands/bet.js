@@ -42,42 +42,7 @@ Money.findOne({
   }
    const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
 const chance = random > 0 && random < 50; // the conidtion which is the chance
-if(data.wekymoon > 0){
-  if (chance) {
-    data.Wallet -= number;    
-    let embed = new Discord.MessageEmbed()
-    .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-    .addField(`**You lost!**`,
-                     `Lost: ${number}`,
-                     `**New balance: ${data.Wallet}**`)
-    .setColor(`RED`)
-    .setFooter(`Loser`)
-  message.channel.send(embed)
-    data.save(); 
-  } else {
-    data.Wallet += number*2.4;
-      let embed = new Discord.MessageEmbed()
-      .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-      .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${number*2.4}; Multi: x2.4`,
-                       `**New balance: ${data.Wallet}**`)
-      .setColor(`GREEN`)
-      .setFooter(`Winner`)
-    message.channel.send(embed)
-    data.save()
-  }
-} else if (chace) {
-  data.Wallet -= number;    
-  let embed = new Discord.MessageEmbed()
-  .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-  .addField(`**You lost!**`,
-                   `Lost: ${number}`,
-                   `**New balance: ${data.Wallet}**`)
-  .setColor(`RED`)
-  .setFooter(`Loser`)
-message.channel.send(embed)
-  data.save(); 
-} else if(data.wekymoon < 0){
+if(data.wekyripoff < 0){
 
   if (hance) {
     data.Wallet -= number;    
@@ -117,11 +82,11 @@ message.channel.send(embed)
   message.channel.send(embed)
     data.save(); 
   } else {
-    data.Wallet += number*2.6;
+    data.Wallet += number*2.4;
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${number*2.6}; Multi: x2.6`,
+                       `Gambled: ${number}; Won: ${number*2.4}; Multi: x2.6`,
                        `**New balance: ${data.Wallet}**`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
