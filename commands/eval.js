@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (!args[1]) {
             message.channel.send("Hey Face, what to evaluate :)?")
-        }
+        } else
 
         try {
 
