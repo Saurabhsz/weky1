@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
         try {
 
-            const toEval = args.join(" ");
+            const toEval = args.slice(1).join(" ");
             const evaluated = eval(toEval);
 
             const embed = new MessageEmbed()
