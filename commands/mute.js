@@ -2,34 +2,34 @@ var Discord = require('discord.js');
 var ms = require('ms');
 
 module.exports.run = async (bot, message, args) => {
-    if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
+    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You can\'t use that!');
 
-    var user = msg.mentions.users.first();
-    if(!user) return msg.reply('You didn\'t mention anyone!');
+    var user = message.mentions.users.first();
+    if(!user) return message.reply('You didn\'t mention anyone!');
 
     var member;
 
     try {
-        member = await msg.guild.members.fetch(user);
+        member = await message.guild.members.fetch(user);
     } catch(err) {
         member = null;
     }
 
-    if(!member) return msg.reply('They aren\'t in the server!');
+    if(!member) return message.reply('They aren\'t in the server!');
     var rawTime = args[1];
     var time = ms(rawTime);
-    if(!time) return msg.reply('You didn\'t specify a time!');
+    if(!time) return message.reply('You didn\'t specify a time!');
 
     var reason = args.splice(2).join(' ');
-    if(!reason) return msg.reply('You need to give a reason!');
+    if(!reason) return message.reply('You need to give a reason!');
 
     var log = new Discord.MessageEmbed()
     .setTitle('User Muted')
     .addField('User:', user, true)
-    .addField('By:', msg.author, true)
+    .addField('By:', message.author, true)
     .addField('Expires:', rawTime)
     .addField('Reason:', reason)
-    msg.channel.send(log);
+    message.channel.send(log);
 
     var embed = new Discord.MessageEmbed()
     .setTitle('You were muted!')
@@ -42,15 +42,15 @@ module.exports.run = async (bot, message, args) => {
         console.warn(err);
     }
 
-    var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
+    var role = message.guild.roles.cache.find(r => r.name === 'Muted');
 
     member.roles.add(role);
-    if(!role) return msg.reply(`I cant fing a "Muted" role, make sure it is called like that.`)
+    if(!role) return message.reply(`I cant fing a "Muted" role, make sure it is called like that.`)
     setTimeout(async() => {
         member.roles.remove(role);
     }, time);
 
-    msg.channel.send(`**${user}** has been muted by **${msg.author}** for **${rawTime}**!`);
+    message.channel.send(`**${user}** has been muted by **${message.author}** for **${rawTime}**!`);
 }
 module.exports.config = {
     name: "mute",
