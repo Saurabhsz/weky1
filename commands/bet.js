@@ -89,24 +89,13 @@ if(data.wekyripoff < 0){
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${number*2.4}; Multi: x${r}`,
+                       `Gambled: ${number}; Won: ${number*r}; Multi: x${r}`,
                        `**New balance: ${data.Wallet}**`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
     data.save()
   }
-} else if (chance) {
-  data.Wallet -= number;    
-  let embed = new Discord.MessageEmbed()
-  .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-  .addField(`**You lost!**`,
-                   `Lost: ${number}`,
-                   `**New balance: ${data.Wallet}**`)
-  .setColor(`RED`)
-  .setFooter(`Loser`)
-message.channel.send(embed)
-  data.save(); 
 }
   }
 });
