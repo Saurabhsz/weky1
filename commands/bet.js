@@ -3,8 +3,8 @@ const talkedRecently = new Set();
 module.exports.run = async (bot, message, args) => {
   if (talkedRecently.has(message.author.id)) {
     const embed = new Discord.MessageEmbed()
-    .setAuthor(`Wait 45 more seconds`)
-    .setDescription(`😡 Dont you dare to frikin tryna break me, please wait \`45s\` to use this command again idot :D`)
+    .setAuthor(`Wait 3 more seconds`)
+    .setDescription(`😡 Dont you dare to frikin tryna break me, please wait \`3s\` to use this command again idot :D`)
     .setFooter(`This timer dont update in real time`)
     message.channel.send(embed);
 } else {
@@ -41,34 +41,7 @@ Money.findOne({
   }
    const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
 const chance = random > 0 && random < 50; // the conidtion which is the chance
-if(data.wekyripoff < 0){
-
-  if (hance) {
-    data.Wallet -= number;    
-    let embed = new Discord.MessageEmbed()
-    .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-    .addField(`**You lost!**`,
-                     `Lost: ${number}`,
-                     `**New balance: ${data.Wallet}**`)
-    .setColor(`RED`)
-    .setFooter(`Loser`)
-  message.channel.send(embed)
-    data.save(); 
-  } else {
-    const arrray = ["1.1","1.5","1.4","1.3","1.2"]
-    const r = Math.floor(Math.random() * arrray.length);
-    data.Wallet += number*r;
-      let embed = new Discord.MessageEmbed()
-      .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-      .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${number*r}; Multi: x${r}`,
-                       `**New balance: ${data.Wallet}**`)
-      .setColor(`GREEN`)
-      .setFooter(`Winner`)
-    message.channel.send(embed)
-    data.save()
-  }
-} else if(data.wekyripoff > 0){
+if(data.wekyripoff > 0){
   const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
   const cance = random > 0 && random < 60; // the conidtion which is the chance
   if (cance) {
@@ -84,6 +57,33 @@ if(data.wekyripoff < 0){
     data.save(); 
   } else {
     const arrray = ["1.6","1.7","1.8","1.9","2"]
+    const r = Math.floor(Math.random() * arrray.length);
+    data.Wallet += number*r;
+      let embed = new Discord.MessageEmbed()
+      .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+      .addField(`**You won!**`,
+                       `Gambled: ${number}; Won: ${number*r}; Multi: x${r}`,
+                       `**New balance: ${data.Wallet}**`)
+      .setColor(`GREEN`)
+      .setFooter(`Winner`)
+    message.channel.send(embed)
+    data.save()
+  }
+} else if(data.wekyripoff < 0){
+
+  if (hance) {
+    data.Wallet -= number;    
+    let embed = new Discord.MessageEmbed()
+    .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+    .addField(`**You lost!**`,
+                     `Lost: ${number}`,
+                     `**New balance: ${data.Wallet}**`)
+    .setColor(`RED`)
+    .setFooter(`Loser`)
+  message.channel.send(embed)
+    data.save(); 
+  } else {
+    const arrray = ["1.1","1.5","1.4","1.3","1.2"]
     const r = Math.floor(Math.random() * arrray.length);
     data.Wallet += number*r;
       let embed = new Discord.MessageEmbed()
