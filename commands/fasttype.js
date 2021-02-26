@@ -13,11 +13,11 @@ module.exports.run = async (bot, message, args) => {
             ogSentence.split(' ').forEach(argument => {
                 sentence += '`' + argument.split('').join(' ') + '` '
             })
-            message.reply(`**Write the following message (You have 30s seconds!)**:\n${sentence}`)
+            message.reply(`**Write the following message (You have 50s seconds!)**:\n${sentence}`)
             try {
                 msg = await message.channel.awaitMessages(filter, {
                     max: 1,
-                    time: 30000,
+                    time: 50000,
                     errors: ['time']
                 })
             } catch (ex) {
