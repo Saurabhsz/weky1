@@ -23,9 +23,9 @@ const mapping = {
   mapping[c] = mapping[c.toUpperCase()] = ` :regional_indicator_${c}:`;
 });
 
-    if(args.length < 1) {
-    message.channel.send('You must provide some text to emojify!');
-   }
+    if(!args[1]){
+        return message.channel.send(`What to emojify jeez`)
+    }
   message.channel.send(args.slice(1).join(" ").split('').map(c => mapping[c] || c).join(''));
 
     }
