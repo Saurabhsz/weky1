@@ -39,12 +39,8 @@ Money.findOne({
   if(number > 500000){
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
-   const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
-const chance = random > 0 && random < 50; // the conidtion which is the chance
 if(data.wekyripoff > 0){
-  const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
-  const cance = random > 0 && random < 60; // the conidtion which is the chance
-  if (cance) {
+  if (hance) {
     data.Wallet -= number;    
     let embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
