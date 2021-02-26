@@ -1,9 +1,9 @@
 module.exports.run = async (bot, message, args) => {
     const figlet = require('figlet');
 
-            if(!args[0]) return message.channel.send('Please provide some text');
+            if(!args[`0`]) return message.channel.send('Please provide some text');
     
-            msg = args.join(" ");
+            msg = args.slice(1).join(" ");
     
             figlet.text(msg, function (err, data){
                 if(err){
