@@ -16,11 +16,11 @@ module.exports.run = async (bot, message, args) => {
     }
 
     if(!member) return message.reply('They aren\'t in the server!');
-    var rawTime = args[1];
+    var rawTime = args[2];
     var time = ms(rawTime);
     if(!time) return message.reply('You didn\'t specify a time!');
 
-    var reason = args.splice(2).join(' ');
+    var reason = args.splice(3).join(' ');
     if(!reason) return message.reply('You need to give a reason!');
 
     var log = new Discord.MessageEmbed()
