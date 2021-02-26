@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.createWebhook(member.user.username, {
             avatar: member.user.displayAvatarURL({ dynamic: true })
         }).then(webhook => {
-            webhook.send(args.slice(1).join(" "))
+            webhook.send(args.slice(2).join(" "))
             setTimeout(() => {
                 webhook.delete()
             }, 3000)
