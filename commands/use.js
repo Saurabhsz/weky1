@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
                         data.banknote -= 1;
                         data.save();;
                         const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.descriminator, message.member.user.displayAvatarURL())
+                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You used <:spacescript:814122006437167134> 1 Space Script and got **${muni} bank space**, gg lmao.`)
                         message.channel.send(embed)
                     }
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
                         data.banknote -= num;
                         data.save();
                         const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.descriminator, message.member.user.displayAvatarURL())
+                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Scripts and got **${muni*num} bank space**, gg lmao.`)
                         message.channel.send(embed)
                 }
