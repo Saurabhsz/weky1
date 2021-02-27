@@ -71,7 +71,7 @@ Money.findOne({
     "1.9",
     "2.0"]
     const r = Math.floor(Math.random() * arrray.length);
-    const lmo = parseFloat(r)
+    const lmo = parseInt(r)
     const okk = arrray[lmo]
     data.Wallet += number*okk;
       let embed = new Discord.MessageEmbed()
