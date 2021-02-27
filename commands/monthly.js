@@ -3,8 +3,8 @@ const talkedRecently = new Set();
 module.exports.run = async (bot, message, args) => {
   if (talkedRecently.has(message.author.id)) {
     const embed = new Discord.MessageEmbed()
-    .setAuthor(`Wait 1 more week`)
-    .setDescription(`Dont you dare to frikin tryna break me, please wait \`7d\` to use this command again idot :D`)
+    .setAuthor(`Wait 1 more month`)
+    .setDescription(`Dont you dare to frikin tryna break me, please wait \`30d\` to use this command again idot :D`)
     .setFooter(`This timer dont update in real time`)
     message.channel.send(embed);
 } else {
@@ -26,13 +26,13 @@ Money.findOne({
       id: message.author.id
     });
     newD.save();
-    data.Wallet += 30000;
+    data.Wallet += 100000;
    data.save();
-   message.channel.send("You collected your weekly 30000 coins, nice")
+   message.channel.send("You collected your weekly 100000 coins, nice")
   } else {
-   data.Wallet += 30000;
+   data.Wallet += 100000;
    data.save();
-   message.channel.send("You collected your weekly 30000 coins, nice")
+   message.channel.send("You collected your weekly 100000 coins, nice")
   }
   })
 }
@@ -41,13 +41,13 @@ Money.findOne({
 talkedRecently.add(message.author.id);
                 setTimeout(() => {
                 talkedRecently.delete(message.author.id);
-                }, 604800000);
+                }, 2592000000);
          
   }
   module.exports.config = {
-    name: "weekly",
+    name: "monthly",
     description: "getting money daily is cool",
-    usage: "/weekly",
+    usage: "/monthly",
     accessableby: "Members",
     aliases: []
 }

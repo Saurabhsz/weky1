@@ -39,33 +39,6 @@ Money.findOne({
   if(number > 500000){
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
-if(data.wekyripoff > 0){
-  if (hance) {
-    data.Wallet -= number;    
-    let embed = new Discord.MessageEmbed()
-    .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-    .addField(`**You lost!**`,
-                     `Lost: ${number}`,
-                     `**New balance: ${data.Wallet}**`)
-    .setColor(`RED`)
-    .setFooter(`Loser`)
-  message.channel.send(embed)
-    data.save(); 
-  } else {
-    const arrray = ["1.6","1.7","1.8","1.9","2"]
-    const r = Math.floor(Math.random() * arrray.length);
-    data.Wallet += number*r;
-      let embed = new Discord.MessageEmbed()
-      .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-      .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${number*r}; Multi: x${r}`,
-                       `**New balance: ${data.Wallet}**`)
-      .setColor(`GREEN`)
-      .setFooter(`Winner`)
-    message.channel.send(embed)
-    data.save()
-  }
-} else if(data.wekyripoff < 0){
 
   if (hance) {
     data.Wallet -= number;    
@@ -79,7 +52,24 @@ if(data.wekyripoff > 0){
   message.channel.send(embed)
     data.save(); 
   } else {
-    const arrray = ["1.1","1.5","1.4","1.3","1.2"]
+    const arrray = [
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.4",
+      "0.5",
+      "0.9",
+      "1.0",
+      "1.1",
+      "1.2",
+      "1.3",
+      "1.4",
+      "1.5",
+    "1.6",
+    "1.7",
+    "1.8",
+    "1.9",
+    "2"]
     const r = Math.floor(Math.random() * arrray.length);
     data.Wallet += number*r;
       let embed = new Discord.MessageEmbed()
@@ -92,7 +82,6 @@ if(data.wekyripoff > 0){
     message.channel.send(embed)
     data.save()
   }
-}
   }
 });
 
