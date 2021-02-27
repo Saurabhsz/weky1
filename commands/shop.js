@@ -31,7 +31,7 @@ Money.findOne({
 if(useArgs[0] === 'laptop'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Laptop`)
-    .setThumbnail(`https://cdn.discordapp.com/attachments/811222075053572106/814147054119944212/lmo.png`)
+    .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/815180330846781440/lmo.png`)
     .addField(`${message.author.username} Owns: ${data.Laptop}\n`,
                `Cost: \`4,000\`\n
                ID: \`laptop\`\n\n
