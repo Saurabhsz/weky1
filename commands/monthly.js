@@ -28,7 +28,7 @@ Money.findOne({
     newD.save();
     data.Wallet += 100000;
    data.save();
-   message.channel.send("You collected your weekly 100000 coins, nice")
+   message.channel.send("You collected your monthly 100000 coins, nice")
   } else {
    data.Wallet += 100000;
    data.save();
