@@ -70,9 +70,10 @@ Money.findOne({
     "1.8",
     "1.9",
     "2.0"]
-    const r = Math.floor(Math.random() * arrray.length);
-    const okk = arrray[r]
-    data.Wallet += number*parseFloat(okk);
+    const lmo = parseFloat(arrray)
+    const r = Math.floor(Math.random() * lmo.length);
+    const okk = lmo[r]
+    data.Wallet += number*okk;
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
