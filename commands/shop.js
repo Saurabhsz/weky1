@@ -69,7 +69,7 @@ if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyrip' || useArgs[0] === 'wekyof
   const embed = new Discord.MessageEmbed()
   .setTitle(`Weky's Rip Off`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/815192821539405834/rip-pixel-art-bit-79618441-removebg-preview_1.png`)
-  .addField(`${message.author.username} Owns: ${data.Laptop}\n`,
+  .addField(`${message.author.username} Owns: ${data.wekyripoff}\n`,
              `Cost: \`12,000,000\`\n
              ID: \`wekyrip\`\n\n
              Description: This item is used to flex on the kids who can\`t get it, also it gives 2.4 multiplier, and 50% chance to win.`)
