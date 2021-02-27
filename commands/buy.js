@@ -160,7 +160,7 @@ module.exports.run = async (bot, message, args) => {
                         data.save();
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought ♾️ **1 Weky's Rip Off**`)
+                        .setDescription(`You sucessfully bought <:ripoff:815192242331451423> **1 Weky's Rip Off**`)
                         message.channel.send(embed)
                     }
                 } else {
@@ -170,7 +170,7 @@ module.exports.run = async (bot, message, args) => {
                         data.save();
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought ♾️ **${num} Weky's Rip Off**`)
+                        .setDescription(`You sucessfully bought <:ripoff:815192242331451423> **${num} Weky's Rip Off**`)
                         message.channel.send(embed)
                 }
             }
