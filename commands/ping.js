@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports.run = async (bot, message, args, client) => {
     const msg = await message.channel.send("Pinging...");
 
-    const apiLatency = Math.round(client.ws.ping);
+    const apiLatency = Math.round(bot.ws.ping);
     const botLatency = msg.createdTimestamp - message.createdTimestamp;
     
     // Delete the 'Pinging...' message
