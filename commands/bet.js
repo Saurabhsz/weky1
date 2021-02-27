@@ -69,7 +69,7 @@ Money.findOne({
     "1.7",
     "1.8",
     "1.9",
-    "2"]
+    "2.0"]
     const r = Math.floor(Math.random() * arrray.length);
     const okk = arrray[r]
     data.Wallet += number*okk;
