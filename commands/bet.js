@@ -71,11 +71,12 @@ Money.findOne({
     "1.9",
     "2"]
     const r = Math.floor(Math.random() * arrray.length);
-    data.Wallet += number*r;
+    const okk = arrray[r]
+    data.Wallet += number*okk;
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${number*r}; Multi: x${r}`,
+                       `Gambled: ${number}; Won: ${number*r}; Multi: x${okk}`,
                        `**New balance: ${data.Wallet}**`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
