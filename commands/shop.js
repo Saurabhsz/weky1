@@ -23,7 +23,7 @@ Money.findOne({
                         .addField(`<:laptop:814147340947554314> **Laptop** -> \`4,000\``,`This item is used to play on it, not doing many things,it just give some coins`)
                         .addField(`<:spacescript:814122006437167134> **Space Script** -> \`100,000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
                         .addField(`**🌝 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it`)
-                        .addField(`**♾️ Weky's Rip Off** -> \`12,000,000\``,`This item is used to flex on the kids who can\`t get it, also it gives 2.4 multiplier, and 50% chance to win.`)
+                        .addField(`**<:ripoff:815192242331451423> Weky's Rip Off** -> \`12,000,000\``,`This item is used to flex on the kids who can\`t get it, also it gives 2.4 multiplier, and 50% chance to win.`)
                         .setFooter(`Run /item (item) for more info.`)
                         message.channel.send(embed)
         
@@ -55,7 +55,7 @@ if(useArgs[0] === 'script' || useArgs[0] === 'space'){
 if(useArgs[0] === 'moon' || useArgs[0] === 'wekymoon'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Weky's Moon`)
-    .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/814135983455993916/moon.png`)
+    .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/815180567783931904/moon.png`)
 
     .addField(`${message.author.username} Owns: ${data.wekymoon}\n`,
                      `Cost: \`2,000,000\`\n
@@ -67,7 +67,8 @@ if(useArgs[0] === 'moon' || useArgs[0] === 'wekymoon'){
 }
 if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyrip' || useArgs[0] === 'wekyoff'){
   const embed = new Discord.MessageEmbed()
-  .setTitle(`Laptop`)
+  .setTitle(`Weky's Rip Off`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/815192821539405834/rip-pixel-art-bit-79618441-removebg-preview_1.png`)
   .addField(`${message.author.username} Owns: ${data.Laptop}\n`,
              `Cost: \`12,000,000\`\n
              ID: \`wekyrip\`\n\n
