@@ -37,7 +37,7 @@ bot.on('guildMemberAdd', (member) => {
     bot.channels.cache.get('811222075053572106').send(Embed);
   });
 bot.on("message", async message => {
-    bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
+    bot.user.setActivity(`in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
 
     if(message.author.bot || message.channel.type === "dm") return;
     const black = require('./schemas/Ban')
