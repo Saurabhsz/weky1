@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
         if (err) console.log(err);
         if (!data.length)
           return message.channel.send(
-            `${user.user.tag} doen\` have any warnings in this server.`
+            `${user.user.tag} doesn\`t have any warnings in this server.`
           );
         let Embed = new MessageEmbed()
           .setTitle(`${user.user.tag}'s warns in ${message.guild.name}.. `)
