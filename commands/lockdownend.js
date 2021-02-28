@@ -20,5 +20,5 @@ module.exports.config = {
     name: "endlockdown",
     usage: "/endlockdown",
     accessableby: "Members",
-    aliases: ["lockdownend"]
+    aliases: ["lockdownend", "unlock"]
 }
