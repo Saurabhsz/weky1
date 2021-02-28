@@ -6,19 +6,19 @@ module.exports.run = async (bot, message, args) => {
    message.channel.overwritePermissions([
      {
         id: message.guild.id,
-        deny : ['SEND_MESSAGES'],
+        allow : ['SEND_MESSAGES'],
      },
     ],);
    const embed = new Discord.MessageEmbed()
    .setTitle("Channel Updates")
-   .setDescription(`<:upWeky:815202285100597260> | ${message.channel} has been Locked`)
+   .setDescription(`<:upWeky:815202285100597260> | ${message.channel} has been Unlocked`)
    .setColor("RANDOM");
    await message.channel.send(embed);
    message.delete();
 }
 module.exports.config = {
-    name: "lockdown",
-    usage: "/lockdown",
+    name: "endlockdown",
+    usage: "/endlockdown",
     accessableby: "Members",
-    aliases: ["lock"]
+    aliases: ["lockdownend"]
 }
