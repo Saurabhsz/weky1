@@ -1,6 +1,9 @@
 const warns = require("../schemas/wanings");
 const { MessageEmbed } = require("discord.js");
 module.exports.run = async (bot, message, args) => {
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) {
+    return;
+}
   let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
   if (!user) return message.channel.send(`No user specified!`);
     warns.find(
