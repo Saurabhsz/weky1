@@ -1,4 +1,6 @@
 module.exports.run = async (bot, message, args) => {
+    const Discord = require('discord.js')
+
     if (message.author.id !== '778518819055861761'){
         return message.channel.send(`You aren't Face `);
     }
@@ -16,8 +18,7 @@ module.exports.run = async (bot, message, args) => {
     let embed = new Discord.MessageEmbed()
     .setDescription(`<:banhammer:815941402469990440> ${user.id} banning for **${question}**?`)
     const newMessage = await message.channel.send(embed)
-    const Discord = require('discord.js')
-              
+               
                   newMessage.react("✅").then(() => newMessage.react("❌"));
               
                   const filter = (reaction, user) => {
