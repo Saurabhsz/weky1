@@ -20,7 +20,7 @@ message.channel.send("**Sugestion has been sent!**")
 module.exports.config = {
     name: "suggest",
     description: "got a idea? let us know",
-    usage: "/suggest",
+    usage: "..suggest",
     accessableby: "Members",
     aliases: []
 }

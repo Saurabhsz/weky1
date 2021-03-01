@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "trigger",
     description: "a trigger image command",
-    usage: "/trigger",
+    usage: "..trigger",
     accessableby: "Members",
     aliases: []
 }

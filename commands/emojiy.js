@@ -31,7 +31,7 @@ const mapping = {
     }
 module.exports.config = {
     name: "emojify",
-    usage: "/emojify <text>",
+    usage: "..emojify <text>",
     accessableby: "Members",
     aliases: []
 }

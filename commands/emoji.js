@@ -49,7 +49,7 @@ message.channel.send(emoji)
   module.exports.config = {
     name: "emoji",
     description: "sends a random discord emoji",
-    usage: "/emoji",
+    usage: "..emoji",
     accessableby: "Members",
     aliases: ["randomemoji"]
 }

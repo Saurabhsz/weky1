@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 }
 module.exports.config = {
     name: "sudo",
-    usage: "/sudo @mention <text>",
+    usage: "..sudo @mention <text>",
     accessableby: "Members",
     aliases: []
 }

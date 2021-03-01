@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "blur",
     description: "a blur image effect command",
-    usage: "/blur",
+    usage: "..blur",
     accessableby: "Members",
     aliases: []
 }

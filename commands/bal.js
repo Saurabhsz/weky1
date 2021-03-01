@@ -28,7 +28,7 @@ Money.findOne({
   module.exports.config = {
     name: "balance",
     description: "showing you the balance of yourself or the pinged user's one",
-    usage: "/balance @user || /balance",
+    usage: "..balance @user || /balance",
     accessableby: "Members",
     aliases: ["bal"]
 }

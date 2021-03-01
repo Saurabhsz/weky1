@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "rip",
     description: "a rip image command",
-    usage: "/rip",
+    usage: "..rip",
     accessableby: "Members",
     aliases: []
 }

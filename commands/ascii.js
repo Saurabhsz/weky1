@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "ascii",
     description: "Convert text to ascii",
-    usage: "/ascii",
+    usage: "..ascii",
     accessableby: "Members",
     aliases: []
 }

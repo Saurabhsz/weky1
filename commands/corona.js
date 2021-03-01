@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "corona",
     description: "disinfecting the channel",
-    usage: "/corona",
+    usage: "..corona",
     accessableby: "Members",
     aliases: ['disinfect']
 }

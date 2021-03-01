@@ -12,7 +12,7 @@ const att = `https://api.monkedev.com/canvas/petpet?key=scNyfoysHunZd79reAL5VEsQ
 module.exports.config = {
     name: "pet",
     description: "pet your own soul , is good",
-    usage: "/pet @user",
+    usage: "..pet @user",
     accessableby: "Members",
     aliases: ["petpet"]
 }

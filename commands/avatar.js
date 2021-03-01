@@ -12,7 +12,7 @@ var embed = new Discord.MessageEmbed()
          module.exports.config = {
             name: "avatar",
             description: "shows the pinged user's avatar or your's if you don't ping",
-            usage: "/avatar @user || none",
+            usage: "..avatar @user || none",
             accessableby: "Members",
             aliases: ["av", "ava", "avat"]
         }

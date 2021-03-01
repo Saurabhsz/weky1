@@ -36,7 +36,7 @@ talkedRecently.add(message.author.id);
   module.exports.config = {
     name: "daily",
     description: "getting money daily is cool",
-    usage: "/daily",
+    usage: "..daily",
     accessableby: "Members",
     aliases: []
 }

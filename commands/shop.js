@@ -72,7 +72,7 @@ if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyrip' || useArgs[0] === 'wekyof
   .addField(`${message.author.username} Owns: ${data.wekyripoff}\n`,
              `Cost: \`12,000,000\`\n
              ID: \`wekyrip\`\n\n
-             Description: This item is used to flex on the kids who can\`t get it, also it gives 2.4 multiplier, and 50% chance to win.`)
+             Description: This item is used to flex on the kids who can\`t get it`)
                    
   .setTimestamp()
   message.channel.send(embed)
@@ -86,7 +86,7 @@ if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyrip' || useArgs[0] === 'wekyof
 module.exports.config = {
     name: "shop",
     description: "see the items!",
-    usage: "/shop",
+    usage: "..shop",
     accessableby: "Members",
     aliases: ["store", "item"]
 }

@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "fart",
     description: "fart on all",
-    usage: "/fart",
+    usage: "..fart",
     accessableby: "Members",
     aliases: []
 }

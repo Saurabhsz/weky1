@@ -10,7 +10,7 @@ message.channel.send(`https://lmgtfy.app/?q=${query}`)
 module.exports.config = {
     name: "google",
     description: "searching on gugle the words that you said",
-    usage: "/google",
+    usage: "..google",
     accessableby: "Members",
     aliases: ["google"]
 }

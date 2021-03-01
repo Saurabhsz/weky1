@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "facepalm",
     description: "a facepalm image command",
-    usage: "/facepalm",
+    usage: "..facepalm",
     accessableby: "Members",
     aliases: ["palm"]
 }

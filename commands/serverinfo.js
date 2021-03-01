@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
 
  module.exports.config = {
     name: "serverinfo",
-    usage: "/emojify <text>",
+    usage: "..serverinfo <text>",
     accessableby: "Members",
     aliases: []
 }

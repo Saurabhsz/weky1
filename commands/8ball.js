@@ -55,7 +55,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "8ball",
     description: "ask your question to the magically 8ball",
-    usage: "/8ball (question)",
+    usage: "..8ball (question)",
     accessableby: "Members",
     aliases: ["8-ball"]
 }

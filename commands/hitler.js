@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "hitler",
     description: "a hiler image command",
-    usage: "/hitler",
+    usage: "..hitler",
     accessableby: "Members",
     aliases: []
 }

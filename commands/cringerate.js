@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) =>{
       module.exports.config = {
         name: "cringerate",
         description: "a noobrate lol",
-        usage: "/noobrate",
+        usage: "..noobrate",
         accessableby: "Members",
         aliases: []
     }

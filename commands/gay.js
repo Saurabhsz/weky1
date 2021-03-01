@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "gay",
     description: "a gay image effect command",
-    usage: "/gay",
+    usage: "..gay",
     accessableby: "Members",
     aliases: ["rainbow"]
 }

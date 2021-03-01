@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
 module.exports.config = {
     name: "say",
     description: "Says your message",
-    usage: "/say",
+    usage: "..say",
     accessableby: "Members",
     aliases: []
 }

@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
    module.exports.config = {
     name: "serveremoji",
     description: "sending all the emojis that are in this server",
-    usage: "/serveremoji",
+    usage: "..serveremoji",
     accessableby: "Members",
     aliases: ["emojiserver"]
 }

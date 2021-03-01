@@ -52,7 +52,7 @@ if(data) {
   module.exports.config = {
     name: "warn",
     description: "warn someone for breaking rules",
-    usage: "/warn @user reason",
+    usage: "..warn @user reason",
     accessableby: "Members",
     aliases: []
 }

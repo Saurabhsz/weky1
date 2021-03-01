@@ -12,7 +12,7 @@ const att = `https://api.monkedev.com/canvas/sepia?key=scNyfoysHunZd79reAL5VEsQV
 module.exports.config = {
     name: "sepia",
     description: "sepia.",
-    usage: "/sepia @user",
+    usage: "..sepia @user",
     accessableby: "Members",
     aliases: []
 }

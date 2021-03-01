@@ -12,7 +12,7 @@ const att = `https://api.monkedev.com/other/gav?key=scNyfoysHunZd79reAL5VEsQV&im
 module.exports.config = {
     name: "bird",
     description: "your's or the pinged user's pfp in a bird buddy",
-    usage: "/bird @user",
+    usage: "..bird @user",
     accessableby: "Members",
     aliases: ["gav"]
 }

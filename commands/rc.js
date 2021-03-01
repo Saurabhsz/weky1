@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "randomcaps",
     description: "transforming your message with random caps",
-    usage: "/randomcaps",
+    usage: "..randomcaps",
     accessableby: "Members",
     aliases: ["rc"]
 }

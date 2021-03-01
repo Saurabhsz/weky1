@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
   module.exports.config = {
     name: "warnings",
     description: "shows someone's warnings",
-    usage: "/warnings @user",
+    usage: "..warnings @user",
     accessableby: "Members",
     aliases: ["warns"]
 }

@@ -76,7 +76,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "turn",
     description: "using ur laptop for coins be like",
-    usage: "/turn",
+    usage: "..turn",
     accessableby: "Members",
     aliases: ["tn"]
 }

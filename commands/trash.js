@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "trash",
     description: "a trash image command",
-    usage: "/trash",
+    usage: "..trash",
     accessableby: "Members",
     aliases: []
 }

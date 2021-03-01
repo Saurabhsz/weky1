@@ -48,7 +48,7 @@ talkedRecently.add(message.author.id);
   module.exports.config = {
     name: "deposit",
     description: "deposit your money, a shild for antirobbers",
-    usage: "/deposit (amount)",
+    usage: "..deposit (amount)",
     accessableby: "Members",
     aliases: ["dep"]
 }

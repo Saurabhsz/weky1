@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "gray",
     description: "a gray image effect command",
-    usage: "/gray",
+    usage: "..gray",
     accessableby: "Members",
     aliases: ["nocolor"]
 }

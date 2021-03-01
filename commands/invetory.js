@@ -29,7 +29,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports.config = {
     name: "invetory",
     description: "see your inventory!",
-    usage: "/inventory",
+    usage: "..inventory",
     accessableby: "Members",
     aliases: ["inv"]
 }

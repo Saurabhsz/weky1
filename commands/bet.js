@@ -89,7 +89,7 @@ talkedRecently.add(message.author.id);
               }
   module.exports.config = {
     name: "bet",
-    usage: "/bet",
+    usage: "..bet",
     accessableby: "Members",
     aliases: ["gamble"]
 }

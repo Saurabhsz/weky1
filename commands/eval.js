@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
     module.exports.config = {
         name: "eval",
         description: "Nothing to see here",
-        usage: "/eval",
+        usage: "..eval",
         accessableby: "Members",
         aliases: []
     }

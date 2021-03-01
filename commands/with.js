@@ -41,7 +41,7 @@ talkedRecently.add(message.author.id);
   module.exports.config = {
     name: "withdraw",
     description: "withdraw the money, i think you want to buy something :o",
-    usage: "/withdraw (amount)",
+    usage: "..withdraw (amount)",
     accessableby: "Members",
     aliases: ["with"]
 }

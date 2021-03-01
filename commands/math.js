@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
         module.exports.config = {
             name: "math",
             description: "Calculate your question about math",
-            usage: "/math",
+            usage: "..math",
             accessableby: "Members",
             aliases: ["calculate"]
         }

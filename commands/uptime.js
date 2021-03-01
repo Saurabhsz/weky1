@@ -10,7 +10,7 @@ message.channel.send(`**__Uptime:__**\nWeky is online since ${days}**d **${hours
 module.exports.config = {
             name: "uptime",
             description: "shows from when the bot wasnt updated",
-            usage: "/uptime",
+            usage: "..uptime",
             accessableby: "Members",
             aliases: []
         }

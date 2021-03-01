@@ -73,7 +73,7 @@ message.channel.send(emoji)
   module.exports.config = {
     name: "pp",
     description: "shows how long is ur pp",
-    usage: "/pp",
+    usage: "..pp",
     accessableby: "Members",
     aliases: ["penis"]
 }

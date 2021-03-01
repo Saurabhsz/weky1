@@ -12,7 +12,7 @@ const att = `https://api.monkedev.com/canvas/dither565?key=scNyfoysHunZd79reAL5V
 module.exports.config = {
     name: "dither",
     description: "sepia.",
-    usage: "/dither @user",
+    usage: "..dither @user",
     accessableby: "Members",
     aliases: ["dither565"]
 }

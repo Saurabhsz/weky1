@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
 }
 module.exports.config = {
     name: "fasttype",
-    usage: "/fasttype",
+    usage: "..fasttype",
     accessableby: "Members",
     aliases: ["fast"]
 }

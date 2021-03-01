@@ -11,7 +11,7 @@ message.channel.send(attachment)
 module.exports.config = {
     name: "invert",
     description: "a invert image command",
-    usage: "/invert",
+    usage: "..invert",
     accessableby: "Members",
     aliases: []
 }

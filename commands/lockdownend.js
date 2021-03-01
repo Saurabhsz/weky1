@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 }
 module.exports.config = {
     name: "endlockdown",
-    usage: "/endlockdown",
+    usage: "..endlockdown",
     accessableby: "Members",
     aliases: ["lockdownend", "unlock"]
 }

@@ -22,7 +22,7 @@ message.channel.send("**Bug report has been sent!**")
 module.exports.config = {
     name: "report",
     description: "got a bug? let us know",
-    usage: "/report",
+    usage: "..report",
     accessableby: "Members",
     aliases: ["bugreport","reportbug"]
 }

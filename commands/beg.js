@@ -104,7 +104,7 @@ talkedRecently.add(message.author.id);
   module.exports.config = {
     name: "beg",
     description: "begging for money be like",
-    usage: "/beg",
+    usage: "..beg",
     accessableby: "Members",
     aliases: []
 }

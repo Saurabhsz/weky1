@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
     module.exports.config = {
         name: "purge",
         description: "Delete a amount of messages",
-        usage: "/mute",
+        usage: "..mute",
         accessableby: "Moderators",
         aliases: ["clear"]
     }

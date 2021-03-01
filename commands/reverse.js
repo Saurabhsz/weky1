@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
     module.exports.config = {
         name: "reverse",
         description: "Reverses the message that you sent",
-        usage: "/reverse",
+        usage: "..reverse",
         accessableby: "Members",
         aliases: []
     }

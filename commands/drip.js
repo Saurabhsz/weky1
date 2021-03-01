@@ -19,7 +19,7 @@ const member = message.mentions.members.first() || message.member;
 module.exports.config = {
     name: "drip",
     description: "sending the drip meme but with the mentionoted user's avatar",
-    usage: "/drip @user",
+    usage: "..drip @user",
     accessableby: "Members",
     aliases: []
 }

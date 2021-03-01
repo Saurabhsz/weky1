@@ -63,7 +63,7 @@ talkedRecently.add(message.author.id);
   module.exports.config = {
     name: "give",
     description: "give your items to ur friends!",
-    usage: "/give (amount) (item)",
+    usage: "..give (amount) (item)",
     accessableby: "Members",
     aliases: []
 }

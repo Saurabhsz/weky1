@@ -95,7 +95,7 @@ module.exports.run = async (bot, message, args) => {
   module.exports.config = {
     name: "trivia",
     description: "guess the question!",
-    usage: "/trivia",
+    usage: "..trivia",
     accessableby: "Members",
     aliases: []
   }
