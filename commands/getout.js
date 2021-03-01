@@ -21,28 +21,16 @@ module.exports.run = async (bot, message, args) => {
                       const reaction = collected.first();
               
                       if (reaction.emoji.name === "✅") {
-                        if(!message.member.hasPermission('BAN_MEMBERS')){
-                            return message.channel.send("You don't have permission to use that command.");
-                         }
-                         if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send('You dont have BAN_MEMBERS permission.')
-                         //lets
-                         let question = message.content.split(" ").slice(2).join(" ");
-                         const user = message.mentions.users.first();
-                         //if
-                         if (!user){
-                             return message.channel.send('Who you want to ban?')
-                         }
-                         
-                         //embed
-                         let embed = new Discord.MessageEmbed()
-                         .setDescription(`<:banhammer:815941402469990440> ${user.id} has been banned for **${question}**`)
-                         message.channel.send(embed);
-                         //action
-                         message.guild.members.ban(user);
+                          let embed = new Discord.MessageEmbed()
+                          .setColor('RANDOM')
+                          .setTitle("I'm shutting down...")
+          
+                      await message.channel.send(embed);
+                          process.exit();
                       } else {
                           let embed = new Discord.MessageEmbed()
                           .setColor('RANDOM')
-                          .setTitle("Ok, nothing will happen")
+                          .setTitle("Lets pretend that didn't happen.")
           
                       message.channel.send(embed);
                       }
@@ -50,12 +38,13 @@ module.exports.run = async (bot, message, args) => {
                   .catch(collected => {
                       let embed = new Discord.MessageEmbed()
                           .setColor('RANDOM')
-                          .setDescription("Ok we will keep this user here.");
+                          .setTitle("Waiting for your react!")
+                          .setDescription("You reacted with neither a thumbs up, nor a thumbs down.");
           
                       message.channel.send(embed);
                   });
                 }
                 module.exports.config = {
-                    name: "ban",
+                    name: "getout",
                     aliases: []
                     }
