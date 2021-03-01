@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 
     const Discord = require('discord.js')
               
-                  newMessage.react("✅").then(() => newMessage.react("❌"));
+                  embed.react("✅").then(() => newMessage.react("❌"));
               
                   const filter = (reaction, user) => {
                       return ["✅", "❌"].includes(reaction.emoji.name) && user.id === message.author.id;
