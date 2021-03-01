@@ -16,8 +16,6 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send(`\`\`\`js\n${beautify(args.join(" "), { format: "js" })}\n\`\`\`\n`/`${evaluated}\``)
             message.channel.send("Type of:", typeof (evaluated));
 
-            message.channel.send(embed);
-
         }
          catch (e) {
             const embed = new MessageEmbed()
