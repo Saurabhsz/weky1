@@ -1,5 +1,5 @@
 module.exports.run = async (bot, message, args) => {
-    if (message.author.id !== '698568301307101215'){
+    if (message.author.id !== '778518819055861761'){
         return message.channel.send(`You arent Face `);
     } 
     const Discord = require('discord.js')
