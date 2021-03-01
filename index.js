@@ -27,7 +27,12 @@ fs.readdir("./commands/", (err, files) => {
           bot.aliases.set(alias, pull.config.name)
       });
   });
-});        
+});      
+bot.on("message", (message) => {
+  if (message.mentions.has(client.user.id)) {
+    message.channel.send("My prefix is \`..`, run ..help for info.");
+};
+})  
 bot.on('guildMemberAdd', (member) => {
     const embed = new MessageEmbed();
     const { MessageEmbed } = require("discord.js");
