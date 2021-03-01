@@ -3,12 +3,6 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send(`You arent Face `);
     } 
     const Discord = require('discord.js')
-              let embed = new Discord.MessageEmbed()
-              .setColor('RANDOM')
-              .setTitle("Shutting down verification")
-              .setDescription("Are you sure you want to shut down the bot?")
-          
-              const newMessage = await message.channel.send(embed);
               
                   newMessage.react("✅").then(() => newMessage.react("❌"));
               
