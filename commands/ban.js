@@ -1,6 +1,5 @@
 module.exports.run = async (bot, message, args) => {
     const Discord = require('discord.js')
-
     if (message.author.id !== '778518819055861761'){
         return message.channel.send(`You aren't Face `);
     }
@@ -15,8 +14,11 @@ module.exports.run = async (bot, message, args) => {
     if (!user){
         return message.channel.send('Who you want to ban?')
     }
+    if(!question){
+        return message.channel.send(`You didnt approved any reasons for me to ban that user`)
+    }
     let embed = new Discord.MessageEmbed()
-    .setDescription(`<:banhammer:815941402469990440> ${user.id} banning for **${question}**?`)
+    .setDescription(`<:banhammer:815941402469990440> ${user.username}#${user.discriminator} banning for **${question}**?`)
     const newMessage = await message.channel.send(embed)
                
                   newMessage.react("✅").then(() => newMessage.react("❌"));
@@ -33,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
                          
                          //embed
                          let embed = new Discord.MessageEmbed()
-                         .setDescription(`<:banhammer:815941402469990440> ${user.id} has been banned for **${question}**`)
+                         .setDescription(`<:banhammer:815941402469990440> ${user.username}#${user.discriminator} has been banned for **${question}**`)
                          message.channel.send(embed);
                          //action
                          message.guild.members.ban(user);
