@@ -38,7 +38,7 @@ bot.on('guildMemberAdd', (member) => {
     channel.send(Embed);
   });
 bot.on("message", async message => {
-    bot.user.setActivity(`in ${bot.guilds.cache.size} servers | /help`,  {type: "PLAYING"})
+    bot.user.setActivity(`in ${bot.guilds.cache.size} servers | ..help`,  {type: "PLAYING"})
 
     if(message.author.bot || message.channel.type === "dm") return;
     const black = require('./schemas/Ban')
@@ -53,8 +53,7 @@ bot.on("message", async message => {
           const commandArgs = input.join(' ');
           const args = message.content.slice(prefix.length).trim().split(/ +/);
           let cmd = messageArray[0];
-          if(message.content.includes('fuck') || message.content.includes('porn') || message.content.includes('asshole'))
-
+ 
     
         if(!message.content.startsWith(prefix)) return;
         let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
