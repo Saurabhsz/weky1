@@ -11,6 +11,20 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
+bot.on("message", (message) => {
+  if(message.content.startsWith('weky')) {
+    let fetch = require('node-fetch')
+    let pref = 'weky';
+    const args = message.content.substring(pref.length).split(' ');
+  const mesg = args.slice(1).join(" ")
+  if (!mesg) return message.channel.send("yes?")
+  fetch(`http://api.brainshop.ai/get?bid=155078&key=J44nOWbpv5D040QK&uid=1&msg=${mesg}`)
+  .then(res => res.json())
+  .then(data => {
+      message.reply(data.cnt)
+  })
+}
+})
 fs.readdir("./commands/", (err, files) => {
 
   if(err) console.log(err)
