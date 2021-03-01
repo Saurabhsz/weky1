@@ -1,7 +1,24 @@
 module.exports.run = async (bot, message, args) => {
     if (message.author.id !== '778518819055861761'){
-        return message.channel.send(`You arent Face `);
-    } 
+        return message.channel.send(`You aren't Face `);
+    }
+    if(!message.member.hasPermission('BAN_MEMBERS')){
+        return message.channel.send("You don't have permission to use that command.")
+    }
+    if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send('I dont have permission to ban members.')
+    //lets
+    let question = message.content.split(" ").slice(2).join(" ");
+    const user = message.mentions.users.first();
+    //if
+    if (!user){
+        return message.channel.send('Who you want to ban?')
+    }
+    if(!args[0]){
+        let embed = new Discord.MessageEmbed()
+        .setDescription(`<:banhammer:815941402469990440> ${user.id} banning for **${question}**?`)
+       message.channel.send(embed)
+    }
+
     const Discord = require('discord.js')
               
                   newMessage.react("✅").then(() => newMessage.react("❌"));
@@ -15,17 +32,6 @@ module.exports.run = async (bot, message, args) => {
                       const reaction = collected.first();
               
                       if (reaction.emoji.name === "✅") {
-                        if(!message.member.hasPermission('BAN_MEMBERS')){
-                            return message.channel.send("You don't have permission to use that command.");
-                         }
-                         if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send('You dont have BAN_MEMBERS permission.')
-                         //lets
-                         let question = message.content.split(" ").slice(2).join(" ");
-                         const user = message.mentions.users.first();
-                         //if
-                         if (!user){
-                             return message.channel.send('Who you want to ban?')
-                         }
                          
                          //embed
                          let embed = new Discord.MessageEmbed()
