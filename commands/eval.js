@@ -13,15 +13,8 @@ module.exports.run = async (bot, message, args) => {
 
             const toEval = args.slice(1).join(" ");
             const evaluated = eval(toEval);
-
-            const embed = new MessageEmbed()
-            .setColor("#00FF00")
-            .setTimestamp()
-            .setFooter(bot.user.username, bot.user.displayAvatarURL())
-            .setTitle("Eval")
-            .addField("To evaluate", `\`\`\`js\n${beautify(args.join(" "), { format: "js" })}\n\`\`\``)
-            .addField("Evaluated", `\`${evaluated}\``)
-            .addField("Type of:", typeof (evaluated));
+            message.channel.send(`\`\`\`js\n${beautify(args.join(" "), { format: "js" })}\n\`\`\`\n`/`${evaluated}\``)
+            message.channel.send("Type of:", typeof (evaluated));
 
             message.channel.send(embed);
 
