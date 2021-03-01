@@ -13,15 +13,12 @@ module.exports.run = async (bot, message, args) => {
     if (!user){
         return message.channel.send('Who you want to ban?')
     }
-    if(!args[0]){
-        let embed = new Discord.MessageEmbed()
-        .setDescription(`<:banhammer:815941402469990440> ${user.id} banning for **${question}**?`)
-       message.channel.send(embed)
-    }
-
+    let embed = new Discord.MessageEmbed()
+    .setDescription(`<:banhammer:815941402469990440> ${user.id} banning for **${question}**?`)
+    const newMessage = await message.channel.send(embed)
     const Discord = require('discord.js')
               
-                  embed.react("✅").then(() => newMessage.react("❌"));
+                  newMessage.react("✅").then(() => newMessage.react("❌"));
               
                   const filter = (reaction, user) => {
                       return ["✅", "❌"].includes(reaction.emoji.name) && user.id === message.author.id;
