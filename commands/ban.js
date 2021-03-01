@@ -1,8 +1,5 @@
 module.exports.run = async (bot, message, args) => {
     const Discord = require('discord.js')
-    if (message.author.id !== '778518819055861761'){
-        return message.channel.send(`You aren't Face `);
-    }
     if(!message.member.hasPermission('BAN_MEMBERS')){
         return message.channel.send("You don't have permission to use that command.")
     }
