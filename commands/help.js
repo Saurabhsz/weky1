@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     let helpArgs = helpArray.slice(1);
     if(helpArgs[0] === 'games') {
         let em = new Discord.MessageEmbed()
-        .addField('🎮 Games', '`trivia`, `fight`, `fasttype`')
+        .addField('🎮 Games', '`trivia`, `fight`, `fasttype`, `tictactoe`')
         return message.channel.send(em)
     }
     if(helpArgs[0] === 'fun') {
