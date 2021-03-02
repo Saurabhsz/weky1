@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     const challenger = message.author;
     const oppenent = message.mentions.users.first();
     if (!oppenent) return message.channel.send(`Please mention who you want to fight`);
-    if(opponent.user.bot) return message.channel.send(`Idk how is in your planet, but in mine, bots dont fight`)
+    if(opponent.bot) return message.channel.send(`Idk how is in your planet, but in mine, bots dont fight`)
     const question = await message.channel.send(`${oppenent}, do you want to fight with ${challenger}?`);
   
     ['✅', '❌'].forEach(async el => await question.react(el));
