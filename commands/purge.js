@@ -5,12 +5,12 @@ module.exports.run = async (client, message, args) => {
         
         let deleteAmount;
     
-        if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please put a number only!').then(m => m.delete({timeout: 5000})) }
+        if (isNaN(args[1]) || parseInt(args[1]) <= 0) { return message.reply('Please put a number only!').then(m => m.delete({timeout: 5000})) }
     
-        if (parseInt(args[0]) > 100) {
+        if (parseInt(args[1]) > 100) {
             return message.reply('You can only delete 100 messages at a time!').then(m => m.delete({timeout: 5000}))
         } else {
-            deleteAmount = parseInt(args[0]);
+            deleteAmount = parseInt(args[1]);
         }
 
         message.channel.bulkDelete(deleteAmount + 1, true);
@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
     module.exports.config = {
         name: "purge",
         description: "Delete a amount of messages",
-        usage: "..mute",
+        usage: "..purge",
         accessableby: "Moderators",
         aliases: ["clear"]
     }
