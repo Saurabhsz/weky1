@@ -24,7 +24,7 @@ Money.findOne({
                         .addField(`<:spacescript:814122006437167134> **Space Script** -> \`100,000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
                         .addField(`**🌝 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it`)
                         .addField(`**<:ripoff:815192242331451423> Weky's Rip Off** -> \`12,000,000\``,`This item is used to flex on the kids who can\`t get it`)
-                        .setFooter(`Run /item (item) for more info.`)
+                        .setFooter(`Run ..item (item) for more info.`)
                         message.channel.send(embed)
         
     }
