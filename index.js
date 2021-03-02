@@ -13,17 +13,16 @@ bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
 bot.on("message", (message) => {
   if(message.content.startsWith('weky')) {
-    let fetch = require('node-fetch')
     let pref = 'weky';
     const args = message.content.substring(pref.length).split(' ');
-  const mesg = args.slice(1).join(" ")
-  if (!mesg) return message.channel.send("yes?")
-  fetch(`http://api.brainshop.ai/get?bid=155078&key=J44nOWbpv5D040QK&uid=1&msg=${mesg}`)
-  .then(res => res.json())
-  .then(data => {
-      message.reply(data.cnt)
-  })
-}
+    let chatbo = require('alexa-bot-api')
+    let chatbot = new chatbo()
+    chatbot.getReply(args.slice(1).join(" ")).then(reply => message.reply(reply))
+    if (message.channel.type === "dm") return;
+
+      if (message.author.bot) return
+ 
+  }
 })
 fs.readdir("./commands/", (err, files) => {
 
