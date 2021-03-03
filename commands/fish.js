@@ -1,15 +1,13 @@
-  
-const usedCommand = new Set();
-
+const Discord = require('discord.js')
+const talkedRecently = new Set();
 module.exports.run = async (bot, message, args) => {
-    if(usedCommand.has(message.author.id)){
-        const { MessageEmbed, Message } = require("discord.js");
-            const Embed = new MessageEmbed()
-        .setTitle('You tryna fricking broking me 😡?')
-        .setDescription('You need to wait `45s` before using that command again')
-        .setFooter("\n Till you are waiting u can join in our support server https://discord.gg/FSS3x4T")
-        message.channel.send(Embed);
-    } else {
+  if (talkedRecently.has(message.author.id)) {
+    const embed = new Discord.MessageEmbed()
+    .setAuthor(`Wait 45 more seconds`)
+    .setDescription(`😡 Dont you dare to frikin tryna break me, please wait \`45s\` to use this command again idot :D`)
+    .setFooter(`This timer dont update in real time`)
+    message.channel.send(embed);
+} else {
     const Money = require('../schemas/Money')
     Money.findOne({
         id: message.author.id
