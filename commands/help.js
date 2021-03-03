@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     }
     if(helpArgs[0] === 'currency') {
         let em = new Discord.MessageEmbed()
-        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `pog`')
+        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `pog`, `sell, `fish`, `turn`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'currency') {
