@@ -4,7 +4,7 @@ const usedCommand = new Set();
 module.exports.run = async (bot, message, args) => {
         const { MessageEmbed, Message } = require("discord.js");
             const Embed = new MessageEmbed()
-            .setAuthor(bot.displayAvatarURL())
+            .setAuthor(bot.user.displayAvatarURL())
             .setDescription(`By using Weky bot, you agree of following all these rules. Breaking one will result the access from any command.`)
             .addField(`[RULE 1](https://discord.com/oauth2/authorize?client_id=809496186905165834&scope=bot&permissions=2083912822)
                        \n\`Alts Bank\`\nDon't use any alts (other accounts) to deposit the coins or items and keep them safe.\n\n
