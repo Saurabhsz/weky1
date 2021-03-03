@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         newD.save();
         } else {
             if(0 >= data.fishing) {
-        return message.channel.send(`U dont have a fishing pole what a poor`);
+        return message.channel.send(`U dont have a Plastic Hand what a poor`);
         } else {
     let random = Math.floor(Math.random() * 3)
                 const repp = [
