@@ -49,7 +49,8 @@ module.exports.run = async (bot, message, args) => {
                if(xxxx == 5){ data.Wallet -= data.Wallet
                               data.save();}
                if(xxxx == 7 && xxxx == 8 && xxxx == 9 && xxxx == 10 && xxxx == 11 && xxxx == 12){ return}
-                if(xxxx == 13) { data.fishrare += 1 }
+                if(xxxx == 13) { data.fishrare += 1 
+                data.save()}
                message.reply(`${answerspos}`)
             }
            
