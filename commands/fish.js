@@ -41,17 +41,27 @@ module.exports.run = async (bot, message, args) => {
                ]
                var xxxx = Math.floor(Math.random() * repp.length);
                const answerspos = repp[xxxx]
-               if(xxxx == 0 && xxxx == 1 && xxxx == 2 && xxxx == 3 && xxxx == 6){ data.fish += random
-                data.save();}
-               if(xxxx == 4){ data.fish += random
-                              data.fishing -= 1
-                              data.save();}
-               if(xxxx == 5){ data.Wallet -= data.Wallet
-                              data.save();}
-               if(xxxx == 7 && xxxx == 8 && xxxx == 9 && xxxx == 10 && xxxx == 11 && xxxx == 12){ return}
+               if(xxxx == 0 && xxxx == 1 && xxxx == 2 && xxxx == 3 && xxxx == 6){ 
+                data.fish += random
+                data.save();
+            }
+               if(xxxx == 4){
+               data.fish += random
+               data.fishing -= 1
+               data.save();
+            }
+               if(xxxx == 5){
+                data.Wallet -= data.Wallet
+                data.save();
+                }
+               if(xxxx == 7 && xxxx == 8 && xxxx == 9 && xxxx == 10 && xxxx == 11 && xxxx == 12){ 
+                   return
+                }
                 if(xxxx == 13) { data.fishrare += 1 
-                data.save()}
+                data.save()
+            }
                message.reply(`${answerspos}`)
+               data.save();
             }
            
         }
