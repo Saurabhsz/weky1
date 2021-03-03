@@ -15,9 +15,12 @@ Money.findOne({
 var resp = "";
 
 if(data.Laptop != 0) resp += `**<:laptop:814147340947554314> Laptop - ** ${data.Laptop}\n`
-if(data.Laptop != 0) resp += `**<:spacescript:814122006437167134> Space Script - ** ${data.banknote}\n`
+if(data.banknote != 0) resp += `**<:spacescript:814122006437167134> Space Script - ** ${data.banknote}\n`
 if(data.wekymoon != 0) resp += `**🌝 Weky's Moon - ** ${data.wekymoon}\n`
-if(data.wekyripoff != 0) resp += `**♾️ Weky's Rip Off - ** ${data.wekyripoff}\n`
+if(data.wekyripoff != 0) resp += `**<:ripoff:815192242331451423> Weky's Rip Off - ** ${data.wekyripoff}\n`
+if(data.fishing != 0) resp += `**<:plastichand:816373822784667719> Plastic Hand - ** ${data.fishing}\n`
+if(data.fish != 0) resp += `**<:fish:816367967733547038> Fish - ** ${data.fish}\n`
+if(data.fishrare != 0) resp += `**<:rare_fish:816368038110035999> Rare Fish - ** ${data.fishrare}\n`
 const { MessageEmbed } = require("discord.js");
         const Embed = new MessageEmbed()
         .setTitle(`${message.author.username}\' Inventory`)

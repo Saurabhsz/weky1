@@ -34,6 +34,7 @@ if(useArgs[0] === 'laptop'){
     .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/815180330846781440/lmo.png`)
     .addField(`${message.author.username} Owns: ${data.Laptop}\n`,
                `Cost: \`4,000\`\n
+                Sell: \`1,000\`\n
                ID: \`laptop\`\n\n
                Description: This item is used to play on it, not doing many things,it just give some coins`)
                      
@@ -47,6 +48,7 @@ if(useArgs[0] === 'script' || useArgs[0] === 'space'){
     .setThumbnail(`https://cdn.discordapp.com/attachments/811222144997916692/814122580441038858/1f4dc.png`)
     .addField(`${message.author.username} Owns: ${data.banknote}\n`,
                      `Cost: \`100,000\`\n
+                     Sell: \`5,000\`\n
                      ID: \`spacescript\`\n\n
                      Description: Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
     .setTimestamp() 
@@ -59,6 +61,7 @@ if(useArgs[0] === 'moon' || useArgs[0] === 'wekymoon'){
 
     .addField(`${message.author.username} Owns: ${data.wekymoon}\n`,
                      `Cost: \`2,000,000\`\n
+                     Sell: \`NON SELLABLE\`\n
                      ID: \`wekymoon\`\n\n
                      Description: This item is used to flex on the kids who can\`t get it`)
     .setTimestamp()
@@ -71,8 +74,51 @@ if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyrip' || useArgs[0] === 'wekyof
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/815192821539405834/rip-pixel-art-bit-79618441-removebg-preview_1.png`)
   .addField(`${message.author.username} Owns: ${data.wekyripoff}\n`,
              `Cost: \`12,000,000\`\n
+             Sell: \`NON SELLABLE\`\n
              ID: \`wekyrip\`\n\n
              Description: This item is used to flex on the kids who can\`t get it`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'fi' || useArgs[0] === 'fis' || useArgs[0] === 'fish'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Fish`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816367894715170926/fish.png`)
+  .addField(`${message.author.username} Owns: ${data.fish}\n`,
+             `Cost: \`NON BUYABLE\`\n
+             Sell: \`250\`\n
+             ID: \`fish\`\n\n
+             Description: You get these fishy fishes by fishing with your Plastic Hand lol? lol!`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'rarefi' || useArgs[0] === 'rareis' || useArgs[0] === 'rarefish'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Rare Fish`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816367989111652352/rare_fish.png`)
+  .addField(`${message.author.username} Owns: ${data.fishrare}\n`,
+             `Cost: \`NON BUYABLE\`\n
+             Sell: \`500\`\n
+             ID: \`rarefish\`\n\n
+             Description: You get these fishy fishes by fishing with your Plastic Hand lol? lol!`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'hand' || useArgs[0] === 'plastichand' || useArgs[0] === 'handplastic' || useArgs[0] === 'plastic'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Plastic Hand`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816373722290061342/plastic_hand_1.png`)
+  .addField(`${message.author.username} Owns: ${data.fishing}\n`,
+             `Cost: \`15,000\`\n
+             Sell: \`1,500\`\n
+             ID: \`rarefish\`\n\n
+             Description: With this magical hand that is made from plastic you can easy fish by using \`fish\``)
                    
   .setTimestamp()
   message.channel.send(embed)
