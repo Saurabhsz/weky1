@@ -180,7 +180,7 @@ module.exports.run = async (bot, message, args) => {
             }
         })
     }
-    if(buyArgs[0] === 'laptop') {
+    if(buyArgs[0] === 'plastic' || buyArgs[0] === 'plastichand' || buyArgs[0] === 'phand' || buyArgs[0] === 'hand') {
         var num = parseFloat(args[2])
 
         Money.findOne({
