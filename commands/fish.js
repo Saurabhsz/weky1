@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
             if(0 >= data.fishing) {
         return message.channel.send(`U dont have a Plastic Hand what a poor`);
         } else {
-    let random = Math.floor(Math.random() * 3)
+    let random = Math.floor(Math.random() * 3) +1
                 const repp = [
                     `You got <:fish:816367967733547038> ${random} fishes by fishing with your Plastic Hand, very cool.`,
                     `You got <:fish:816367967733547038> ${random} fishes by fishing with your Plastic Hand`,
