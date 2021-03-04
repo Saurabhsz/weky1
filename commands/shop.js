@@ -125,6 +125,34 @@ if(useArgs[0] === 'hand' || useArgs[0] === 'plastichand' || useArgs[0] === 'hand
   message.channel.send(embed)
 
 }
+if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Gotcha Box`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816989970727698432/we.png`)
+  .addField(`${message.author.username} Owns: ${data.Lootbox}\n`,
+             `Cost: \`NON BUYABLE\`\n
+              Sell: \`NON SELLABLE\`\n
+             ID: \`gotcha\`\n\n
+             Description: Basically a lootbox, but a special one, you can get a lot of things from it and the special Silver Moon item.`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'silver' || useArgs[0] === 'silvermoon'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Silver Moon`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816983702227517450/lol.png`)
+  .addField(`${message.author.username} Owns: ${data.silvermoon}\n`,
+             `Cost: \`NON BUYABLE\`\n
+              Sell: \`NON SELLABLE\`\n
+             ID: \`silver\`\n\n
+             Description: This item isn't made to do something, just to be here.`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
 }
 })
 

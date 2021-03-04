@@ -52,7 +52,81 @@ module.exports.run = async (bot, message, args) => {
             }
         })
     }
-
+    if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox' ) {
+        const Money = require('../schemas/Money')
+        Money.findOne({
+          id: message.author.id
+        }, (err,data) => {
+          if(err) console.log(err);
+          if(!data){
+            newD = new Money({
+              id: message.author.id
+            });
+            newD.save();
+            let user = message.guild.members.cache.get(message.author.id);
+            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+          } else {
+            if(0 >= data.Lootbox) {
+                return message.channel.send(`You dont have any Gotcha Boxes, sorry dude!`);
+                } else {
+            const random = Math.floor(Math.random() * 100) + 1
+            const randomC = Math.floor(Math.random() * 20000) + 6000
+            const ar = [
+                "fishing",
+                "laptop",
+                "banknote"
+            ]
+            const br = Math.floor(Math.random() * ar.length)
+        const l = Math.floor(Math.random() * 4) + 1
+            if(random < 2){
+                message.channel.send(`**${message.author} used a Gotcha Box**\n\`1 Silver Moon\`\nOMFG NO WAY<:silver_moon:816983800260067338>`)
+                data.silvermoon += 1
+                data.Lootbox -= 1
+                data.save()
+              } else if(random < 5){
+                message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC}\`\n\`1 Weky's Moon\``)
+                data.Wallet += randomC
+                data.wekymoon += 1
+                data.Lootbox -= 1
+                data.save()
+              } else if(random < 30){
+                  if(br === 0){
+                message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
+                  data.fishing += l
+                  data.Lootbox -= 1
+                  data.save()
+            } else if(br === 1){
+                    message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
+                    data.Laptop += l
+                    data.Lootbox -= 1
+                    data.save()
+                } else if(br === 2){
+                    message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
+                    data.banknote += l
+                    data.Lootbox -= 1
+                    data.save()
+                  }
+                
+            } else if(random < 36){
+                message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\``)
+            data.Wallet += randomC
+            data.Lootbox -= 1
+            data.save()
+            } else if(random < 80){
+                message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
+            data.Wallet += 500
+            data.Lootbox -= 1
+            data.save()
+                      } else if(random < 101){
+                    message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
+                    data.Wallet += 500
+                    data.Lootbox -= 1
+            data.save()
+                      }
+                }
+            }
+                });
+    }
     if(!useArgs[0]) {
         
         message.channel.send(`What you want to use? like bruh`);

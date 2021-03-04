@@ -23,14 +23,18 @@ Money.findOne({
   } else {
    let random = Math.floor(Math.random() * 500) + 400
    let r = Math.floor(Math.random() * 10)
-  if(r == '0'){
+  if(r == '0' || r == '1' || r == '2' || r == '3'){
     data.Wallet += random;  
-    data.laptop += 1;
+    data.Laptop += 1;
     data.save();
     message.channel.send(`<:Pog:812974566958956554> Poggers are cool, i will give you ${random} coins and <:laptop:814147340947554314> 1 Laptop`)
-  } else { 
-    message.channel.send(`<:sadchamp:812974625700839454> PogChamp better, im taking away ${data.Wallet} from you`)
-      data.Wallet -= data.Wallet
+  } else if(r == '4'){ 
+    message.channel.send(`<:POAG:812974713450135582> WHEW you got it, pogs are cool and i give u <:gotcha_box:816990104803475457> 1 Gotcha Box`)
+      data.Wallet += 5
+      data.save();
+  } else {
+    message.channel.send(`<:sadchamp:812974625700839454> PogChamp better, but you tried, i give you 5 coins`)
+      data.Lootbox += 1
       data.save();
   }
    
