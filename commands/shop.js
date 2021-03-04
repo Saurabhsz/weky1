@@ -118,7 +118,7 @@ if(useArgs[0] === 'hand' || useArgs[0] === 'plastichand' || useArgs[0] === 'hand
   .addField(`${message.author.username} Owns: ${data.fishing}\n`,
              `Cost: \`15,000\`\n
              Sell: \`1,500\`\n
-             ID: \`rarefish\`\n\n
+             ID: \`hand\`\n\n
              Description: With this magical hand that is made from plastic you can easy fish by using \`fish\``)
                    
   .setTimestamp()
