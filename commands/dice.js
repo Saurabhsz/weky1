@@ -31,6 +31,8 @@ Money.findOne({
   var num = parseFloat(args[1])
   if (num.isNaN) return message.channel.send("Thats not a valid number");
   if(!num) return message.channel.send("Thats not a valid number");
+  if(num > 6) return message.channel.send("Thats not a valid number");
+  if(num === 0) return message.channel.send("Thats not a valid number");
   let ra = Math.floor(Math.random() * 501) + 300;
   if(num === result){
       const dicerollEmbed = new Discord.MessageEmbed()
