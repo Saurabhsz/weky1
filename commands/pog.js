@@ -25,11 +25,11 @@ Money.findOne({
    let r = Math.floor(Math.random() * 3)
 if(r == '0'){ 
     message.channel.send(`<:POAG:812974713450135582> WHEW you got it, pogs are cool and i give u <:gotcha_box:816990104803475457> 1 Gotcha Box`)
-      data.Wallet += 5
+      data.Lootbox+=1
       data.save();
   } else {
     message.channel.send(`<:sadchamp:812974625700839454> PogChamp better, but you tried, i give you 5 coins`)
-      data.Lootbox += 1
+    data.Wallet += 5
       data.save();
   }
    
