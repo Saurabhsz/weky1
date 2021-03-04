@@ -22,13 +22,8 @@ Money.findOne({
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
   } else {
    let random = Math.floor(Math.random() * 500) + 400
-   let r = Math.floor(Math.random() * 10)
-  if(r == '0' || r == '1' || r == '2' || r == '3'){
-    data.Wallet += random;  
-    data.Laptop += 1;
-    data.save();
-    message.channel.send(`<:Pog:812974566958956554> Poggers are cool, i will give you ${random} coins and <:laptop:814147340947554314> 1 Laptop`)
-  } else if(r == '4'){ 
+   let r = Math.floor(Math.random() * 3)
+if(r == '0'){ 
     message.channel.send(`<:POAG:812974713450135582> WHEW you got it, pogs are cool and i give u <:gotcha_box:816990104803475457> 1 Gotcha Box`)
       data.Wallet += 5
       data.save();
