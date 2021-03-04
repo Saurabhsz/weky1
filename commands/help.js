@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
         .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `pog`, `sell, `fish`, `turn`')
         return message.channel.send(em)
     } 
-    if(helpArgs[0] === 'currency') {
+    if(helpArgs[0] === 'moderation') {
         let em = new Discord.MessageEmbed()
         .addField('⚒️ Moderation', '`purge`, `lockdown`, `endlockdown`, `warn`, `warnings`, `ban`')
         return message.channel.send(em)
