@@ -92,16 +92,19 @@ module.exports.run = async (bot, message, args) => {
               } else if(random < 30){
                   if(br === 0){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
-                  data.fishing += l
+                data.Wallet += randomC    
+                data.fishing += l
                   data.Lootbox -= 1
                   data.save()
             } else if(br === 1){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
+                    data.Wallet += randomC
                     data.Laptop += l
                     data.Lootbox -= 1
                     data.save()
                 } else if(br === 2){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
+                    data.Wallet += randomC
                     data.banknote += l
                     data.Lootbox -= 1
                     data.save()
