@@ -104,6 +104,10 @@ const profileSchema = mongoose.Schema({
     wekytrophy: {
         type: Number,
         default: 0
+    },
+    silvermoon: {
+        type: Number,
+        default: 0
       }
 })
 module.exports = mongoose.model('MoneyData', profileSchema)
