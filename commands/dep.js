@@ -32,10 +32,24 @@ Money.findOne({
     if(num > data.space){
       return message.channel.send(`Looks like your bank is full :) go get some scripts`)
      } else {
+      if(args[1] === 'all') {
+if(data.space < data.Wallet) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
+        data.Bank += data.Wallet
+        message.channel.send("Withdrawn **" + data.Bank + '** coins.')
+        data.Wallet -= data.Wallet
+        data.save()
+        } else if(args[1] === 'half'){
+    if(data.space < data.Wallet/2) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
+            data.Bank += data.Wallet/2
+            message.channel.send("Withdrawn **" + data.Wallet/2 + '** coins.')
+            data.Wallet -= data.Wallet/2
+            data.save()
+            } else {
    data.Wallet -= num;
    data.Bank += num;
    data.save();
    message.channel.send("Deposited **" + num + '** coins.')
+        }
 }
 });
 }
