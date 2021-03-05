@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 
 
 module.exports.run = async (bot, message, args) => {
-    let msg = args.join(" "), Case = "";
+    let msg = args.slice(1).join(" "), Case = "";
     if (!msg) return message.channel.send("Please Give Your Message!");
 
     for (let i in msg) {
