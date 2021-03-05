@@ -22,34 +22,27 @@ Money.findOne({
     newD.save();
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-  } else if(num > data.Wallet) {
+  } else if(num > data.Bank) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
-  }
-  const thesame = data.Bank == data.space
-  if(thesame){
-    return message.channel.send(`Looks like your bank is full :) go get some scripts`)
-  }
-    if(num > data.space){
-      return message.channel.send(`Looks like your bank is full :) go get some scripts`)
-     } else {
-      if(args[1] === 'all') {
-if(data.space < data.Wallet) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-        data.Bank += data.Wallet
-        message.channel.send("Withdrawn **" + data.Bank + '** coins.')
-        data.Wallet -= data.Wallet
-        data.save()
-        } else if(args[1] === 'half'){
-    if(data.space < data.Wallet/2) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-            data.Bank += data.Wallet/2
-            message.channel.send("Withdrawn **" + data.Wallet/2 + '** coins.')
-            data.Wallet -= data.Wallet/2
-            data.save()
-            } else {
-   data.Wallet -= num;
-   data.Bank += num;
+  
+  } else {
+    if(args[1] === 'all') {
+
+      data.Wallet += data.Bank
+      message.channel.send("Withdrawn **" + data.Bank + '** coins.')
+      data.Bank -= data.Bank
+      data.save()
+    } else if(args[1] === 'half'){
+              data.Wallet += data.Bank/2
+              message.channel.send("Withdrawn **" + data.Bank/2 + '** coins.')
+              data.Bank -= data.Bank/2
+              data.save()
+              } else {
+    data.Wallet += num;
+   data.Bank -= num;
    data.save();
-   message.channel.send("Deposited **" + num + '** coins.')
-        }
+   message.channel.send("Withdrawn **" + num + '** coins.')
+      }
 }
 });
 }
@@ -60,9 +53,9 @@ talkedRecently.add(message.author.id);
          
   }
   module.exports.config = {
-    name: "deposit",
-    description: "deposit your money, a shild for antirobbers",
-    usage: "..deposit (amount)",
+    name: "withdraw",
+    description: "withdraw the money, i think you want to buy something :o",
+    usage: "..withdraw (amount)",
     accessableby: "Members",
-    aliases: ["dep"]
+    aliases: ["with"]
 }
