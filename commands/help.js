@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("⚒️ Moderation", "`..help moderation`\n", true)
         .addField("🔩 Utility", "`..help utility`\n", true)
         .addField("🎮 Games", "`..help games`\n", true)
-        .addField("🐒 Animals", "`..help animals\n", true)
+        .addField("🐒 Animals", "`..help animals`\n", true)
         .addField("📷 Image", "`..help image`\n", true)
         .setColor('#FF2D00')
         .setThumbnail('https://cdn.discordapp.com/emojis/798365870148681729.png?v=1')
