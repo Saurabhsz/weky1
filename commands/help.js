@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
         let em = new Discord.MessageEmbed()
         .addField('📷 Image', '`drip`, `gray`, `blur`, `facepalm`, `hitler`, `invert`, `gay`, `trigger`, `rip`, `shit`, `trash`, `bird`, `sepia`, `dither`, `80s`, `pet`, `alone`, `muffin`, `toilet`, `turtle` `sock`, `moment`, `doggo`, `awesome`')
         return message.channel.send(em)
-    } 
+    }
     if(helpArgs[0] === 'animals') {
         let em = new Discord.MessageEmbed()
         .addField('🐒 Animals', '`cat`, `dog`, `panda`, `fox`')
