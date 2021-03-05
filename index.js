@@ -2,11 +2,11 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const mongoose = require('mongoose')
 const { loadCommands } = require('./util/loadCommands');
-
 const bot = new Discord.Client({disableEveryone: true});
 const client = new Discord.Client({disableEveryone: true});
 mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 require('./util/loadEvents')(bot);
+require(`./reply`)
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -55,7 +55,7 @@ bot.on('guildMemberAdd', (member) => {
     const channel = bot.channels.cache.get('811222075053572106')
     channel.send(Embed);
   });
-bot.on("message", async message => {
+  bot.on("message", async message => {
     bot.user.setActivity(`in ${bot.guilds.cache.size} servers | ..help`,  {type: "PLAYING"})
 
     if(message.author.bot || message.channel.type === "dm") return;
@@ -66,10 +66,10 @@ bot.on("message", async message => {
       if(err) console.log(err);
       if(!data){
         let prefix = botsettings.prefix;
-        let messageArray = message.content.split(" ");
-        const input = message.content.slice(prefix.length).trim().split(' ');
+        let messageArray = message.content.toLowerCase().split(" ");
+        const input = message.content.toLowerCase().slice(prefix.length).trim().split(' ');
           const commandArgs = input.join(' ');
-          const args = message.content.slice(prefix.length).trim().split(/ +/);
+          const args = message.content.toLowerCase().slice(prefix.length).trim().split(/ +/);
           let cmd = messageArray[0];
  
     
@@ -85,6 +85,8 @@ return;
     
 
 })
+
+
 
 
 bot.login(process.env.token);
