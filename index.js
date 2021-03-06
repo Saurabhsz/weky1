@@ -2,7 +2,11 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const mongoose = require('mongoose')
 const { loadCommands } = require('./util/loadCommands');
-const bot = new Discord.Client({disableEveryone: true});
+const bot = new Discord.Client({
+  partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+  fetchAllMembers: true
+  //ws: { intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_BANS', 'GUILD_EMOJIS', 'GUILD_INTEGRATIONS', 'GUILD_WEBHOOKS', 'GUILD_INVITES', 'GUILD_VOICE_STATES', 'GUILD_PRESENCES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILD_MESSAGE_TYPING', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', "DIRECT_MESSAGE_TYPING"]}
+});
 mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 require('./util/loadEvents')(bot);
 require(`./reply`)
