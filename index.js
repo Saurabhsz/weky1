@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const mongoose = require('mongoose')
 const { loadCommands } = require('./util/loadCommands');
-const bot = new Discord.Client({disableMentions: true,fetchAllMembers: true});
+const bot = new Discord.Client({disableEveryone: true,fetchAllMembers: true});
 mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 require('./util/loadEvents')(bot);
 require(`./reply`)
