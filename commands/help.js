@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     }
     if(helpArgs[0] === 'currency') {
         let em = new Discord.MessageEmbed()
-        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `pog`, `sell`, `fish`, `turn`, `dice`')
+        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `sell`, `fish`, `turn`, `dice`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'moderation') {
@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
     } 
     if(helpArgs[0] === 'utility') {
         let em = new Discord.MessageEmbed()
-        .addField('🔩 Utility', '`ping`, `invite`, `uptime`, `math`, `poll`, `report`, `serveremoji`, `addemoji`')
+        .addField('🔩 Utility', '`ping`, `invite`, `uptime`, `math`, `poll`, `report`, `serveremoji`, `addemoji`, `stats`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'image') {
