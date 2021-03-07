@@ -270,7 +270,7 @@ module.exports.run = async (bot, message, args) => {
     }
     if(!buyArgs[0]) {
         
-        message.channel.send(`Ye ye weky here what you want to buy, /shop for the list :rolling_eyes:`);
+        message.channel.send(`Ye ye weky here what you want to buy, ..shop for the list :rolling_eyes:`);
     }
 
 
