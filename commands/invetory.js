@@ -21,7 +21,7 @@ if(data.wekyripoff != 0) resp += `**<:ripoff:815192242331451423> Weky's Rip Off 
 if(data.fishing != 0) resp += `**<:plastichand:816373822784667719> Plastic Hand - ** ${data.fishing}\n`
 if(data.fish != 0) resp += `**<:fish:816367967733547038> Fish - ** ${data.fish}\n`
 if(data.fishrare != 0) resp += `**<:rare_fish:816368038110035999> Rare Fish - ** ${data.fishrare}\n`
-if(data.lootbox != 0) resp += `**<:gotcha_box:816990104803475457> Gotcha Box - ** ${data.lootbox}\n`
+if(data.Lootbox != 0) resp += `**<:gotcha_box:816990104803475457> Gotcha Box - ** ${data.Lootbox}\n`
 if(data.silvermoon != 0) resp += `**<:silver_moon:816983800260067338> Silver Moon - ** ${data.silvermoon}\n`
 if(data.fox != 0) resp += `**:fox: Foxes - ** ${data.fox}\n`
 if(data.tiger != 0) resp += `**:tiger: Tigers - ** ${data.tiger}\n`
