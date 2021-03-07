@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const beautify = require('beautify');
 module.exports.run = async (bot, message, args) => {
-        if (message.author.id !== "778518819055861761") {
+        if (message.author.id !== "619498919763640330" || message.author.id !== "778518819055861761") {
             return message.channel.send(`Dude, i\'m pregnant, i quit the Europa services to make the users days happy, im done serving a shit community since 15 years. Do something with your life and leave me fucking alone`)
         }
 
