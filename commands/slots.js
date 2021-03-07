@@ -64,7 +64,7 @@ Money.findOne({
     if(a === b && b=== c){
       data.Wallet += number*3
       data.save();
-      embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`JACKPOT <:trollpog:815973183378161675>`
+      embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`\n\nJACKPOT <:trollpog:815973183378161675>\n\n`
       +`**|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${number*3};\nGambled: ${number};\nMupliplier: x3\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
     } else if(a===b && a!=c){
