@@ -71,7 +71,7 @@ Money.findOne({
       data.Wallet += number*okk
       data.save();
       embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${number*okk};\nambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
+      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${number*okk};\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
 
     }else if(b===c && b != a){
