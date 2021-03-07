@@ -265,6 +265,221 @@ message.channel.send(`You cannot sell this item.`)
                                 
                                     })   
                             }
+                            if(useArgs[0] === 'fox' || useArgs[0] === 'fo') {
+                                var num = parseFloat(args[2])
+                        
+                                Money.findOne({
+                                    id: message.author.id
+                                },
+                                 (err, data) => {
+                                    if(err) console.log(err);
+                                    if(!data){
+                                    const newD = new Money({
+                                        id: message.author.id
+                                    })
+                                    newD.save();
+                                    let user = message.guild.members.cache.get(message.author.id);
+                                    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+                                    } else {
+                                        if(!num){
+                                            const thesame = data.fox == 0;
+                                            if(thesame) {return message.channel.send(`You dont have any Foxes :/`);} else {
+                                                data.Wallet += 50;
+                                                data.fox -= 1;
+                                                data.save();;
+                                                const embed = new Discord.MessageEmbed()
+                                                .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                .setDescription(`You sold :fox: 1 Fox **50** coins.`)
+                                                message.channel.send(embed)
+                                            }
+                                        } else {
+                                            if(num > data.fox) {return message.channel.send(`You dont have that many Foxes :/`);} else {
+                                                data.Wallet += 50*num
+                                                data.fox -= num;
+                                                data.save();
+                                                const embed = new Discord.MessageEmbed()
+                                                .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                .setDescription(`You sold :fox: ${num} Foxes **${50*num}** coins.`)
+                                                message.channel.send(embed)
+                                            }
+                                        }
+                            
+                                        }
+                                    
+                                        })   
+                                }
+                                if(useArgs[0] === 'tiger' || useArgs[0] === 'ti' || useArgs[0] === 'tig' || useArgs[0] === 'tige') {
+                                    var num = parseFloat(args[2])
+                            
+                                    Money.findOne({
+                                        id: message.author.id
+                                    },
+                                     (err, data) => {
+                                        if(err) console.log(err);
+                                        if(!data){
+                                        const newD = new Money({
+                                            id: message.author.id
+                                        })
+                                        newD.save();
+                                        let user = message.guild.members.cache.get(message.author.id);
+                                        user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+                                        } else {
+                                            if(!num){
+                                                const thesame = data.tiger == 0;
+                                                if(thesame) {return message.channel.send(`You dont have any Tigers :/`);} else {
+                                                    data.Wallet += 200;
+                                                    data.tiger -= 1;
+                                                    data.save();;
+                                                    const embed = new Discord.MessageEmbed()
+                                                    .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                    .setDescription(`You sold :tiger: 1 Tiger for **200** coins.`)
+                                                    message.channel.send(embed)
+                                                }
+                                            } else {
+                                                if(num > data.tiger) {return message.channel.send(`You dont have that many Tigers :/`);} else {
+                                                    data.Wallet += 200*num
+                                                    data.tiger -= num;
+                                                    data.save();
+                                                    const embed = new Discord.MessageEmbed()
+                                                    .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                    .setDescription(`You sold :tiger: ${num} Tigers **${200*num}** coins.`)
+                                                    message.channel.send(embed)
+                                                }
+                                            }
+                                
+                                            }
+                                        
+                                            })   
+                                    }
+                                    if(useArgs[0] === 'eagle' || useArgs[0] === 'ea' || useArgs[0] === 'eag' || useArgs[0] === 'eagl') {
+                                        var num = parseFloat(args[2])
+                                
+                                        Money.findOne({
+                                            id: message.author.id
+                                        },
+                                         (err, data) => {
+                                            if(err) console.log(err);
+                                            if(!data){
+                                            const newD = new Money({
+                                                id: message.author.id
+                                            })
+                                            newD.save();
+                                            let user = message.guild.members.cache.get(message.author.id);
+                                            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+                                            } else {
+                                                if(!num){
+                                                    const thesame = data.eagle == 0;
+                                                    if(thesame) {return message.channel.send(`You dont have any Eagles :/`);} else {
+                                                        data.Wallet += 500;
+                                                        data.eagle -= 1;
+                                                        data.save();;
+                                                        const embed = new Discord.MessageEmbed()
+                                                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                        .setDescription(`You sold :eagle: 1 Eagle for **500** coins.`)
+                                                        message.channel.send(embed)
+                                                    }
+                                                } else {
+                                                    if(num > data.eagle) {return message.channel.send(`You dont have that many Eagles :/`);} else {
+                                                        data.Wallet += 500*num
+                                                        data.eagle -= num;
+                                                        data.save();
+                                                        const embed = new Discord.MessageEmbed()
+                                                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                        .setDescription(`You sold :eagle: ${num} Eagles **${500*num}** coins.`)
+                                                        message.channel.send(embed)
+                                                    }
+                                                }
+                                    
+                                                }
+                                            
+                                                })   
+                                        }
+                                        if(useArgs[0] === 'bear' || useArgs[0] === 'be' || useArgs[0] === 'bea' || useArgs[0] === 'bears') {
+                                            var num = parseFloat(args[2])
+                                    
+                                            Money.findOne({
+                                                id: message.author.id
+                                            },
+                                             (err, data) => {
+                                                if(err) console.log(err);
+                                                if(!data){
+                                                const newD = new Money({
+                                                    id: message.author.id
+                                                })
+                                                newD.save();
+                                                let user = message.guild.members.cache.get(message.author.id);
+                                                user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+                                                } else {
+                                                    if(!num){
+                                                        const thesame = data.bear == 0;
+                                                        if(thesame) {return message.channel.send(`You dont have any Bears :/`);} else {
+                                                            data.Wallet += 1200;
+                                                            data.bear -= 1;
+                                                            data.save();
+                                                            const embed = new Discord.MessageEmbed()
+                                                            .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                            .setDescription(`You sold :bear: 1 Bear for **1200** coins.`)
+                                                            message.channel.send(embed)
+                                                        }
+                                                    } else {
+                                                        if(num > data.bear) {return message.channel.send(`You dont have that many Bears :/`);} else {
+                                                            data.Wallet += 1200*num
+                                                            data.bear -= num;
+                                                            data.save();
+                                                            const embed = new Discord.MessageEmbed()
+                                                            .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                            .setDescription(`You sold :bear: ${num} Bears **${1200*num}** coins.`)
+                                                            message.channel.send(embed)
+                                                        }
+                                                    }
+                                        
+                                                    }
+                                                
+                                                    })   
+                                            }
+                                            if(useArgs[0] === 'sn' || useArgs[0] === 'sni' || useArgs[0] === 'snip' || useArgs[0] === 'sniper') {
+                                                var num = parseFloat(args[2])
+                                        
+                                                Money.findOne({
+                                                    id: message.author.id
+                                                },
+                                                 (err, data) => {
+                                                    if(err) console.log(err);
+                                                    if(!data){
+                                                    const newD = new Money({
+                                                        id: message.author.id
+                                                    })
+                                                    newD.save();
+                                                    let user = message.guild.members.cache.get(message.author.id);
+                                                    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+                                                    } else {
+                                                        if(!num){
+                                                            const thesame = data.gun == 0;
+                                                            if(thesame) {return message.channel.send(`You dont have any Snipers :/`);} else {
+                                                                data.Wallet += 2000;
+                                                                data.gun -= 1;
+                                                                data.save();
+                                                                const embed = new Discord.MessageEmbed()
+                                                                .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                                .setDescription(`You sold <:Sniper:818044125580492800> 1 Sniper for **2000** coins.`)
+                                                                message.channel.send(embed)
+                                                            }
+                                                        } else {
+                                                            if(num > data.gun) {return message.channel.send(`You dont have that many Snipers :/`);} else {
+                                                                data.Wallet += 2000*num
+                                                                data.gun -= num;
+                                                                data.save();
+                                                                const embed = new Discord.MessageEmbed()
+                                                                .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                                                                .setDescription(`You sold <:Sniper:818044125580492800> ${num} Snipers **${2000*num}** coins.`)
+                                                                message.channel.send(embed)
+                                                            }
+                                                        }
+                                            
+                                                        }
+                                                    
+                                                        })   
+                                                }
                         if(!useArgs[0]) {
         
         message.channel.send(`What you want to sell? Use ..inv to see what you have.`);
