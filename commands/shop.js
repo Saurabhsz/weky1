@@ -25,6 +25,7 @@ Money.findOne({
                         .addField(`**🌝 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it`)
                         .addField(`**<:ripoff:815192242331451423> Weky's Rip Off** -> \`12,000,000\``,`This item is used to flex on the kids who can\`t get it`)
                         .addField(`**<:plastichand:816373822784667719> Plastic Hand** -> \`15,000\``,`With this magical hand that is made from plastic you can easy fish by using \`fish\``)
+                        .addField(`**<:Sniper:818044125580492800> Sniper** -> \`20,000\``,`A item, a new command, with this item u can go to hunting`)
                         .setFooter(`Run ..item (item) for more info.`)
                         message.channel.send(embed)
         
@@ -148,6 +149,76 @@ if(useArgs[0] === 'silver' || useArgs[0] === 'silvermoon'){
               Sell: \`NON SELLABLE\`\n
              ID: \`silver\`\n\n
              Description: This item isn't made to do something, just to be here.`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'sniper'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Laptop`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
+  .addField(`${message.author.username} Owns: ${data.sniper}\n`,
+             `Cost: \`20,000\`\n
+              Sell: \`2,000\`\n
+             ID: \`laptop\`\n\n
+             Description: With this item you can use the command called \`hunt\` to get animals`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'fox'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Fox`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
+  .addField(`${message.author.username} Owns: ${data.fox}\n`,
+             `Cost: \`NON BUYABLE\`\n
+              Sell: \`50\`\n
+             ID: \`laptop\`\n\n
+             Description: This item can just be sold, wow`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'tiger'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Tiger`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
+  .addField(`${message.author.username} Owns: ${data.sniper}\n`,
+             `Cost: \`NON BUYABLE\`\n
+              Sell: \`200\`\n
+             ID: \`tiger\`\n\n
+             Description: This item can just be sold, wow`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'eagle'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Eagle`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
+  .addField(`${message.author.username} Owns: ${data.eagle}\n`,
+             `Cost: \`NON BUYABLE\`\n
+              Sell: \`500\`\n
+             ID: \`eagle\`\n\n
+             Description: This item can just be sold, wow`)
+                   
+  .setTimestamp()
+  message.channel.send(embed)
+
+}
+if(useArgs[0] === 'bear'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Bear`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
+  .addField(`${message.author.username} Owns: ${data.bear}\n`,
+             `Cost: \`NON BUYABLE\`\n
+              Sell: \`1,200\`\n
+             ID: \`bear\`\n\n
+             Description: This item can just be sold, wow`)
                    
   .setTimestamp()
   message.channel.send(embed)
