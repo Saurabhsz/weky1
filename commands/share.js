@@ -30,11 +30,9 @@ Money.findOne({
     return message.channel.send("You dont have these money.");
   } else {
    data.Wallet -= num;
+   const e = data.Wallet
    data.save();
-   message.channel.send(`You gave ${member} ${num} coins, your new balance is ${data.Wallet} coins`)
-}
-});
-Money.findOne({
+   Money.findOne({
     id: member.id
   }, (err,data) => {
     if(err) console.log(err);
@@ -46,8 +44,14 @@ Money.findOne({
     } else {
      data.Wallet += num;
      data.save()
-  }
+  
+
+   message.channel.send(message.author + ` gave ${member.username} **${num}** coins, you have now ${e} and they have ${data.Wallet}`)
+    }
   });
+  }
+});
+
 }
 talkedRecently.add(message.author.id);
                 setTimeout(() => {

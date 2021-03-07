@@ -22,7 +22,10 @@ if(data.fishing != 0) resp += `**<:plastichand:816373822784667719> Plastic Hand 
 if(data.fish != 0) resp += `**<:fish:816367967733547038> Fish - ** ${data.fish}\n`
 if(data.fishrare != 0) resp += `**<:rare_fish:816368038110035999> Rare Fish - ** ${data.fishrare}\n`
 if(data.silvermoon != 0) resp += `**<:silver_moon:816983800260067338> Silver Moon - ** ${data.silvermoon}\n`
-if(data.Lootbox != 0) resp += `**<:gotcha_box:816990104803475457> Gotcha Lootbox - ** ${data.Lootbox}\n`
+if(data.fox != 0) resp += `**:fox: Foxes - ** ${data.fox}\n`
+if(data.tiger != 0) resp += `**:tiger: Tigers - ** ${data.tiger}\n`
+if(data.eagle != 0) resp += `**:eagle: Eagles - ** ${data.eagle}\n`
+if(data.bear != 0) resp += `**:bear: Bears - ** ${data.bear}\n`
 const { MessageEmbed } = require("discord.js");
         const Embed = new MessageEmbed()
         .setTitle(`${message.author.username}\' Inventory`)

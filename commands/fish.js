@@ -49,12 +49,6 @@ module.exports.run = async (bot, message, args) => {
            if(xxxx == 4){ data.fish += random; data.fishing -= 1}
            if(xxxx == 5){ data.Wallet -= data.Wallet;}
            if(xxxx == 6){ data.fish += random}
-           if(xxxx == 7){ return}
-           if(xxxx == 8){ return}
-           if(xxxx == 9){ return}
-           if(xxxx == 10){ return}
-           if(xxxx == 11){ return}
-           if(xxxx == 12){ return}
            if(xxxx == 13){ data.fishrare += 1}
 
                message.reply(`${answerspos}`)
