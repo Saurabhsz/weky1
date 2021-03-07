@@ -6,10 +6,10 @@ module.exports.run = async (bot, message, args) => {
     .setAuthor(`Wait 5 more seconds`)
     .setDescription(`Dont you dare to frikin tryna break me, please wait \`5s\` to use this command again idot :D`)
     .setFooter(`This timer dont update in real time`)
-    message.channel.send(embed);
+    message.reply(embed);
 } else {
     var num = parseFloat(args[1])
-    if (num.isNaN) return message.channel.send("Thats not a valid number");
+    if (num.isNaN) return message.reply("Thats not a valid number");
     const Money = require('../schemas/Money')
 Money.findOne({
   id: message.author.id
@@ -23,25 +23,25 @@ Money.findOne({
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
   } else if(num > data.Bank) {
-    return message.channel.send("You dont have that much money why you bad at me bro :/");
+    return message.reply("You dont have that much money why you bad at me bro :/");
   
   } else {
     if(args[1] === 'all') {
 
       data.Wallet += data.Bank
-      message.channel.send("Withdrawn **" + data.Bank + '** coins.')
+      message.reply("Withdrawn **" + data.Bank + '** coins.')
       data.Bank -= data.Bank
       data.save()
     } else if(args[1] === 'half'){
               data.Wallet += data.Bank/2
-              message.channel.send("Withdrawn **" + data.Bank/2 + '** coins.')
+              message.reply("Withdrawn **" + data.Bank/2 + '** coins.')
               data.Bank -= data.Bank/2
               data.save()
               } else {
     data.Wallet += num;
    data.Bank -= num;
    data.save();
-   message.channel.send("Withdrawn **" + num + '** coins.')
+   message.reply("Withdrawn **" + num + '** coins.')
       }
 }
 });

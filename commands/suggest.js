@@ -14,7 +14,7 @@ const embed = new Discord.MessageEmbed()
 channel.send(embed).then(embed => {
 embed.react(`<:upWeky:815202285100597260>`)
 embed.react(`<:downWeky:815202675868172308>`)
-message.channel.send("**Sugestion has been sent!**")
+message.reply("**Sugestion has been sent!**")
 })
 }
 module.exports.config = {
