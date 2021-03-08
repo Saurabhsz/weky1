@@ -56,7 +56,7 @@ bot.on("message", async message => {
         || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
         try{
-
+if(!cmd) return;
             //+ cooldown 1, //seconds(s)
             if (!cooldowns.has(cmd.name)) {
                 cooldowns.set(cmd.name, new Discord.Collection());
@@ -73,7 +73,7 @@ bot.on("message", async message => {
                     const timeLeft = (expirationTime - now) / 1000;
                     const embed = new Discord.MessageEmbed()
                     .setAuthor(`Wait god damn`)
-                    .setDescription(`😡 This command have a cooldown, not like your life, wait \`${timeLeft.toFixed(1)}\``)
+                    .setDescription(`😡 This command have a cooldown, not like your life, wait \`${timeLeft.toFixed(1)}s\``)
                     .setFooter(`This timer dont update in real time`)
                     message.channel.send(embed);
                 }
