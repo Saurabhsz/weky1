@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const mongoose = require('mongoose')
 const { loadCommands } = require('./util/loadCommands');
+const prefix = botsettings.prefix
 const bot = new Discord.Client({disableMentions: "everyone"});
 mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 require(`./reply`)
