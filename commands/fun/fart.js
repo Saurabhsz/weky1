@@ -1,5 +1,4 @@
 const Discord = require("discord.js")
-const botconfig = require("../botsettings.json");
 
 module.exports = {
   name: "fart",
