@@ -76,25 +76,25 @@ if(!cmd) return;
                     .setDescription(`😡 This command have a cooldown, not like your life, wait \`${timeLeft.toFixed(1)}s\``)
                     .setFooter(`This timer dont update in real time`)
                     message.channel.send(embed);
-                }
-            }
-            timestamps.set(message.author.id, now);
-            setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-
-        //+ args: true/false,
-                 
-                //+ guildOnly: true/false,
-                if (cmd.guildOnly && message.channel.type === 'dm') {
-                    return message.reply('I can\'t execute that command inside DMs!');
-                }
-
-                //+ dmOnly: true/false,
-                if (cmd.dmOnly && message.channel.type === 'text') {
-                    return message.reply('I can\'t execute that command inside the server!');
-                }
-
-
-        cmd.execute(bot, message, args);
+                } 
+            } else {timestamps.set(message.author.id, now);
+              setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+  
+          //+ args: true/false,
+                   
+                  //+ guildOnly: true/false,
+                  if (cmd.guildOnly && message.channel.type === 'dm') {
+                      return message.reply('I can\'t execute that command inside DMs!');
+                  }
+  
+                  //+ dmOnly: true/false,
+                  if (cmd.dmOnly && message.channel.type === 'text') {
+                      return message.reply('I can\'t execute that command inside the server!');
+                  }
+  
+  
+          cmd.execute(bot, message, args);}
+            
     }catch(err){
         message.reply(`there was an error in the console.`);
         console.log(err);
