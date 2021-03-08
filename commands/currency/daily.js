@@ -10,7 +10,7 @@ module.exports = {
   permissions: ["NONE"],
   async execute(bot, message, args) {
 
-    const Money = require('../schemas/Money')
+    const Money = require('../../schemas/Money')
 Money.findOne({
   id: message.author.id
 }, (err,data) => {
