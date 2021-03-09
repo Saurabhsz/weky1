@@ -32,6 +32,7 @@ if(data.fish != 0) resp += `**<:fish:816367967733547038> Fish - ** ${data.fish}\
 if(data.fishrare != 0) resp += `**<:rare_fish:816368038110035999> Rare Fish - ** ${data.fishrare}\n`
 if(data.Lootbox != 0) resp += `**<:gotcha_box:816990104803475457> Gotcha Box - ** ${data.Lootbox}\n`
 if(data.silvermoon != 0) resp += `**<:silver_moon:816983800260067338> Silver Moon - ** ${data.silvermoon}\n`
+if(data.gun != 0) resp += `**<:Sniper:818044125580492800> Sniper - ** ${data.gun}\n`
 if(data.fox != 0) resp += `**:fox: Foxes - ** ${data.fox}\n`
 if(data.tiger != 0) resp += `**:tiger: Tigers - ** ${data.tiger}\n`
 if(data.eagle != 0) resp += `**:eagle: Eagles - ** ${data.eagle}\n`
