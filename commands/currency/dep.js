@@ -11,9 +11,8 @@ module.exports = {
   permissions: ["NONE"],
   async execute(bot, message, args) {
     var num = parseInt(args[1])
-    if(!num) return message.reply(`no ARGUMENTS`)
     if (num.isNaN) return message.channel.send("Thats not a valid number");
-    
+    console.log(args[1])
     const Money = require('../../schemas/Money')
 Money.findOne({
   id: message.author.id
