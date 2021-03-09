@@ -11,6 +11,8 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
+    let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
+if(!member) return message.channel.send(`You didnt said who i need to give :rolling_eyes:`)
     var num = parseFloat(args[1])
     if(!num) return message.channel.send(`How many coins you want to give?`)
     if (num.isNaN) return message.channel.send("Thats not a valid number");

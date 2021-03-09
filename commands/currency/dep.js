@@ -35,13 +35,13 @@ Money.findOne({
     if(num > data.space){
       return message.channel.send(`Looks like your bank is full :) go get some scripts`)
      } else {
-      if(args[1] === 'all') {
+      if(args[0] === 'all') {
 if(data.space < data.Wallet) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
         data.Bank += data.Wallet
         message.channel.send("Deposited **" + data.Bank + '** coins.')
         data.Wallet -= data.Wallet
         data.save()
-        } else if(args[1] === 'half'){
+        } else if(args[0] === 'half'){
     if(data.space < data.Wallet/2) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
             data.Bank += data.Wallet/2
             message.channel.send("Deposited **" + data.Wallet/2 + '** coins.')

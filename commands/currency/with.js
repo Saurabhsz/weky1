@@ -30,13 +30,13 @@ Money.findOne({
     return message.reply("You dont have that much money why you bad at me bro :/");
   
   } else {
-    if(args[1] === 'all') {
+    if(args[0] === 'all') {
 if(data.space < data.Wallet) return message.channel.send(`You bank is full, get some space scripts`)
       data.Wallet += data.Bank
       message.reply("Withdrawn **" + data.Bank + '** coins.')
       data.Bank -= data.Bank
       data.save()
-    } else if(args[1] === 'half'){
+    } else if(args[0] === 'half'){
       if(data.space < data.Wallet/2) return message.channel.send(`You bank is full, get some space scripts`)
               data.Wallet += data.Bank/2
               message.reply("Withdrawn **" + data.Bank/2 + '** coins.')
