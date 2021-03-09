@@ -46,7 +46,8 @@ Money.findOne({
     } else {
      data.Wallet += num;
      data.save()
-   message.channel.send(`<@`+message.author + `> gave ${member.disaplyUsername} **${num}** coins, you have now ${e} and they have ${data.Wallet}`)
+     const membe = bot.users.get(member).username
+   message.channel.send(`<@`+message.author + `> gave ${membe} **${num}** coins, you have now ${e} and they have ${data.Wallet}`)
     }
   });
   }
