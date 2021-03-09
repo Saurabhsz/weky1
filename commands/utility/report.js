@@ -14,7 +14,7 @@ module.exports = {
 const channel = bot.channels.cache.get('795647180995559434')
 
 
-const query = args.slice(1).join(' ');
+const query = args.slice(0).join(' ');
 if(!query) return message.reply('Please specify the bug')
 const MessageEmbed = require('discord.js')
 const Discord = require('discord.js')

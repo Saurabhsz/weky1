@@ -9,7 +9,7 @@ module.exports = {
         guarded: true, //or false
         permissions: ["NONE"],
         async execute(bot, message, args) {
-        let pollDescription = args.slice(1).join(' ');
+        let pollDescription = args.slice(0).join(' ');
 if(!pollDescription) return message.reply(`What you want to put in this poll :D?`)
         let embedPoll = new Discord.MessageEmbed()
         .setTitle(`😲 ${message.author.username} Made a new POLL`)

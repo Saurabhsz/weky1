@@ -10,7 +10,7 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
     let helpArray = message.content.split(" ");
-    let helpArgs = helpArray.slice(1);
+    let helpArgs = helpArray.slice(0);
     if(helpArgs[0] === 'games') {
         let em = new Discord.MessageEmbed()
         .addField('🎮 Games', '`trivia`, `fight`, `fasttype`, `tictactoe`')

@@ -14,7 +14,7 @@ module.exports = {
 
 const channel = bot.channels.cache.get('811226235585822753')
 
-const query = args.slice(1).join(' ');
+const query = args.slice(0).join(' ');
 if(!query) return message.reply('Please specify the sugestion')
 const Discord = require('discord.js')
 const embed = new Discord.MessageEmbed()

@@ -16,10 +16,10 @@ module.exports = {
 
 
     let buyArray = message.content.split(" ");
-    let useArgs = buyArray.slice(1);
+    let useArgs = buyArray.slice(0);
 
     if(useArgs[0] === 'script' || useArgs[0] === 'space' ) {
-        var num = parseFloat(args[2])
+        var num = parseFloat(args[1])
 
         Money.findOne({
             id: message.author.id
@@ -62,7 +62,7 @@ module.exports = {
             })   
     }
     if(useArgs[0] === 'laptop' || useArgs[0] === 'lap') {
-            var num = parseFloat(args[2])
+            var num = parseFloat(args[1])
     
             Money.findOne({
                 id: message.author.id
@@ -105,7 +105,7 @@ module.exports = {
                     })   
             }
         if(useArgs[0] === 'wekymoon') {
-            var num = parseFloat(args[2])
+            var num = parseFloat(args[1])
     
             Money.findOne({
                 id: message.author.id
@@ -127,7 +127,7 @@ message.channel.send(`You cannot sell this item.`)
                     })   
             }
             if(useArgs[0] === 'plastichand' || useArgs[0] === 'handplastic' || useArgs[0] === 'hand' || useArgs[0] === 'plastic') {
-                var num = parseFloat(args[2])
+                var num = parseFloat(args[1])
         
                 Money.findOne({
                     id: message.author.id
@@ -170,7 +170,7 @@ message.channel.send(`You cannot sell this item.`)
                         })   
                 }
                 if(useArgs[0] === 'wekyripoff' || useArgs[0] === 'wekyrip' || useArgs[0] === 'ripoff') {
-                    var num = parseFloat(args[2])
+                    var num = parseFloat(args[1])
             
                     Money.findOne({
                         id: message.author.id
@@ -192,7 +192,7 @@ message.channel.send(`You cannot sell this item.`)
                             })   
                     }
                     if(useArgs[0] === 'fi' || useArgs[0] === 'fis' || useArgs[0] === 'fish') {
-                        var num = parseFloat(args[2])
+                        var num = parseFloat(args[1])
                 
                         Money.findOne({
                             id: message.author.id
@@ -235,7 +235,7 @@ message.channel.send(`You cannot sell this item.`)
                                 })   
                         }
                         if(useArgs[0] === 'fishrare' || useArgs[0] === 'rarefi' || useArgs[0] === 'rarefish') {
-                            var num = parseFloat(args[2])
+                            var num = parseFloat(args[1])
                     
                             Money.findOne({
                                 id: message.author.id
@@ -278,7 +278,7 @@ message.channel.send(`You cannot sell this item.`)
                                     })   
                             }
                             if(useArgs[0] === 'fox' || useArgs[0] === 'fo') {
-                                var num = parseFloat(args[2])
+                                var num = parseFloat(args[1])
                         
                                 Money.findOne({
                                     id: message.author.id
@@ -321,7 +321,7 @@ message.channel.send(`You cannot sell this item.`)
                                         })   
                                 }
                                 if(useArgs[0] === 'tiger' || useArgs[0] === 'ti' || useArgs[0] === 'tig' || useArgs[0] === 'tige') {
-                                    var num = parseFloat(args[2])
+                                    var num = parseFloat(args[1])
                             
                                     Money.findOne({
                                         id: message.author.id
@@ -364,7 +364,7 @@ message.channel.send(`You cannot sell this item.`)
                                             })   
                                     }
                                     if(useArgs[0] === 'eagle' || useArgs[0] === 'ea' || useArgs[0] === 'eag' || useArgs[0] === 'eagl') {
-                                        var num = parseFloat(args[2])
+                                        var num = parseFloat(args[1])
                                 
                                         Money.findOne({
                                             id: message.author.id
@@ -407,7 +407,7 @@ message.channel.send(`You cannot sell this item.`)
                                                 })   
                                         }
                                         if(useArgs[0] === 'bear' || useArgs[0] === 'be' || useArgs[0] === 'bea' || useArgs[0] === 'bears') {
-                                            var num = parseFloat(args[2])
+                                            var num = parseFloat(args[1])
                                     
                                             Money.findOne({
                                                 id: message.author.id
@@ -450,7 +450,7 @@ message.channel.send(`You cannot sell this item.`)
                                                     })   
                                             }
                                             if(useArgs[0] === 'sn' || useArgs[0] === 'sni' || useArgs[0] === 'snip' || useArgs[0] === 'sniper') {
-                                                var num = parseFloat(args[2])
+                                                var num = parseFloat(args[1])
                                         
                                                 Money.findOne({
                                                     id: message.author.id

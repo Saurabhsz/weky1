@@ -10,7 +10,7 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    let msg = args.slice(1).join(" "), Case = "";
+    let msg = args.slice(0).join(" "), Case = "";
     if (!msg) return message.channel.send("Please Give Your Message!");
 
     for (let i in msg) {

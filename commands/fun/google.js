@@ -12,7 +12,7 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
 
-const query = args.slice(1).join('+');
+const query = args.slice(0).join('+');
 if(!query) return message.reply('What to search?')
 message.channel.send(`https://lmgtfy.app/?q=${query}`)
 }

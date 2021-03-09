@@ -11,13 +11,13 @@ module.exports = {
     permissions: ["BOT_OWNER"],
     async execute(bot, message, args) {
         if (message.author.id === "619498919763640330" || message.author.id === "778518819055861761") {
-            if (!args[1]) {
+            if (!args[0]) {
                 message.channel.send("Hey Face, what to evaluate :)?")
             } else
     
             try {
     
-                const toEval = args.slice(1).join(" ");
+                const toEval = args.slice(0).join(" ");
                 const evaluated = eval(toEval);
     
                 const embed = new MessageEmbed()

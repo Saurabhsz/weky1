@@ -8,7 +8,8 @@ module.exports = {
     cooldown: 4, //seconds(s)
     guarded: true, //or false
     permissions: ["NONE"],
-    async execute(bot, message, args) {    msg = message.content.split(" ").slice(1).join(" ");
+    async execute(bot, message, args) {   
+         msg = message.content.split(" ").slice(0).join(" ");
     if(!msg){
         return message.channel.send(`You need to gib me a word or more to reverse`)
     }

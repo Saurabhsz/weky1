@@ -11,7 +11,7 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    var num = parseFloat(args[2])
+    var num = parseFloat(args[1])
     if(!num) return message.channel.send(`How many coins you want to give?`)
     if (num.isNaN) return message.channel.send("Thats not a valid number");
     const Money = require('../../schemas/Money')

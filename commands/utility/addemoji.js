@@ -12,8 +12,8 @@ module.exports = {
   async execute(bot, message, args) {
 
     if(!message.member.hasPermission("MANAGE_EMOJIS")) return message.channel.send('<:downWeky:815202675868172308> | You don\'t have the permissions to manage emojis')
-    const emoji = args[1];
-    const name = args.slice(2).join(" ");
+    const emoji = args[0];
+    const name = args.slice(1).join(" ");
     if (!emoji) {
       return message.channel.send(
         `Please Give Me A Emoji!`

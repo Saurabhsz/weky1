@@ -16,7 +16,7 @@ module.exports = {
       const hance = rndom > 0 && rndom < 40; // the conidtion which is the chance
       if(message.content.includes(',')) return message.channel.send(`In your message CAN'T be . and ,`)
 
-    var number = parseFloat(args[1])
+    var number = parseFloat(args[0])
     if(!number) return message.channel.send(`Please specify how much you want to bet!`)
     if (number.isNaN) return message.channel.send("Thats not a valid number");
 Money.findOne({

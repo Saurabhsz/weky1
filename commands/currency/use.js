@@ -15,12 +15,12 @@ module.exports = {
 
 
     let buyArray = message.content.split(" ");
-    let useArgs = buyArray.slice(1);
+    let useArgs = buyArray.slice(0);
 
     if(useArgs[0] === 'script' || useArgs[0] === 'space' ) {
         const muni = Math.floor(Math.random() * 15000) + 1000;
 
-        var num = parseFloat(args[2])
+        var num = parseFloat(args[1])
 
         Money.findOne({
             id: message.author.id

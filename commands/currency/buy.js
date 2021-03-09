@@ -11,10 +11,10 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
     let buyArray = message.content.split(" ");
-    let buyArgs = buyArray.slice(1);
+    let buyArgs = buyArray.slice(0);
 
     if(buyArgs[0] === 'laptop') {
-        var num = parseFloat(args[2])
+        var num = parseFloat(args[1])
 
         Money.findOne({
             id: message.author.id
@@ -57,7 +57,7 @@ module.exports = {
         })
     }
     if(buyArgs[0] === 'script' || buyArgs[0] === 'space') {
-        var num = parseFloat(args[2])
+        var num = parseFloat(args[1])
 
         Money.findOne({
             id: message.author.id
@@ -100,7 +100,7 @@ module.exports = {
         })
     }
     if(buyArgs[0] === 'moon' || buyArgs[0] === 'wekymoon') {
-        var num = parseFloat(args[2])
+        var num = parseFloat(args[1])
 
         Money.findOne({
             id: message.author.id
@@ -145,7 +145,7 @@ module.exports = {
         })
     }
     if(buyArgs[0] === 'sniper') {
-        var num = parseFloat(args[2])
+        var num = parseFloat(args[1])
 
         Money.findOne({
             id: message.author.id
@@ -190,7 +190,7 @@ module.exports = {
         })
     }
     if(buyArgs[0] === 'wekyrip' || buyArgs[0] === 'wekyripoff') {
-        var num = parseFloat(args[2])
+        var num = parseFloat(args[1])
 
         Money.findOne({
             id: message.author.id
@@ -233,7 +233,7 @@ module.exports = {
         })
     }
     if(buyArgs[0] === 'plastic' || buyArgs[0] === 'plastichand' || buyArgs[0] === 'phand' || buyArgs[0] === 'hand') {
-        var num = parseFloat(args[2])
+        var num = parseFloat(args[1])
 
         Money.findOne({
             id: message.author.id

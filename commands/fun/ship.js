@@ -11,8 +11,8 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    const shipTarget1 = (args[1])
-    const shipTarget2 = (args[2])
+    const shipTarget1 = (args[0])
+    const shipTarget2 = (args[1])
 
         // Input Checking
           const noInput12 = new Discord.MessageEmbed()

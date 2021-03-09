@@ -26,7 +26,7 @@ Money.findOne({
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
   } else {
     let buyArray = message.content.split(" ");
-    let useArgs = buyArray.slice(1);
+    let useArgs = buyArray.slice(0);
 
     if(!useArgs[0] || useArgs[0] === '1') {
         const embed = new Discord.MessageEmbed()

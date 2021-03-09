@@ -18,8 +18,8 @@ if (!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.send("
 if (!message.guild.me.hasPermission("MUTE_MEMBERS")) return message.channel.send("I do not have \`MUTE_MEMBERS\` permission.");
 
 const mentionedMember = message.mentions.members.first();
-let reason = args.slice(3).join(" ");
-let time = args[2];
+let reason = args.slice(2).join(" ");
+let time = args[1];
 
 
 //checking and making a mute role
@@ -51,7 +51,7 @@ const muteRole = message.guild.roles.cache.find(role => role.id === '81456917528
 
 if (!time) return message.channel.send('You must state a duration tempmute with a duration of time. \`-.mute @member time reason\`');
 //checking if the args 0 is provided
-if (!args[1]) return message.channel.send("\`.mute @member time reason\`");
+if (!args[0]) return message.channel.send("\`.mute @member time reason\`");
 //checking if there is a mentioned member
 if (!mentionedMember) return message.channel.send("Please state a member that is in the server to mute");
 //checking if the user using this command is using it on themself
@@ -75,8 +75,8 @@ const muteEmbed = new Discord.MessageEmbed()
 
 
 //making an embed to send in chat
-message.channel.send(`<@${mentionedMember.id}> has been muted for ${args[2]} due **${reason}**`)
-await mentionedMember.send(`You have been muted for ${args[2]} due **${reason}**`)
+message.channel.send(`<@${mentionedMember.id}> has been muted for ${args[1]} due **${reason}**`)
+await mentionedMember.send(`You have been muted for ${args[1]} due **${reason}**`)
 
     await mentionedMember.roles.add(muteRole);
 
