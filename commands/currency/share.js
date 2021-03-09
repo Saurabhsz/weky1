@@ -11,7 +11,7 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
+    const member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 if(!member) return message.channel.send(`You didnt said who i need to give :rolling_eyes:`)
     var num = parseFloat(args[1])
     if(!num) return message.channel.send(`How many coins you want to give?`)
@@ -32,8 +32,8 @@ Money.findOne({
     return message.channel.send("You dont have these money.");
   } else {
    data.Wallet -= num;
-   const e = data.Wallet
    data.save();
+   const e = data.Wallet
    Money.findOne({
     id: member.id
   }, (err,data) => {
@@ -48,7 +48,7 @@ Money.findOne({
      data.save()
   
 
-   message.channel.send(message.author + ` gave ${member.username} **${num}** coins, you have now ${e} and they have ${data.Wallet}`)
+   message.channel.send(`<@`+message.author + `> gave ${member.username} **${num}** coins, you have now ${e} and they have ${data.Wallet}`)
     }
   });
   }
