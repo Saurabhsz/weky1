@@ -10,7 +10,7 @@ module.exports = {
   permissions: ["NONE"],
   async execute(bot, message, args) {
       const embed = new Discord.MessageEmbed()
-      .setAuthor(`<:bruv:815953238091628586> — Poll Ping`)
+      .setTitle(`<:bruv:815953238091628586> — Poll Ping`)
       .setDescription(`React to this message if you want to get notified when there will be a poll`)
     message.channel.send(embed)
 }
