@@ -12,7 +12,7 @@ module.exports = {
   async execute(bot, message, args) {
     var num = parseFloat(args[1])
     if (num.isNaN) return message.channel.send("Thats not a valid number");
-    const Money = require('../../schemas/Money')
+    const Money = require('../schemas/Money')
 Money.findOne({
   id: message.author.id
 }, (err,data) => {
@@ -27,32 +27,13 @@ Money.findOne({
   } else if(num > data.Wallet) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
   }
-  const thesame = data.Bank == data.space
-  if(thesame){
-    return message.channel.send(`Looks like your bank is full :) go get some scripts`)
-  }
-    if(num > data.space){
-      return message.channel.send(`Looks like your bank is full :) go get some scripts`)
-     } else {
-      if(args[1] === 'all') {
-if(data.space < data.Wallet) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-        data.Bank += data.Wallet
-        message.channel.send("Deposited **" + data.Wallet + '** coins.')
-        data.Wallet -= data.Wallet
-        data.save()
-        } else if(args[1] === 'half'){
-    if(data.space < data.Wallet/2) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-            data.Bank += data.Wallet/2
-            message.channel.send("Deposited **" + data.Wallet/2 + '** coins.')
-            data.Wallet -= data.Wallet/2
-            data.save()
-            } else {
-              if (num.isNaN) return message.channel.send("Thats not a valid number");
-             data.Wallet -= num;
-             data.Bank += num;
-             data.save();
-             message.channel.send("Deposited **" + num + '** coins.')
-        }
+  if(num < data.space){
+   return message.channel.send(`Looks like your bank is full :) go get some scripts`)
+  } else {
+    data.Wallet -= num;
+   data.Bank += num;
+   data.save();
+   message.channel.send("Deposited **" + num + '** coins.')
 }
 });
 }
