@@ -7,6 +7,6 @@ module.exports = {
             console.log('> ' + `${folder} | ` + `${cmd}`)
         })
         console.log(`----------------------------------------\n¡${bot.user.tag} has been successfully connected!`)
-        bot.user.setActivity(`Playing in ${bot.guilds.cache.size}`, {type: "PLAYING"});
+        bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers | ..help`, {type: "PLAYING"});
     }
 }
