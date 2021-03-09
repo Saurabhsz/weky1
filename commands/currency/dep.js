@@ -47,10 +47,11 @@ if(data.space < data.Wallet) return message.channel.send(`You cannot deposit tha
             data.Wallet -= data.Wallet/2
             data.save()
             } else {
-   data.Wallet -= num;
-   data.Bank += num;
-   data.save();
-   message.channel.send("Deposited **" + num + '** coins.')
+              if (num.isNaN) return message.channel.send("Thats not a valid number");
+             data.Wallet -= num;
+             data.Bank += num;
+             data.save();
+             message.channel.send("Deposited **" + num + '** coins.')
         }
 }
 });
