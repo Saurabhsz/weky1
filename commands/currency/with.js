@@ -13,7 +13,6 @@ module.exports = {
   async execute(bot, message, args) {
 
     var num = parseFloat(args[1])
-    if (num.isNaN) return message.reply("Thats not a valid number");
     const Money = require('../../schemas/Money')
 Money.findOne({
   id: message.author.id
@@ -41,11 +40,13 @@ Money.findOne({
               message.reply("Withdrawn **" + data.Bank/2 + '** coins.')
               data.Bank -= data.Bank/2
               data.save()
-              } else {
+              } else if(num){
     data.Wallet += num;
    data.Bank -= num;
    data.save();
    message.reply("Withdrawn **" + num + '** coins.')
+      } else {
+        return message.reply("Thats not a valid number");
       }
 }
 });
