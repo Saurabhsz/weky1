@@ -46,7 +46,10 @@ Money.findOne({
     } else {
      data.Wallet += num;
      data.save()
-   message.channel.send(`<@`+message.author + `> gave ${member.username} **${num}** coins, you have now ${e} and they have ${data.Wallet}`)
+     guild.members.fetch(member.username)
+  .then(console.log)
+  .catch(console.error);
+   message.channel.send(`<@`+message.author + `> gave ${member} **${num}** coins, you have now ${e} and they have ${data.Wallet}`)
     }
   });
   }
