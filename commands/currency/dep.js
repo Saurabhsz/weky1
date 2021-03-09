@@ -12,7 +12,6 @@ module.exports = {
   async execute(bot, message, args) {
     var num = parseInt(args[1])
     if (num.isNaN) return message.channel.send("Thats not a valid number");
-    console.log(args[1])
     const Money = require('../../schemas/Money')
 Money.findOne({
   id: message.author.id
@@ -37,5 +36,6 @@ Money.findOne({
    message.channel.send("Deposited **" + num + '** coins.')
 }
 });
+console.log(args[1])
 }
 }
