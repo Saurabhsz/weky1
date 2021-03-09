@@ -10,7 +10,6 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-
     var num = parseFloat(args[1])
     if (num.isNaN) return message.channel.send("Thats not a valid number");
     const Money = require('../../schemas/Money')
@@ -38,7 +37,7 @@ Money.findOne({
       if(args[1] === 'all') {
 if(data.space < data.Wallet) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
         data.Bank += data.Wallet
-        message.channel.send("Deposited **" + data.Bank + '** coins.')
+        message.channel.send("Deposited **" + data.Wallet + '** coins.')
         data.Wallet -= data.Wallet
         data.save()
         } else if(args[1] === 'half'){
