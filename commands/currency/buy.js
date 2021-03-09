@@ -11,7 +11,7 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
     let buyArray = message.content.split(" ");
-    let buyArgs = buyArray.slice(0);
+    let buyArgs = buyArray.slice(1);
 
     if(buyArgs[0] === 'laptop') {
         var num = parseFloat(args[1])

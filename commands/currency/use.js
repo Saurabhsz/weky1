@@ -15,7 +15,7 @@ module.exports = {
 
 
     let buyArray = message.content.split(" ");
-    let useArgs = buyArray.slice(0);
+    let useArgs = buyArray.slice(1);
 
     if(useArgs[0] === 'script' || useArgs[0] === 'space' ) {
         const muni = Math.floor(Math.random() * 15000) + 1000;
