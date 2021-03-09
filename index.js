@@ -92,7 +92,7 @@ if(!cmd) return;
                       return message.reply('I can\'t execute that command inside the server!');
                   }
   
-                  guild.members.fetch()
+                  bot.guilds.members.fetch()
                   .catch(console.error);
           cmd.execute(bot, message, args);}
             
