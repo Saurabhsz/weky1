@@ -529,7 +529,7 @@ Money.findOne({
                                 newD.save();
                               } else {
                               
-                               data.silvermoon += num
+                               data.fishrare += num
                                data.save()
                                const ee = data.fishrare
                              message.channel.send(`<@` +message.author.id + `> gifted ${member} **${num} Rare Fishes**, you have now ${e} rare fishes and they have ${ee}`)
