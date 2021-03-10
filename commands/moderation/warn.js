@@ -21,7 +21,6 @@ if(!toWarn){
 if(!message.member.hasPermission("MANAGE_MESSAGES")) {
     return;
 }
-if(message.author.id === toWarn.id) return;
 const reason = args.slice(1).join(" ")
 if(!reason)
 return message.channel.send(ErrEmbed)

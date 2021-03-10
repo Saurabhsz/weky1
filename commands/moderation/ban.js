@@ -17,7 +17,6 @@ module.exports = {
 
     let question = message.content.split(" ").slice(2).join(" ");
     const user = message.mentions.users.first();
-    if(user.id === message.author.id){return}
     //if
     if (!user){
         return message.channel.send('Who you want to ban?')
@@ -25,6 +24,7 @@ module.exports = {
     if(!question){
         return message.channel.send(`You didnt approved any reasons for me to ban that user`)
     }
+    if(user.id === message.author.id) return
     let embed = new Discord.MessageEmbed()
     .setDescription(`<:banhammer:815941402469990440> ${user.username}#${user.discriminator} banning for **${question}**?`)
     const newMessage = await message.channel.send(embed)
