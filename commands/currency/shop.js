@@ -181,7 +181,7 @@ if(useArgs[0] === 'sniper'){
 if(useArgs[0] === 'fox'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Fox`)
-  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
+  .setThumbnail(`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/71/fox-face_1f98a.png`)
   .addField(`${message.author.username} Owns: ${data.fox}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`50\`\n
@@ -195,8 +195,8 @@ if(useArgs[0] === 'fox'){
 if(useArgs[0] === 'tiger'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Tiger`)
-  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
-  .addField(`${message.author.username} Owns: ${data.sniper}\n`,
+  .setThumbnail(`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/tiger-face_1f42f.png`)
+  .addField(`${message.author.username} Owns: ${data.tiger}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`200\`\n
              ID: \`tiger\`\n\n
@@ -209,7 +209,7 @@ if(useArgs[0] === 'tiger'){
 if(useArgs[0] === 'eagle'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Eagle`)
-  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
+  .setThumbnail(`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/eagle_1f985.png`)
   .addField(`${message.author.username} Owns: ${data.eagle}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`500\`\n
@@ -223,7 +223,7 @@ if(useArgs[0] === 'eagle'){
 if(useArgs[0] === 'bear'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Bear`)
-  .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
+  .setThumbnail(`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/bear_1f43b.png`)
   .addField(`${message.author.username} Owns: ${data.bear}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`1,200\`\n
