@@ -14,8 +14,10 @@ module.exports = {
     }
     if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send('I dont have permission to ban members.')
     //lets
-    let question = message.content.split(" ").slice(1).join(" ");
+
+    let question = message.content.split(" ").slice(2).join(" ");
     const user = message.mentions.users.first();
+    if(user.id === message.author.id){return}
     //if
     if (!user){
         return message.channel.send('Who you want to ban?')
