@@ -25,7 +25,6 @@ module.exports = {
     if(!question){
         return message.channel.send(`You didnt approved any reasons for me to ban that user`)
     }
-    if(message.mentions.members.first().roles.highest.position > user.roles.highest.position)return message.channel.send("Your highest role is lower than the mentioned user's role");
     let embed = new Discord.MessageEmbed()
     .setDescription(`<:banhammer:815941402469990440> ${user.username}#${user.discriminator} banning for **${question}**?`)
     const newMessage = await message.channel.send(embed)
