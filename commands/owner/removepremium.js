@@ -13,7 +13,7 @@ module.exports = {
         if(message.author.id != 778518819055861761) return message.channel.send("This can only be ran by the bot owner!") //add your id without quotes
         const target = message.mentions.users.first();
         const targetId = target.id
-        const black = require('../schemas/premium')
+        const black = require('../../schemas/premium')
         black.deleteOne({
           id: targetId
         }, (err,data) => {

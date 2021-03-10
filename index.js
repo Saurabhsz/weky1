@@ -46,6 +46,12 @@ for (const file of eventFiles) {
 
 //Event - message
 bot.on("message", async message => {
+    const black = require('./schemas/Ban')
+    black.findOne({
+      id: message.author.id
+    }, (err,data) => {
+      if(err) console.log(err);
+      if(!data){
     if(message.author.bot || !message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).split(/ +/g);
     if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
@@ -98,6 +104,9 @@ if(!cmd) return;
         message.reply(`there was an error in the console.`);
         console.log(err);
     }
+}else{
+    return;
+}
 })
 
 
