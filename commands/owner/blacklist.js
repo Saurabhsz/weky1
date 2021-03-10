@@ -11,7 +11,7 @@ module.exports = {
   permissions: ["BOT_OWNER"],
   async execute(bot, message, args) {
         if(message.author.id != 778518819055861761) return message.channel.send("This can only be ran by the bot owner!") //add your id without quotes
-        const target = message.mentions.users.first();
+        const target = message.mentions.members.first()
         const targetId = target.id
         const black = require('../../schemas/Ban')
         black.findOne({
