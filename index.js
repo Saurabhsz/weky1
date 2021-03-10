@@ -43,7 +43,7 @@ for (const file of eventFiles) {
     	}
     }
 } 
-if(message.author.bot || message.channel.type === "dm") return;
+bot.on("message", async message=>{
     const black = require('./schemas/Ban')
     black.findOne({
       id: message.author.id
@@ -107,7 +107,7 @@ return;
       }
     });
 //Event - message
-
+})
 
 
 
