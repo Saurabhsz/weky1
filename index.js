@@ -75,7 +75,7 @@ bot.on("message", async message=>{
                       
                       const now = Date.now();
                       const timestamps = cooldowns.get(cmd.name);
-                      const a = cmd.cooldowns
+                      const a = cmd.cooldown
                       const b = cmd.cooldowny
                       const cooldownAmount = (cmd.cooldown || 3) * 1000;
                       
@@ -130,7 +130,7 @@ bot.on("message", async message=>{
                     
                     const now = Date.now();
                     const timestamps = cooldowny.get(cmd.name);
-                    const a = cmd.cooldowns
+                    const a = cmd.cooldown
                     const b = cmd.cooldowny
                     const cooldownyAmount = (cmd.cooldowny || 3) * 1000;
                     
