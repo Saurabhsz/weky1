@@ -85,6 +85,10 @@ module.exports = {
             .setColor('RANDOM')
 
         message.channel.send(embed);
-    }}
+    } else {
+        return message.reply(`That command doesn't even exist`)
+    }
+}
+
 }
 }

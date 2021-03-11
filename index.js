@@ -75,6 +75,7 @@ bot.on("message", async message=>{
                       
                       const now = Date.now();
                       const timestamps = cooldowns.get(cmd.name);
+                      const timestamps1 = cooldowny.get(cmd.name);
                       const cooldownAmount = (cmd.cooldown || 3) * 1000;
                       
                       if (timestamps.has(message.author.id)) {
@@ -84,7 +85,7 @@ bot.on("message", async message=>{
                               const timeLeft = (expirationTime - now) / 1000;
                               const embed = new Discord.MessageEmbed()
                               .setAuthor(`Wait god damn`)
-                              .setDescription(`😡 This command have a cooldown, not like your life, wait \`${timeLeft.toFixed(1)}s\`\nThe defauly cooldown is \`${cooldowns}s\`, for premium users is \`${cooldowny}s\``)
+                              .setDescription(`😡 This command have a cooldown, not like your life, wait \`${timeLeft.toFixed(1)}s\`\nThe defauly cooldown is \`${timestamps}s\`, for premium users is \`${timestamps1}s\``)
                               message.channel.send(embed);
                           } 
                       } else {timestamps.set(message.author.id, now);
@@ -128,6 +129,7 @@ bot.on("message", async message=>{
                     
                     const now = Date.now();
                     const timestamps = cooldowny.get(cmd.name);
+                    const timestamps1 = cooldowns.get(cmd.name);
                     const cooldownyAmount = (cmd.cooldowny || 3) * 1000;
                     
                     if (timestamps.has(message.author.id)) {
@@ -137,7 +139,7 @@ bot.on("message", async message=>{
                             const timeLeft = (expirationTime - now) / 1000;
                             const embed = new Discord.MessageEmbed()
                             .setAuthor(`Wait god damn`)
-                            .setDescription(`😡 This command have a cooldown, not like your life, wait \`${timeLeft.toFixed(1)}s\`\nThe defauly cooldown is \`${cooldowns}s\`, for you as premium is \`${cooldowny}s\``)
+                            .setDescription(`😡 This command have a cooldown, not like your life, wait \`${timeLeft.toFixed(1)}s\`\nThe default cooldown is \`${timestamps1}s\`, for you as premium is \`${timestamps}s\``)
                             message.channel.send(embed);
                         } 
                     } else {timestamps.set(message.author.id, now);
