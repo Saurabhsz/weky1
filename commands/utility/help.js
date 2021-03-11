@@ -68,8 +68,12 @@ module.exports = {
     //Reads the moudle.exports.config (This line of code is on commands folder, each command will read automaticly) by the second argument (the command name) and shows the information of it.
     if(helpArgs[0]) {
         let command = helpArgs[0];
-
-        if(bot.commands.name.has(command) || bot.commands.aliases.has(command)) {
+        const commandName = helpArgs[0].toLowerCase();
+          
+        const cmd = bot.commands.get(commandName)
+            //+ aliases: [""],
+            || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+        if(cmd) {
             
             command = bot.commands.get(command);
             var embed = new Discord.MessageEmbed()
