@@ -79,12 +79,12 @@ module.exports = {
             var embed = new Discord.MessageEmbed()
             .setAuthor(`${command.name} Command`)
             .setDescription(`
-            Command name: \`${command.name || "No name"}\`\n
-            Command usage: \`${command.usage || "No Usage"}\`\n
-            Command aliases: \`${command.aliases || "None"}\`\n
-            Command slowmode: \`${command.aliases || "0"}\`\n
-            Command premium slowmode: \`${command.cooldowny || "0"}\`\n
-            Command permissions: \`${command.permissions || "none"}\`
+            Command name: **${command.name || "No name"}**\n
+            Command usage: **${command.usage || "No Usage"}**\n
+            Command aliases: **${command.aliases || "None"}**\n
+            Command slowmode: **${command.aliases || "0"}**\n
+            Command premium slowmode: **${command.cooldowny || "0"}**\n
+            Command permissions: **${command.permissions || "none"}**
             `)
             .setColor('RANDOM')
 
