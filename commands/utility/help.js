@@ -74,7 +74,7 @@ module.exports = {
             //+ aliases: [""],
             || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         if(cmd) {
-           if(!cmd.aliases){ 
+           if(cmd.aliases === ''){ 
                command = bot.commands.get(command);
             var embed = new Discord.MessageEmbed()
             .setAuthor(`${command.name} Command`)
