@@ -82,8 +82,8 @@ module.exports = {
             Command name: **${command.name || "No name"}**\n
             Command usage: **${command.usage || "No Usage"}**\n
             Command aliases: **${command.aliases || "None"}**\n
-            Command slowmode: **${command.aliases || "0"}**\n
-            Command premium slowmode: **${command.cooldowny || "0"}**\n
+            Command cooldown: **${command.cooldowns || "0"}**\n
+            Command premium cooldown: **${command.cooldowny || "0"}**\n
             Command permissions: **${command.permissions || "none"}**
             `)
             .setColor('RANDOM')
