@@ -110,58 +110,7 @@ bot.on("message", async message=>{
                   console.log(err);
               }
           } else {
-      if(message.author.bot || !message.content.startsWith(prefix)) return;
-      const args = message.content.slice(prefix.length).split(/ +/g);
-      if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
-      const commandName = args.shift().toLowerCase();
-  
-      const cmd = bot.commands.get(commandName)
-          //+ aliases: [""],
-          || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-  
-          try{
-  if(!cmd) return;
-              //+ cooldown 1, //seconds(s)
-              if (!cooldowny.has(cmd.name)) {
-                  cooldowny.set(cmd.name, new Discord.Collection());
-              }
-              
-              const now = Date.now();
-              const timestamps = cooldowny.get(cmd.name);
-              const cooldownyAmount = (cmd.cooldowny || 3) * 1000;
-              
-              if (timestamps.has(message.author.id)) {
-                  const expirationTime = timestamps.get(message.author.id) + cooldownyAmount;
-              
-                  if (now < expirationTime) {
-                      const timeLeft = (expirationTime - now) / 1000;
-                      const embed = new Discord.MessageEmbed()
-                      .setAuthor(`Wait god damn`)
-                      .setDescription(`😡 This command have a cooldown, not like your life, wait \`${timeLeft.toFixed(1)}s\`\nThe defauly cooldown is \`${cooldowns}s\`, for you as premium is \`${cooldowny}s\``)
-                      message.channel.send(embed);
-                  } 
-              } else {timestamps.set(message.author.id, now);
-                setTimeout(() => timestamps.delete(message.author.id), cooldownyAmount);
-    
-            //+ args: true/false,
-                     
-                    //+ guildOnly: true/false,
-                    if (cmd.guildOnly && message.channel.type === 'dm') {
-                        return message.reply('I can\'t execute that command inside DMs!');
-                    }
-    
-                    //+ dmOnly: true/false,
-                    if (cmd.dmOnly && message.channel.type === 'text') {
-                        return message.reply('I can\'t execute that command inside the server!');
-                    }
-    
-    
-            cmd.execute(bot, message, args);}
-              
-      }catch(err){
-          message.reply(`there was an error in the console.`);
-          console.log(err);
-      }
+      return message.reply(`You are premium`)
   }
   })
       } else {
