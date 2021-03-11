@@ -33,7 +33,7 @@ module.exports = {
     } 
     if(helpArgs[0] === 'utility') {
         let em = new Discord.MessageEmbed()
-        .addField('🔩 Utility', '`ping`, `invite`, `uptime`, `math`, `poll`, `report`, `serveremoji`, `addemoji`, `stats`')
+        .addField('🔩 Utility', '`ping`, `invite`, `uptime`, `poll`, `report`, `serveremoji`, `addemoji`, `stats`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'image') {
