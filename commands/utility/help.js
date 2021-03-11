@@ -74,14 +74,29 @@ module.exports = {
             //+ aliases: [""],
             || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         if(cmd) {
-            
+           if(!cmd.aliases){ 
+               command = bot.commands.get(command);
+            var embed = new Discord.MessageEmbed()
+            .setAuthor(`${command.name} Command`)
+            .setDescription(`
+            Command name: **${command.name || "No name"}**\n
+            Command usage: **${command.usage || "No Usage"}**\n
+            Command aliases: **NONE**\n
+            Command cooldown: **${command.cooldown || "0"}**\n
+            Command premium cooldown: **${command.cooldowny || "0"}**\n
+            Command permissions: **${command.permissions || "none"}**
+            `)
+            .setColor('RANDOM')
+
+        message.channel.send(embed)
+        ;} else {
             command = bot.commands.get(command);
             var embed = new Discord.MessageEmbed()
             .setAuthor(`${command.name} Command`)
             .setDescription(`
             Command name: **${command.name || "No name"}**\n
             Command usage: **${command.usage || "No Usage"}**\n
-            Command aliases: **${command.aliases || "None"}**\n
+            Command aliases: **${command.aliases}**\n
             Command cooldown: **${command.cooldown || "0"}**\n
             Command premium cooldown: **${command.cooldowny || "0"}**\n
             Command permissions: **${command.permissions || "none"}**
@@ -89,6 +104,7 @@ module.exports = {
             .setColor('RANDOM')
 
         message.channel.send(embed);
+        }
     } else {
         return message.reply(`That command doesn't even exist`)
     }
