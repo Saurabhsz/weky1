@@ -77,7 +77,7 @@ module.exports = {
             
             command = bot.commands.get(command);
             var embed = new Discord.MessageEmbed()
-            .setAuthor(`${command.config.name} Command`)
+            .setAuthor(`${command.name} Command`)
             .setDescription(`
             Command name: \`${command.name || "No name"}\`\n
             Command usage: \`${command.usage || "No Usage"}\`\n
