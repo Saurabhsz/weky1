@@ -1,12 +1,13 @@
 const { Util, MessageEmbed } = require("discord.js");
 const { parse } = require("twemoji-parser");
-module.exports = {
+module.exports.config = {
   name: "addemoji",
   aliases: ["emojiadd"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..addemoji',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["MANAGE_EMOJIS"],
   async execute(bot, message, args) {

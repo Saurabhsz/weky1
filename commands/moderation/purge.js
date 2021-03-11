@@ -1,11 +1,12 @@
 const { MessageEmbed } = require("discord.js")
-module.exports = {
+module.exports.config = {
     name: "purge",
     aliases: ["clear"],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..purge (amount)',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["MANAGE_MESSAGES"],
     async execute(bot, message, args) {

@@ -1,13 +1,14 @@
 const Discord = require('discord.js');
 const { MessageEmbed } = require("discord.js")
 
-module.exports = {
+module.exports.config = {
   name: "share",
   aliases: ["pay", "give"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..share @user amount',
   cooldown: 15, //seconds(s)
+  cooldowny: 5,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

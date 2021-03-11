@@ -3,13 +3,14 @@ const {
     Message,
     MessageEmbed
 } = require('discord.js');
-module.exports = {
+module.exports.config = {
     name: "sudo",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..sudo',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {

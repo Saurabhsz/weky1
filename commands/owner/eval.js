@@ -1,12 +1,13 @@
 const { MessageEmbed } = require("discord.js");
 const beautify = require('beautify');
-module.exports = {
+module.exports.config = {
     name: "eval",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..eval',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["BOT_OWNER"],
     async execute(bot, message, args) {

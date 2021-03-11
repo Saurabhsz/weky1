@@ -1,12 +1,13 @@
 const { MessageEmbed } = require("discord.js")
 
-module.exports = {
+module.exports.config = {
   name: "howsimp",
   aliases: ["simprate", "simp"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..howsimp',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

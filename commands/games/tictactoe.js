@@ -1,13 +1,14 @@
 
 const Discord = require('discord.js')
 const midDuel = new Set()
-module.exports = {
+module.exports.config = {
     name: "tictactoe",
     aliases: ["ttt"],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..tictactoe @user',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {  

@@ -3,13 +3,14 @@ const Discord = require("discord.js");
 
 const { MessageEmbed } = require("discord.js")
 
-module.exports = {
+module.exports.config = {
   name: "sell",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..sell',
   cooldown: 8, //seconds(s)
+  cooldowny: 2,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

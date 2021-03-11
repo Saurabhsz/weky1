@@ -1,12 +1,13 @@
 
 const { MessageEmbed } = require('discord.js');//require the packages
-module.exports = {
+module.exports.config = {
   name: "blacklist",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..blacklist',
   cooldown: 0, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["BOT_OWNER"],
   async execute(bot, message, args) {

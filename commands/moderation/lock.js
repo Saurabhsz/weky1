@@ -1,11 +1,12 @@
 const Discord = module.require("discord.js");
-module.exports = {
+module.exports.config = {
     name: "lockdown",
     aliases: ["lock"],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..lockdown',
     cooldown: 6, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["MANAGE_CHANNELS"],
     async execute(bot, message, args) {

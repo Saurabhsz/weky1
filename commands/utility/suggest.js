@@ -1,13 +1,14 @@
 const { DiscordAPIError } = require("discord.js");
 const Discord = require('discord.js')
 const moment = require('moment');
-module.exports = {
+module.exports.config = {
   name: "suggest",
   aliases: ["suggestion"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..suggest',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

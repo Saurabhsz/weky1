@@ -2,13 +2,14 @@ const Money = require("../../schemas/Money")
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js")
 
-module.exports = {
+module.exports.config = {
   name: "use",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..use',
   cooldown: 4, //seconds(s)
+  cooldowny: 1,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

@@ -1,14 +1,15 @@
 
 const { MessageEmbed } = require('discord.js');//require the packages
-module.exports = {
+module.exports.config = {
   name: "setPremium",
   aliases: ["addPremium"],
   dmOnly: false, //or false
   guildOnly: true, //or false
-  usage: '..daily',
+  usage: '..setPremium',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
-  permissions: ["NONE"],
+  permissions: ["BOT_OWNER"],
   async execute(bot, message, args) {
           if(message.author.id != 778518819055861761) return message.channel.send("This can only be ran by the bot owner!") //add your id without quotes
         const target = message.mentions.users.first();

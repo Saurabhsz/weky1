@@ -1,11 +1,12 @@
 
-module.exports = {
+module.exports.config = {
   name: "fight",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..fight',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {  

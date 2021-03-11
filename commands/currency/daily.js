@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
-module.exports = {
+module.exports.config = {
   name: "daily",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..daily',
   cooldown: 86400, //seconds(s)
+  cooldowny: 86400,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

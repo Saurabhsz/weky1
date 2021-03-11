@@ -1,12 +1,13 @@
 const Discord = require('discord.js')
 const got = require('got')
-module.exports = {
+module.exports.config = {
     name: "brawl",
     aliases: ["bs"],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..brawl',
     cooldown: 3, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {

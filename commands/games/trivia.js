@@ -62,13 +62,14 @@ let questions = [
   },
 ];
 
-module.exports = {
+module.exports.config = {
   name: "trivia",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..trivia',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

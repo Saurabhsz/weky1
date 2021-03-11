@@ -1,13 +1,14 @@
 const Discord = require("discord.js");
 
-module.exports = {
+module.exports.config = {
     name: "trigger",
     aliases: ["triggered"],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..trigger',
     cooldown: 4, //seconds(s)
-    guarded: true, //or false
+    cooldowny: 0,
+    guarded: true,
     permissions: ["NONE"],
     async execute(bot, message, args) {
     const canvacord = require('canvacord')

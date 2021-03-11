@@ -2,13 +2,14 @@ const Discord = require('discord.js');
 const Canvas = require('canvas');
 const { MessageEmbed } = require("discord.js")
 
-module.exports = {
+module.exports.config = {
   name: "8ball",
   aliases: ["8-ball"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..8ball',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

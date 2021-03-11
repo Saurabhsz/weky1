@@ -1,12 +1,13 @@
 const Discord = require('discord.js')
 const got = require('got')
-module.exports = {
+module.exports.config = {
     name: "meme",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..meme',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {    const embed = new Discord.MessageEmbed()

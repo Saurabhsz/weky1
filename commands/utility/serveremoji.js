@@ -1,11 +1,12 @@
 const { MessageEmbed } = require("discord.js");
-module.exports = {
+module.exports.config = {
   name: "serveremojis",
   aliases: ["emojisserver"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..serveremojis',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

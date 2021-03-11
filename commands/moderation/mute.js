@@ -1,11 +1,12 @@
 var ms = require('ms')
-module.exports = {
+module.exports.config = {
     name: "mute",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..mute',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["ONLY_IN_WEKY_SUPPORT_SERVER"],
     async execute(bot, message, args) {

@@ -1,11 +1,12 @@
 const Discord = require('discord.js')
-module.exports = {
+module.exports.config = {
   name: "bet",
   aliases: ["gamble"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..beg',
-  cooldown: 3, //seconds(s)
+  cooldown: 6, //seconds(s)
+  cooldowny: 3,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

@@ -1,13 +1,14 @@
 const Discord = require('discord.js');
 const { MessageEmbed } = require("discord.js")
 
-module.exports = {
+module.exports.config = {
   name: "gift",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..gift amount <item> @user',
   cooldown: 15, //seconds(s)
+  cooldowny: 5,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

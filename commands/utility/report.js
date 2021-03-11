@@ -1,12 +1,13 @@
 const { DiscordAPIError } = require("discord.js");
 
-module.exports = {
+module.exports.config = {
     name: "report",
     aliases: ["bug"],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..report',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {

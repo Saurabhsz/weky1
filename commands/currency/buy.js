@@ -1,12 +1,13 @@
 const Money = require("../../schemas/Money")
 const Discord = require("discord.js");
-module.exports = {
+module.exports.config = {
     name: "buy",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..buy',
     cooldown: 6, //seconds(s)
+    cooldowny: 2,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {

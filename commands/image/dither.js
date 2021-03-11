@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const Canvas = require('canvas');
-module.exports = {
+module.exports.config = {
     name: "dither",
     aliases: ["dither565"],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..daily',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {

@@ -3,13 +3,14 @@
 const Discord = require('discord.js');
 const Canvas = require('canvas');
 
-module.exports = {
+module.exports.config = {
     name: "sock",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..sock',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {

@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const talkedRecently = new Set();
-module.exports = {
+module.exports.config = {
   name: "deposit",
   aliases: ["dep"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..deposit',
   cooldown: 4, //seconds(s)
+  cooldowny: 1,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

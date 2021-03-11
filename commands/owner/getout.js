@@ -1,10 +1,11 @@
-module.exports = {
+module.exports.config = {
     name: "getout",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..getout',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["BOT_OWNER"],
     async execute(bot, message, args) {

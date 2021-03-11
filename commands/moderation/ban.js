@@ -1,11 +1,12 @@
 const Discord = require('discord.js')
-module.exports = {
+module.exports.config = {
   name: "ban",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..ban',
   cooldown: 3, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["BAN_MEMBERS"],
   async execute(bot, message, args) {

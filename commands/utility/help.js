@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
-module.exports = {
+module.exports.config = {
     name: "help",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..help',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
@@ -68,16 +69,18 @@ module.exports = {
     if(helpArgs[0]) {
         let command = helpArgs[0];
 
-        if(bot.commands.has(command)) {
+        if(bot.commands.name.has(command) || bot.commands.aliases.has(command)) {
             
             command = bot.commands.get(command);
             var embed = new Discord.MessageEmbed()
             .setAuthor(`${command.config.name} Command`)
             .setDescription(`
-            - **Command's Description** __${command.config.description || "There is no Description for this command."}__
-            - **Command's Usage:** __${command.config.usage || "No Usage"}__
-            - **Command's Permissions:** __${command.config.accessableby || "Members"}__
-            - **Command's Aliases:** __${command.config.aliases || "No Aliases"}__
+            Command name: \`${command.config.name || "No name"}\`\n
+            Command usage: \`${command.config.usage || "No Usage"}\`\n
+            Command aliases: \`${command.config.aliases || "None"}\`\n
+            Command slowmode: \`${command.config.aliases || "0"}\`\n
+            Command premium slowmode: \`${command.config.cooldowny || "0"}\`\n
+            Command permissions: \`${command.config.permissions || "none"}\`
             `)
             .setColor('RANDOM')
 

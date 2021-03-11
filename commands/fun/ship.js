@@ -1,13 +1,14 @@
 
 const Discord = require('discord.js')
 const { MessageEmbed } = require("discord.js")
-module.exports = {
+module.exports.config = {
   name: "ship",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..ship',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

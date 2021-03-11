@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 
-module.exports = {
+module.exports.config = {
     name: "warn",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..warn @user reason',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["MANAGE_MESSAGES"],
     async execute(bot, message, args) {

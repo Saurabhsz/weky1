@@ -1,12 +1,13 @@
 
 const { MessageEmbed } = require('discord.js');//require the packages
-module.exports = {
+module.exports.config = {
   name: "removePremium",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..removePremium',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["BOT_OWNER"],
   async execute(bot, message, args) {

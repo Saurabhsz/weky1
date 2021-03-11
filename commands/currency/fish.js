@@ -1,11 +1,12 @@
 const Discord = require('discord.js')
-module.exports = {
+module.exports.config = {
     name: "fish",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..fish',
     cooldown: 45, //seconds(s)
+    cooldowny: 35,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {

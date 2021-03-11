@@ -2,13 +2,14 @@ const usedCommand = new Set();
 const Discord = require('discord.js')
 const { MessageEmbed } = require("discord.js")
 
-module.exports = {
+module.exports.config = {
   name: "turn",
   aliases: ["tn"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..turn',
   cooldown: 35, //seconds(s)
+  cooldowny: 25,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

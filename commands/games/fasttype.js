@@ -2,13 +2,14 @@ const Discord = require('discord.js')
 const txtgen = require('txtgen')
 const ms = require('ms')
 const inGame = new Set()
-module.exports = {
+module.exports.config = {
     name: "fasttype",
     aliases: ["typefast"],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..fasttype',
     cooldown: 4, //seconds(s)
+    cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
