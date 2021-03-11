@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 
-module.exports.config = {
+module.exports = {
   name: "howsimp",
   aliases: ["simprate", "simp"],
   dmOnly: false, //or false

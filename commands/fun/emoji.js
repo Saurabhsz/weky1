@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-module.exports.config = {
+module.exports = {
   name: "emoji",
   aliases: ["remoji", `randomemoji`],
   dmOnly: false, //or false

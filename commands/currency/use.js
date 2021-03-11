@@ -2,7 +2,7 @@ const Money = require("../../schemas/Money")
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js")
 
-module.exports.config = {
+module.exports = {
   name: "use",
   aliases: [],
   dmOnly: false, //or false

@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const moment = require('moment');
-module.exports.config = {
+module.exports = {
   name: "serverinfo",
   aliases: ["infoserver"],
   dmOnly: false, //or false

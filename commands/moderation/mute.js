@@ -1,5 +1,5 @@
 var ms = require('ms')
-module.exports.config = {
+module.exports = {
     name: "mute",
     aliases: [],
     dmOnly: false, //or false

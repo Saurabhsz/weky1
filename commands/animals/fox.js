@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-module.exports.config = {
+module.exports = {
   name: "fox",
   aliases: ["foxxy", "foxy"],
   dmOnly: false, //or false

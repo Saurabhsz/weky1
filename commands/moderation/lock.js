@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-module.exports.config = {
+module.exports = {
     name: "lockdown",
     aliases: ["lock"],
     dmOnly: false, //or false

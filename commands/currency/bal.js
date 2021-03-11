@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-module.exports.config = {
+module.exports = {
   name: "bal",
   aliases: ["balance"],
   dmOnly: false, //or false

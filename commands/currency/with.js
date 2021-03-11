@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const { MessageEmbed } = require("discord.js")
 
-module.exports.config = {
+module.exports = {
   name: "with",
   aliases: ["withdraw"],
   dmOnly: false, //or false

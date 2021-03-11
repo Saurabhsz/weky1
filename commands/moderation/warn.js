@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-module.exports.config = {
+module.exports = {
     name: "warn",
     aliases: [],
     dmOnly: false, //or false

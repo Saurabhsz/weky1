@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const Canvas = require('canvas');
-module.exports.config = {
+module.exports = {
     name: "alone",
     aliases: [""],
     dmOnly: false, //or false

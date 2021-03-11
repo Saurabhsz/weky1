@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-module.exports.config = {
+module.exports = {
     name: "inventory",
     aliases: ["inv"],
     dmOnly: false, //or false

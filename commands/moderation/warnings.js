@@ -1,6 +1,6 @@
 const warns = require("../../schemas/wanings");
 const { MessageEmbed } = require("discord.js");
-module.exports.config = {
+module.exports = {
   name: "warnings",
   aliases: ["warns"],
   dmOnly: false, //or false

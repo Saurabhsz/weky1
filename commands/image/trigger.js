@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.config = {
+module.exports = {
     name: "trigger",
     aliases: ["triggered"],
     dmOnly: false, //or false

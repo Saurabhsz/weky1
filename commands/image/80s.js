@@ -1,4 +1,4 @@
-module.exports.config = {
+module.exports = {
     name: "80s",
     aliases: ["80seconds"],
     dmOnly: false, //or false

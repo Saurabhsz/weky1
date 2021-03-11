@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-module.exports.config = {
+module.exports = {
     name: "say",
     aliases: [],
     dmOnly: false, //or false

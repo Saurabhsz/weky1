@@ -1,6 +1,6 @@
 
 const { MessageEmbed } = require('discord.js');//require the packages
-module.exports.config = {
+module.exports = {
   name: "blacklist",
   aliases: [],
   dmOnly: false, //or false

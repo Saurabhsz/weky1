@@ -1,6 +1,6 @@
 const { Util, MessageEmbed } = require("discord.js");
 const { parse } = require("twemoji-parser");
-module.exports.config = {
+module.exports = {
   name: "addemoji",
   aliases: ["emojiadd"],
   dmOnly: false, //or false

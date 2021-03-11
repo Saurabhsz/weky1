@@ -1,5 +1,5 @@
 
-module.exports.config = {
+module.exports = {
   name: "emojify",
   aliases: [],
   dmOnly: false, //or false

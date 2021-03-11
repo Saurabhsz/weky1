@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const got = require('got')
-module.exports.config = {
+module.exports = {
     name: "brawl",
     aliases: ["bs"],
     dmOnly: false, //or false

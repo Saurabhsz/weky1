@@ -3,7 +3,7 @@ const {
     Message,
     MessageEmbed
 } = require('discord.js');
-module.exports.config = {
+module.exports = {
     name: "sudo",
     aliases: [],
     dmOnly: false, //or false

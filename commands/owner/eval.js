@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const beautify = require('beautify');
-module.exports.config = {
+module.exports = {
     name: "eval",
     aliases: [],
     dmOnly: false, //or false

@@ -1,6 +1,6 @@
 const Money = require("../../schemas/Money")
 const Discord = require("discord.js");
-module.exports.config = {
+module.exports = {
     name: "buy",
     aliases: [],
     dmOnly: false, //or false

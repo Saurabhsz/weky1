@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const talkedRecently = new Set();
-module.exports.config = {
+module.exports = {
   name: "deposit",
   aliases: ["dep"],
   dmOnly: false, //or false

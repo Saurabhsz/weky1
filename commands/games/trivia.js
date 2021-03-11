@@ -62,7 +62,7 @@ let questions = [
   },
 ];
 
-module.exports.config = {
+module.exports = {
   name: "trivia",
   aliases: [],
   dmOnly: false, //or false

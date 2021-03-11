@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const Canvas = require('canvas');
 const { MessageEmbed } = require("discord.js")
 
-module.exports.config = {
+module.exports = {
   name: "8ball",
   aliases: ["8-ball"],
   dmOnly: false, //or false

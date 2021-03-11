@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const got = require('got')
-module.exports.config = {
+module.exports = {
     name: "meme",
     aliases: [],
     dmOnly: false, //or false

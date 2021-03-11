@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-module.exports.config = {
+module.exports = {
     name: "help",
     aliases: [],
     dmOnly: false, //or false
@@ -75,12 +75,12 @@ module.exports.config = {
             var embed = new Discord.MessageEmbed()
             .setAuthor(`${command.config.name} Command`)
             .setDescription(`
-            Command name: \`${command.config.name || "No name"}\`\n
-            Command usage: \`${command.config.usage || "No Usage"}\`\n
-            Command aliases: \`${command.config.aliases || "None"}\`\n
-            Command slowmode: \`${command.config.aliases || "0"}\`\n
-            Command premium slowmode: \`${command.config.cooldowny || "0"}\`\n
-            Command permissions: \`${command.config.permissions || "none"}\`
+            Command name: \`${command.name || "No name"}\`\n
+            Command usage: \`${command.usage || "No Usage"}\`\n
+            Command aliases: \`${command.aliases || "None"}\`\n
+            Command slowmode: \`${command.aliases || "0"}\`\n
+            Command premium slowmode: \`${command.cooldowny || "0"}\`\n
+            Command permissions: \`${command.permissions || "none"}\`
             `)
             .setColor('RANDOM')
 

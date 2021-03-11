@@ -2,7 +2,7 @@
 
 const Discord = require('discord.js');
 const Canvas = require('canvas');
-module.exports.config = {
+module.exports = {
     name: "doggo",
     aliases: [],
     dmOnly: false, //or false

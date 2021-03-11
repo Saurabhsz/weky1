@@ -1,6 +1,6 @@
 const { DiscordAPIError } = require("discord.js");
 
-module.exports.config = {
+module.exports = {
     name: "report",
     aliases: ["bug"],
     dmOnly: false, //or false

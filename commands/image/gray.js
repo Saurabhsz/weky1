@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.config = {
+module.exports = {
     name: "gray",
     aliases: ["nocolor"],
     dmOnly: false, //or false

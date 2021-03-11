@@ -1,4 +1,4 @@
-module.exports.config = {
+module.exports = {
     name: "getout",
     aliases: [],
     dmOnly: false, //or false

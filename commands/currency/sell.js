@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 const { MessageEmbed } = require("discord.js")
 
-module.exports.config = {
+module.exports = {
   name: "sell",
   aliases: [],
   dmOnly: false, //or false

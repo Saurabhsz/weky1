@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-module.exports.config = {
+module.exports = {
     name: "purge",
     aliases: ["clear"],
     dmOnly: false, //or false

@@ -1,7 +1,7 @@
 
 const { DiscordAPIError } = require("discord.js");
 
-module.exports.config = {
+module.exports = {
     name: "google",
     aliases: [],
     dmOnly: false, //or false

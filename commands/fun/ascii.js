@@ -1,4 +1,4 @@
-module.exports.config = {
+module.exports = {
     name: "ascii",
     aliases: ["asciiart"],
     dmOnly: false, //or false

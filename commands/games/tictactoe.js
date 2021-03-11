@@ -1,7 +1,7 @@
 
 const Discord = require('discord.js')
 const midDuel = new Set()
-module.exports.config = {
+module.exports = {
     name: "tictactoe",
     aliases: ["ttt"],
     dmOnly: false, //or false

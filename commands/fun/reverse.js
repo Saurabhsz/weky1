@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-module.exports.config = {
+module.exports = {
     name: "reverse",
     aliases: [],
     dmOnly: false, //or false

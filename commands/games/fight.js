@@ -1,5 +1,5 @@
 
-module.exports.config = {
+module.exports = {
   name: "fight",
   aliases: [],
   dmOnly: false, //or false
