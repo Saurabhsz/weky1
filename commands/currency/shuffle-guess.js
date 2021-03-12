@@ -30,7 +30,7 @@ module.exports = {
     var randomWords = require('random-words');
     const word = randomWords()
     const res = await (await (fetch(`https://api.monkedev.com/fun/shuffle?content=${word}&key=scNyfoysHunZd79reAL5VEsQV`))).json();
-    await message.channel.send(`I shuffled a word, it is \`${res.result}\`\nOptions: \`cancel\`,\`reshuffle\``)
+    message.channel.send(`I shuffled a word, it is \`${res.result}\`\nOptions: \`cancel\`,\`reshuffle\``)
       const gameFilter = m => m.author.id
       const gameCollector = message.channel.createMessageCollector(gameFilter);
   
