@@ -13,6 +13,11 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
+    const fetch = require('node-fetch')
+    var randomWords = require('random-words');
+    const word = randomWords()
+    const res = await (await (fetch(`https://api.monkedev.com/fun/shuffle?content=${word}&key=scNyfoysHunZd79reAL5VEsQV`))).json();
+    await message.channel.send(`I shuffled a word, it is \`${res.result}\`\nOptions: \`cancel\`,\`reshuffle\``)
     const Money = require('../../schemas/Money')
     Money.findOne({
       id: message.author.id
@@ -26,11 +31,6 @@ module.exports = {
         let user1 = message.guild.members.cache.get(message.author.id);
         user1.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
       } else {
-    const fetch = require('node-fetch')
-    var randomWords = require('random-words');
-    const word = randomWords()
-    const res = await (await (fetch(`https://api.monkedev.com/fun/shuffle?content=${word}&key=scNyfoysHunZd79reAL5VEsQV`))).json();
-   await message.channel.send(`I shuffled a word, it is \`${res.result}\`\nOptions: \`cancel\`,\`reshuffle\``)
       const gameFilter = m => m.author.id
       const gameCollector = message.channel.createMessageCollector(gameFilter);
   
