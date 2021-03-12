@@ -24,7 +24,7 @@ module.exports = {
     }
     if(helpArgs[0] === 'currency') {
         let em = new Discord.MessageEmbed()
-        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `sell`, `fish`, `turn`, `dice`, `slots`, `hunt`')
+        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `sell`, `fish`, `turn`, `shuffle-guess`, `slots`, `hunt`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'moderation') {
