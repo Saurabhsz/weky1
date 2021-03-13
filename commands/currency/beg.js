@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 module.exports = {
   name: "beg",
-  aliases: [""],
+  aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..beg',
