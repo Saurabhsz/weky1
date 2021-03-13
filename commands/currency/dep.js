@@ -13,7 +13,6 @@ module.exports = {
   async execute(bot, message, args) {
 
     var num = parseFloat(args[0])
-    if (num.isNaN) return message.channel.send("Thats not a valid number");
     const Money = require('../../schemas/Money')
 Money.findOne({
   id: message.author.id
@@ -32,8 +31,7 @@ Money.findOne({
   const thesame = data.Bank == data.space
   if(thesame){
     return message.channel.send(`Looks like your bank is full :) go get some scripts`)
-  }
-    if(num > data.space){
+  }else if(num > data.space){
       return message.channel.send(`Looks like your bank is full :) go get some scripts`)
      } else {
       if(args[0] === 'all') {
@@ -48,11 +46,13 @@ if(data.space < data.Wallet) return message.channel.send(`You cannot deposit tha
             message.channel.send("Deposited **" + data.Wallet/2 + '** coins.')
             data.Wallet -= data.Wallet/2
             data.save()
-            } else {
+            } else if(num.isNaN){
    data.Wallet -= num;
    data.Bank += num;
    data.save();
    message.channel.send("Deposited **" + num + '** coins.')
+        } else {
+          return message.channel.send(`You didnt said \`all\`, \`half\` or ,\`number\``)
         }
 }
 });

@@ -73,24 +73,27 @@ Money.findOne({
       +`**|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${number*3};\nGambled: ${number};\nMupliplier: x3\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
     } else if(a===b && a!=c){
-      data.Wallet += number*okk
+      const E = Math.round(number*okk)
+      data.Wallet += E
       data.save();
       embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${number*okk};\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
+      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E};\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
 
     }else if(b===c && b != a){
-      data.Wallet += number*okk
+      const E = Math.round(number*okk)
+      data.Wallet += E
       data.save();
       embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${number*okk}\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
+      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E}\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
 
     }else if(a === c && a != c){
-      data.Wallet += number*okk
+      const E = Math.round(number*okk)
+      data.Wallet += E
       data.save();
       embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${number*okk};\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
+      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E};\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
 
     }else{
