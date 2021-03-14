@@ -31,28 +31,29 @@ Money.findOne({
   const thesame = data.Bank == data.space
   if(thesame){
     return message.channel.send(`Looks like your bank is full :) go get some scripts`)
-  }else if(num > data.space){
+  }else if(Math.round(num) > Math.round(data.space)){
       return message.channel.send(`Looks like your bank is full :) go get some scripts`)
      } else {
       if(args[0] === 'all') {
-if(data.space < data.Wallet) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-        data.Bank += data.Wallet
-        message.channel.send("Deposited **" + data.Bank + '** coins.')
-        data.Wallet -= data.Wallet
+if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
+        data.Bank += Math.round(data.Wallet)
+        message.channel.send("Deposited **" + Math.round(data.Bank) + '** coins.')
+        data.Wallet -= Math.round(data.Wallet)
         data.save()
         } else if(args[0] === 'half'){
-    if(data.space < data.Wallet/2) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-            data.Bank += data.Wallet/2
-            message.channel.send("Deposited **" + data.Wallet/2 + '** coins.')
-            data.Wallet -= data.Wallet/2
+    if(data.space < Math.round(data.Wallet/2)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
+            data.Bank += Math.round(data.Wallet/2)
+            message.channel.send("Deposited **" + Math.round(data.Wallet/2) + '** coins.')
+            data.Wallet -= Math.round(data.Wallet/2)
             data.save()
             } else if(num.isNaN){
-   data.Wallet -= num;
-   data.Bank += num;
-   data.save();
-   message.channel.send("Deposited **" + num + '** coins.')
+              return message.channel.send(`You didnt said \`all\`, \`half\` or ,\`number\``)
+
         } else {
-          return message.channel.send(`You didnt said \`all\`, \`half\` or ,\`number\``)
+          data.Wallet -= num;
+          data.Bank += num;
+          data.save();
+          message.channel.send("Deposited **" + num + '** coins.')
         }
 }
 });
