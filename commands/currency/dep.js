@@ -50,10 +50,10 @@ if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot
               return message.channel.send(`You didnt said \`all\`, \`half\` or ,\`number\``)
 
         } else {
-          data.Wallet -= num;
-          data.Bank += num;
+          data.Wallet -= Math.round(num)
+          data.Bank += Math.round(num)
           data.save();
-          message.channel.send("Deposited **" + num + '** coins.')
+          message.channel.send("Deposited **" + Math.round(num) + '** coins.')
         }
 }
 });
