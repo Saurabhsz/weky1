@@ -45,10 +45,10 @@ if(data.space < Math.round(data.Wallet)) return message.channel.send(`You bank i
               } else if(num.isNaN){
 return message.channel.send(`You cannot deposit ${args[0]} damn.`)
       } else {
-        data.Wallet += num;
-        data.Bank -= num;
+        data.Wallet += Math.round(num)
+        data.Bank -= Math.round(num)
         data.save();
-        message.reply("Withdrawn **" + num + '** coins.')
+        message.reply("Withdrawn **" + Math.round(num) + '** coins.')
       }
 }
 });
