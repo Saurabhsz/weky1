@@ -9,8 +9,6 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    var resp = '';
-    if(data.bun != 0) resp += `<:bready:820948539823226901>`
 
     const target = message.mentions.users.first() || message.author
     const targetId = target.id
@@ -42,6 +40,9 @@ Money.findOne({
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
 if(0 >= data.bun){
+  var resp = '';
+  if(data.bun != 0) resp += `<:bready:820948539823226901>`
+
   const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
   let rate = 65;
   if (rate < random) {
@@ -71,6 +72,9 @@ const brr = `0.${br}`
   }
 
   }else if(data.bun > 0){
+    var resp = '';
+    if(data.bun != 0) resp += `<:bready:820948539823226901>`
+
     const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
     let rate = 30;
     if (rate < random) {
