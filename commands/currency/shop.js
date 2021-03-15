@@ -37,6 +37,8 @@ Money.findOne({
                         .addField(`**<:ripoff:815192242331451423> Weky's Rip Off** -> \`12,000,000\``,`This item is used to flex on the kids who can\`t get it`)
                         .addField(`**<:plastichand:816373822784667719> Plastic Hand** -> \`15,000\``,`With this magical hand that is made from plastic you can easy fish by using \`fish\``)
                         .addField(`**<:Sniper:818044125580492800> Sniper** -> \`20,000\``,`A item, a new command, with this item u can go to hunting`)
+                        .addField(`**<:life:820648609741668392> Life Shield** -> \`14,000\``,`Some coins for a life sounds good.`)
+                        .addField(`**<:bready:820948539823226901> Bread** -> \`15,000\``,`With this item zou get 50% multiplier for 50s`)
                         .setFooter(`Run ..item (item) for more info.`)
                         message.channel.send(embed)
         
@@ -234,6 +236,42 @@ if(useArgs[0] === 'bear'){
   .setTimestamp()
   message.channel.send(embed)
 
+}
+if(useArgs[0] === 'leg' || useArgs[0] === 'legendary' || useArgs[0] === 'legendaryfish'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Legendary Fish`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/820642337272234014/legendarz_fish.png`)
+  .addField(`${message.author.username} Owns: ${data.fishleg}\n`,
+                   `Cost: \`NON BUYABLE\`\n
+                   Sell: \`15,000\`\n
+                   ID: \`legendary\`\n\n
+                   Description: This item can just be sold, wow`)
+  .setTimestamp() 
+  message.channel.send(embed)
+}
+if(useArgs[0] === 'life' || useArgs[0] === 'shield' || useArgs[0] === 'lifeshield'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Legendary Fish`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/820648557388234772/unknown__2_-removebg-preview_1.png`)
+  .addField(`${message.author.username} Owns: ${data.life}\n`,
+                   `Cost: \`14,000\`\n
+                   Sell: \`1,400\`\n
+                   ID: \`life\`\n\n
+                   Description: When you die, this magical item saves your life, without losing any coins.`)
+  .setTimestamp() 
+  message.channel.send(embed)
+}
+if(useArgs[0] === 'bread' || useArgs[0] === 'bd'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Bread`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/820948443823865907/unknown__3_-removebg-preview_1.png`)
+  .addField(`${message.author.username} Owns: ${data.bread}\n`,
+                   `Cost: \`15,000\`\n
+                   Sell: \`NON SELLABLE\`\n
+                   ID: \`bread\`\n\n
+                   Description: This item can be used, and then you have 50% multiplier for 50s, rare item OWO`)
+  .setTimestamp() 
+  message.channel.send(embed)
 }
 }
 })

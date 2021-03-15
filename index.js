@@ -51,12 +51,20 @@ bot.on("message", async message=>{
     }, (err,data) => {
       if(err) console.log(err);
       if(!data){
-        const Money = require('./schemas/premium')
+        const Money = require('./schemas/Money')
         Money.findOne({
           id: message.author.id
         }, (err,data) => {
-          if(err) console.log(err);
+          if(err) console.log(err)
           if(!data){
+            newD = new Money({
+                id: message.author.id
+              });
+              newD.save();
+              let user = message.guild.members.cache.get(message.author.id);
+              user.user.send(`Hello , **thanks for starting using Weky Bot**!\nWeky started as a simple bot, that has been made just for fun, but it growed incredible much after a night\n,after that, me, Face started to work on it seriouslly with a lot of complexe commands and updates\nAfter some weeks we decieded to make our own support server for Weky, https://discord.gg/T8WJ5Pxv3R\nLet's get to the commands, run \`..help\` to get the list of categories of this bot. At starting, you will get 100 coins to play. Use \`..help currency\` to get more info about our currency commands, some of them\nrequires special items to be used.\nThats all i had to say, have fun using our bot :-)`)
+          } else {
+          if(0 >= data.premium){
               if(message.author.bot || !message.content.startsWith(prefix)) return;
               const args = message.content.slice(prefix.length).split(/ +/g);
               if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
@@ -167,13 +175,16 @@ bot.on("message", async message=>{
                 console.log(err);
             }
   }
+}
   })
       } else {
-return;
+  return;
       }
     });
-//Event - message
-})
+  //Event - message
+  })
+  
+  
 
 
 

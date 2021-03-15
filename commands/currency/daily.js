@@ -24,9 +24,15 @@ Money.findOne({
     let user = message.guild.members.cache.get(message.author.id);
     user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
   } else {
-   data.Wallet += 1400;
+    if(0 >= data.premium){
+   data.Wallet += 3000;
    data.save();
-   message.channel.send("You collected your daily 1400 coins, nice")
+   message.channel.send("You collected your daily 3000 coins, nice")
+    } else {
+      data.Wallet += 6000;
+      data.save();
+      message.channel.send("You collected your daily 6000 coins, because you are a premium user ;)") 
+    }
   }
   })
 }

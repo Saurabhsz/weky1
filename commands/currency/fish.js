@@ -6,15 +6,13 @@ module.exports = {
     guildOnly: true, //or false
     usage: '..fish',
     cooldown: 45, //seconds(s)
-    cooldowny: 35,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-
     const Money = require('../../schemas/Money')
     Money.findOne({
         id: message.author.id
-    }, (err, data) => {
+    }, async (err, data) => {
         if(err) console.log(err);
         if(!data){
         newD = new Money({
@@ -25,45 +23,59 @@ module.exports = {
             if(0 >= data.fishing) {
         return message.channel.send(`U dont have a Plastic Hand what a poor`);
         } else {
-            let random = Math.floor(Math.random() * 3)+1
-            const repp = [
-                `You got <:fish:816367967733547038> ${random} fishes by fishing with your Plastic Hand, very cool.`,
-                `You got <:fish:816367967733547038> ${random} fishes by fishing with your Plastic Hand`,
-                `You got <:fish:816367967733547038> ${random} fishes by fishing with your Plastic Hand, noice`,
-                `You got <:fish:816367967733547038> ${random} fishes by fishing with your Plastic Hand, for literally nothing`,
-                `You got <:fish:816367967733547038> ${random} fishes, but your <:plastichand:816373822784667719> Plastic Hand broke :/`,
-                `You died because a fish ate your eye, and lost all, idk bro you seems sus but atleast you still have the <:plastichand:816373822784667719> Plastic Hand`,
-                `You got <:fish:816367967733547038> ${random} fishes after nothing`,
-                `You didnt caught anything, noob Wekier`,
-                `You didnt caught anything, noob`,
-                `You didnt caught anything, noob`,
-                `You didnt caught anything, noob`,
-                `You didnt caught anything, noob`,
-                `You didnt caught anything, noob`,
-                `A big gg dude, you got <:rare_fish:816368038110035999> 1 Rare Fish`
-    
-            ]
-           var xxxx = Math.floor(Math.random() * repp.length);
-           const answerspos = repp[xxxx]
-           if(xxxx == 0){ data.fish += random;}
-           if(xxxx == 1){ data.fish += random;}
-           if(xxxx == 2){ data.fish += random;}
-           if(xxxx == 3){ data.fish += random;}
-           if(xxxx == 4){ data.fish += random; data.fishing -= 1}
-           if(xxxx == 5){ data.Wallet -= data.Wallet;}
-           if(xxxx == 6){ data.fish += random}
-           if(xxxx == 7){ return}
-           if(xxxx == 8){ return}
-           if(xxxx == 9){ return}
-           if(xxxx == 10){ return}
-           if(xxxx == 11){ return}
-           if(xxxx == 12){ return}
-           if(xxxx == 13){ data.fishrare += 1}
-
-               message.reply(`${answerspos}`)
-               data.save();
+            const random = Math.floor(Math.random() * 101)
+            const rando = Math.floor(Math.random() * 3)+1
+if(random < 1){
+                    const O = [
+                        "yohoho i love barnacles",
+                        "yar yar yar",
+                        "shut up fish im gonna kill you",
+                        "imma just roll here"
+                    ]
+                    const rando = Math.floor(Math.random() * O.length)
+                    const ra = O[rando]
+                message.reply(`The fish is too strong,oh nyo. Type this sentence to make him to lick your hook.YOU HAVE 10S TO TYPE THAT\nType: \`${ra}\``)
+                try {
+                    let msgs = await message.channel.awaitMessages(
+                        (u2) => u2.author.id === message.author.id,
+                        { time: 10000, max: 1, errors: ["time"] }
+                      );
+                    if (msgs.first().content == ra) {
+                        message.reply(`You made that fish to lick that hook, and he died because you pissed on the hook, you got <:legedary_fish:820642438360072192> 1 Legendary Fish`)
+                        data.fishleg += 1
+                    } else {
+                        if(0 >= data.life){
+                            message.channel.send(`The fish has been killed you, idk how but yes, you died`)
+                            data.Wallet -= data.Wallet
+                                           } else {
+                                            message.channel.send(`The fish has been killed you, idk how but yes, you died\nBut your <:life:820648609741668392> Life Shield saved you.`)
+                                            data.life -= 1
+                                           }
+                                        }
+                                    } catch (e) {
+                                        if(0 >= data.life){
+                                            message.channel.send(`The fish has been killed you, idk how but yes, you died`)
+                                            data.Wallet -= data.Wallet
+                                        }else{
+                                                                                message.channel.send(`The fish has been killed you, idk how but yes, you died\nBut your <:life:820648609741668392> Life Shield saved you.`)
+                                                                                data.life -= 1
+                                                           
+                                                            }
+                                                    }
+                                                           
+                                                        } else if(random < 5){
+                                        message.reply(`You caught <:rare_fish:816368038110035999> 1 Rare Fish.`)
+                                        data.fishrare += 1
+                   } else if(random < 80){
+                       message.reply(`You caught <:fish:816367967733547038> ${rando} fishes.`)
+                   data.fish += rando
+                   } else if(random < 101){
+                    message.reply(`Lol you didnt fished anything.`)
+                
+                   }
             }
-           
+        
+           data.save()
         }
     })
 }

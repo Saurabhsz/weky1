@@ -142,6 +142,31 @@ module.exports = {
             }
                 });
     }
+    if(useArgs[0] === 'bread' || useArgs[0] === 'bd' ) {
+        Money.findOne({
+            id: message.author.id
+        },
+         (err, data) => {
+            if(err) console.log(err);
+            if(!data){
+            const newD = new Money({
+                id: message.author.id
+            })
+            newD.save();
+            let user = message.guild.members.cache.get(message.author.id);
+            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+            } else {
+                const thesame = data.bread == 0;
+                    if(thesame) {return message.channel.send(`You dont have any Breads :/`);} else {
+                        data.bread -= 1;
+                        data.bun += 1;
+                        data.save()
+                        message.reply(`You used a <:bready:820948539823226901> Bread to get the bun tentation, now your mind can think faster giving you 50% multiplier 50 seconds.`)
+                        setTimeout(function() {  data.bun -= 1; data.save() }, 50000)
+                    }
+            }
+        })
+    }
     if(!useArgs[0]) {
         
         message.channel.send(`What you want to use? like bruh`);

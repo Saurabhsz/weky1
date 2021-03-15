@@ -5,19 +5,16 @@ module.exports = {
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..beg',
-  cooldown: 6, //seconds(s)
-  cooldowny: 3,
+  cooldown: 3, //seconds(s)
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
     const target = message.mentions.users.first() || message.author
     const targetId = target.id
     const Money = require('../../schemas/Money')
-    const rndom = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
-      const hance = rndom > 0 && rndom < 40; // the conidtion which is the chance
       if(message.content.includes(',')) return message.channel.send(`In your message CAN'T be . and ,`)
 
-    var number = parseFloat(args[0])
+    var number = Math.round(parseFloat(args[0]))
     if(!number) return message.channel.send(`Please specify how much you want to bet!`)
     if (number.isNaN) return message.channel.send("Thats not a valid number");
 Money.findOne({
@@ -41,47 +38,80 @@ Money.findOne({
   if(number > 500000){
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
-
-  if (hance) {
+if(0 >= data.bun){
+  const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
+  let rate = 65;
+  if (rate < random) {
     data.Wallet -= number;    
     let embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
     .addField(`**You lost!**`,
-                     `Lost: ${number}`,
+                `Lost: ${number}`,
                      `**New balance: ${data.Wallet}**`)
     .setColor(`RED`)
     .setFooter(`Loser`)
   message.channel.send(embed)
     data.save(); 
   } else {
-    const arrray = [
-      "0.1",
-      "0.2",
-      "0.3",
-      "0.4",
-      "0.5",
-      "0.9",
-      "1.0",
-      "1.1",
-      "1.2",
-      "1.3",
-      "1.4",
-      "1.5"]
-    const r =  parseInt(Math.floor(Math.random() * arrray.length));
-    const okk = arrray[r]
-    const FU = Math.round(number*okk)
-    data.Wallet += FU
+    const br = Math.floor(Math.random() * (70 - 50 + 1) + 50)
+const brr = `0.${br}`
+    data.Wallet += Math.round(number*brr)
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                       `Gambled: ${number}; Won: ${FU}; Multi: x${okk}`,
-                       `**New balance: ${data.Wallet}**`)
+                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${data.Wallet}`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
     data.save()
+    
   }
+
+  }else if(data.bun > 0){
+    const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
+    let rate = 30;
+    if (rate < random) {
+      data.Wallet -= number;    
+      let embed = new Discord.MessageEmbed()
+      .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+      .addField(`**You lost!**`,
+                  `Lost: ${number}`,
+                       `**New balance: ${data.Wallet}**`)
+      .setColor(`RED`)
+      .setFooter(`Loser`)
+    message.channel.send(embed)
+      data.save(); 
+    } else {
+    const br = Math.floor(Math.random() * (120 - 50 + 1) + 50)
+
+    if(br > 100 || br === 100){
+      const brr = 100
+    data.Wallet += Math.round(number*br/brr)
+      let embed = new Discord.MessageEmbed()
+      .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+      .addField(`**You won!**`,
+                  `**Won**: ${Math.round(number*br/brr)}\n**Multiplier**: ${br}%\n**New balance: ${data.Wallet}**`)
+      .setColor(`GREEN`)
+      .setFooter(`Winner`)
+    message.channel.send(embed)
+    data.save()
+    } else {
+const brr = `0.${br}`
+    data.Wallet += Math.round(number*brr)
+      let embed = new Discord.MessageEmbed()
+      .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+      .addField(`**You won!**`,
+                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${data.Wallet}`)
+      .setColor(`GREEN`)
+      .setFooter(`Winner`)
+    message.channel.send(embed)
+    data.save()
+    }
+  
+    }
   }
+}
 });
+
               }
               }

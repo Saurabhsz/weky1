@@ -276,6 +276,92 @@ module.exports = {
             }
         })
     }
+    if(buyArgs[0] === 'bread' || buyArgs[0] === 'bd') {
+        var num = parseFloat(args[1])
+
+        Money.findOne({
+            id: message.author.id
+        },
+         (err, data) => {
+            if(err) console.log(err);
+            if(!data){
+            const newD = new Money({
+                id: message.author.id
+            })
+            newD.save();
+            let user = message.guild.members.cache.get(message.author.id);
+            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+            } else {
+                if(!num){
+                    if(15000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 bread, make sure that you have the money in wallet`);} else {
+                        data.Wallet -= 15000;
+                        data.bread += 1;
+                        data.save();
+                        const embed = new Discord.MessageEmbed()
+                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                        .setDescription(`You sucessfully bought <:bready:820948539823226901> **1 Bread**`)
+                        message.channel.send(embed)
+                    }
+                } else {
+                    if(15000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} breads, make sure that you have the money in wallet`);} else {
+                        data.Wallet -= 15000*num;
+                        data.bread += num;
+                        data.save();
+                        const embed = new Discord.MessageEmbed()
+                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                        .setDescription(`You sucessfully bought <:bready:820948539823226901> **${num} Breads**`)
+                        message.channel.send(embed)
+                }
+            }
+                
+
+               
+            }
+        })
+    }
+    if(buyArgs[0] === 'life' || buyArgs[0] === 'lifeshild') {
+        var num = parseFloat(args[1])
+
+        Money.findOne({
+            id: message.author.id
+        },
+         (err, data) => {
+            if(err) console.log(err);
+            if(!data){
+            const newD = new Money({
+                id: message.author.id
+            })
+            newD.save();
+            let user = message.guild.members.cache.get(message.author.id);
+            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+            } else {
+                if(!num){
+                    if(14000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 life shields, make sure that you have the money in wallet`);} else {
+                        data.Wallet -= 14000;
+                        data.life += 1;
+                        data.save();
+                        const embed = new Discord.MessageEmbed()
+                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                        .setDescription(`You sucessfully bought <:life:820648609741668392> **1 Life Shield**`)
+                        message.channel.send(embed)
+                    }
+                } else {
+                    if(14000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} life shields, make sure that you have the money in wallet`);} else {
+                        data.Wallet -= 14000*num;
+                        data.life += num;
+                        data.save();
+                        const embed = new Discord.MessageEmbed()
+                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                        .setDescription(`You sucessfully bought <:life:820648609741668392> **${num} Life Shields**`)
+                        message.channel.send(embed)
+                }
+            }
+                
+
+               
+            }
+        })
+    }
     if(!buyArgs[0]) {
         
         message.channel.send(`Ye ye weky here what you want to buy, ..shop for the list :rolling_eyes:`);

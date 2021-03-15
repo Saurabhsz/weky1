@@ -5,8 +5,8 @@ module.exports = {
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..beg',
-  cooldown: 45, //seconds(s)
-  cooldowny: 35,
+  cooldown: 35, //seconds(s)
+  cooldowny: 30,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

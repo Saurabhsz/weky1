@@ -14,7 +14,7 @@ module.exports = {
   async execute(bot, message, args) {
     const member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 if(!member) return message.channel.send(`You didnt said who i need to give :rolling_eyes:`)
-    var num = parseFloat(args[1])
+    var num = Math.round(parseFloat(args[1]))
     if(!num) return message.channel.send(`How many coins you want to give?`)
     if (num.isNaN) return message.channel.send("Thats not a valid number");
     const Money = require('../../schemas/Money')

@@ -108,6 +108,22 @@ const profileSchema = mongoose.Schema({
     silvermoon: {
         type: Number,
         default: 0
-      }
+      },
+      bun: {
+        type: Number,
+        default: 0
+      },
+      premium: {
+        type: Number,
+        default: 0
+      },
+      life: {
+      type: Number,
+      default: 0
+      },
+      bread: {
+        type: Number,
+        default: 0
+        }
 })
 module.exports = mongoose.model('MoneyData', profileSchema)

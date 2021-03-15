@@ -501,7 +501,7 @@ Money.findOne({
                           });
                           }
                         });
-                        }else if(args[1] === 'fishrare' || args[1] === 'ratefish' || args[1] === 'rare') {
+                        }else if(args[1] === 'fishrare' || args[1] === 'rarefish' || args[1] === 'rare') {
                           Money.findOne({
                             id: message.author.id
                           }, (err,data) => {
@@ -538,8 +538,119 @@ Money.findOne({
                             });
                             }
                           });
-                          } else {
-                              return message.channel.send(`There is no item called ${args[1]}...`)
-                          }
+                          }else if(args[1] === 'bread' || args[1] === 'bd') {
+                            Money.findOne({
+                              id: message.author.id
+                            }, (err,data) => {
+                              if(err) console.log(err);
+                              if(!data){
+                                newD = new Money({
+                                  id: message.author.id
+                                });
+                                newD.save();
+                                let user1 = message.guild.members.cache.get(message.author.id);
+                                user1.user.send(`Hello , **thanks for starting using Weky Bot**!\nYou got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+                              } else if(num > data.bread) {
+                                return message.channel.send("You dont have " + num + " Breads");
+                              } else {
+                               data.bread -= num
+                               data.save();
+                               const e = data.bread
+                               Money.findOne({
+                                id: member.id
+                              }, (err,data) => {
+                                if(err) console.log(err);
+                                if(!data){
+                                  newD = new Money({
+                                    id: member.id
+                                  });
+                                  newD.save();
+                                } else {
+                                
+                                 data.bread += num
+                                 data.save()
+                                 const ee = data.bread
+                               message.channel.send(`<@` +message.author.id + `> gifted ${member} **${num} Breads**, you have now ${e} rare fishes and they have ${ee}`)
+                                }
+                              });
+                              }
+                            });
+                          }else if(args[1] === 'life' || args[1] === 'shield' || args[1] === 'lifeshield') {
+                            Money.findOne({
+                              id: message.author.id
+                            }, (err,data) => {
+                              if(err) console.log(err);
+                              if(!data){
+                                newD = new Money({
+                                  id: message.author.id
+                                });
+                                newD.save();
+                                let user1 = message.guild.members.cache.get(message.author.id);
+                                user1.user.send(`Hello , **thanks for starting using Weky Bot**!\nYou got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+                              } else if(num > data.life) {
+                                return message.channel.send("You dont have " + num + " Life Shields");
+                              } else {
+                               data.life -= num
+                               data.save();
+                               const e = data.life
+                               Money.findOne({
+                                id: member.id
+                              }, (err,data) => {
+                                if(err) console.log(err);
+                                if(!data){
+                                  newD = new Money({
+                                    id: member.id
+                                  });
+                                  newD.save();
+                                } else {
+                                
+                                 data.life += num
+                                 data.save()
+                                 const ee = data.life
+                               message.channel.send(`<@` +message.author.id + `> gifted ${member} **${num} Life Shields**, you have now ${e} rare fishes and they have ${ee}`)
+                                }
+                              });
+                              }
+                            });
+                          }else if(args[1] === 'leg' || args[1] === 'legendary' || args[1] === 'legendaryfish') {
+                            Money.findOne({
+                              id: message.author.id
+                            }, (err,data) => {
+                              if(err) console.log(err);
+                              if(!data){
+                                newD = new Money({
+                                  id: message.author.id
+                                });
+                                newD.save();
+                                let user1 = message.guild.members.cache.get(message.author.id);
+                                user1.user.send(`Hello , **thanks for starting using Weky Bot**!\nYou got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+                              } else if(num > data.fishleg) {
+                                return message.channel.send("You dont have " + num + " Legendary Fishes");
+                              } else {
+                               data.fishleg -= num
+                               data.save();
+                               const e = data.fishleg
+                               Money.findOne({
+                                id: member.id
+                              }, (err,data) => {
+                                if(err) console.log(err);
+                                if(!data){
+                                  newD = new Money({
+                                    id: member.id
+                                  });
+                                  newD.save();
+                                } else {
+                                
+                                 data.fishleg += num
+                                 data.save()
+                                 const ee = data.fishleg
+                               message.channel.send(`<@` +message.author.id + `> gifted ${member} **${num} Legendary Fishes**, you have now ${e} rare fishes and they have ${ee}`)
+                                }
+                              });
+                              }
+                            });
+                            } else {
+                                return message.channel.send(`There is no item called ${args[1]}...`)
+                            }
   }
 }
