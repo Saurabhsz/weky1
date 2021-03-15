@@ -6,7 +6,8 @@ module.exports = {
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..hunt',
-    cooldown: 45, //seconds(s)
+    cooldown: 45, //seconds(s),
+    cooldowny: 35,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
