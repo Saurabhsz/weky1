@@ -9,6 +9,9 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
+    var resp = '';
+    if(data.bun != 0) resp += `<:bready:820948539823226901>`
+
     const target = message.mentions.users.first() || message.author
     const targetId = target.id
     const Money = require('../../schemas/Money')
@@ -59,7 +62,7 @@ const brr = `0.${br}`
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${data.Wallet}`)
+                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${data.Wallet}\n**Power-ups**: ${resp}`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
@@ -90,8 +93,8 @@ const brr = `0.${br}`
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                  `**Won**: ${Math.round(number*br/brr)}\n**Multiplier**: ${br}%\n**New balance: ${data.Wallet}**`)
-      .setColor(`GREEN`)
+                  `**Won**: ${Math.round(number*br/brr)}\n**Multiplier**: ${br}%\n**New balance: ${data.Wallet}**\n**Power-ups**: ${resp}`)
+                  .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
     data.save()
@@ -101,7 +104,7 @@ const brr = `0.${br}`
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${data.Wallet}`)
+                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${data.Wallet}\n**Power-ups**: ${resp}`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
