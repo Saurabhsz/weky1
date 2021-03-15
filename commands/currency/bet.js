@@ -77,7 +77,7 @@ const brr = `0.${br}`
     if(data.bun != 0) resp += `<:bready:820948539823226901>`
 
     const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
-    let rate = 30;
+    let rate = 70;
     if (rate < random) {
       data.Wallet -= number;    
       let embed = new Discord.MessageEmbed()
