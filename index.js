@@ -45,6 +45,8 @@ for (const file of eventFiles) {
     }
 } 
 bot.on("message", async message=>{
+  const args = message.content.slice(prefix.length).split(/ +/g);
+
   const commandName = args.shift().toLowerCase();
           
               const cmd = bot.commands.get(commandName)
