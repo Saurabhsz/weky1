@@ -45,6 +45,7 @@ for (const file of eventFiles) {
     }
 } 
 bot.on("message", async message=>{
+  if(message.content !== bot.commands) return;
     const black = require('./schemas/Ban')
     black.findOne({
       id: message.author.id
