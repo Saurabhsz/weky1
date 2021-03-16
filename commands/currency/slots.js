@@ -98,7 +98,6 @@ Money.findOne({
 
     }else{
       data.Wallet -= number
-      data.save();
       embed.setColor(`RED`).addField(`${message.author.username}'s game`,`
       **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details`,`Lost : ${number}`).setFooter(`Loser loser`)
           message.reply(embed)
