@@ -62,7 +62,7 @@ bot.on("message", async message=>{
             })
             newD.save();
             let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\nWeky started as a simple bot, that has been made just for fun, but it growed incredible much after a night\n,after that, me, Face started to work on it seriouslly with a lot of complexe commands and updates\nAfter some weeks we decieded to make our own support server for Weky, https://discord.gg/T8WJ5Pxv3R\nLet's get to the commands, run \`..help\` to get the list of categories of this bot. At starting, you will get 100 coins to play. Use \`..help currency\` to get more info about our currency commands, some of them\nrequires special items to be used.\nThats all i had to say, have fun using our bot :-)`)
+            user.send(`Hello , **thanks for starting using Weky Bot**!\nWeky started as a simple bot, that has been made just for fun, but it growed incredible much after a night\n,after that, me, Face started to work on it seriouslly with a lot of complexe commands and updates\nAfter some weeks we decieded to make our own support server for Weky, https://discord.gg/T8WJ5Pxv3R\nLet's get to the commands, run \`..help\` to get the list of categories of this bot. At starting, you will get 100 coins to play. Use \`..help currency\` to get more info about our currency commands, some of them\nrequires special items to be used.\nThats all i had to say, have fun using our bot :-)`)
           } else {
           if(0 >= data.premium){
               if(message.author.bot || !message.content.startsWith(prefix)) return;
