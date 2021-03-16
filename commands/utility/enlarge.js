@@ -21,7 +21,7 @@ if (!emoji) return message.channel.send('Error! No emoji provided!')
 let custom = Discord.Util.parseEmoji(emoji);
 
 const embed = new Discord.MessageEmbed()
-  .setTitle(`${emoji}'s large verson:`)
+  .setTitle(`${emoji}'s large version:`)
   .setColor('#303030')
   .setFooter(`${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
 if (custom.id) {
