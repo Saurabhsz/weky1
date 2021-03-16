@@ -14,7 +14,7 @@ module.exports = {
     let helpArgs = helpArray.slice(1);
     if(helpArgs[0] === 'games') {
         let em = new Discord.MessageEmbed()
-        .addField('🎮 Games', '`trivia`, `fight`, `fasttype`, `tictactoe`')
+        .addField('🎮 Games', '`trivia`, `fight`, `fasttype`, `tictactoe`, `shuffle-guess`')
         return message.channel.send(em)
     }
     if(helpArgs[0] === 'fun') {
@@ -24,7 +24,7 @@ module.exports = {
     }
     if(helpArgs[0] === 'currency') {
         let em = new Discord.MessageEmbed()
-        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `sell`, `fish`, `turn`, `shuffle-guess`, `slots`, `hunt`')
+        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `sell`, `fish`, `turn`, `slots`, `hunt`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'moderation') {
