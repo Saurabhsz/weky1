@@ -251,7 +251,7 @@ if(useArgs[0] === 'leg' || useArgs[0] === 'legendary' || useArgs[0] === 'legenda
 }
 if(useArgs[0] === 'life' || useArgs[0] === 'shield' || useArgs[0] === 'lifeshield'){
   const embed = new Discord.MessageEmbed()
-  .setTitle(`Legendary Fish`)
+  .setTitle(`Life Shield`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/820648557388234772/unknown__2_-removebg-preview_1.png`)
   .addField(`${message.author.username} Owns: ${data.life}\n`,
                    `Cost: \`14,000\`\n
