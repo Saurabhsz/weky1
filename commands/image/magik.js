@@ -14,15 +14,52 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
         const fetch = require('node-fetch')
-        const e = Math.floor(Math.random() * 11) +1
-        let user = message.mentions.users.first() || message.author;
-        let avatar = user.avatarURL({
-            format: 'png',
-            dynamic: false,
-            size: 1024
-          })
-          const att = await fetch(encodeURI(`https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`));
-const attachment = new Discord.MessageAttachment(att , `magik.jpg`);
-    message.channel.send(attachment);
+        if (message.mentions.users.size) {
+            let member = message.mentions.users.first()
+            if (member) {
+              let URL = (member.avatarURL({ format: 'png', dynamic: false, size: 1024 }))
+              let POWER = args.slice(0).join(" ")
+      if(!POWER){
+          return message.channel.send(`Please specify the intensity of the image magik effect(1-10)`)
+      }
+              fetch(`https://nekobot.xyz/api/imagegen?type=magik&image=${URL}&intensity=${POWER}&raw=1`)
+                .then(res => res.json())
+                .then(data => {
+                    let embed = new Discord.MessageEmbed()
+                    .setColor("RANDOM")
+                    .setImage(data.message)
+                    .setTitle(`Click here for link`)
+                    .setURL(data.message)
+                    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
+                    .setTimestamp()
+                  message.channel.send(embed)
+      
+                })
+      
+            } else {
+              message.channel.send("Sorry none found with that name")
+            }
+      
+      
+          } else {
+            let imageURL = (message.author.avatarURL({ format: 'png', dynamic: false, size: 1024 }))
+            let poweruser = args.slice(0).join(" ")
+            if(!poweruser){
+                return message.channel.send(`Please specify the intensity of the image magik effect(1-10)`)
+            }
+            fetch(`https://nekobot.xyz/api/imagegen?type=magik&image=${imageURL}&intensity=${poweruser}&raw=1`)
+              .then(res => res.json())
+              .then(data => {
+                let embed = new Discord.MessageEmbed()
+                  .setColor("RANDOM")
+                  .setImage(data.message)
+                  .setTitle(`Click here for link`)
+                  .setURL(data.message)
+                  .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL())
+                  .setTimestamp()
+                message.channel.send(embed)
+      
+              })
+          }
 }
 }
