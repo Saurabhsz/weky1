@@ -21,13 +21,7 @@ module.exports = {
         })
         message.channel.send('Loading...')
         const e = Math.floor(Math.random() * 11) +1
-        try {
-          const res = await fetch(encodeURI(`https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`));
-          const vid = (await res.json()).message;
-          const attachment = new Discord.MessageAttachment(vid, "magik.png");
-          message.channel.send(attachment);
-        } catch (err) {
-          console.log(err)
-        }
-}
+          const res = `https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`
+          message.channel.send(res);
+    }
 }
