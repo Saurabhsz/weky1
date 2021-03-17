@@ -15,7 +15,7 @@ module.exports = {
         bot.API = new Idiot.Client(process.env.token);
         if(!args[0]) return message.channel.send(`Well you cant get the achievement for nothing`)
         await message.channel.send(new Discord.MessageAttachment(
-            await client.API.achievement(message.author.displayAvatarURL({ format: "png", size: 32 }), args.slice(0).join(" ")),
+            await bot.API.achievement(message.author.displayAvatarURL({ format: "png", size: 32 }), args.slice(0).join(" ")),
             "achievement.png"));
 }
 }
