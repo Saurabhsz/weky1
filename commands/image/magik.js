@@ -1,28 +1,33 @@
+
+const Discord = require('discord.js');
 const Canvas = require('canvas');
 module.exports = {
-    name: "achievement",
+    name: "magik",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
-    usage: '..achievement',
+    usage: '..magik',
     cooldown: 4, //seconds(s)
     cooldowny: 0,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-        const { createCanvas, loadImage, registerFont } = require('canvas');
-const path = require('path');
-const { shortenText } = require('../../util/Canvas');
-registerFont(path.join(__dirname, '..', '..', 'assets', 'fonts', 'Minecraftia.ttf'), { family: 'Minecraftia' });
-		const base = await loadImage(path.join(__dirname, '..', '..', 'assets', 'images', 'achievement.png'));
-		const canvas = createCanvas(base.width, base.height);
-		const ctx = canvas.getContext('2d');
-		ctx.drawImage(base, 0, 0);
-		ctx.font = '17px Minecraftia';
-		ctx.fillStyle = '#ffff00';
-		ctx.fillText('Achievement Get!', 60, 40);
-		ctx.fillStyle = '#ffffff';
-		ctx.fillText(shortenText(ctx, text, 230), 60, 60);
-		return msg.say({ files: [{ attachment: canvas.toBuffer(), name: 'achievement.png' }] });
+        const fetch = require('node-fetch')
+        let user = message.mentions.users.first() || message.author;
+        let avatar = user.avatarURL({
+          format: 'png',
+          dynamic: false,
+          size: 1024
+        })
+        message.channel.send('Loading...')
+        const e = Math.floor(Math.random() * 11) +1
+        try {
+          const res = await fetch(encodeURI(`https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`));
+          const vid = (await res.json()).message;
+          const attachment = new Discord.MessageAttachment(vid, "magik.png");
+          message.channel.send(attachment);
+        } catch (err) {
+          console.log(err)
+        }
 }
 }
