@@ -20,8 +20,11 @@ module.exports = {
           size: 1024
         })
         message.channel.send('Loading...')
-        const e = Math.floor(Math.random() * 11) +1
+        const e = Math.floor(Math.random() * 10) +1
           const res = `https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`
-          message.channel.send(res);
+          const embed = new Discord.MessageEmbed()
+          .setImage(res)
+          .setColor('#303030')
+          message.channel.send(embed);
     }
 }
