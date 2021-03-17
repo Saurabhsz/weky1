@@ -21,11 +21,10 @@ module.exports = {
           size: 1024
         })
 
-        message.channel.send('Loading...')
         const e = Math.floor(Math.random() * 11) +1
         try {
           const res = await fetch(encodeURI(`https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`));
-          const vid = (await res.json()).message;
+          const vid = (await res.result()).message;
 
           const attachment = new MessageAttachment(vid, "magik.png");
           message.channel.send(attachment);
