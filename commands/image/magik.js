@@ -15,8 +15,8 @@ module.exports = {
     async execute(bot, message, args) {
         const fetch = require('node-fetch')
         const e = Math.floor(Math.random() * 11) +1
-        const member = message.mentions.members.first() || message.member;
-        const avatar = member.avatarURL({
+        let user = message.mentions.users.first() || message.author;
+        let avatar = user.avatarURL({
             format: 'png',
             dynamic: false,
             size: 1024
