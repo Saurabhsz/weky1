@@ -48,6 +48,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought <:laptop:814147340947554314> **${num} Laptop**`)
+                        .setFooter(`Wasted ${4000*num} coins`)
                         message.channel.send(embed)
                 }
             }
@@ -91,6 +92,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought <:spacescript:814122006437167134> **${num} Space Scripts**`)
+                        .setFooter(`Wasted ${100000*num} coins`)
                         message.channel.send(embed)
                 }
             }
@@ -134,6 +136,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought 🌝 **${num} Weky's Moons**`)
+                        .setFooter(`Wasted ${2000000*num} coins`)
                         message.channel.send(embed)
                 }
             }
@@ -179,6 +182,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought <:Sniper:818044125580492800> **${num} Snipers**`)
+                        .setFooter(`Wasted ${20000*num} coins`)
                         message.channel.send(embed)
                 }
             }
@@ -224,6 +228,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought <:ripoff:815192242331451423> **${num} Weky's Rip Off**`)
+                        .setFooter(`Wasted ${12000000*num} coins`)
                         message.channel.send(embed)
                 }
             }
@@ -267,6 +272,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought <:plastichand:816373822784667719> **${num} Platic Hands**`)
+                        .setFooter(`Wasted ${15000*num} coins`)
                         message.channel.send(embed)
                 }
             }
@@ -310,6 +316,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought <:bready:820948539823226901> **${num} Breads**`)
+                        .setFooter(`Wasted ${15000*num} coins`)
                         message.channel.send(embed)
                 }
             }
@@ -353,6 +360,7 @@ module.exports = {
                         const embed = new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You sucessfully bought <:life:820648609741668392> **${num} Life Shields**`)
+                        .setFooter(`Wasted ${14000*num} coins`)
                         message.channel.send(embed)
                 }
             }
