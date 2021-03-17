@@ -1,6 +1,3 @@
-
-
-const Discord = require('discord.js');
 const Canvas = require('canvas');
 module.exports = {
     name: "achievement",
@@ -13,10 +10,11 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
+        const Discord = require('discord.js');
         const Idiot = require("idiotic-api");
         bot.API = new Idiot.Client(process.env.token);
         if(!args[0]) return message.channel.send(`Well you cant get the achievement for nothing`)
-        await message.channel.send(new MessageAttachment(
+        await message.channel.send(new Discord.MessageAttachment(
             await client.API.achievement(message.author.displayAvatarURL({ format: "png", size: 32 }), args.slice(0).join(" ")),
             "achievement.png"));
 }
