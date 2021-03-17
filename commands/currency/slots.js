@@ -18,7 +18,7 @@ module.exports = {
     const Money = require('../../schemas/Money')
       if(message.content.includes(',')) return message.channel.send(`In your message CAN'T be . and ,`)
 
-    var number = Math.round(parseFloat(args[0]))
+    var number = parseFloat(args[0])
     if(!number) return message.channel.send(`Please specify how much you want to bet!`)
     if (number.isNaN) return message.channel.send("Thats not a valid number");
 Money.findOne({
@@ -67,17 +67,17 @@ Money.findOne({
     let c1 = ar[c]
     let embed = new Discord.MessageEmbed()
     if(a === b && b=== c){
-      data.Wallet += number*3
+      data.Wallet += Math.round(number)*3
       data.save();
       embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`\n\nJACKPOT <:trollpog:815973183378161675>\n\n`
-      +`**|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${number*3};\nGambled: ${number};\nMupliplier: x3\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
+      +`**|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${Math.round(number)*3};\nGambled: ${Math.round(number)};\nMupliplier: x3\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
     } else if(a===b && a!=c){
       const E = Math.round(number*okk)
       data.Wallet += E
       data.save();
       embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E};\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
+      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E};\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
 
     }else if(b===c && b != a){
@@ -85,7 +85,7 @@ Money.findOne({
       data.Wallet += E
       data.save();
       embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E}\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
+      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E}\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
 
     }else if(a === c && a != c){
@@ -93,13 +93,13 @@ Money.findOne({
       data.Wallet += E
       data.save();
       embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E};\nGambled: ${number};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
+      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E};\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
       message.reply(embed)
 
     }else{
-      data.Wallet -= number
+      data.Wallet -= Math.round(number)
       embed.setColor(`RED`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details`,`Lost : ${number}`).setFooter(`Loser loser`)
+      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details`,`Lost : ${Math.round(number)}`).setFooter(`Loser loser`)
           message.reply(embed)
          data.save();
       }
