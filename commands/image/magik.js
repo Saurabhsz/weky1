@@ -17,9 +17,8 @@ module.exports = {
         let avatar = user.avatarURL({
           format: 'png',
           dynamic: false,
-          size: 256
+          size: 128
         })
-        if(user.bot) return message.channel.send(`Sorry but this future dont work with bots, it takes a lot of time to load`)
         message.channel.send('Loading...')
         const e = Math.floor(Math.random() * 10) +1
           const res = `https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`
