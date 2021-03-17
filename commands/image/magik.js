@@ -25,7 +25,7 @@ module.exports = {
         try {
           const res = await fetch(encodeURI(`https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`));
 
-          const attachment = new MessageAttachment(res, "magik.png");
+          const attachment = new Discord.MessageAttachmentt(res, "magik.png");
           message.channel.send(attachment);
         } catch (err) {
           console.log(err)
