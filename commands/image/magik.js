@@ -14,21 +14,11 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
         const fetch = require('node-fetch')
-        let user = message.mentions.users.first() || message.author;
-        let avatar = user.avatarURL({
-          format: 'png',
-          dynamic: false,
-          size: 1024
-        })
-
         const e = Math.floor(Math.random() * 11) +1
-        try {
-          const res = await fetch(encodeURI(`https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`));
-
-          const attachment = new Discord.MessageAttachment(res, "magik.png");
-          message.channel.send(attachment);
-        } catch (err) {
-          console.log(err)
-        }
+        const member = message.mentions.members.first() || message.member;
+const avatar = member.user.displayAvatarURL({ format: 'jpg' });
+const att = await fetch(encodeURI(`https://nekobot.xyz/api/imagegen?type=magik&image=${avatar}&intensity=${e}&raw=1`));
+const attachment = new Discord.MessageAttachment(att , `magik.jpg`);
+    message.channel.send(attachment);
 }
 }
