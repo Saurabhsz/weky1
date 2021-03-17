@@ -39,7 +39,8 @@ module.exports = {
     } 
     if(helpArgs[0] === 'image') {
         let em = new Discord.MessageEmbed()
-        .addField('📷 Image', '`drip`, `gray`, `blur`, `facepalm`, `hitler`, `invert`, `gay`, `trigger`, `rip`, `shit`, `trash`, `bird`, `sepia`, `dither`, `80s`, `pet`, `alone`, `muffin`, `toilet`, `turtle` `sock`, `moment`, `doggo`, `awesome`')
+        .addField('📷 Image', '`drip`, `gray`, `blur`, `facepalm`, `hitler`, `invert`, `gay`, `trigger`, `rip`, `shit`, `trash`, `bird`, `sepia`, `dither`, `80s`, `pet`, `alone`, `muffin`, `toilet`, `turtle` `sock`, `moment`, `doggo`, `awesome`, `threats`, `magik`')
+        .setFooter(`All commands can be used in format ..command @user OR ..command`)
         return message.channel.send(em)
     }
     if(helpArgs[0] === 'animals') {
