@@ -13,6 +13,7 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
+        const fetch = require('node-fetch')
         let user = message.mentions.users.first() || message.author;
         let avatar = user.avatarURL({
           format: 'png',
