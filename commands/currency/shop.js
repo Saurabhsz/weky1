@@ -38,7 +38,6 @@ Money.findOne({
                         .addField(`**<:plastichand:816373822784667719> Plastic Hand** -> \`15,000\``,`With this magical hand that is made from plastic you can easy fish by using \`fish\``)
                         .addField(`**<:Sniper:818044125580492800> Sniper** -> \`20,000\``,`A item, a new command, with this item u can go to hunting`)
                         .addField(`**<:life:820648609741668392> Life Shield** -> \`14,000\``,`Some coins for a life sounds good.`)
-                        .addField(`**<:bready:820948539823226901> Bread** -> \`15,000\``,`With this item zou get 50% multiplier for 50s`)
                         .setFooter(`Run ..item (item) for more info.`)
                         message.channel.send(embed)
         
