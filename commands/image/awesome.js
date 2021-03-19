@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const Canvas = require('canvas');
 module.exports = {
     name: "awesome",
-    aliases: [""],
+    aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..awesome',

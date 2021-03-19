@@ -29,7 +29,7 @@ module.exports = {
     } 
     if(helpArgs[0] === 'moderation') {
         let em = new Discord.MessageEmbed()
-        .addField('⚒️ Moderation', '`purge`, `lockdown`, `endlockdown`, `warn`, `warnings`, `ban`')
+        .addField('⚒️ Moderation', '`purge`, `lock`, `unlock`, `warn`, `warnings`, `ban`, `lockdown`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'utility') {

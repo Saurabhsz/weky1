@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 module.exports = {
     name: "unlock",
-    aliases: ["lockdownend", "endlockdown"],
+    aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
     usage: '..unlock',
