@@ -20,7 +20,7 @@ module.exports = {
                       channel.updateOverwrite(message.guild.roles.everyone, {
                           SEND_MESSAGES: false
                       }).then(() => {
-                          channel.setName(channel.name += `🔒`)
+                          channel.setName(channel.name += `🔒`, '')
                       })
                   })
                   return message.channel.send('Successfully locked all channels.');
