@@ -14,6 +14,7 @@ module.exports = {
               const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
               if(!message.member.hasPermission("ADMINISTRATOR") || !message.guild.owner) return message.channel.send("You dont have permission to use this command.");
               if (!message.guild.me.hasPermission(['MANAGE_CHANNELS'])) return message.channel.send('I don\'t have permission to use that command').then(m => m.delete({timeout: 5000}))
+              if(!args[0]) return message.reply(`Please type ..lockdown on or ..lockdown off.`)
               if (args[0] === 'on') {
                   channels.forEach(channel => {
                       channel.updateOverwrite(message.guild.roles.everyone, {
