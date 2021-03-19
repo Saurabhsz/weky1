@@ -1,10 +1,10 @@
 const Discord = module.require("discord.js");
 module.exports = {
-    name: "lockdown",
-    aliases: ["lock"],
+    name: "lock",
+    aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
-    usage: '..lockdown',
+    usage: '..lock',
     cooldown: 6, //seconds(s)
     cooldowny: 0,
     guarded: true, //or false

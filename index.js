@@ -189,11 +189,4 @@ bot.on("message", async message=>{
     });
   //Event - message
   })
-  
-  
-
-
-
-
-  
 bot.login(process.env.token);
