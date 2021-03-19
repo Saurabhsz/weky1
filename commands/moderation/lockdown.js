@@ -13,6 +13,7 @@ module.exports = {
       const { MessageEmbed } = require('discord.js');
       const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
       if(!message.member.hasPermission("ADMINISTRATOR") || !message.guild.owner) return message.channel.send("You dont have permission to use this command.");
+      if(!args[0]) return message.reply(`Please use \`..lockdown on\` or \`..lockdown off\` `)
       if (args[0] === 'on') {
           channels.forEach(channel => {
               channel.updateOverwrite(message.guild.roles.everyone, {
