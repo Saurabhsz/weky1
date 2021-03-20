@@ -14,7 +14,7 @@ module.exports = {
     let helpArgs = helpArray.slice(1);
     if(helpArgs[0] === 'games') {
         let em = new Discord.MessageEmbed()
-        .addField('🎮 Games', '`trivia`, `fight`, `fasttype`, `tictactoe`, `shuffle-guess`')
+        .addField('🎮 Games', '`trivia`, `fight`, `fasttype`, `tictactoe`, `shuffle-guess`, `snake`')
         return message.channel.send(em)
     }
     if(helpArgs[0] === 'fun') {
