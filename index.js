@@ -10,50 +10,7 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
-bot.on("message", async (message) => {
-  const chat = require("./schemas/Guild")
-  const data = await chat.findOne({
-    GuildID: message.guild.id
-});
-if(data.chatbox_channel !== null){
-  if (message.channel.id !== data.chatbox_channel) return;
-  if(message.author.bot) return
-    const fetch = require('node-fetch')
-    fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&scNyfoysHunZd79reAL5VEsQV`)
-    .then(res => res.json())
-    .then(json => message.channel.send(json.response))
-    .catch(console.error);
-} else {return}
-})
-bot.on("message", async message => {
-  const chat = require("./schemas/Guild")
-  const data = await chat.findOne({
-    GuildID: message.guild.id
-});
-setInterval(function(){ if(data.automeme_channel !== null){
-  if (message.channel.id !== data.automeme_channel) return;
-  if(message.author.bot) return
-    const got = require('got')
-    const embed = new Discord.MessageEmbed()
-    got('https://www.reddit.com/r/memes/random/.json').then(response => {
-        let content = JSON.parse(response.body);
-        let permalink = content[0].data.children[0].data.permalink;
-        let memeUrl = `https://reddit.com${permalink}`;
-        let memeImage = content[0].data.children[0].data.url;
-        let memeTitle = content[0].data.children[0].data.title;
-        let memeUpvotes = content[0].data.children[0].data.ups;
-        let memeDownvotes = content[0].data.children[0].data.downs;
-        let memeNumComments = content[0].data.children[0].data.num_comments;
-        embed.setTitle(`${memeTitle}`)
-        embed.setURL(`${memeUrl}`)
-        embed.setImage(memeImage)
-        embed.setColor('#303030')
-        embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | When the bots get restarted, you need to type something here to activate the automeme`)
-        bot.channels.cache.get(data.automeme_channel).send(embed);
-   })
-} else {return} }, 60000);
-  
-})
+
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
@@ -219,5 +176,49 @@ bot.on("message", async message=>{
       }
     });
   //Event - message
+  })
+  bot.on("message", async (message) => {
+    const chat = require("./schemas/Guild")
+    const data = await chat.findOne({
+      GuildID: message.guild.id
+  });
+  if(data.chatbox_channel !== null){
+    if (message.channel.id !== data.chatbox_channel) return;
+    if(message.author.bot) return
+      const fetch = require('node-fetch')
+      fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&scNyfoysHunZd79reAL5VEsQV`)
+      .then(res => res.json())
+      .then(json => message.channel.send(json.response))
+      .catch(console.error);
+  } else {return}
+  })
+  bot.on("message", async message => {
+    const chat = require("./schemas/Guild")
+    const data = await chat.findOne({
+      GuildID: message.guild.id
+  });
+  setInterval(function(){ if(data.automeme_channel !== null){
+    if (message.channel.id !== data.automeme_channel) return;
+    if(message.author.bot) return
+      const got = require('got')
+      const embed = new Discord.MessageEmbed()
+      got('https://www.reddit.com/r/memes/random/.json').then(response => {
+          let content = JSON.parse(response.body);
+          let permalink = content[0].data.children[0].data.permalink;
+          let memeUrl = `https://reddit.com${permalink}`;
+          let memeImage = content[0].data.children[0].data.url;
+          let memeTitle = content[0].data.children[0].data.title;
+          let memeUpvotes = content[0].data.children[0].data.ups;
+          let memeDownvotes = content[0].data.children[0].data.downs;
+          let memeNumComments = content[0].data.children[0].data.num_comments;
+          embed.setTitle(`${memeTitle}`)
+          embed.setURL(`${memeUrl}`)
+          embed.setImage(memeImage)
+          embed.setColor('#303030')
+          embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | When the bots get restarted, you need to type something here to activate the automeme`)
+          bot.channels.cache.get(data.automeme_channel).send(embed);
+     })
+  } else {return} }, 60000);
+    
   })
 bot.login(process.env.token);
