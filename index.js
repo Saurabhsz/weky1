@@ -44,9 +44,39 @@ if(!data){
     chatbox_channel: null
   });
   newD.save();
-  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
+  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the current one it ..`)
 } else {
-
+  if(data.chatbox_channel !== null){
+    if (message.channel.id !== data.chatbox_channel) return;
+    if(message.author.bot) return
+      const fetch = require('node-fetch')
+      fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&scNyfoysHunZd79reAL5VEsQV`)
+      .then(res => res.json())
+      .then(json => message.channel.send(json.response))
+      .catch(console.error);
+  } else {return}
+  setInterval(function(){ if(data.automeme_channel !== null){
+    if (message.channel.id !== data.automeme_channel) return;
+    if(message.author.bot) return
+      const got = require('got')
+      const embed = new Discord.MessageEmbed()
+      got('https://www.reddit.com/r/memes/random/.json').then(response => {
+          let content = JSON.parse(response.body);
+          let permalink = content[0].data.children[0].data.permalink;
+          let memeUrl = `https://reddit.com${permalink}`;
+          let memeImage = content[0].data.children[0].data.url;
+          let memeTitle = content[0].data.children[0].data.title;
+          let memeUpvotes = content[0].data.children[0].data.ups;
+          let memeDownvotes = content[0].data.children[0].data.downs;
+          let memeNumComments = content[0].data.children[0].data.num_comments;
+          embed.setTitle(`${memeTitle}`)
+          embed.setURL(`${memeUrl}`)
+          embed.setImage(memeImage)
+          embed.setColor('#303030')
+          embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | When the bots get restarted, you need to type something here to activate the automeme`)
+          bot.channels.cache.get(data.automeme_channel).send(embed);
+     })
+  } else {return} }, 60000)
 const prefix = data.prefix
   const args = message.content.slice(prefix.length).split(/ +/g);
 
@@ -192,55 +222,5 @@ const prefix = data.prefix
     });
   //Event - message
   }
-  })
-
-
-  bot.on("message", async (message) => {
-  const prefixModel = require("./schemas/Guild")
-  const data = await prefixModel.findOne({
-    GuildID: message.guild.id
-});
-if(data){
-  if(data.chatbox_channel !== null){
-    if (message.channel.id !== data.chatbox_channel) return;
-    if(message.author.bot) return
-      const fetch = require('node-fetch')
-      fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&scNyfoysHunZd79reAL5VEsQV`)
-      .then(res => res.json())
-      .then(json => message.channel.send(json.response))
-      .catch(console.error);
-  } else {return}
-  setInterval(function(){ if(data.automeme_channel !== null){
-    if (message.channel.id !== data.automeme_channel) return;
-    if(message.author.bot) return
-      const got = require('got')
-      const embed = new Discord.MessageEmbed()
-      got('https://www.reddit.com/r/memes/random/.json').then(response => {
-          let content = JSON.parse(response.body);
-          let permalink = content[0].data.children[0].data.permalink;
-          let memeUrl = `https://reddit.com${permalink}`;
-          let memeImage = content[0].data.children[0].data.url;
-          let memeTitle = content[0].data.children[0].data.title;
-          let memeUpvotes = content[0].data.children[0].data.ups;
-          let memeDownvotes = content[0].data.children[0].data.downs;
-          let memeNumComments = content[0].data.children[0].data.num_comments;
-          embed.setTitle(`${memeTitle}`)
-          embed.setURL(`${memeUrl}`)
-          embed.setImage(memeImage)
-          embed.setColor('#303030')
-          embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | When the bots get restarted, you need to type something here to activate the automeme`)
-          bot.channels.cache.get(data.automeme_channel).send(embed);
-     })
-  } else {return} }, 60000)
-} else {
-  newD = new prefixModel({
-    GuildID: message.guild.id,
-    prefix: "..",
-    logs_channel: null,
-    chatbox_channel: null
-  });
-  newD.save();
-  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
-}
   })
 bot.login(process.env.token);
