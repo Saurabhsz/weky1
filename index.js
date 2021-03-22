@@ -24,6 +24,8 @@ if(!data){
   });
   newD.save();
   message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
+} else {
+  return;
 }
 })
 const cooldowns = new Discord.Collection();
