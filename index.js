@@ -10,24 +10,6 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
-bot.on("message", async message => {
-  const prefixModel = require("./schemas/Guild")
-  const data = await prefixModel.findOne({
-    GuildID: message.guild.id
-});
-if(!data){
-  newD = new prefixModel({
-    GuildID: message.guild.id,
-    prefix: "..",
-    logs_channel: null,
-    chatbox_channel: null
-  });
-  newD.save();
-  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
-} else {
-  return;
-}
-})
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
@@ -54,6 +36,16 @@ bot.on("message", async message=>{
   const data = await prefixModel.findOne({
     GuildID: message.guild.id
 });
+if(!data){
+  newD = new prefixModel({
+    GuildID: message.guild.id,
+    prefix: "..",
+    logs_channel: null,
+    chatbox_channel: null
+  });
+  newD.save();
+  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
+} else {
 
 const prefix = data.prefix
   const args = message.content.slice(prefix.length).split(/ +/g);
@@ -199,15 +191,25 @@ const prefix = data.prefix
       }
     });
   //Event - message
-
+  }
   })
 
 
   bot.on("message", async (message) => {
-    const chat = require("./schemas/Guild")
-    const data = await chat.findOne({
+    const prefixModel = require("./schemas/Guild")
+    const data = await prefixModel.findOne({
       GuildID: message.guild.id
   });
+  if(!data){
+    newD = new prefixModel({
+      GuildID: message.guild.id,
+      prefix: "..",
+      logs_channel: null,
+      chatbox_channel: null
+    });
+    newD.save();
+    message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
+  } else {
   if(data.chatbox_channel !== null){
     if (message.channel.id !== data.chatbox_channel) return;
     if(message.author.bot) return
@@ -217,6 +219,7 @@ const prefix = data.prefix
       .then(json => message.channel.send(json.response))
       .catch(console.error);
   } else {return}
+}
   })
   bot.on("message", async message => {
     const chat = require("./schemas/Guild")
