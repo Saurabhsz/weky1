@@ -116,9 +116,9 @@ module.exports = {
         var embed = new Discord.MessageEmbed()
         .setTitle('Weky\'s Config Panel')
         .setURL('https://www.youtube.com/channel/UCZ_cuJGBis0vi6U3bWmvDIg')
-        .addField("Chat Box", "`..config chatbox`\n", true)
-        .addField("Prefix", "`..config prefix`\n", true)
-        .addField("Auto Meme Channel", "`..config automemechannel`\n", true)
+        .addField("🗳️ Chat Box", "`..config chatbox`\n", true)
+        .addField("🌝 Prefix", "`..config prefix`\n", true)
+        .addField("🧐 Auto Meme Channel", "`..config automemechannel`\n", true)
         .setTimestamp()
         
         message.channel.send(embed);
