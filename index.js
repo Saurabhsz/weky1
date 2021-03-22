@@ -10,7 +10,22 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
-
+bot.on("message", async message => {
+  const prefixModel = require("./schemas/Guild")
+  const data = await prefixModel.findOne({
+    GuildID: message.guild.id
+});
+if(!data){
+  newD = new prefixModel({
+    GuildID: message.guild.id,
+    prefix: "..",
+    logs_channel: null,
+    chatbox_channel: null
+  });
+  newD.save();
+  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
+}
+})
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
