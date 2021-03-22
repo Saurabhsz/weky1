@@ -196,10 +196,11 @@ const prefix = data.prefix
 
 
   bot.on("message", async (message) => {
-    const prefixModel = require("./schemas/Guild")
-    const data = await prefixModel.findOne({
-      GuildID: message.guild.id
-  });
+  const prefixModel = require("./schemas/Guild")
+  const data = await prefixModel.findOne({
+    GuildID: message.guild.id
+});
+if(data){
   if(data.chatbox_channel !== null){
     if (message.channel.id !== data.chatbox_channel) return;
     if(message.author.bot) return
@@ -209,12 +210,6 @@ const prefix = data.prefix
       .then(json => message.channel.send(json.response))
       .catch(console.error);
   } else {return}
-  })
-  bot.on("message", async message => {
-    const chat = require("./schemas/Guild")
-    const data = await chat.findOne({
-      GuildID: message.guild.id
-  });
   setInterval(function(){ if(data.automeme_channel !== null){
     if (message.channel.id !== data.automeme_channel) return;
     if(message.author.bot) return
@@ -236,7 +231,16 @@ const prefix = data.prefix
           embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | When the bots get restarted, you need to type something here to activate the automeme`)
           bot.channels.cache.get(data.automeme_channel).send(embed);
      })
-  } else {return} }, 60000);
-    
+  } else {return} }, 60000)
+} else {
+  newD = new prefixModel({
+    GuildID: message.guild.id,
+    prefix: "..",
+    logs_channel: null,
+    chatbox_channel: null
+  });
+  newD.save();
+  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
+}
   })
 bot.login(process.env.token);
