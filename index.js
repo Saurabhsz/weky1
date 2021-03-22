@@ -5,6 +5,7 @@ const { loadCommands } = require('./util/loadCommands');
 const prefix = botsettings.prefix
 const bot = new Discord.Client({disableMentions: "everyone"});
 mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.set('useFindAndModify', false)
 require(`./reply`)
 const fs = require("fs");
 bot.commands = new Discord.Collection();
