@@ -33,6 +33,21 @@ for (const file of eventFiles) {
     }
 } 
 bot.on("message", async message=>{
+  const prefixModel = require("./schemas/Guild")
+  const data = await prefixModel.findOne({
+    GuildID: message.guild.id
+});
+if(!data){
+  newD = new prefixModel({
+    GuildID: message.guild.id,
+    prefix: "..",
+    logs_channel: null,
+    chatbox_channel: null
+  });
+  newD.save();
+  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the currect one it ..`)
+} else {
+const prefix = data.prefix
   const args = message.content.slice(prefix.length).split(/ +/g);
 
   const commandName = args.shift().toLowerCase();
@@ -176,7 +191,10 @@ bot.on("message", async message=>{
       }
     });
   //Event - message
+}
   })
+
+
   bot.on("message", async (message) => {
     const chat = require("./schemas/Guild")
     const data = await chat.findOne({
