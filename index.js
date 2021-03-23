@@ -17,10 +17,10 @@ const commandFolders = fs.readdirSync('./commands');
 
 
 const express = require('express')
-const Topgg = require(`@top-gg/sdk`)
+const { Webhook } = require(`@top-gg/sdk`)
 
 const app = express()
-const wh = new Topgg('fuck')
+const wh = new Webhook('fuck')
 
 app.post('/dblwebhook', wh.middleware(), (req, res) => {
   // req.vote is your vote object e.g
@@ -28,6 +28,7 @@ app.post('/dblwebhook', wh.middleware(), (req, res) => {
 })
 
 app.listen(80)
+const Topgg = require("@top-gg/sdk")
 const api = new Topgg.Api('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwOTQ5NjE4NjkwNTE2NTgzNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjE2Mzk2MzU4fQ.nvMPl_16_Lo9jiwKLfohjVNPOJGNL3rLAav_hwaYtb0')
 setInterval(() => {
   api.postStats({
