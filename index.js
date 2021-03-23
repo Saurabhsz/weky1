@@ -15,8 +15,7 @@ const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
 const fetch = require("node-fetch")
-const wh = 'topggpassword112'
-fetch('https://top.gg/api/bots/809496186905165834/votes', { method: "GET", headers: { "Content-Type": "application/json", "Authorization": wh } })
+fetch('https://top.gg/api/bots/809496186905165834/votes', { method: "GET", headers: { "Content-Type": "application/json", "Authorization": 'topggpassword112' } })
     .then(res => res.json())
     .then(json => console.log(json));
 for (const folder of commandFolders) {
