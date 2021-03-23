@@ -14,10 +14,19 @@ bot.snipes = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
-const fetch = require("node-fetch")
-fetch('https://top.gg/api/bots/809496186905165834/votes', { method: "GET", headers: { "Content-Type": "application/json", "Authorization": 'topggpassword112' } })
-    .then(res => res.json())
-    .then(json => console.log(json));
+const express = require('express')
+const Topgg = require('@top-gg/sdk')
+
+const app = express() // Your express app
+
+const webhook = new Topgg.Webhook('topggpassword112') // add your top.gg webhook authorization (not bot token)
+app.post('/web', webhook.middleware(), (req, res) => {
+  // req.vote is your vote object e.g
+  console.log(req.vote.user) // 221221226561929217
+  bot.channels.cache.get("812602214954565672").send(`<@${req.vote.user}> has voted for News Agent on top.gg!`)
+});
+
+app.listen(5000)
 for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles) {
