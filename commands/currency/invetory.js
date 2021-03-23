@@ -44,7 +44,7 @@ if(data.eagle != 0) resp += `**:eagle: Eagles - ** ${data.eagle}\n`
 if(data.bear != 0) resp += `**:bear: Bears - ** ${data.bear}\n`
 const { MessageEmbed } = require("discord.js");
         const Embed = new MessageEmbed()
-        .setTitle(`${message.author.username}\' Inventory`)
+        .setTitle(`${member.username}\' Inventory`)
         .setDescription(resp)
         message.channel.send(Embed)
 }
