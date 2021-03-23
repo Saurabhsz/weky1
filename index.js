@@ -26,7 +26,7 @@ app.post('/', wh.middleware(), (req, res) => {
   console.log(req.vote.user)
 })
 
-app.listen(80)
+app.listen(5000)
 const Topgg = require("@top-gg/sdk")
 const api = new Topgg.Api('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwOTQ5NjE4NjkwNTE2NTgzNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjE2Mzk2MzU4fQ.nvMPl_16_Lo9jiwKLfohjVNPOJGNL3rLAav_hwaYtb0')
 setInterval(() => {
