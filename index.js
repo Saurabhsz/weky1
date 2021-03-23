@@ -14,28 +14,11 @@ bot.snipes = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
-
-
-const express = require('express')
-const { Webhook } = require(`@top-gg/sdk`)
-
-const app = express()
-const wh = new Webhook('topggpassword112')
-
-app.post('/', wh.middleware(), (req, res) => {
-  console.log(req.vote.user)
-})
-
-app.listen(5000)
-const Topgg = require("@top-gg/sdk")
-const api = new Topgg.Api('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwOTQ5NjE4NjkwNTE2NTgzNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjE2Mzk2MzU4fQ.nvMPl_16_Lo9jiwKLfohjVNPOJGNL3rLAav_hwaYtb0')
-setInterval(() => {
-  api.postStats({
-    serverCount: bot.guilds.cache.size
-  })
-}, 1800000) // post every 30 minutes
-
-
+const fetch = require("node-fetch")
+const wh = 'topggpassword112'
+fetch('https://top.gg/api/bots/809496186905165834/votes', { method: "GET", headers: { "Content-Type": "application/json", "Authorization": wh } })
+    .then(res => res.json())
+    .then(json => console.log(json));
 for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles) {
