@@ -16,14 +16,18 @@ const cooldowny = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
 
 
-const Topgg = require('@top-gg/sdk')
 const express = require('express')
-const app = express() // Your express app
-const webhook = new Topgg.Webhook('topggauth123')
-app.post('/dblwebhook', webhook.middleware(), (req, res) => {
-  console.log(req.vote.user)
+const Topgg = require(`@top-gg/sdk`)
+
+const app = express()
+const wh = new Topgg('fuck')
+
+app.post('/dblwebhook', wh.middleware(), (req, res) => {
+  // req.vote is your vote object e.g
+  console.log(req.vote.user) // => 321714991050784770
 })
-app.listen(3000)
+
+app.listen(80)
 const api = new Topgg.Api('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwOTQ5NjE4NjkwNTE2NTgzNCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjE2Mzk2MzU4fQ.nvMPl_16_Lo9jiwKLfohjVNPOJGNL3rLAav_hwaYtb0')
 setInterval(() => {
   api.postStats({
