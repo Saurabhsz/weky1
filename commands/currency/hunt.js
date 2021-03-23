@@ -33,7 +33,7 @@ module.exports = {
                 data.Wallet -= data.Wallet
                 data.save()
                                } else {
-                                message.reply(`You saw a bear coming, but you was lazy to shot on it so you shooted yourself\nBut your <:life:820648609741668392> Life Shild saved you.`)
+                                message.reply(`You saw a bear coming, but you was lazy to shot on it so you shooted yourself\nBut your <:life:820648609741668392> Life Shield saved you.`)
                                 data.life -= 1
                                }
            }else if(random < 20){
@@ -47,7 +47,7 @@ data.save()
                 data.banknote += 1
                 data.save()
                } else if(n == 2){
-                message.reply(`You didnt caught anything but atleast you found a <:life:820648609741668392> 1 Life Shild`)
+                message.reply(`You didnt caught anything but atleast you found a <:life:820648609741668392> 1 Life Shield`)
 data.life += 1
 data.save()
                } else if(n == 3){
