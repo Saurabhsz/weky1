@@ -13,13 +13,13 @@ module.exports = {
         const member = message.mentions.users.first() || message.author;
     const Money = require("../../schemas/Money")
 Money.findOne({
-    id: member
+    id: member.id
 },
  (err, data) => {
     if(err) console.log(err);
     if(!data){
     const newD = new Money({
-        id: member
+        id: member.id
     })
     newD.save();
 } else {
