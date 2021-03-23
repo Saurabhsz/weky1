@@ -26,7 +26,7 @@ module.exports = {
         } else {
             const random = Math.floor(Math.random() * 101)
             const rando = Math.floor(Math.random() * 3)+1
-if(random < 1){
+if(random < 7){
                     const O = [
                         "yohoho i love barnacles",
                         "yar yar yar",
