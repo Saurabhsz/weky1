@@ -9,6 +9,7 @@
   "author": "ImFace",
   "license": "ISC",
   "dependencies": {
+    "@top-gg/sdk": "^3.0.9",
     "alexa-bot-api": "^0.2.1",
     "beautify": "0.0.8",
     "canvacord": "^5.0.8",
@@ -17,6 +18,7 @@
     "discord-image-generation": "^1.4.7",
     "discord-xp": "^1.1.7",
     "discord.js": "^12.5.1",
+    "express": "^4.17.1",
     "figlet": "^1.5.0",
     "fs": "0.0.1-security",
     "got": "^11.8.1",
