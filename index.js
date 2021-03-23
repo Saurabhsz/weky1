@@ -20,9 +20,9 @@ const express = require('express')
 const { Webhook } = require(`@top-gg/sdk`)
 
 const app = express()
-const wh = new Webhook('fuck')
+const wh = new Webhook('topggpassword112')
 
-app.post('/dblwebhook', wh.middleware(), (req, res) => {
+app.post('/', wh.middleware(), (req, res) => {
   console.log(req.vote.user)
 })
 
