@@ -15,5 +15,5 @@ const Discord = require("discord.js")
 .setTitle("Support Weky Message")
 .addField("Support Me!", "click [here](https://pnrtscr.com/ck08e6)" )
 .setColor("303030")
-message.send(embed).then(mesasge.channel.send(args.slice(1).join(" ")))
+message.channel.send(embed).then(mesasge.channel.send(args.slice(1).join(" ")))
     }}
