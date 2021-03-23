@@ -10,15 +10,16 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
+        const member = message.mentions.users.first() || message.author;
     const Money = require("../../schemas/Money")
 Money.findOne({
-    id: message.author.id
+    id: member
 },
  (err, data) => {
     if(err) console.log(err);
     if(!data){
     const newD = new Money({
-        id: message.author.id
+        id: member
     })
     newD.save();
 } else {
