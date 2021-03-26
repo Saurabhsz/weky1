@@ -9,7 +9,8 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-        const itemToBuy = args[1].toLowerCase()
+        if(!args[0]) return message.reply(`No item specificated :/`)
+        const itemToBuy = args[0].toLowerCase()
         const validItem = !!items.find(
     (val) => val.aliases.includes(itemToBuy)
 );
@@ -21,9 +22,9 @@ const se = items.find((val) => val.aliases.includes(itemToBuy)).sellable
 if(sell == false || se == false){
     return message.channel.send(`This item is not sellable.`)
 } else{
-            var num = parseFloat(args[0])
+            var num = parseFloat(args[1])
             if(!num) {
-                if(bot.item(message.author.id, validName) < 0) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
+                if(bot.item(message.author.id, validName) == 0) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
                     bot.removeItem(message.author.id, validName, 1)
                     bot.add(message.author.id, sell)
                     const embed = new Discord.MessageEmbed()
