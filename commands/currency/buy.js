@@ -12,6 +12,7 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
+        if(!args[0]) return message.reply(`Well buy smth bruh`)
         const itemToBuy = args[0].toLowerCase()
     var num = parseFloat(args[1])
 if(!args[0]) return message.channel.send("Please specify the item you want to buy!")
