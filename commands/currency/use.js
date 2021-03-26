@@ -17,10 +17,10 @@ module.exports = {
         const muni = Math.floor(Math.random() * 15000) + 1000;
         var num = parseFloat(args[1])
                 if(!num){
-                    if(bot.item(message.author.id, SpaceScript) < 0){
+                    if(bot.item(message.author.id, "SpaceScript") == 0){
                        return message.channel.send(`You dont have that item, sorry buddy.`)
                     } else {
-                        bot.removeItem(message.author.id, SpaceScript, 1)
+                        bot.removeItem(message.author.id, "SpaceScript", 1)
                         bot.addSpace(message.author.id, muni)
                     }
                         message.channel.send(new Discord.MessageEmbed()
@@ -28,10 +28,10 @@ module.exports = {
                         .setDescription(`You used <:spacescript:814122006437167134> 1 Space Script and got **${muni} bank space**, gg lmao.`)
        )
                 } else {
-                    if(bot.item(message.author.id, SpaceScript) < num){
+                    if(bot.item(message.author.id, "SpaceScript") < num){
                        return message.channel.send(`You dont have that many item, sorry buddy.`)
                     } else {
-                        bot.removeItem(message.author.id, SpaceScript, num)
+                        bot.removeItem(message.author.id, "SpaceScript", num)
                         bot.addSpace(message.author.id, muni*num)
                         data.save()
                     }
@@ -40,9 +40,9 @@ module.exports = {
                     .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Script and got **${muni} bank space**, gg lmao.`)
    )}}
     if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox' ) {
-        if(!hasItem){
-           return message.channel.send(`You dont have that item, sorry buddy.`)
-        } else {
+        if(bot.item(message.author.id, "GotchaBox") == 0){
+            return message.channel.send(`You dont have that item, sorry buddy.`)
+         } else {
             const random = Math.floor(Math.random() * 100) + 1
             const randomC = Math.floor(Math.random() * 20000) + 6000
             const ar = [
@@ -95,10 +95,9 @@ module.exports = {
         }
                 }
     if(useArgs[0] === 'bread' || useArgs[0] === 'bd' ) {
-
-        if(!hasItem){
-           return message.channel.send(`You dont have that item, sorry buddy.`)
-        } else {
+        if(bot.item(message.author.id, "Bread") < 0){
+            return message.channel.send(`You dont have that item, sorry buddy.`)
+         } else {
                         bot.removeItem(message.author.id, Bread, 1)
                         bot.addItem(message.author.id, BunEffect, 1)
                         message.reply(`You used a <:bready:820948539823226901> Bread to get the bun tentation, now your mind can think faster giving you 50% multiplier 50 seconds.`)

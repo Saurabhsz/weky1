@@ -11,7 +11,7 @@ module.exports = {
   async execute(bot, message, args) {
         const quiz = require('../../turn.json');
     const randomCoins = Math.floor(Math.random() * 1300) + 200;
-            if(bot.item(message.author.id, Laptop) == 0) {
+            if(bot.item(message.author.id, 'Laptop') == 0) {
         return message.channel.send(`You dont have any laptops, sorry dude!`);
         } else {
                 const repp = [
