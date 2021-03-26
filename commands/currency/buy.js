@@ -16,19 +16,18 @@ module.exports = {
     var num = parseFloat(args[1])
 if(!args[0]) return message.channel.send("Please specify the item you want to buy!")
 const validItem = !!items.find(
-    (val) => val.item.toLowerCase() === itemToBuy
-                  || !!items.find(
     (val) => val.aliases.includes(itemToBuy)
-                  )
 );
 if(!validItem) return message.channel.send(`This item is not a real item :rolling_eyes:`)
-const itemPrice = items.find((val) => val.aliases.includes(itemToBuy)).price || items.find((val) => (val.item.toLowerCase()) === itemToBuy).price
-const itemIcon = items.find((val) => val.aliases.includes(itemToBuy)).emoji || items.find((val) => (val.item.toLowerCase()) === itemToBuy).emoji
-const itemName = items.find((val) => val.aliases.includes(itemToBuy)) || items.find((val) => val.item.toLowerCase() === itemToBuy)
-const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem || items.find((val) => val.item.toLowerCase() === itemToBuy).realItem
+const itemPrice = items.find((val) => val.aliases.includes(itemToBuy)).price
+const itemIcon = items.find((val) => val.aliases.includes(itemToBuy)).emoji
+const itemName = items.find((val) => val.aliases.includes(itemToBuy))
+const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
+const buyable = items.find((val) => val.aliases.includes(itemToBuy)).buyable
+if(buyable == false)  {message.reply(`${itemIcon + ' ' + validName} is not buyable`)}else {
 const userBalance = await bot.bal(message.author.id);
 if(!num){
-if(userBalance < itemPrice) return message.reply(`Sorry bro, you need ${itemPrice-userBalance} more coins to buy a ${itemIcon + ' ' + itemName}`)
+if(userBalance < itemPrice) return message.reply(`Sorry bro, you need ${itemPrice-userBalance} more coins to buy a ${itemIcon + ' ' + validName}`)
 const params = {
     User: message.author.id
 }
@@ -80,6 +79,7 @@ return message.channel.send(`You didnt even did \`..start\` bruh, there is no pr
     });
 } else if(num.isNaN){
     return message.channel.send(`You can't buy ${num} ${itemToBuy} BRUH`)
+}
 }
 }
 }
