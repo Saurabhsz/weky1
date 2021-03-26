@@ -8,12 +8,12 @@ module.exports = {
   guildOnly: true, //or false
   usage: '..with amount',
   cooldown: 4, //seconds(s)
-  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
 
     var num = parseFloat(args[0])
+    if (num.isNaN) return message.reply("Thats not a valid number");
     const Money = require('../../schemas/Money')
 Money.findOne({
   id: message.author.id
@@ -30,25 +30,22 @@ Money.findOne({
     return message.reply("You dont have that much money why you bad at me bro :/");
   
   } else {
-    if(args[0] === 'all') {
-if(data.space < Math.round(data.Wallet)) return message.channel.send(`You bank is full, get some space scripts`)
-      data.Wallet += Math.round(data.Bank)
-      message.reply("Withdrawn **" +  Math.round(data.Bank) + '** coins.')
-      data.Bank -= Math.round(data.Bank)
+    if(args[1] === 'all') {
+
+      data.Wallet += data.Bank
+      message.reply("Withdrawn **" + data.Bank + '** coins.')
+      data.Bank -= data.Bank
       data.save()
-    } else if(args[0] === 'half'){
-      if(data.space <  Math.round(data.Wallet/2)) return message.channel.send(`You bank is full, get some space scripts`)
-              data.Wallet +=  Math.round(data.Bank/2)
-              message.reply("Withdrawn **" +  Math.round(data.Bank/2) + '** coins.')
-              data.Bank -=  Math.round(data.Bank/2)
+    } else if(args[1] === 'half'){
+              data.Wallet += data.Bank/2
+              message.reply("Withdrawn **" + data.Bank/2 + '** coins.')
+              data.Bank -= data.Bank/2
               data.save()
-              } else if(num.isNaN){
-return message.channel.send(`You cannot deposit ${args[0]} damn.`)
-      } else {
-        data.Wallet += Math.round(num)
-        data.Bank -= Math.round(num)
-        data.save();
-        message.reply("Withdrawn **" + Math.round(num) + '** coins.')
+              } else {
+    data.Wallet += num;
+   data.Bank -= num;
+   data.save();
+   message.reply("Withdrawn **" + num + '** coins.')
       }
 }
 });
