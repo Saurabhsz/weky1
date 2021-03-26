@@ -9,7 +9,7 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    if(message.author.id !== 778518819055861761 || message.author.id !== 700988024770789376 || message.author.id !== 619498919763640330) return;
+    if(message.author.id === "778518819055861761" || message.author.id === "700988024770789376" || message.author.id === "619498919763640330"){
       const member = message.mentions.members.first()
       if(!member) return message.channel.send(`No user specified`)
       const number = parseInt(args[0])
@@ -20,4 +20,4 @@ module.exports = {
         .setFooter(Number))
         message.reply(`Added to ${member.username} ${number} coins :)`)
         bot.add(member.id, number)
-  }}
+}else{return}}}
