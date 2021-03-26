@@ -13,7 +13,10 @@ module.exports = {
     async execute(bot, message, args) {
         const member = message.mentions.users.first() || message.author;
 inventory.findOne({ User: member.id }, async(err, data) => {
-    if(!data) return message.reply(new Discord.MessageEmbed().setTitle(`${member.username}'s inventory`).setDescription(`Empty :(`).setColor("RANDOM"))
+    if(!data) {
+message.reply(new Discord.MessageEmbed().setTitle(`${member.username}'s inventory`).setDescription(`Empty :(`).setColor("RANDOM"))
+bot.createProfile(message.author.id)    
+}
         var s = ""
         if(data.Laptop) s+=`<:laptop:814147340947554314> **Laptop**s — ${data.Laptop}\n`
         if(data.Phone) s+=`📱 **Phone**s — ${data.Phone}\n`
