@@ -3,7 +3,7 @@ const { numberDependencies } = require("mathjs");
 const inventory = require("../../schemas/inventory")
 const items = require("../../shopItems")
 module.exports = {
-    name: "addItem",
+    name: "additem",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
