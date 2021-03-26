@@ -10,6 +10,16 @@ module.exports = [
         collectable: false
     },
     {
+        aliases: ["spacescript", "script", "space"],
+        emoji: "<:spacescript:814122006437167134>",
+        price: 100000,
+        realItem: "SpaceScript",
+        sell: 10000,
+        sellable: true,
+        buyable: true,
+        collectable: false
+    },
+    {
         aliases: ["wekymoon", "moon"],
         emoji: "🌝",
         price: 2000000,
@@ -31,7 +41,7 @@ module.exports = [
     },
     {
         aliases: ["plastichand", "plastic", "hand"],
-        emoji: "<:plastic_hand:816373271569498173>",
+        emoji: "<:plastichand:816373822784667719>",
         price: 15000,
         realItem: "PlasticHand",
         sell: 2500,
