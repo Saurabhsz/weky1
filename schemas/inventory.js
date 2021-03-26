@@ -5,6 +5,8 @@ User: {
     type: String
 },
     Laptop: {type: Number, default: 0},
+    Sniper: {type: Number, default: 0},
+    SpaceScript: {type: Number, default: 0},
     WekyMoon: {type: Number, default: 0},
     WekyRipOff: {type: Number, default: 0},
     PlasticHand: {type: Number, default: 0},
