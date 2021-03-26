@@ -17,7 +17,8 @@ module.exports = {
         bot.channels.cache.get("824272046174765096").send(new Discord.MessageEmbed()
         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
         .setDescription(`Added to ${member.id} some coins`)
-        .setFooter(Number))
+        .setFooter(number)
+        .setColor("GREEN"))
         message.reply(`Added to ${member.username} ${number} coins :)`)
         bot.add(member.id, number)
 }else{return}}}
