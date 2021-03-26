@@ -9,10 +9,10 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
+        const itemToBuy = args[1].toLowerCase()
         const validItem = !!items.find(
     (val) => val.aliases.includes(itemToBuy)
 );
-const itemToBuy = args[1].toLowerCase()
 if(!validItem) return message.channel.send(`This item is not a real item :rolling_eyes:`)
 const itemIcon = items.find((val) => val.aliases.includes(itemToBuy)).emoji
 const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
