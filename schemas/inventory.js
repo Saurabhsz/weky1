@@ -18,6 +18,7 @@ User: {
     Tiger: {type: Number, default: 0},
     Bear: {type: Number, default: 0},
     Fish: {type: Number, default: 0},
+    RareFish: {type: Number, default: 0},
     LegendaryFish: {type: Number, default: 0},
     Bread: {type: Number, default: 0},
     SilverMoon: {type: Number, default: 0},
