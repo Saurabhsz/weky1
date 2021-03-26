@@ -35,7 +35,7 @@ inventory.findOne(params, async(err, data) => {
     if(data) {
 const hasItem = Object.keys(data).includes(validName);
 if(!hasItem){
-    data[validName] = 1;
+    data[validName] += 1;
     bot.rmv(message.author.id, itemPrice)
 } else {
     data[validName]++
@@ -61,7 +61,7 @@ await inventory.findOneAndUpdate(params, data)
         if(data) {
     const hasItem = Object.keys(data).includes(validName);
     if(!hasItem){
-        data[validName] = num;
+        data[validName] += num;
         bot.rmv(message.author.id, itemPrice*num)
     } else {
         data[validName] += num
