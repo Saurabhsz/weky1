@@ -11,8 +11,21 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
+
     var num = parseFloat(args[0])
-if(num > data.Wallet) {
+    const Money = require('../../schemas/Money')
+Money.findOne({
+  id: message.author.id
+}, (err,data) => {
+  if(err) console.log(err);
+  if(!data){
+    newD = new Money({
+      id: message.author.id
+    });
+    newD.save();
+    let user = message.guild.members.cache.get(message.author.id);
+    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
+  } else if(num > data.Wallet) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
   }
   const thesame = data.Bank == data.space
@@ -29,14 +42,20 @@ if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot
         data.save()
         } else if(args[0] === 'half' && num.isNaN){
     if(data.space < Math.round(data.Wallet/2)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-            bot.addBankMoney(message.author.id, Math.round(data.Wallet/2))
+            data.Bank += Math.round(data.Wallet/2)
             message.channel.send("Deposited **" + Math.round(data.Wallet/2) + '** coins.')
-            bot.rmv(message.author.id, Math.round(data.Wallet/2))
+            data.Wallet -= Math.round(data.Wallet/2)
+            data.save()
             } else if(num.isNaN){
               return message.channel.send(`You didnt said \`all\`, \`half\` or ,\`number\``)
+
         } else if(!num.isNaN){
           data.Wallet -= Math.round(num)
           data.Bank += Math.round(num)
           data.save();
           message.channel.send("Deposited **" + Math.round(num) + '** coins.')
-        }}}}
+        }
+}
+});
+}
+}
