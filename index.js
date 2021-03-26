@@ -7,6 +7,7 @@ const bot = new Discord.Client({disableMentions: "everyone"});
 mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.set('useFindAndModify', false)
 require(`./reply`)
+require('./currencyFunctions')(bot)
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -14,19 +15,6 @@ bot.snipes = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
-const express = require('express')
-const Topgg = require('@top-gg/sdk')
-
-const app = express() // Your express app
-
-const webhook = new Topgg.Webhook('topggpassword112') // add your top.gg webhook authorization (not bot token)
-app.post('/web', webhook.middleware(), (req, res) => {
-  // req.vote is your vote object e.g
-  console.log(req.vote.user) // 221221226561929217
-  bot.channels.cache.get("812602214954565672").send(`<@${req.vote.user}> has voted for News Agent on top.gg!`)
-});
-
-app.listen(8000)
 for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles) {
