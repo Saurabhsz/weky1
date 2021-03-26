@@ -1,7 +1,3 @@
-const usedCommand = new Set();
-const Discord = require('discord.js')
-const { MessageEmbed } = require("discord.js")
-
 module.exports = {
   name: "turn",
   aliases: ["tn"],
@@ -15,24 +11,9 @@ module.exports = {
   async execute(bot, message, args) {
         const quiz = require('../../turn.json');
     const randomCoins = Math.floor(Math.random() * 1300) + 200;
-    const Money = require('../../schemas/Money')
-    Money.findOne({
-        id: message.author.id
-    },
-     (err, data) => {
-        if(err) console.log(err);
-        if(!data){
-        const newD = new Money({
-            id: message.author.id
-        })
-        newD.save();
-        let user = message.guild.members.cache.get(message.author.id);
-        user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-        } else {
-            if(0 >= data.Laptop) {
+            if(bot.item(message.author.id, Laptop) == 0) {
         return message.channel.send(`You dont have any laptops, sorry dude!`);
         } else {
-    
                 const repp = [
                     `You went to go to the anti-virus website but got on the wrong site, you didnt got anything`,
                     `You went to fly on Minecraft but... got.....down somehow, no coins`,
@@ -46,16 +27,11 @@ module.exports = {
                var num = Math.floor(Math.random() * repp.length);
                const answerspost = repp[num]
                if(num != 0 && num != 1 && num != 2 && num != 3) {
-                   data.Wallet += randomCoins
-                   data.save();
+                  bot.add(message.author.id, randomCoins)
                    }
-
-                   if(0 > data.Laptop) {return message.channel.send(`You dont have any laptops, sorry dude!`);} else {
-               }
                const filter = response => {
                    return quiz.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-               };
-               
+               }
                message.channel.send(quiz.question).then(() => {
                    message.channel.awaitMessages(filter, { max: 1, time: 6000, errors: ['time'] })
                            .then(collected => {
@@ -63,20 +39,4 @@ module.exports = {
                        })
                        .catch(collected => {
                            message.channel.send('C\'mon u didnt answer bruh');
-                       });
-               });
-            }
-           
-        }
-    })
-
-}
-}
-
-module.exports.config = {
-    name: "turn",
-    description: "using ur laptop for coins be like",
-    usage: "..turn",
-    accessableby: "Members",
-    aliases: ["tn"]
-}
+                       })})}}}

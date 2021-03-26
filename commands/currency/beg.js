@@ -10,23 +10,7 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    const target = message.mentions.users.first() || message.author
-    const targetId = target.id
-    const Money = require('../../schemas/Money')
-Money.findOne({
-  id: targetId
-}, (err,data) => {
-  if(err) console.log(err);
-  if(!data){
-    newD = new Money({
-      id: targetId
-    });
-    newD.save();
-    let user = message.guild.members.cache.get(message.author.id);
-    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-  } else {
     const muni = Math.floor(Math.random() * 300) + 60;
-
     const persons = [
         `**Thanos**`,
         `**The girl that you where caught with in bed last night**`,
@@ -88,13 +72,8 @@ const okk = ok[o]
    var person = persons[persons1]
    var num = Math.floor(Math.random() * 2) +0;
 if(num != 1) {
-  data.Wallet += muni;    
+  bot.add(message.author.id, muni)    
   message.channel.send(`${person}${bruh}`)
-  data.save(); 
 } else if (num != 0){
   message.channel.send(`${person}${okk}`)
-}
-}
-});
-}
-}
+}}}

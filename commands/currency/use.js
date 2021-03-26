@@ -1,86 +1,48 @@
-const Money = require("../../schemas/Money")
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js")
-
 module.exports = {
   name: "use",
   aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
+  dmOnly: false,
+  guildOnly: true,
   usage: '..use',
-  cooldown: 4, //seconds(s)
+  cooldown: 4,
   cooldowny: 1,
-  guarded: true, //or false
+  guarded: true,
   permissions: ["NONE"],
   async execute(bot, message, args) {
-
-
     let buyArray = message.content.split(" ");
     let useArgs = buyArray.slice(1);
-
     if(useArgs[0] === 'script' || useArgs[0] === 'space' ) {
         const muni = Math.floor(Math.random() * 15000) + 1000;
-
         var num = parseFloat(args[1])
-
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
                 if(!num){
-                    const thesame = data.banknote == 0;
-                    if(thesame) {return message.channel.send(`You dont have any Space Scripts :/`);} else {
-                        data.space += muni;
-                        data.banknote -= 1;
-                        data.save();;
-                        const embed = new Discord.MessageEmbed()
+                    if(bot.item(message.author.id, SpaceScript) < 0){
+                       return message.channel.send(`You dont have that item, sorry buddy.`)
+                    } else {
+                        bot.removeItem(message.author.id, SpaceScript, 1)
+                        bot.addSpace(message.author.id, muni)
+                    }
+                        message.channel.send(new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                         .setDescription(`You used <:spacescript:814122006437167134> 1 Space Script and got **${muni} bank space**, gg lmao.`)
-                        message.channel.send(embed)
+       )
+                } else {
+                    if(bot.item(message.author.id, SpaceScript) < num){
+                       return message.channel.send(`You dont have that many item, sorry buddy.`)
+                    } else {
+                        bot.removeItem(message.author.id, SpaceScript, num)
+                        bot.addSpace(message.author.id, muni*num)
+                        data.save()
                     }
-                } else {
-                    if(num > data.banknote) {return message.channel.send(`You dont have that many Space Scripts :/`);} else {
-                        data.space += muni*num;
-                        data.banknote -= num;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Scripts and got **${muni*num} bank space**, gg lmao.`)
-                        message.channel.send(embed)
-                }
-            }
-                
-
-               
-            }
-        })
-    }
+                    message.channel.send(new Discord.MessageEmbed()
+                    .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+                    .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Script and got **${muni} bank space**, gg lmao.`)
+   )}}
     if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox' ) {
-        const Money = require('../../schemas/Money')
-        Money.findOne({
-          id: message.author.id
-        }, (err,data) => {
-          if(err) console.log(err);
-          if(!data){
-            newD = new Money({
-              id: message.author.id
-            });
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-          } else {
-            if(0 >= data.Lootbox) {
-                return message.channel.send(`You dont have any Gotcha Boxes, sorry dude!`);
-                } else {
+        if(!hasItem){
+           return message.channel.send(`You dont have that item, sorry buddy.`)
+        } else {
             const random = Math.floor(Math.random() * 100) + 1
             const randomC = Math.floor(Math.random() * 20000) + 6000
             const ar = [
@@ -92,86 +54,58 @@ module.exports = {
         const l = Math.floor(Math.random() * 4) + 1
             if(random < 2){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`1 Silver Moon\`\nOMFG NO WAY<:silver_moon:816983800260067338>`)
-                data.silvermoon += 1
-                data.Lootbox -= 1
-                data.save()
+                bot.addItem(message.author.id, SilverMoon, 1)
+                bot.removeItem(message.author.id, GotchaBox, 1)
               } else if(random < 5){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC}\`\n\`1 Weky's Moon\``)
-                data.Wallet += randomC
-                data.wekymoon += 1
-                data.Lootbox -= 1
-                data.save()
+                bot.add(message.author.id, randomC)
+                bot.addItem(message.author.id, WekyMoon, 1)
+                bot.removeItem(message.author.id, GotchaBox, 1)
               } else if(random < 30){
                   if(br === 0){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
-                data.Wallet += randomC    
-                data.fishing += l
-                  data.Lootbox -= 1
-                  data.save()
+                bot.add(message.author.id, randomC)
+                bot.addItem(message.author.id, PlasticHand, l)
+                bot.removeItem(message.author.id, GotchaBox, 1)
             } else if(br === 1){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
-                    data.Wallet += randomC
-                    data.Laptop += l
-                    data.Lootbox -= 1
-                    data.save()
+                    bot.add(message.author.id, randomC)
+                    bot.addItem(message.author.id, SpaceScript, l)
+                    bot.removeItem(message.author.id, Laptop, 1)
                 } else if(br === 2){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
-                    data.Wallet += randomC
-                    data.banknote += l
-                    data.Lootbox -= 1
-                    data.save()
-                  }
-                
+                    bot.add(message.author.id, randomC)
+                    bot.addItem(message.author.id, SpaceScript, l)
+                    bot.removeItem(message.author.id, GotchaBox, 1)
+           }
             } else if(random < 36){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\``)
-            data.Wallet += randomC
-            data.Lootbox -= 1
-            data.save()
+                bot.add(message.author.id, randomC)
+                bot.removeItem(message.author.id, GotchaBox, 1)
             } else if(random < 80){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
-            data.Wallet += 500
-            data.Lootbox -= 1
-            data.save()
+                bot.add(message.author.id, 500)
+                bot.removeItem(message.author.id, GotchaBox, 1)
                       } else if(random < 101){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
-                    data.Wallet += 500
-                    data.Lootbox -= 1
+                    bot.add(message.author.id, 500)
+                    bot.removeItem(message.author.id, GotchaBox, 1)
             data.save()
                       }
+        }
                 }
-            }
-                });
-    }
     if(useArgs[0] === 'bread' || useArgs[0] === 'bd' ) {
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
-                const thesame = data.bread == 0;
-                    if(thesame) {return message.channel.send(`You dont have any Breads :/`);} else {
-                        data.bread -= 1;
-                        data.bun += 1;
-                        data.save()
+
+        if(!hasItem){
+           return message.channel.send(`You dont have that item, sorry buddy.`)
+        } else {
+                        bot.removeItem(message.author.id, Bread, 1)
+                        bot.addItem(message.author.id, BunEffect, 1)
                         message.reply(`You used a <:bready:820948539823226901> Bread to get the bun tentation, now your mind can think faster giving you 50% multiplier 50 seconds.`)
-                        setTimeout(function() {  data.bun -= 1; data.save() }, 50000)
-                    }
-            }
-        })
+                        setTimeout(function() {  bot.addItem(message.author.id, BunEffect, 1)}, 50000)
+                    }}
+    if(!useArgs[0]) {  
+message.channel.send(`What you want to use? like bruh`);
     }
-    if(!useArgs[0]) {
-        
-        message.channel.send(`What you want to use? like bruh`);
-    }
-
-
 }
 }

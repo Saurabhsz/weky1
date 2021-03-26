@@ -1,336 +1,85 @@
-const Money = require("../../schemas/Money")
 const Discord = require("discord.js");
+const { numberDependencies } = require("mathjs");
+const inventory = require("../../schemas/inventory")
+const items = require("../../shopItems")
 module.exports = {
     name: "buy",
     aliases: [],
     dmOnly: false, //or false
     guildOnly: true, //or false
-    usage: '..buy',
+    usage: '..buy (item) {amount}',
     cooldown: 6, //seconds(s)
-    cooldowny: 2,
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-    let buyArray = message.content.split(" ");
-    let buyArgs = buyArray.slice(1);
-
-    if(buyArgs[0] === 'laptop') {
-        var num = parseFloat(args[1])
-
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
-                if(!num){
-                    if(4000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 laptop, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 4000;
-                        data.Laptop += 1;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:laptop:814147340947554314> **1 Laptop**`)
-                        message.channel.send(embed)
-                    }
-                } else {
-                    if(4000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} laptops, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 4000*num;
-                        data.Laptop += num;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:laptop:814147340947554314> **${num} Laptop**`)
-                        .setFooter(`Wasted ${4000*num} coins`)
-                        message.channel.send(embed)
-                }
-            }
-                
-
-               
-            }
-        })
+        const itemToBuy = args[0].toLowerCase()
+    var num = parseFloat(args[1])
+if(!args[0]) return message.channel.send("Please specify the item you want to buy!")
+const validItem = !!items.find(
+    (val) => val.item.toLowerCase() === itemToBuy
+                  || !!items.find(
+    (val) => val.aliases.includes(itemToBuy)
+                  )
+);
+if(!validItem) return message.channel.send(`This item is not a real item :rolling_eyes:`)
+const itemPrice = items.find((val) => val.aliases.includes(itemToBuy)).price || items.find((val) => (val.item.toLowerCase()) === itemToBuy).price
+const itemIcon = items.find((val) => val.aliases.includes(itemToBuy)).emoji || items.find((val) => (val.item.toLowerCase()) === itemToBuy).emoji
+const itemName = items.find((val) => val.aliases.includes(itemToBuy)) || items.find((val) => val.item.toLowerCase() === itemToBuy)
+const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem || items.find((val) => val.item.toLowerCase() === itemToBuy).realItem
+const userBalance = await bot.bal(message.author.id);
+if(!num){
+if(userBalance < itemPrice) return message.reply(`Sorry bro, you need ${itemPrice-userBalance} more coins to buy a ${itemIcon + ' ' + itemName}`)
+const params = {
+    User: message.author.id
+}
+inventory.findOne(params, async(err, data) => {
+    if(data) {
+const hasItem = Object.keys(data).includes(validName);
+if(!hasItem){
+    data[validName] = 1;
+    bot.rmv(message.author.id, itemPrice)
+} else {
+    data[validName]++
+    bot.rmv(message.author.id, itemPrice)
+} 
+await inventory.findOneAndUpdate(params, data)
+    } else {
+        bot.createProfile(message.author.id)
+        message.channel.send(`Thanks for starting using our currency sytem! :)`)
     }
-    if(buyArgs[0] === 'script' || buyArgs[0] === 'space') {
-        var num = parseFloat(args[1])
-
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
-                if(!num){
-                    if(100000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 script, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 100000;
-                        data.banknote += 1;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:spacescript:814122006437167134> **1 Space Script**`)
-                        message.channel.send(embed)
-                    }
-                } else {
-                    if(100000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} scripts, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 100000*num;
-                        data.banknote += num;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:spacescript:814122006437167134> **${num} Space Scripts**`)
-                        .setFooter(`Wasted ${100000*num} coins`)
-                        message.channel.send(embed)
-                }
-            }
-                
-
-               
-            }
-        })
+    message.reply( new Discord.MessageEmbed()
+    .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+    .setDescription(`Successfully bought ${itemIcon} 1 ${validName} with ${itemPrice} coins`)
+    .setColor(`RANDOM`)
+)
+})
+} else if(num){
+    if(userBalance < itemPrice*num) return message.reply(`Sorry bro, you need ${itemPrice*num-userBalance} more coins to buy ${num} ${itemIcon + ' ' + itemName}`)
+    const params = {
+        User: message.author.id
     }
-    if(buyArgs[0] === 'moon' || buyArgs[0] === 'wekymoon') {
-        var num = parseFloat(args[1])
-
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
-                if(!num){
-                    if(2000000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 Weky's Moon, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 2000000;
-                        data.wekymoon += 1;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought 🌝 **1 Weky's Moon**`)
-                        message.channel.send(embed)
-                    }
-                } else {
-                    if(2000000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} Weky's Moons, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 2000000*num;
-                        data.wekymoon += num;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought 🌝 **${num} Weky's Moons**`)
-                        .setFooter(`Wasted ${2000000*num} coins`)
-                        message.channel.send(embed)
-                }
-            }
-
-
-               
-            }
-            
-            
-        })
-    }
-    if(buyArgs[0] === 'sniper') {
-        var num = parseFloat(args[1])
-
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
-                if(!num){
-                    if(20000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 Sniper, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 20000;
-                        data.gun += 1;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:Sniper:818044125580492800> **1 Sniper**`)
-                        message.channel.send(embed)
-                    }
-                } else {
-                    if(20000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} Snipers, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 20000*num;
-                        data.gun += num;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:Sniper:818044125580492800> **${num} Snipers**`)
-                        .setFooter(`Wasted ${20000*num} coins`)
-                        message.channel.send(embed)
-                }
-            }
-
-
-               
-            }
-            
-            
-        })
-    }
-    if(buyArgs[0] === 'wekyrip' || buyArgs[0] === 'wekyripoff') {
-        var num = parseFloat(args[1])
-
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
-                if(!num){
-                    if(12000000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 Weky's Rip Off, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 12000000;
-                        data.wekyripoff += 1;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:ripoff:815192242331451423> **1 Weky's Rip Off**`)
-                        message.channel.send(embed)
-                    }
-                } else {
-                    if(12000000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} scripts, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 12000000*num;
-                        data.wekyripoff += num;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:ripoff:815192242331451423> **${num} Weky's Rip Off**`)
-                        .setFooter(`Wasted ${12000000*num} coins`)
-                        message.channel.send(embed)
-                }
-            }
-                
-
-               
-            }
-        })
-    }
-    if(buyArgs[0] === 'plastic' || buyArgs[0] === 'plastichand' || buyArgs[0] === 'phand' || buyArgs[0] === 'hand') {
-        var num = parseFloat(args[1])
-
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
-                if(!num){
-                    if(15000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 Plastic Hand, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 15000;
-                        data.fishing += 1;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:plastichand:816373822784667719> **1 Plastic Hand**`)
-                        message.channel.send(embed)
-                    }
-                } else {
-                    if(15000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} Plastic Hands, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 15000*num;
-                        data.fishing += num;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:plastichand:816373822784667719> **${num} Platic Hands**`)
-                        .setFooter(`Wasted ${15000*num} coins`)
-                        message.channel.send(embed)
-                }
-            }
-                
-
-               
-            }
-        })
-    }
-    if(buyArgs[0] === 'life' || buyArgs[0] === 'lifeshild') {
-        var num = parseFloat(args[1])
-
-        Money.findOne({
-            id: message.author.id
-        },
-         (err, data) => {
-            if(err) console.log(err);
-            if(!data){
-            const newD = new Money({
-                id: message.author.id
-            })
-            newD.save();
-            let user = message.guild.members.cache.get(message.author.id);
-            user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-            } else {
-                if(!num){
-                    if(14000 > data.Wallet) {return message.channel.send(`You dont have money to buy 1 life shields, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 14000;
-                        data.life += 1;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:life:820648609741668392> **1 Life Shield**`)
-                        message.channel.send(embed)
-                    }
-                } else {
-                    if(14000*num > data.Wallet) {return message.channel.send(`You dont have money to buy ${num} life shields, make sure that you have the money in wallet`);} else {
-                        data.Wallet -= 14000*num;
-                        data.life += num;
-                        data.save();
-                        const embed = new Discord.MessageEmbed()
-                        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                        .setDescription(`You sucessfully bought <:life:820648609741668392> **${num} Life Shields**`)
-                        .setFooter(`Wasted ${14000*num} coins`)
-                        message.channel.send(embed)
-                }
-            }
-                
-
-               
-            }
-        })
-    }
-    if(!buyArgs[0]) {
-        
-        message.channel.send(`Ye ye weky here what you want to buy, ..shop for the list :rolling_eyes:`);
-    }
-
-
+    inventory.findOne(params, async(err, data) => {
+        if(data) {
+    const hasItem = Object.keys(data).includes(validName);
+    if(!hasItem){
+        data[validName] = num;
+        bot.rmv(message.author.id, itemPrice*num)
+    } else {
+        data[validName] += num
+        bot.rmv(message.author.id, itemPrice*num)
+    } 
+    await inventory.findOneAndUpdate(params, data)
+        } else {
+return message.channel.send(`You didnt even did \`..start\` bruh, there is no profile called ${message.author.username}`)
+        }
+        message.reply( new Discord.MessageEmbed()
+        .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+        .setDescription(`Successfully bought ${itemIcon} ${num} ${validName} with ${itemPrice*num} coins`)
+        .setColor(`RANDOM`)
+    )
+    });
+} else if(num.isNaN){
+    return message.channel.send(`You can't buy ${num} ${itemToBuy} BRUH`)
+}
 }
 }

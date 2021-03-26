@@ -26,7 +26,7 @@ app.post('/web', webhook.middleware(), (req, res) => {
   bot.channels.cache.get("812602214954565672").send(`<@${req.vote.user}> has voted for News Agent on top.gg!`)
 });
 
-app.listen(8080)
+app.listen(8000)
 for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles) {
