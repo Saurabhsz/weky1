@@ -1,3 +1,4 @@
+const Discord = require('discord.js')
 const items = require("../../shopItems")
 module.exports = {
     name: "sell",
