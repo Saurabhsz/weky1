@@ -226,4 +226,4 @@ const prefix = data.prefix
   //Event - message
   }
   })
-bot.login(process.env.token);
+bot.login("ODA5NDk2MTg2OTA1MTY1ODM0.YCV8Eg._l2-ag1V41BMMdqTRO9N3wgRPFM");
