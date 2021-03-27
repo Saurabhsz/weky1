@@ -16,14 +16,17 @@ const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const express = require('express')
 const Topgg = require('@top-gg/sdk')
-const app = express()
-const webhook = new Topgg.Webhook('imgabi')
-app.post('/web', webhook.middleware(), (req, res) => {
-  console.log(req.vote.user)
-  bot.channels.cache.get("795394146143043584").send(`<@${req.vote.user}> has voted for me on top.gg!`)
-});
 
-app.listen(1251)
+const app = express() // Your express app
+
+const webhook = new Topgg.Webhook('imgabi')
+
+app.post('/dblwebhook', webhook.middleware(), (req, res) => {
+  // req.vote is your vote object e.g
+  console.log(req.vote.user) // 121919449996460033
+}) // attach the middleware
+
+app.listen(1251) // your port
 const commandFolders = fs.readdirSync('./commands');
 for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
