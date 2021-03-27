@@ -20,7 +20,7 @@ const app = express()
 const webhook = new Topgg.Webhook('topggpassword112')
 app.post('/web', webhook.middleware(), (req, res) => {
   console.log(req.vote.user)
-  bot.channels.cache.get("812602214954565672").send(`<@${req.vote.user}> has voted for me on top.gg!`)
+  bot.channels.cache.get("795394146143043584").send(`<@${req.vote.user}> has voted for me on top.gg!`)
 });
 
 app.listen(1251)
