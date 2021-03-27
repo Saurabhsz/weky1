@@ -17,7 +17,7 @@ const cooldowny = new Discord.Collection();
 const express = require('express')
 const Topgg = require('@top-gg/sdk')
 const app = express()
-const webhook = new Topgg.Webhook('topggpassword112')
+const webhook = new Topgg.Webhook('imgabi')
 app.post('/web', webhook.middleware(), (req, res) => {
   console.log(req.vote.user)
   bot.channels.cache.get("795394146143043584").send(`<@${req.vote.user}> has voted for me on top.gg!`)
