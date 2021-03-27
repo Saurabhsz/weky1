@@ -14,6 +14,16 @@ bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
+const express = require('express')
+const Topgg = require('@top-gg/sdk')
+const app = express()
+const webhook = new Topgg.Webhook('topggpassword112')
+app.post('/web', webhook.middleware(), (req, res) => {
+  console.log(req.vote.user)
+  bot.channels.cache.get("812602214954565672").send(`<@${req.vote.user}> has voted for me on top.gg!`)
+});
+
+app.listen(1251)
 const commandFolders = fs.readdirSync('./commands');
 for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
