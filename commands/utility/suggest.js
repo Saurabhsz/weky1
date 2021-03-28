@@ -21,9 +21,9 @@ if (!args[0]) return message.reply('No suggestion xd')
         }).then(webhook => {
             webhook.send(`kek` + new Discord.MessageEmbed()
             .setTitle(`New suggestion!`)
-            .setDescription(args.slice(0).join(" "))).then( function() {
-              webhook.react(`<:bad:821393174277783641>`)
-              webhook.react(`<:good:821393129999171626>`)})
+            .setDescription(args.slice(0).join(" "))).then(e => {
+              e.react(`<:bad:821393174277783641>`)
+              e.react(`<:good:821393129999171626>`)})
             setTimeout(() => {
                 webhook.delete()
             }, 3000)
