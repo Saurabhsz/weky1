@@ -17,8 +17,8 @@ const channel = bot.channels.cache.get('811226235585822753')
 
 if (!args[0]) return message.reply('No suggestion xd')
 channel.send(`<@&821723745345470504>`)
-        channel.createWebhook(member.user.username, {
-            avatar: member.user.displayAvatarURL({ dynamic: true })
+        channel.createWebhook(message.author.username, {
+            avatar: message.author.displayAvatarURL({ dynamic: true })
         }).then(webhook => {
             webhook.send(new Discord.MessageEmbed()
             .setTitle(`New suggestion!`)
