@@ -19,7 +19,7 @@ if (!args[0]) return message.reply('No suggestion xd')
         channel.createWebhook(message.author.username, {
             avatar: message.author.displayAvatarURL({ dynamic: true })
         }).then(webhook => {
-            webhook.send((`kek`) + new Discord.MessageEmbed()
+            webhook.send(`kek` + new Discord.MessageEmbed()
             .setTitle(`New suggestion!`)
             .setDescription(args.slice(0).join(" "))).then( function() {
               webhook.react(`<:bad:821393174277783641>`)
