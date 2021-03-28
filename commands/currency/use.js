@@ -54,42 +54,42 @@ module.exports = {
         const l = Math.floor(Math.random() * 4) + 1
             if(random < 2){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`1 Silver Moon\`\nOMFG NO WAY<:silver_moon:816983800260067338>`)
-                bot.addItem(message.author.id, SilverMoon, 1)
-                bot.removeItem(message.author.id, GotchaBox, 1)
+                bot.addItem(message.author.id, "SilverMoon", 1)
+                bot.removeItem(message.author.id, "GotchaBox", 1)
               } else if(random < 5){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC}\`\n\`1 Weky's Moon\``)
                 bot.add(message.author.id, randomC)
-                bot.addItem(message.author.id, WekyMoon, 1)
-                bot.removeItem(message.author.id, GotchaBox, 1)
+                bot.addItem(message.author.id, "WekyMoon", 1)
+                bot.removeItem(message.author.id, "GotchaBox", 1)
               } else if(random < 30){
                   if(br === 0){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
                 bot.add(message.author.id, randomC)
-                bot.addItem(message.author.id, PlasticHand, l)
-                bot.removeItem(message.author.id, GotchaBox, 1)
+                bot.addItem(message.author.id, "PlasticHand", l)
+                bot.removeItem(message.author.id, "GotchaBox", 1)
             } else if(br === 1){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
                     bot.add(message.author.id, randomC)
-                    bot.addItem(message.author.id, SpaceScript, l)
-                    bot.removeItem(message.author.id, Laptop, 1)
+                    bot.addItem(message.author.id, "SpaceScript", l)
+                    bot.removeItem(message.author.id, "Laptop", 1)
                 } else if(br === 2){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
                     bot.add(message.author.id, randomC)
-                    bot.addItem(message.author.id, SpaceScript, l)
-                    bot.removeItem(message.author.id, GotchaBox, 1)
+                    bot.addItem(message.author.id, "SpaceScript", l)
+                    bot.removeItem(message.author.id, "GotchaBox", 1)
            }
             } else if(random < 36){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\``)
                 bot.add(message.author.id, randomC)
-                bot.removeItem(message.author.id, GotchaBox, 1)
+                bot.removeItem(message.author.id, "GotchaBox", 1)
             } else if(random < 80){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
                 bot.add(message.author.id, 500)
-                bot.removeItem(message.author.id, GotchaBox, 1)
+                bot.removeItem(message.author.id, "GotchaBox", 1)
                       } else if(random < 101){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
                     bot.add(message.author.id, 500)
-                    bot.removeItem(message.author.id, GotchaBox, 1)
+                    bot.removeItem(message.author.id, "GotchaBox", 1)
             data.save()
                       }
         }
@@ -98,10 +98,10 @@ module.exports = {
         if(bot.item(message.author.id, "Bread") < 0){
             return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
-                        bot.removeItem(message.author.id, Bread, 1)
-                        bot.addItem(message.author.id, BunEffect, 1)
+                        bot.removeItem(message.author.id, "Bread", 1)
+                        bot.addItem(message.author.id, "BunEffect", 1)
                         message.reply(`You used a <:bready:820948539823226901> Bread to get the bun tentation, now your mind can think faster giving you 50% multiplier 50 seconds.`)
-                        setTimeout(function() {  bot.addItem(message.author.id, BunEffect, 1)}, 50000)
+                        setTimeout(function() {  bot.addItem(message.author.id, "BunEffect", 1)}, 50000)
                     }}
     if(!useArgs[0]) {  
 message.channel.send(`What you want to use? like bruh`);
