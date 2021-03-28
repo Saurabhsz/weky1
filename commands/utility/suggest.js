@@ -16,13 +16,14 @@ module.exports = {
 const channel = bot.channels.cache.get('811226235585822753')
 
 if (!args[0]) return message.reply('No suggestion xd')
-channel.send(`<@&821723745345470504>`)
         channel.createWebhook(message.author.username, {
             avatar: message.author.displayAvatarURL({ dynamic: true })
         }).then(webhook => {
-            webhook.send(new Discord.MessageEmbed()
+            webhook.send((`kek`) + new Discord.MessageEmbed()
             .setTitle(`New suggestion!`)
-            .setDescription(args.slice(0).join(" ")))
+            .setDescription(args.slice(0).join(" "))).then( function() {
+              webhook.react(`<:bad:821393174277783641>`)
+              webhook.react(`<:good:821393129999171626>`)})
             setTimeout(() => {
                 webhook.delete()
             }, 3000)
