@@ -7,7 +7,7 @@ module.exports = {
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..suggest',
-  cooldown: 4, //seconds(s)
+  cooldown: 3000, //seconds(s)
   cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
