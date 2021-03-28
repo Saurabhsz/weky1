@@ -9,13 +9,14 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-        const itemToBuy = args[1].toLowerCase()
+        if(!args[1]) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[2]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(2).join(" ") || x.user.username === args[2]);
         if(!member) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
             var num = parseFloat(args[0])
             if(!num) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
             if(!args[1]) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
-const validItem = !!items.find(
+            const itemToBuy = args[1].toLowerCase()
+            const validItem = !!items.find(
     (val) => val.aliases.includes(itemToBuy)
 );
 if(!validItem) return message.channel.send(`This item is not a real item :rolling_eyes:`)
@@ -24,5 +25,5 @@ const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
 if(bot.item(message.author.id, validName) < num) {return message.reply(`You dont have ${num} ${realItem} bruh`)}else{
 bot.addItem(member.id, validName, num)
 bot.removeItem(message.author.id, validName, num)
-message.reply(message.author.username + ` gave ` + member + ` ` + itemIcon + ` ` + num + ` ` + validName)
+message.reply(message.author.username + ` gave ` + message.mentions.members.first() + ` ` + itemIcon + ` ` + num + ` ` + validName)
 }}}

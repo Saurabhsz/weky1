@@ -32,7 +32,6 @@ bot.createProfile(message.author.id)
         if(data.Fish) s+=`<:fish:816367967733547038> **Fish**es — ${data.Fish}\n`
         if(data.RareFish) s+=`<:rare_fish:816368038110035999> **Rare Fish**es — ${data.RareFish}\n`
         if(data.LegendaryFish) s+=`<:legedary_fish:820642438360072192> **Legendary Fish**es — ${data.LegendaryFish}\n`
-        if(data.Bread) s+=`<:bready:820948539823226901> **Bread**es — ${data.Bread}\n`
         if(data.WekyMoon) s+=`🌝 **Weky Moon**s — ${data.WekyMoon}\n`
         if(data.WekyRipOff) s+=`<:ripoff:815192242331451423> **Weky Rip Off**s — ${data.WekyRipOff}\n`
         if(data.SilverMoon) s+=`<:silver_moon:816983800260067338> **Silver Moon**s — ${data.SilverMoon}\n`
