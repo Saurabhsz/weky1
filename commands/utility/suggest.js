@@ -15,17 +15,17 @@ module.exports = {
 
 const channel = bot.channels.cache.get('811226235585822753')
 
-const query = args.slice(0).join(' ');
-if(!query) return message.reply('Please specify the sugestion')
-const Discord = require('discord.js')
-const embed = new Discord.MessageEmbed()
-.setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-.setDescription(query)
-.setTimestamp()
-channel.send(embed).then(embed => {
-embed.react(`<:upWeky:815202285100597260>`)
-embed.react(`<:downWeky:815202675868172308>`)
-message.reply("**Sugestion has been sent!**")
+if (!args[0]) return message.reply('No suggestion xd')
+channel.send(`<@&821723745345470504>`)
+        channel.createWebhook(member.user.username, {
+            avatar: member.user.displayAvatarURL({ dynamic: true })
+        }).then(webhook => {
+            webhook.send(new Discord.MessageEmbed()
+            .setTitle(`New suggestion!`)
+            .setDescription(args.slice(0).join(" ")))
+            setTimeout(() => {
+                webhook.delete()
+            }, 3000)
 })
 }
 }
