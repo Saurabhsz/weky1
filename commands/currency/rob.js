@@ -6,7 +6,8 @@ module.exports = {
   dmOnly: false,
   guildOnly: true,
   usage: '..rob @user',
-  cooldown: 15,
+  cooldown: 50,
+  cooldown: 30,
   guarded: true,
   permissions: ["NONE"],
   async execute(bot, message, args) {

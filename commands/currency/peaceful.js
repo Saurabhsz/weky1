@@ -5,6 +5,7 @@ module.exports = {
     guildOnly: true,
     usage: '..peaceful on || off',
     cooldown: 21600,
+    cooldown: 200,
     guarded: true,
     permissions: ["NONE"],
     async execute(bot, message, args) {
