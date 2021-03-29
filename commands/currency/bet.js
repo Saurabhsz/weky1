@@ -13,7 +13,7 @@ module.exports = {
     var number = Math.round(parseFloat(args[0]))
     if(!number) return message.channel.send(`Please specify how much you want to bet!`)
     if (number.isNaN) return message.channel.send("Thats not a valid number");
-    if(number > bot.bal(message.author.id)) {
+    if(number > await bot.bal(message.author.id)) {
         return message.channel.send("You dont have that much money why you bad at me bro :/");
     }
     if(number < 100){
@@ -34,7 +34,7 @@ if(bot.item(message.author.id, "BunEffect") == 0){
     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
     .addField(`**You lost!**`,
                 `Lost: ${number}`,
-                     `**New balance: ${bot.bal(message.author.id)}**`)
+                     `**New balance: ${await bot.bal(message.author.id)}**`)
     .setColor(`RED`)
     .setFooter(`Loser`)
   message.channel.send(embed)
@@ -45,7 +45,7 @@ const brr = `0.${br}`
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${bot.bal(message.author.id)}\n**Power-ups**: ${resp}`)
+                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${await bot.bal(message.author.id)}\n**Power-ups**: ${resp}`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
@@ -60,7 +60,7 @@ const brr = `0.${br}`
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You lost!**`,
                   `Lost: ${number}`,
-                       `**New balance: ${bot.bal(message.author.id)}**`)
+                       `**New balance: ${await bot.bal(message.author.id)}**`)
       .setColor(`RED`)
       .setFooter(`Loser`)
     message.channel.send(embed)
@@ -73,7 +73,7 @@ const brr = `0.${br}`
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                  `**Won**: ${Math.round(number*br/brr)}\n**Multiplier**: ${br}%\n**New balance: ${bot.bal(message.author.id)}**\n**Power-ups**: ${resp}`)
+                  `**Won**: ${Math.round(number*br/brr)}\n**Multiplier**: ${br}%\n**New balance: ${await bot.bal(message.author.id)}**\n**Power-ups**: ${resp}`)
                   .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
@@ -83,7 +83,7 @@ bot.add(message.author.id, Math.round(number*brr))
 let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-      `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${bot.bal(message.author.id)}\n**Power-ups**: ${resp}`)
+      `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${await bot.bal(message.author.id)}\n**Power-ups**: ${resp}`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)

@@ -101,8 +101,17 @@ module.exports = {
                         bot.removeItem(message.author.id, "Bread", 1)
                         bot.addItem(message.author.id, "BunEffect", 1)
                         message.reply(`You used a <:bready:820948539823226901> Bread to get the bun tentation, now your mind can think faster giving you 50% multiplier 50 seconds.`)
-                        setTimeout(function() {  bot.addItem(message.author.id, "BunEffect", 1)}, 50000)
+                        setTimeout(function() {  bot.removeItem(message.author.id, "BunEffect", 1)}, 50000)
                     }}
+                    if(useArgs[0] === 'energy' || useArgs[0] === 'drink'  || useArgs[0] === 'energydrink') {
+if(bot.item(message.author.id, "EnergyDrink") < 0){
+return message.channel.send(`You dont have that item, sorry buddy.`)
+ } else {
+bot.removeItem(message.author.id, "EnergyDrink", 1)
+ bot.addItem(message.author.id, "EnergyBolt", 1)
+message.reply(`You used a <:bready:820948539823226901> Energy Drink to move fast brrr, now you can catch robbers >:) for 6h`)
+setTimeout(function() {  bot.removeItem(message.author.id, "EnergyBolt", 1)}, 21600000)
+                                    }}
     if(!useArgs[0]) {  
 message.channel.send(`What you want to use? like bruh`);
     }

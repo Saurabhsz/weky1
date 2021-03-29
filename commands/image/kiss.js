@@ -14,7 +14,7 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
         const DIG = require('discord-image-generation');
-        let user = message.mentions.users.first()
+        let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
         if(!user){
             return message.channel.send(`This command requires two users.Make sure you pinged atleast one user in your message.`)
         }

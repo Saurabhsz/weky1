@@ -12,45 +12,13 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    const member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
-if(!member) return message.channel.send(`You didnt said who i need to give :rolling_eyes:`)
+    const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
+if(!member) return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
     var num = Math.round(parseFloat(args[1]))
-    if(!num) return message.channel.send(`How many coins you want to give?`)
-    if (num.isNaN) return message.channel.send("Thats not a valid number");
-    const Money = require('../../schemas/Money')
-Money.findOne({
-  id: message.author.id
-}, (err,data) => {
-  if(err) console.log(err);
-  if(!data){
-    newD = new Money({
-      id: message.author.id
-    });
-    newD.save();
-    let user = message.guild.members.cache.get(message.author.id);
-    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-  } else if(num > data.Wallet) {
-    return message.channel.send("You dont have these money.");
-  } else {
-   data.Wallet -= num;
-   data.save();
-   const e = data.Wallet
-   Money.findOne({
-    id: member.id
-  }, (err,data) => {
-    if(err) console.log(err);
-    if(!data){
-      newD = new Money({
-        id: member.id
-      });
-      newD.save();
-    } else {
-     data.Wallet += num;
-     data.save()
-   message.channel.send(`<@`+message.author + `> gave ${member} **${num}** coins, you have now ${e} and they have ${data.Wallet}`)
-    }
-  });
-  }
-});
+    if(!num) return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
+    if (isNaN(num)) return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
+    bot.rmv(message.author.id, num)
+    bot.add(member, num)
+    message.channel.send(`<@`+message.author + `> gave ${member.user.tag} **${num}** coins, you have now ${await bot.bal(message.author.id)} and they have ${await bot.bal(member.id)}`)
   }
 }

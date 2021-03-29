@@ -35,7 +35,7 @@ bot.addItem(message.author.id, "LegendaryFish", 1)
 } else {
     if(bot.item(message.author.id, "LifeShield") == 0){
         message.channel.send(`The fish has been killed you, idk how but yes, you died`)
-bot.rmv(message.author.id, bot.bal(message.author.id))
+bot.rmv(message.author.id, await bot.bal(message.author.id))
 } else {
 message.channel.send(`The fish has been killed you, idk how but yes, you died\nBut your <:life:820648609741668392> Life Shield saved you.`)
 bot.removeItem(message.author.id, "LifeShield", 1)                                                  
@@ -44,7 +44,7 @@ bot.removeItem(message.author.id, "LifeShield", 1)
 } catch (e) {
 if(bot.item(message.author.id, "LifeShield") == 0){
 message.channel.send(`The fish has been killed you, idk how but yes, you died`)
-bot.rmv(message.author.id, bot.bal(message.author.id))
+bot.rmv(message.author.id, await bot.bal(message.author.id))
 }else{
 message.channel.send(`The fish has been killed you, idk how but yes, you died\nBut your <:life:820648609741668392> Life Shield saved you.`)
 bot.removeItem(message.author.id, "LifeShield", 1)                                                  

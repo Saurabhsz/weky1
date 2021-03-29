@@ -36,10 +36,10 @@ bot.createBalance = (id) => {
 if(err) console.log(err)
 if(data){
   data.Wallet += amount
+  data.save()
 } else {
     bot.createBalance(id)
 }
-data.save()
     })
   }
 //Removing money from the user wallet
@@ -48,10 +48,10 @@ data.save()
 if(err) throw err
 if(data){
   data.Wallet -= amount
+  data.save()
 } else {
     bot.createBalance(id)
 }
-data.save()
     })
   }
 //Adding space into bank
@@ -60,10 +60,10 @@ data.save()
 if(err) throw err
 if(data){
   data.Space += amount
+  data.save()
 } else {
     bot.createBalance(id)
 }
-data.save()
     })
   }
 //Removing space from bank
@@ -72,10 +72,10 @@ data.save()
 if(err) throw err
 if(data){
   data.space -= amount
+  data.save()
 } else {
   bot.createBalance(id)
 }
-data.save()
     })
   }
 //Adding money directlly in bank
@@ -84,10 +84,10 @@ data.save()
 if(err) throw err
 if(data){
   data.Bank += amount
+  data.save()
 } else {
     bot.createBalance(id)
 }
-data.save()
     })
   }
 //Removing money directlly from bank

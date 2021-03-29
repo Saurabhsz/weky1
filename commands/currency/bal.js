@@ -9,29 +9,11 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-
-    const target = message.mentions.users.first() || message.author
-    const targetId = target.id
-    const Money = require('../../schemas/Money')
-Money.findOne({
-  id: targetId
-}, (err,data) => {
-  if(err) console.log(err);
-  if(!data){
-    newD = new Money({
-      id: targetId,
-      guild: message.guild.id
-    });
-    newD.save();
-    let user = message.guild.members.cache.get(message.author.id);
-    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-  } else {
+    const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
     let embed = new Discord.MessageEmbed()
     .setTitle(target.username + '\'s balance')
-    .setDescription("**Wallet**: " + data.Wallet + "\n**Bank**: " + data.Bank + "/" + data.space)
+    .setDescription("**Wallet**: " + await bot.bal(target.id) + "\n**Bank**: " + await bot.Bank(target.id) + "/" + await bot.space(target.id))
     .setColor("RANDOM")
     .setTimestamp();
     message.channel.send(embed);
-  }
-});
   }}

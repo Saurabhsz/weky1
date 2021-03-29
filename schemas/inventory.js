@@ -23,6 +23,7 @@ User: {
     Bread: {type: Number, default: 0},
     SilverMoon: {type: Number, default: 0},
     BunEffect: {type: Number, default: 0},
+    Peaceful: {type: Number, default: 0},
 
 })
 module.exports = mongoose.model('inventories', profileSchema)

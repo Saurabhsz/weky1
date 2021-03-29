@@ -20,6 +20,16 @@ module.exports = [
         collectable: false
     },
     {
+        aliases: ["energy", "energydrink", "drink"],
+        emoji: "<:energydrink:826100589426769990>",
+        price: 20000,
+        realItem: "EnergyDrink",
+        sell: 2000,
+        sellable: true,
+        buyable: true,
+        collectable: false
+    },
+    {
         aliases: ["wekymoon", "moon"],
         emoji: "🌝",
         price: 2000000,

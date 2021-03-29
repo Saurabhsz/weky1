@@ -11,7 +11,7 @@ module.exports = {
     guarded: true,
     permissions: ["NONE"],
     async execute(bot, message, args) {
-        const member = message.mentions.users.first() || message.author;
+        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
 inventory.findOne({ User: member.id }, async(err, data) => {
     if(!data) {
 message.reply(new Discord.MessageEmbed().setTitle(`${member.username}'s inventory`).setDescription(`Empty :(`).setColor("RANDOM"))
@@ -24,6 +24,7 @@ bot.createProfile(message.author.id)
         if(data.Bread) s+=`<:bready:820948539823226901> **Bread**s — ${data.Bread}\n`
         if(data.PlasticHand) s+=`<:plastichand:816373822784667719> **Plastic Hand**s — ${data.PlasticHand}\n`
         if(data.LifeShield) s+=`<:life:820648609741668392> **Life Shield**s — ${data.Phone}\n`
+        if(data.EnergyDrink) s+=`<:energydrink:826100589426769990> **Energy Drink**s — ${data.EnergyDrink}\n`
         if(data.GotchaBox) s+=`<:gotcha_box:816990104803475457> **Gotcha Box**es — ${data.GotchaBox}\n`
         if(data.Fox) s+=`🦊 **Fox**es — ${data.Fox}\n`
         if(data.Eagle) s+=`🦅 **Eagle**s — ${data.Eagle}\n`

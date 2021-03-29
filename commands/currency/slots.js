@@ -12,28 +12,11 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
-
-    const target = message.mentions.users.first() || message.author
-    const targetId = target.id
-    const Money = require('../../schemas/Money')
       if(message.content.includes(',')) return message.channel.send(`In your message CAN'T be . and ,`)
-
     var number = parseFloat(args[0])
     if(!number) return message.channel.send(`Please specify how much you want to bet!`)
-    if (number.isNaN) return message.channel.send("Thats not a valid number");
-Money.findOne({
-  id: targetId
-}, (err,data) => {
-  if(err) console.log(err);
-  if(!data){
-    newD = new Money({
-      id: targetId
-    });
-    newD.save();
-    let user = message.guild.members.cache.get(message.author.id);
-    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-  } else {
-    if(number > data.Wallet) {
+    if (isNaN(number)) return message.channel.send("Thats not a valid number");
+    if(number > await bot.bal(message.author.id)) {
         return message.channel.send("You dont have that much money why you bad at me bro :/");
     }
     if(number < 100){
@@ -57,53 +40,37 @@ Money.findOne({
       "1.5"]
     const r =  parseInt(Math.floor(Math.random() * arrray.length));
     const okk = arrray[r]
-    data.Wallet += number*okk;
-    let ar = ["😳","💰","🔫", "😘"]
-    let a = Math.floor(Math.random() * ar.length)
-    let a1 = ar[a]
-    let b = Math.floor(Math.random() * ar.length)
-    let b1 = ar[b]
-    let c = Math.floor(Math.random() * ar.length)
-    let c1 = ar[c]
-    let embed = new Discord.MessageEmbed()
-    if(a === b && b=== c){
-      data.Wallet += Math.round(number)*3
-      data.save();
-      embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`\n\nJACKPOT <:trollpog:815973183378161675>\n\n`
-      +`**|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${Math.round(number)*3};\nGambled: ${Math.round(number)};\nMupliplier: x3\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
-      message.reply(embed)
-    } else if(a===b && a!=c){
-      const E = Math.round(number*okk)
-      data.Wallet += E
-      data.save();
-      embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E};\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
-      message.reply(embed)
-
-    }else if(b===c && b != a){
-      const E = Math.round(number*okk)
-      data.Wallet += E
-      data.save();
-      embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E}\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
-      message.reply(embed)
-
-    }else if(a === c && a != c){
-      const E = Math.round(number*okk)
-      data.Wallet += E
-      data.save();
-      embed.setColor(`GREEN`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details:`,`Won: ${E};\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${data.Wallet}`).setFooter(`Winner winner`)
-      message.reply(embed)
-
-    }else{
-      data.Wallet -= Math.round(number)
-      embed.setColor(`RED`).addField(`${message.author.username}'s game`,`
-      **|** ${a1} **|** ${b1}** | **${c1} **|**`).addField(`Details`,`Lost : ${Math.round(number)}`).setFooter(`Loser loser`)
-          message.reply(embed)
-         data.save();
-      }
-  }
-});
-}
-}
+const Discord = require('discord.js')
+const slots = ['<:slotsGrapes:825973525755068437>', '<:slotsCherries:825972970190012426>', '<:slotsLemon:825972330311712779>'];
+const slotOne = slots[Math.floor(Math.random() * slots.length)];
+const slotTwo = slots[Math.floor(Math.random() * slots.length)];
+const slotThree = slots[Math.floor(Math.random() * slots.length)];
+const slotfour = slots[Math.floor(Math.random() * slots.length)];
+const slotfive = slots[Math.floor(Math.random() * slots.length)];
+const slotsix = slots[Math.floor(Math.random() * slots.length)];
+const slotseven = slots[Math.floor(Math.random() * slots.length)];
+const sloteight = slots[Math.floor(Math.random() * slots.length)];
+const slotnine = slots[Math.floor(Math.random() * slots.length)];
+if (slotOne === slotTwo && slotOne === slotThree || slotfour === slotfive && slotfour === slotsix || slotseven === sloteight && slotseven === slotnine) {
+    const won = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .addField(`Slots are rollin'...`,
+        `\n|${slotOne}|${slotTwo}|${slotThree} |\n|———-—|\n` +
+        `|${slotfour}|${slotfive}|${slotsix} |\n|———-—|\n` +
+        `|${slotseven}|${sloteight}|${slotnine} |\n`)
+        .addField(`Details:`,`Won: ${Math.round(number*okk)};\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${await bot.bal(message.author.id)}`)
+        .setFooter("Winner");
+    message.channel.send(won)
+    bot.add(message.author.id, Math.round(number*okk))
+} else {
+    const lost = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .addField(`Slots are rollin'...`, 
+    `\n|${slotOne}${slotTwo}${slotThree} |\n|———-—|\n` +
+    `|${slotfour}${slotfive}${slotsix} |\n|———-—|\n` +
+    `|${slotseven}${sloteight}${slotnine} |\n`)
+    .addField(`Details`,`Lost : ${Math.round(number)}`)
+    .setFooter("Loser");
+    message.channel.send(lost)
+    bot.rmv(message.author.id, Math.round(number))
+}}}

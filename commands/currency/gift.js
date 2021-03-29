@@ -11,6 +11,7 @@ module.exports = {
     async execute(bot, message, args) {
         if(!args[1]) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[2]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(2).join(" ") || x.user.username === args[2]);
+        if(member.id === message.author.id) return message.reply(`Learn what you cant gift urself means`);
         if(!member) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
             var num = parseFloat(args[0])
             if(!num) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
