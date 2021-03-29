@@ -42,7 +42,7 @@ if(!membe) return message.channel.send(`You didnt said who i need to give :rolli
             bot.rmv(message.author.id, 250)
             bot.add(membe.id, 250)
         }
-    } else if(bot.item(membe.id, "Peaceful") === 1){
+    } else {
         message.reply(`The guy likes to be peaceful, not like you evil kid.`)
     }
   }
