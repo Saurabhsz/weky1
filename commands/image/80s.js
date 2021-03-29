@@ -1,4 +1,4 @@
-const Discord = require('discord-js');
+const Discord = require('discord.js');
 module.exports = {
     name: "80s",
     aliases: ["80seconds"],

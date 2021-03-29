@@ -23,6 +23,8 @@ User: {
     Bread: {type: Number, default: 0},
     SilverMoon: {type: Number, default: 0},
     BunEffect: {type: Number, default: 0},
+    EnergyDrink: {type: Number, default: 0},
+    EnergyBolt: {type: Number, default: 0},
     Peaceful: {type: Number, default: 0},
 
 })
