@@ -22,9 +22,9 @@ module.exports = {
   if(number > 500000){
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
-if(bot.item(message.author.id, BunEffect) == 0){
+if(bot.item(message.author.id, "BunEffect") == 0){
   var resp = '';
-  if(data.bun != 0) resp += `<:bready:820948539823226901>`
+  if(bot.item(message.author.id, "BunEffect") !== 0) resp += `<:bready:820948539823226901>`
 
   const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
   let rate = 65;
@@ -50,9 +50,9 @@ const brr = `0.${br}`
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
-  }}else if(bot.item(message.author.id, BunEffect) !== 0){
+  }}else if(bot.item(message.author.id, "BunEffect") !== 0){
     var resp = '';
-    if(bot.item(message.author.id, BunEffect) > 0) resp += `<:bready:820948539823226901>`
+    if(bot.item(message.author.id, "BunEffect") > 0) resp += `<:bready:820948539823226901>`
     const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
     let rate = 70;
     if (rate < random) {
