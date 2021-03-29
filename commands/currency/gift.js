@@ -26,5 +26,5 @@ const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
 if(bot.item(message.author.id, validName) < num) {return message.reply(`You dont have ${num} ${realItem} bruh`)}else{
 bot.addItem(member.id, validName, num)
 bot.removeItem(message.author.id, validName, num)
-message.reply(message.author.username + ` gave ` + message.mentions.members.first() + ` ` + itemIcon + ` ` + num + ` ` + validName)
+message.reply(message.author.username + ` gave ` + member.user.tag + ` ` + itemIcon + ` ` + num + ` ` + validName)
 }}}
