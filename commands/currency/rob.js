@@ -13,7 +13,7 @@ module.exports = {
     const membe = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 if(!membe) return message.channel.send(`You didnt said who i need to give :rolling_eyes:`)
     var ran;
-    if(bot.item(membe.id, "Peaceful") === 1){
+    if(bot.item(membe.id, "Peaceful") === 0){
     if(bot.bal(membe.id) < 101) return message.reply(`This kid don't even have 100 coins.`)
     if(bot.bal(membe.id) < 250) return message.reply(`You need 250 coins to rob mf.`)
     var num;
