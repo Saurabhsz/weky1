@@ -10,9 +10,9 @@ module.exports = {
   permissions: ["NONE"],
   async execute(bot, message, args) {
     const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
+    console.log(target.user.tag)
     let embed = new Discord.MessageEmbed()
-    .setTitle(target.tag + '\'s balance')
-    .setDescription("**Wallet**: " + await bot.bal(target.id) + "\n**Bank**: " + await bot.Bank(target.id) + "/" + await bot.space(target.id))
+    .addField(target.user.tag + '\'s balance', "**Wallet**: " + await bot.bal(target.id) + "\n**Bank**: " + await bot.Bank(target.id) + "/" + await bot.space(target.id))
     .setColor("RANDOM")
     .setTimestamp();
     message.channel.send(embed);
