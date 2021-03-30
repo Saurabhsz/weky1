@@ -14,7 +14,7 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
       if(message.author.id === "778518819055861761" || message.author.id === "700988024770789376" || message.author.id === "619498919763640330"){
-        const member = message.mentions.members.first() || message.guild.members.cache.get(args[2]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(2).join(" ") || x.user.username === args[2]) || message.author;
+        const member = message.mentions.members.first() || message.guild.members.cache.get(args[2]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(2).join(" ") || x.user.username === args[2])
         if(!args[0]) return message.reply(`Well add smth bruh`)
         const itemToBuy = args[0].toLowerCase()
     var num = parseFloat(args[1])

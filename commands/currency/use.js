@@ -33,7 +33,6 @@ module.exports = {
                     } else {
                         bot.removeItem(message.author.id, "SpaceScript", num)
                         bot.addSpace(message.author.id, muni*num)
-                        data.save()
                     }
                     message.channel.send(new Discord.MessageEmbed()
                     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())

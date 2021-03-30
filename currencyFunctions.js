@@ -59,7 +59,7 @@ if(data){
     eco.findOne({ id }, async(err, data) => {
 if(err) throw err
 if(data){
-  data.Space += amount
+  data.space += amount
   data.save()
 } else {
     bot.createBalance(id)
