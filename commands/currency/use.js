@@ -109,7 +109,7 @@ return message.channel.send(`You dont have that item, sorry buddy.`)
  } else {
 bot.removeItem(message.author.id, "EnergyDrink", 1)
  bot.addItem(message.author.id, "EnergyBolt", 1)
-message.reply(`You used a <:bready:820948539823226901> Energy Drink to move fast brrr, now you can catch robbers >:) for 6h`)
+message.reply(`You used a <:energydrink:826100589426769990> Energy Drink to move fast brrr, now you can catch robbers >:) for 6h`)
 setTimeout(function() {  bot.removeItem(message.author.id, "EnergyBolt", 1)}, 21600000)
                                     }}
 if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyripoff' || useArgs[0] === 'wekyrip'|| useArgs[0] === 'rip') {
