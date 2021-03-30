@@ -12,9 +12,9 @@ module.exports = {
   permissions: ["NONE"],
   async execute(bot, message, args) {
     const membe = message.mentions.members.first() || message.guild.members.cache.get(args[0])
-if(!membe) return message.channel.send(`You didnt said who i need to give :rolling_eyes:`)
-    var ran;
-    if(bot.item(membe, "Peaceful") === 0){
+if(!membe) return message.channel.send(`Who,The fk, the lord,wants to rob :rolling_eyes:`)
+if(member.id === message.author.id) return message.reply(`Learn what you cant rob urself means`);
+var ran;
     if(bot.bal(membe.id) < 101) return message.reply(`This kid don't even have 100 coins.`)
     if(bot.bal(membe.id) < 250) return message.reply(`You need 250 coins to rob mf.`)
     var num;
@@ -43,8 +43,5 @@ if(!membe) return message.channel.send(`You didnt said who i need to give :rolli
             bot.rmv(message.author.id, 250)
             bot.add(membe.id, 250)
         }
-    } else {
-        message.reply(`The guy likes to be peaceful, not like you evil kid.`)
-    }
   }
 }
