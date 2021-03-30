@@ -9,7 +9,7 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-            if(bot.item(message.author.id, "PlasticHand") == 0) {
+            if(0 >= bot.item(message.author.id, "PlasticHand")) {
         return message.channel.send(`U dont have a Plastic Hand what a poor`);
         } else {
             const random = Math.floor(Math.random() * 101)
