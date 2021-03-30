@@ -15,17 +15,14 @@ module.exports = {
   async execute(bot, message, args) {
 
 Money.findOne({
-  id: message.author.id
+  User: message.author.id
 }, (err,data) => {
   if(err) console.log(err);
   if(!data){
     newD = new Money({
       User: message.author.id
     });
-    newD.save();
-    let user = message.guild.members.cache.get(message.author.id);
-    user.user.send(`Hello , **thanks for starting using Weky Bot**!\n You got 100 coins as reward for starting. Do \`/help\` for more commands about our currency system.`)
-  } else {
+} else {
     let buyArray = message.content.split(" ");
     let useArgs = buyArray.slice(1);
 
