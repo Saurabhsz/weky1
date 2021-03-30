@@ -153,10 +153,7 @@ bot.createProfile(id)
       if(!data) {
 bot.createProfile(id)
       } else {
-        bot.on("message", async message => {
-          data[item]
-        })
-          
+          data[item]     
       }
    })
 }
