@@ -36,7 +36,7 @@ module.exports = {
                     }
                     message.channel.send(new Discord.MessageEmbed()
                     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
-                    .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Script and got **${muni} bank space**, gg lmao.`)
+                    .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Script and got **${muni*num} bank space**, gg lmao.`)
    )}}
     if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox' ) {
         if(bot.item(message.author.id, "GotchaBox") == 0){
