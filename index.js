@@ -46,6 +46,9 @@ for (const file of eventFiles) {
     	}
     }
 } 
+const emitter = new EventEmitter()
+emitter.setMaxListeners(0)
+process.on('warning', e => console.warn(e.stack));
 bot.on("message", async message=>{
   const prefixModel = require("./schemas/Guild")
   const data = await prefixModel.findOne({
