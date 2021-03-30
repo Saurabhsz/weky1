@@ -15,7 +15,8 @@ bot.snipes = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
 const express = require('express')
-const Topgg = require('@top-gg/sdk')
+const Topgg = require('@top-gg/sdk');
+const EventEmitter = require('events');
 
 const app = express() // Your express app
 
