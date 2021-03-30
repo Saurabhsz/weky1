@@ -50,6 +50,7 @@ if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot
               return message.channel.send(`You didnt said \`all\`, \`half\` or ,\`number\``)
 
         } else if(!isNaN(num)){
+          if(data.space < Math.round(num)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
           data.Wallet -= Math.round(num)
           data.Bank += Math.round(num)
           data.save();
