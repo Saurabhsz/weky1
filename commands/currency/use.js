@@ -112,6 +112,12 @@ bot.removeItem(message.author.id, "EnergyDrink", 1)
 message.reply(`You used a <:bready:820948539823226901> Energy Drink to move fast brrr, now you can catch robbers >:) for 6h`)
 setTimeout(function() {  bot.removeItem(message.author.id, "EnergyBolt", 1)}, 21600000)
                                     }}
+if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyripoff' || useArgs[0] === 'wekyrip'|| useArgs[0] === 'rip') {
+if(bot.item(message.author.id, "WekyRipOff") < 0){
+return message.channel.send(`You dont have that item, sorry buddy.`)
+} else {
+message.reply(`${message.author} flex on y'all with their weky rip off :muscle::rage:`)
+}}     
     if(!useArgs[0]) {  
 message.channel.send(`What you want to use? like bruh`);
     }
