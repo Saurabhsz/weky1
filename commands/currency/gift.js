@@ -23,7 +23,9 @@ module.exports = {
 if(!validItem) return message.channel.send(`This item is not a real item :rolling_eyes:`)
 const itemIcon = items.find((val) => val.aliases.includes(itemToBuy)).emoji
 const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
-if(num > bot.item(message.author.id, validName)) {console.log(`c`)}else{
+if(num > bot.item(message.author.if, validName)) {
+    return message.channel.send("You dont have " + num + " " + validName);
+  } else {
 bot.addItem(member.id, validName, num)
 bot.removeItem(message.author.id, validName, num)
 message.reply(message.author.username + ` gave ` + member.user.tag + ` ` + itemIcon + ` ` + num + ` ` + validName)
