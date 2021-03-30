@@ -16,7 +16,7 @@ module.exports = {
 if(membe.id === message.author.id) return message.reply(`Learn what you cant rob urself means`);
 var ran;
     if(bot.bal(membe.id) < 101) return message.reply(`This kid don't even have 100 coins.`)
-    if(bot.bal(membe.id) < 250) return message.reply(`You need 250 coins to rob mf.`)
+    if(bot.bal(message.author.id) < 250) return message.reply(`You need 250 coins to rob mf.`)
     var num;
     if(0 >= bot.item(membe.id, "EnergyBolt")){
         ran = Math.floor(Math.random() * 12)
