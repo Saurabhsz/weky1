@@ -25,7 +25,5 @@ User: {
     BunEffect: {type: Number, default: 0},
     EnergyDrink: {type: Number, default: 0},
     EnergyBolt: {type: Number, default: 0},
-    Peaceful: {type: Number, default: 0},
-
 })
 module.exports = mongoose.model('inventories', profileSchema)
