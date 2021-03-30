@@ -6,6 +6,7 @@ module.exports = {
   guildOnly: true, //or false
   usage: '..rmv',
   cooldown: 4, //seconds(s)
+  cooldown: 1,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {

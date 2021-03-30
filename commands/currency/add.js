@@ -6,6 +6,7 @@ module.exports = {
   guildOnly: true, //or false
   usage: '..add',
   cooldown: 4, //seconds(s)
+  cooldowny: 0,
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
