@@ -26,18 +26,18 @@ module.exports = {
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
     const arrray = [
-      "0.1",
-      "0.2",
-      "0.3",
-      "0.4",
-      "0.5",
-      "0.9",
-      "1.0",
-      "1.1",
-      "1.2",
-      "1.3",
-      "1.4",
-      "1.5"]
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "2.5",
+      "2.9",
+      "3.0",
+      "3.1",
+      "3.2",
+      "3.3",
+      "3.4",
+      "3.5"]
     const r =  parseInt(Math.floor(Math.random() * arrray.length));
     const okk = arrray[r]
 const Discord = require('discord.js')
