@@ -26,6 +26,7 @@ const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
 if(num > await bot.item(message.author.if, validName)) {
     return message.channel.send("You dont have " + num + " " + validName);
   } else {
+    bot.item(message.author.if, validName)
 bot.addItem(member.id, validName, num)
 bot.removeItem(message.author.id, validName, num)
 message.reply(message.author.username + ` gave ` + member.user.tag + ` ` + itemIcon + ` ` + num + ` ` + validName)
