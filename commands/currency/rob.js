@@ -11,9 +11,9 @@ module.exports = {
   guarded: true,
   permissions: ["NONE"],
   async execute(bot, message, args) {
-    const membe = message.mentions.members.first() || message.guild.members.cache.get(args[0])
-if(!membe) return message.channel.send(`Who,The fk, the lord,wants to rob :rolling_eyes:`)
-if(member.id === message.author.id) return message.reply(`Learn what you cant rob urself means`);
+    const membe = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
+    if(!membe) return message.channel.send(`Who,The fk, the lord,wants to rob :rolling_eyes:`)
+if(membe.id === message.author.id) return message.reply(`Learn what you cant rob urself means`);
 var ran;
     if(bot.bal(membe.id) < 101) return message.reply(`This kid don't even have 100 coins.`)
     if(bot.bal(membe.id) < 250) return message.reply(`You need 250 coins to rob mf.`)
