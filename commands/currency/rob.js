@@ -53,7 +53,7 @@ var ran;
             message.reply(`You paid 250 coins for nothing, sad.`)
             bot.rmv(message.author.id, 250)
             bot.add(membe.id, 250)
-            membe.user.send(`${message.author.username} TRIED TO stele from you coins in **${message.guild.name}**`).catch(e => {
+            membe.user.send(`${message.author.username} TRIED TO steal from you coins in **${message.guild.name}**`).catch(e => {
                 return;
               })
         }})}}}
