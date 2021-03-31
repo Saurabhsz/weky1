@@ -37,6 +37,9 @@ bot.createProfile(message.author.id)
         if(data.WekyMoon) s+=`🌝 **Weky Moon**s — ${data.WekyMoon}\n`
         if(data.WekyRipOff) s+=`<:ripoff:815192242331451423> **Weky Rip Off**s — ${data.WekyRipOff}\n`
         if(data.SilverMoon) s+=`<:silver_moon:816983800260067338> **Silver Moon**s — ${data.SilverMoon}\n`
+    if(member.id === message.author.id){
+        message.reply(new Discord.MessageEmbed().setTitle(`${member.username}'s inventory`).setDescription(s))     
+    }
     message.reply(new Discord.MessageEmbed().setTitle(`${member.user.tag}'s inventory`).setDescription(s))
 })
 }
