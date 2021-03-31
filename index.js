@@ -250,19 +250,26 @@ const prefix = data.prefix
   }
   })
   bot.on('guildMemberAdd', async member => {
+  const { CanvasSenpai } = require("canvas-senpai")
+const Canvacord = new CanvasSenpai();
     const channel = bot.channels.cache.get(`811222075053572106`)
     if (!channel) return;
+  const members = message.guild.members.cache;
+   let image = new Canvacord.Welcomer()
+   .setUsername(member.user.username)
+   .setDiscriminator(member.user.discriminator)
+   .setMemberCount(members.filter(member => !members.users.bot).size)
+   .setGuildName(message.guild.name)
+   .setAvatar(member.user.displayAvatarURL({ format: "png" }))
+   .setColor("border", "#d7b0ff")
+   .setColor("username-box", "#8015EA")
+   .setColor("discriminator-box", "#8015EA")
+   .setColor("message-box", "#e9b0ff")
+   .setColor("title", "#FFFFFF")
+   .setColor("avatar", "#000000")
+   .setBackground("")
+ let attachment = new Discord.MessageAttachment(await image.build(), "welcome-image.png");
  
-   let data = await canva.welcome(member, { link: "https://cdn.discordapp.com/attachments/812590454821355543/826868837743460402/pngtree-simple-red-and-pink-smoke-background-image_301291.jpg" , blur: true, block: false})
- 
-    const attachment = new Discord.MessageAttachment(
-      data,
-      "welcome-image.png"
-    );
- 
-    channel.send(
-      `Welcome to the server, ${member.user.username}!`,
-      attachment
-    );   
+ channel.send(attachment)
    });
 bot.login(process.env.token);

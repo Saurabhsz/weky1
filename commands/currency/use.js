@@ -30,7 +30,7 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
                         .setDescription(`You used <:spacescript:814122006437167134> 1 Space Script and got **${muni} bank space**, gg lmao.`)
        )
                 } else {
-                    if(num >= data.SpaceScript){
+                    if(num > data.SpaceScript){
                        return message.channel.send(`You dont have that many item, sorry buddy.`)
                     } else {
                         bot.removeItem(message.author.id, "SpaceScript", num)
