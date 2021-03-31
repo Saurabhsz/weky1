@@ -38,7 +38,7 @@ const emitter = new EventEmitter()
 emitter.setMaxListeners(0)
 process.on('warning', e => console.warn(e.stack));
 bot.on("message", async message=>{
-  const Money = require('../../schemas/Money')
+  const Money = require('./schemas/Money')
   Money.findOne({
     id: message.author.id
   }, (err,data) => {
