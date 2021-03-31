@@ -13,11 +13,13 @@ module.exports = {
   async execute(bot, message, args) {
     let buyArray = message.content.split(" ");
     let useArgs = buyArray.slice(1);
+    const inventory = require("./schemas/inventory")
+    const data = inventory.findOne({ User: message.author.id })
     if(useArgs[0] === 'script' || useArgs[0] === 'space' ) {
         const muni = Math.floor(Math.random() * 15000) + 1000;
         var num = parseFloat(args[1])
                 if(!num){
-                    if(bot.item(message.author.id, "SpaceScript", 1) === false){
+                    if(0 >= data.SpaceScript){
                        return message.channel.send(`You dont have that item, sorry buddy.`)
                     } else {
                         bot.removeItem(message.author.id, "SpaceScript", 1)
