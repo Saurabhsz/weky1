@@ -14,7 +14,7 @@ module.exports = {
     let buyArray = message.content.split(" ");
     let useArgs = buyArray.slice(1);
     const inventory = require("../../schemas/inventory")
-    const data = inventory.findOne({ User: message.author.id })
+inventory.findOne({ User: message.author.id }, async (err, data) => {
     if(useArgs[0] === 'script' || useArgs[0] === 'space' ) {
         const muni = Math.floor(Math.random() * 15000) + 1000;
         var num = parseFloat(args[1])
@@ -121,5 +121,6 @@ message.reply(`${message.author} flex on y'all with their weky rip off :muscle::
     if(!useArgs[0]) {
 message.channel.send(`What you want to use? like bruh`);
     }
+})
 }
 }
