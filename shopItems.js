@@ -190,8 +190,7 @@ module.exports = [
         collectable: true
     },
     {
-        item: "bread",
-        aliases: ["bd"],
+        aliases: ["bread", "bd"],
         emoji: "<:bready:820948539823226901>",
         price: 15000,
         sell: false,
