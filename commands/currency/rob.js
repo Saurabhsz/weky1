@@ -15,8 +15,8 @@ module.exports = {
     if(!membe) return message.channel.send(`Who,The fk, the lord,wants to rob :rolling_eyes:`)
 if(membe.id === message.author.id) return message.reply(`Learn what you cant rob urself means`);
 var ran;
-    if(100 >= bot.bal(membe.id)) {return message.reply(`This kid don't even have 100 coins.`)}else
-    if(250 >= bot.bal(message.author.id)) {return message.reply(`You need 250 coins to rob mf.`)}else {
+    if(100 >= await bot.bal(membe.id)) {return message.reply(`This kid don't even have 100 coins.`)}else
+    if(250 >= await bot.bal(message.author.id)) {return message.reply(`You need 250 coins to rob mf.`)}else {
     var num;
     if(0 >= bot.item(membe.id, "EnergyBolt")){
         ran = Math.floor(Math.random() * 12)
