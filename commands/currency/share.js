@@ -26,6 +26,7 @@ if(!member) return message.channel.send(`Use this blocked head :rolling_eyes:\n\
   } else if (isNaN(num) && args[1] !== 'all') {
     return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
   } else {
+    if(num >= await bot.bal(message.author.id)) return message.reply(`You dont have that many coins lol`)
     bot.rmv(message.author.id, num)
     bot.add(member.id, num)
     message.channel.send(`<@`+message.author + `> gave ${member.user.tag} **${num}** coins, you have now ${await bot.bal(message.author.id)} and they have ${await bot.bal(member.id)}`)
