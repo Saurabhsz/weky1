@@ -29,17 +29,17 @@ var ran;
         num = await bot.bal(membe.id)
         message.reply(`You stole ALL THEIR MONEYYY🤑🤑🤑🤑🤑, in total **${num}** coins, GG.`)
         bot.add(message.author.id, Math.round(num))
-        bot.rmv(membe.id, num)
+        bot.rmv(membe.id, Math.round(num))
     } else if(ran < 3){
         num = await bot.bal(membe.id)/2
         message.reply(`You stole a part of their money💸💸, in total **${num}** coins, gg bruh.`)
         bot.add(message.author.id, Math.round(num))
-        bot.rmv(membe.id, num)
+        bot.rmv(membe.id, Math.round(num))
     } else if(ran < 5){
         num = Math.floor(Math.random() * await bot.bal(membe.id)) + 100
         message.reply(`You stole some money💰💰💰, in total **${num}** coins, gg bruh.`)
         bot.add(message.author.id, Math.round(num))
-        bot.rmv(membe.id, num)
+        bot.rmv(membe.id, Math.round(num))
     } else {
             message.reply(`You paid 250 coins for nothing, sad.`)
             bot.rmv(message.author.id, 250)
