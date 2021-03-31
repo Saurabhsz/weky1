@@ -23,11 +23,13 @@ module.exports = {
 if(!validItem) return message.channel.send(`This item is not a real item :rolling_eyes:`)
 const itemIcon = items.find((val) => val.aliases.includes(itemToBuy)).emoji
 const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
-if(num > await bot.item(message.author.if, validName)) {
+const inventory = require("../../schemas/inventory")
+inventory.findOne({ User: message.author.id }, async (err, data) => {
+if(num > data[validName]) {
     return message.channel.send("You dont have " + num + " " + validName);
   } else {
     console.log(bot.item(message.author.if, validName))
 bot.addItem(member.id, validName, num)
 bot.removeItem(message.author.id, validName, num)
 message.reply(message.author.username + ` gave ` + member.user.tag + ` ` + itemIcon + ` ` + num + ` ` + validName)
-}}}
+}})}}
