@@ -22,9 +22,11 @@ module.exports = {
   if(number > 500000){
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
-if(0 >= bot.item(message.author.id, "BunEffect")){
+  const inventory = require("../../schemas/inventory")
+            inventory.findOne({ User: message.author.id }, async (err, data) => {
+if(0 >= data.BunEffect){
   var resp = '';
-  if(bot.item(message.author.id, "BunEffect") !== 0) resp += `<:bready:820948539823226901>`
+  if(data.BunEffect !== 0) resp += `<:bready:820948539823226901>`
 
   const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
   let rate = 65;
@@ -87,4 +89,4 @@ let embed = new Discord.MessageEmbed()
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
-    }}}}}
+}}}})}}

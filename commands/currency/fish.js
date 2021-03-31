@@ -9,7 +9,9 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-            if(0 >= bot.item(message.author.id, "PlasticHand")) {
+        const inventory = require("../../schemas/inventory")
+inventory.findOne({ User: message.author.id }, async (err, data) => {
+            if(0 >= data.PlasticHand) {
         return message.channel.send(`U dont have a Plastic Hand what a poor`);
         } else {
             const random = Math.floor(Math.random() * 101)
@@ -58,4 +60,4 @@ bot.addItem(message.author.id, "RareFish", 1)
    bot.addItem(message.author.id, "Fish", rando)
 } else if(random < 101){
                     message.reply(`Lol you didnt fished anything.`)
-                }}}}
+                }}})}}
