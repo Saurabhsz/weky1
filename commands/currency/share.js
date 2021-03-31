@@ -18,7 +18,7 @@ if(!member) return message.channel.send(`Use this blocked head :rolling_eyes:\n\
     if(!num) return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
     if (isNaN(num)) return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
     bot.rmv(message.author.id, num)
-    bot.add(member, num)
+    bot.add(member.id, num)
     message.channel.send(`<@`+message.author + `> gave ${member.user.tag} **${num}** coins, you have now ${await bot.bal(message.author.id)} and they have ${await bot.bal(member.id)}`)
   }
 }
