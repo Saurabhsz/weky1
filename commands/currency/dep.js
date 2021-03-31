@@ -28,10 +28,10 @@ Money.findOne({
   } else if(num >= data.Wallet) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
   }
-  const thesame = data.Bank == data.space
+  const thesame = data.Bank >= data.space
   if(thesame){
     return message.channel.send(`Looks like your bank is full :) go get some scripts`)
-  }else if(Math.round(num) > Math.round(data.space)){
+  }else if(Math.round(num) >= Math.round(data.space)){
       return message.channel.send(`Looks like your bank is full :) go get some scripts`)
      } else {
       if(args[0] === 'all' && isNaN(num)) {
@@ -50,12 +50,16 @@ if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot
               return message.channel.send(`You didnt said \`all\`, \`half\` or ,\`number\``)
 
         } else if(!isNaN(num)){
-          if(data.space < Math.round(num)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
+        if(Math.round(num) >= Math.round(data.space)){
+          return message.channel.send(`Looks like your bank is full :) go get some scripts`)
+         }else {
+          if(Math.round(num) >= data.space || data.space === data.Bank) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
           data.Wallet -= Math.round(num)
           data.Bank += Math.round(num)
           data.save();
           message.channel.send("Deposited **" + Math.round(num) + '** coins.')
         } 
+      }
 }
 });
 }
