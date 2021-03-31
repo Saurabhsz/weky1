@@ -254,7 +254,7 @@ const prefix = data.prefix
 const Canvacord = new CanvasSenpai();
     const channel = bot.channels.cache.get(`811222075053572106`)
     if (!channel) return;
-  const members = message.guild.members.cache;
+  const members = member.guild.members.cache;
    let image = new Canvacord.Welcomer()
    .setUsername(member.user.username)
    .setDiscriminator(member.user.discriminator)
