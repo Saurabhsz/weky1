@@ -249,7 +249,7 @@ const prefix = data.prefix
   //Event - message
   }
   })
-  bot.on('guildMemberAdd', async member => {
+  bot.on('guildMemberAdd', async ( member, message ) => {
   const { CanvasSenpai } = require("canvas-senpai")
 const Canvacord = new CanvasSenpai();
     const channel = bot.channels.cache.get(`811222075053572106`)
