@@ -32,6 +32,7 @@ Money.findOne({
   if(thesame){
     data.Bank -= data.space
     data.Wallet += data.Bank - data.space
+    data.save()
   }else if(Math.round(num) >= Math.round(data.space)){
       return message.channel.send(`Looks like your bank is full :) go get some scripts`)
      } else {
@@ -53,13 +54,17 @@ if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot
         } else if(!isNaN(num)){
         if(Math.round(num) >= Math.round(data.space)){
           return message.channel.send(`Looks like your bank is full :) go get some scripts`)
-        }else {
+        }else if(thesame){
+          data.Bank -= data.space
+          data.Wallet += data.Bank - data.space
+          data.save()
+        } else {
           if(Math.round(num) >= data.space || data.space === data.Bank) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
           data.Wallet -= Math.round(num)
           data.Bank += Math.round(num)
           data.save();
           message.channel.send("Deposited **" + Math.round(num) + '** coins.')
-        } 
+        }
       }
 }
 });
