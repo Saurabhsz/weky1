@@ -165,12 +165,12 @@ if(useArgs[0] === 'silver' || useArgs[0] === 'silvermoon'){
 }
 if(useArgs[0] === 'sniper'){
   const embed = new Discord.MessageEmbed()
-  .setTitle(`Laptop`)
+  .setTitle(`Sniper`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
   .addField(`${message.author.username} Owns: ${data.Sniper}\n`,
-             `Cost: \`20,000\`\n
-              Sell: \`2,000\`\n
-             ID: \`laptop\`\n\n
+             `Cost: \`15,000\`\n
+              Sell: \`1,500\`\n
+             ID: \`sniper\`\n\n
              Description: With this item you can use the command called \`hunt\` to get animals`)
                    
   .setTimestamp()
@@ -248,7 +248,7 @@ if(useArgs[0] === 'life' || useArgs[0] === 'shield' || useArgs[0] === 'lifeshiel
   const embed = new Discord.MessageEmbed()
   .setTitle(`Life Shield`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/820648557388234772/unknown__2_-removebg-preview_1.png`)
-  .addField(`${message.author.username} Owns: ${data.LifeSaver}\n`,
+  .addField(`${message.author.username} Owns: ${data.LifeShield}\n`,
                    `Cost: \`14,000\`\n
                    Sell: \`1,400\`\n
                    ID: \`life\`\n\n
