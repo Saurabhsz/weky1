@@ -144,7 +144,7 @@ bot.createProfile(id)
       }
    })
   }
-  bot.item = (id, item) => {
+  bot.item = (id, item, amount) => {
     const inventory = require("./schemas/inventory")
     inventory.findOne({
       User: id
@@ -153,7 +153,11 @@ bot.createProfile(id)
       if(!data) {
 bot.createProfile(id)
       } else {
-          data[item]     
+          if(amount > data[item] ){
+            return false
+          }else if(amount < data[item] ){
+            return true
+          }
       }
    })
 }
