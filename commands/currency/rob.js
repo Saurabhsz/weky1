@@ -18,7 +18,9 @@ var ran;
     if(100 >= await bot.bal(membe.id)) {return message.reply(`This kid don't even have 100 coins.`)}else
     if(250 >= await bot.bal(message.author.id)) {return message.reply(`You need 250 coins to rob mf.`)}else {
     var num;
-    if(0 >= bot.item(membe.id, "EnergyBolt")){
+    const inventory = require("../../schemas/inventory")
+            inventory.findOne({ User: message.author.id }, async (err, data) => {
+    if(0 >= data.EnergyBolt){
         ran = Math.floor(Math.random() * 12)
     } else {
         ran = Math.floor(Math.random() * 20)
@@ -42,6 +44,4 @@ var ran;
             message.reply(`You paid 250 coins for nothing, sad.`)
             bot.rmv(message.author.id, 250)
             bot.add(membe.id, 250)
-        }}
-  }
-}
+        }})}}}
