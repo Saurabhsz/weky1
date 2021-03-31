@@ -29,7 +29,6 @@ Money.findOne({
     return message.channel.send("You dont have that much money why you bad at me bro :/");
   }
       if(args[0] === 'all' && isNaN(num)) {
-if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
         data.Wallet += Math.round(data.Bank)
         message.channel.send("Withdrawn **" + Math.round(data.Bank) + '** coins.')
         data.Bank -= Math.round(data.Bank)
