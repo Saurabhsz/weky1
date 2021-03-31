@@ -250,11 +250,11 @@ const prefix = data.prefix
   }
   })
   bot.on('guildMemberAdd', async member => {
-const Canvacord = require("canvacord")
+const Welcomer = require("canvacord")
     const channel = bot.channels.cache.get(`811222075053572106`)
     if (!channel) return;
   const members = member.guild.members.cache;
-   let image = new Canvacord.Welcomer()
+   const image = new Welcomer()
    .setUsername(member.user.username)
    .setDiscriminator(member.user.discriminator)
    .setMemberCount(members.filter(member => !member.users.bot).size)
