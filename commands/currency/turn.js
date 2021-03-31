@@ -9,9 +9,11 @@ module.exports = {
   guarded: true, //or false
   permissions: ["NONE"],
   async execute(bot, message, args) {
+    const inventory = require("../../schemas/inventory")
+    inventory.findOne({ User: message.author.id }, async (err, data) => {
         const quiz = require('../../turn.json');
     const randomCoins = Math.floor(Math.random() * 1300) + 200;
-            if(bot.item(message.author.id, 'Laptop') == 0) {
+            if(0>=data.Laptop) {
         return message.channel.send(`You dont have any laptops, sorry dude!`);
         } else {
                 const repp = [
@@ -39,4 +41,4 @@ module.exports = {
                        })
                        .catch(collected => {
                            message.channel.send('C\'mon u didnt answer bruh');
-                       })})}}}
+                       })})}})}}
