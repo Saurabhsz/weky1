@@ -89,7 +89,6 @@ module.exports = {
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
                     bot.add(message.author.id, 500)
                     bot.removeItem(message.author.id, "GotchaBox", 1)
-            data.save()
                       }
         }
                 }
