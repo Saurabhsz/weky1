@@ -30,7 +30,7 @@ module.exports = {
                         .setDescription(`You used <:spacescript:814122006437167134> 1 Space Script and got **${muni} bank space**, gg lmao.`)
        )
                 } else {
-                    if(bot.item(message.author.id, "SpaceScript", num) === false){
+                    if(num >= data.SpaceScript){
                        return message.channel.send(`You dont have that many item, sorry buddy.`)
                     } else {
                         bot.removeItem(message.author.id, "SpaceScript", num)
@@ -41,7 +41,7 @@ module.exports = {
                     .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Script and got **${muni*num} bank space**, gg lmao.`)
    )}}
     if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox' ) {
-        if(bot.item(message.author.id, "GotchaBox", 1) === false){
+        if(0 >= data.GotchaBox){
             return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
             const random = Math.floor(Math.random() * 100) + 1
@@ -95,7 +95,7 @@ module.exports = {
         }
                 }
     if(useArgs[0] === 'bread' || useArgs[0] === 'bd' ) {
-        if(bot.item(message.author.id, "Bread", 1) === false){
+        if(0 >= data.Bread){
             return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
                         bot.removeItem(message.author.id, "Bread", 1)
@@ -104,7 +104,7 @@ module.exports = {
                         setTimeout(function() {  bot.removeItem(message.author.id, "BunEffect", 1)}, 50000)
                     }}
                     if(useArgs[0] === 'energy' || useArgs[0] === 'drink'  || useArgs[0] === 'energydrink') {
-if(bot.item(message.author.id, "EnergyDrink", 1) === false){
+if(0 >= data.EnergyDrink){
 return message.channel.send(`You dont have that item, sorry buddy.`)
  } else {
 bot.removeItem(message.author.id, "EnergyDrink", 1)
@@ -113,7 +113,7 @@ message.reply(`You used a <:energydrink:826100589426769990> Energy Drink to move
 setTimeout(function() {  bot.removeItem(message.author.id, "EnergyBolt", 1)}, 21600000)
                                     }}
 if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyripoff' || useArgs[0] === 'wekyrip'|| useArgs[0] === 'rip') {
-if(bot.item(message.author.id, "WekyRipOff", 1) === falselse){
+if(0 >= data.WekyRipOff){
 return message.channel.send(`You dont have that item, sorry buddy.`)
 } else {
 message.reply(`${message.author} flex on y'all with their weky rip off :muscle::rage:`)
