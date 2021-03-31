@@ -13,7 +13,7 @@ module.exports = {
   async execute(bot, message, args) {
     let buyArray = message.content.split(" ");
     let useArgs = buyArray.slice(1);
-    const inventory = require("./schemas/inventory")
+    const inventory = require("../../schemas/inventory")
     const data = inventory.findOne({ User: message.author.id })
     if(useArgs[0] === 'script' || useArgs[0] === 'space' ) {
         const muni = Math.floor(Math.random() * 15000) + 1000;
