@@ -53,7 +53,7 @@ if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot
           return message.channel.send(`Looks like your bank is full :) go get some scripts`)
         }else if(thesame){
           data.Wallet += data.Bank - data.space
-          data.Bank -= data.space
+          data.Bank -= data.Bank - data.space
           data.save()
         } else {
           if(Math.round(num) >= data.space || data.space === data.Bank) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
