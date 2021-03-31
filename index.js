@@ -250,7 +250,7 @@ const prefix = data.prefix
   }
   })
   bot.on('guildMemberAdd', async member => {
-    const channel = `811222075053572106`
+    const channel = bot.channels.cache.get(`811222075053572106`)
     if (!channel) return;
  
    let data = await canva.welcome(member, { link: "https://cdn.discordapp.com/attachments/812590454821355543/826868837743460402/pngtree-simple-red-and-pink-smoke-background-image_301291.jpg" })
