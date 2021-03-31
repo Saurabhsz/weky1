@@ -60,6 +60,16 @@ module.exports = [
         collectable: false
     },
     {
+        aliases: ["sniper"],
+        emoji: "<:Sniper:818044125580492800>",
+        price: 15000,
+        realItem: "Sniper",
+        sell: 1500,
+        sellable: true,
+        buyable: true,
+        collectable: false
+    },
+    {
         aliases: ["lifeshield", "shield", "life"],
         emoji: "<:life:820648609741668392>",
         price: 14000,
