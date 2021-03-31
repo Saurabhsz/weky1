@@ -250,7 +250,7 @@ const prefix = data.prefix
   }
   })
   bot.on('guildMemberAdd', async member => {
-  const { CanvasSenpai } = require("canvas-senpai")
+  const { CanvasSenpai } = require("canvacord")
 const Canvacord = new CanvasSenpai();
     const channel = bot.channels.cache.get(`811222075053572106`)
     if (!channel) return;
