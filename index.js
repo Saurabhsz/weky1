@@ -14,20 +14,6 @@ bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 const cooldowny = new Discord.Collection();
-const express = require('express')
-const Topgg = require('@top-gg/sdk');
-const EventEmitter = require('events');
-
-const app = express() // Your express app
-
-const webhook = new Topgg.Webhook('imgabi')
-
-app.post('/dblwebhook', webhook.middleware(), (req, res) => {
-  // req.vote is your vote object e.g
-  console.log(req.vote.user) // 121919449996460033
-}) // attach the middleware
-
-app.listen(1251) // your port
 const commandFolders = fs.readdirSync('./commands');
 for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
@@ -51,6 +37,24 @@ const emitter = new EventEmitter()
 emitter.setMaxListeners(0)
 process.on('warning', e => console.warn(e.stack));
 bot.on("message", async message=>{
+  const Money = require('../../schemas/Money')
+  Money.findOne({
+    id: message.author.id
+  }, (err,data) => {
+    if(err) console.log(err);
+    if(!data){
+      newD = new Money({
+        id: message.author.id
+      });
+    } else {
+    const thesame = data.Bank >= data.space
+    if(thesame){
+      data.Wallet += data.Bank - data.space
+      data.Bank -= data.Bank - data.space
+      data.save()
+    }
+  }
+})
   const prefixModel = require("./schemas/Guild")
   const data = await prefixModel.findOne({
     GuildID: message.guild.id
