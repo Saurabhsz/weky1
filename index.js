@@ -249,7 +249,7 @@ const prefix = data.prefix
   //Event - message
   }
   })
-  bot.on('guildMemberAdd', async ( member, message ) => {
+  bot.on('guildMemberAdd', async member => {
   const { CanvasSenpai } = require("canvas-senpai")
 const Canvacord = new CanvasSenpai();
     const channel = bot.channels.cache.get(`811222075053572106`)
@@ -258,8 +258,8 @@ const Canvacord = new CanvasSenpai();
    let image = new Canvacord.Welcomer()
    .setUsername(member.user.username)
    .setDiscriminator(member.user.discriminator)
-   .setMemberCount(members.filter(member => !members.users.bot).size)
-   .setGuildName(message.guild.name)
+   .setMemberCount(members.filter(member => !member.users.bot).size)
+   .setGuildName(member.guild.name)
    .setAvatar(member.user.displayAvatarURL({ format: "png" }))
    .setColor("border", "#d7b0ff")
    .setColor("username-box", "#8015EA")
