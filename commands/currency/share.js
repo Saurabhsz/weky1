@@ -20,12 +20,18 @@ if(!member) return message.channel.send(`Use this blocked head :rolling_eyes:\n\
     bot.rmv(message.author.id, await bot.bal(message.author.id))
     bot.add(member.id, await bot.bal(message.author.id))
     message.channel.send(`<@`+message.author + `> gave ${member.user.tag} **${num}** coins, you have now ${await bot.bal(message.author.id)} and they have ${await bot.bal(member.id)}`)
+    member.user.send(`${message.author.username} gave you **` + num + `** coins in **${message.guild.name}**`).catch(e => {
+      return;
+    }) 
   } else if (isNaN(num) && args[1] !== 'all') {
     return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
   } else {
     bot.rmv(message.author.id, num)
     bot.add(member.id, num)
     message.channel.send(`<@`+message.author + `> gave ${member.user.tag} **${num}** coins, you have now ${await bot.bal(message.author.id)} and they have ${await bot.bal(member.id)}`)
+    member.user.send(`${message.author.username} gave you **` + num + `** coins in **${message.guild.name}**`).catch(e => {
+      return;
+    })
   }
   }
 }
