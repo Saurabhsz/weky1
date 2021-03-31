@@ -28,7 +28,7 @@ Money.findOne({
   const thesame = data.Bank >= data.space
   if(thesame){
     data.Wallet += data.Bank - data.space
-    data.Bank -= data.space
+    data.Bank -= data.Bank - data.space
     data.save()
   }else if(Math.round(num) >= Math.round(data.space)){
       return message.channel.send(`Looks like your bank is full :) go get some scripts`)
