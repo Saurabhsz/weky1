@@ -181,7 +181,7 @@ module.exports = [
     },
     {
         aliases: ["facebutlie", "face", "facebut"],
-        emoji: "",
+        emoji: "<:Facebutlie:827130020286955530>",
         price: false,
         sell: false,
         realItem: "FaceButLie",

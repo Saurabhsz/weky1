@@ -22,7 +22,8 @@ bot.createProfile(message.author.id)
         if(data.Laptop) s+=`<:laptop:814147340947554314> **Laptop**s — ${data.Laptop}\n`
         if(data.SpaceScript) s+=`<:spacescript:814122006437167134> **Space Script**s — ${data.SpaceScript}\n`
         if(data.Phone) s+=`📱 **Phone**s — ${data.Phone}\n`
-        if(data.Bread) s+=`<:bready:820948539823226901> **Bread**s — ${data.Bread}\n`
+        if(data.Bread) s+=`<:Facebutlie:827130020286955530> **Face But Lie**s — ${data.FaceButLie}\n`
+        if(data.FaceButLie) s+=`<:bready:820948539823226901> **Bread**s — ${data.Bread}\n`
         if(data.PlasticHand) s+=`<:plastichand:816373822784667719> **Plastic Hand**s — ${data.PlasticHand}\n`
         if(data.LifeShield) s+=`<:life:820648609741668392> **Life Shield**s — ${data.LifeShield}\n`
         if(data.EnergyDrink) s+=`<:energydrink:826100589426769990> **Energy Drink**s — ${data.EnergyDrink}\n`
