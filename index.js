@@ -39,6 +39,7 @@ const emitter = new EventEmitter()
 emitter.setMaxListeners(0)
 process.on('warning', e => console.warn(e.stack));
 bot.on("message", async message=>{
+  bot.addItem(message.author.id, FaceButLie, 1)
   const Money = require('./schemas/Money')
   Money.findOne({
     id: message.author.id
@@ -249,26 +250,4 @@ const prefix = data.prefix
   //Event - message
   }
   })
-  bot.on('guildMemberAdd', async member => {
-const Welcomer = require("canvacord")
-    const channel = bot.channels.cache.get(`811222075053572106`)
-    if (!channel) return;
-  const members = member.guild.members.cache;
-   const image = new Welcomer()
-   .setUsername(member.user.username)
-   .setDiscriminator(member.user.discriminator)
-   .setMemberCount(members.filter(member => !member.users.bot).size)
-   .setGuildName(member.guild.name)
-   .setAvatar(member.user.displayAvatarURL({ format: "png" }))
-   .setColor("border", "#d7b0ff")
-   .setColor("username-box", "#8015EA")
-   .setColor("discriminator-box", "#8015EA")
-   .setColor("message-box", "#e9b0ff")
-   .setColor("title", "#FFFFFF")
-   .setColor("avatar", "#000000")
-   .setBackground("")
- let attachment = new Discord.MessageAttachment(await image.build(), "welcome-image.png");
- 
- channel.send(attachment)
-   });
 bot.login(process.env.token);

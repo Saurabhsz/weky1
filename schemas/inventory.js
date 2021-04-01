@@ -21,6 +21,7 @@ User: {
     RareFish: {type: Number, default: 0},
     LegendaryFish: {type: Number, default: 0},
     Bread: {type: Number, default: 0},
+    FaceButLie: {type: Number, default: 0},
     SilverMoon: {type: Number, default: 0},
     BunEffect: {type: Number, default: 0},
     EnergyDrink: {type: Number, default: 0},

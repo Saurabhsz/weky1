@@ -244,6 +244,18 @@ if(useArgs[0] === 'leg' || useArgs[0] === 'legendary' || useArgs[0] === 'legenda
   .setTimestamp() 
   message.channel.send(embed)
 }
+if(useArgs[0] === 'facebut' || useArgs[0] === 'face' || useArgs[0] === 'facebutlie'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Face but lie`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/789145025288077324/827136431260172338/muff_jerrichs_preview_DRAWING.png`)
+  .addField(`${message.author.username} Owns: ${data.FaceButLie}\n`,
+                   `Cost: \`NON BUYABLE\`\n
+                   Sell: \`200,000\`\n
+                   ID: \`facebutlie\`\n\n
+                   Description: :joy:`)
+  .setTimestamp() 
+  message.channel.send(embed)
+}
 if(useArgs[0] === 'life' || useArgs[0] === 'shield' || useArgs[0] === 'lifeshield'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Life Shield`)

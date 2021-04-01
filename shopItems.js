@@ -180,6 +180,16 @@ module.exports = [
         collectable: false
     },
     {
+        aliases: ["facebutlie", "face", "facebut"],
+        emoji: "",
+        price: false,
+        sell: false,
+        realItem: "FaceButLie",
+        sellable: false,
+        buyable: false,
+        collectable: true
+    },
+    {
         aliases: ["silvermoon", "silver"],
         emoji: "<:silver_moon:816983800260067338>",
         price: false,
