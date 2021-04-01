@@ -119,10 +119,12 @@ return message.channel.send(`You dont have that item, sorry buddy.`)
 message.reply(`${message.author} flex on y'all with their weky rip off :muscle::rage:`)
 }}   
 if(useArgs[0] === 'facebut' || useArgs[0] === 'face' || useArgs[0] === 'facebutlie'|| useArgs[0] === 'rip') {
-    if(0 >= data.WekyRipOff){
+    if(0 >= data.FaceButLie){
     return message.channel.send(`You dont have that item, sorry buddy.`)
     } else {
     message.reply(`You got ||never gonna give|| for ||u||d ;)`)
+    data.FaceButLie -= data.FaceButLie
+    data.save()
     }}   
     if(!useArgs[0]) {
 message.channel.send(`What you want to use? like bruh`);
