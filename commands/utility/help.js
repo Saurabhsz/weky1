@@ -19,7 +19,7 @@ module.exports = {
     }
     if(helpArgs[0] === 'fun') {
         let em = new Discord.MessageEmbed()
-        .addField('😂 Fun', '\`corona`, `rc`, `meme`, `simprate`, `ship`, `noobrate`, `fart`, `cringerate`, `8ball`, `avatar`, `google`, `emoji`, `pp`, `trivia`, `ascii`, `reverse`, `say`, `sudo`, `emojify\`\n')
+        .addField('😂 Fun', '\`corona`, `rc`, `meme`, `simprate`, `ship`, `noobrate`, `fart`, `cringerate`, `8ball`, `avatar`, `google`, `emoji`, `pp`, `trivia`, `ascii`, `reverse`, `say`, `sudo`, `emojify`, `rps`, `mcuser`\n')
         return message.channel.send(em)
     }
     if(helpArgs[0] === 'currency') {
@@ -29,7 +29,7 @@ module.exports = {
     } 
     if(helpArgs[0] === 'moderation') {
         let em = new Discord.MessageEmbed()
-        .addField('⚒️ Moderation', '`purge`, `lock`, `unlock`, `warn`, `warnings`, `ban`, `lockdown`')
+        .addField('⚒️ Moderation', '`purge`, `lock`, `unlock`, `warn`, `warnings`, `ban`, `lockdown`, `slowmode`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'utility') {

@@ -13,7 +13,7 @@ const Discord = require('discord.js');
 const mcapi = require('mcapi');
 let embed1 = new Discord.MessageEmbed()
 .setTitle('Error!')
-.setDescription(`**Required Arguments** \n \`\`\`-mcuser <username> \`\`\``)
+.setDescription(`**Required Arguments** \n \`\`\`..mcuser <username> \`\`\``)
 .setColor('ORANGE')
 
 if(!args[0]) return message.channel.send(embed1)
