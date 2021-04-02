@@ -8,8 +8,6 @@ mongoose.set('useFindAndModify', false)
 require(`./reply`)
 require('./currencyFunctions')(bot)
 const fs = require("fs");
-const { CanvasSenpai } = require("canvas-senpai")
-const canva = new CanvasSenpai();
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
@@ -33,7 +31,32 @@ for (const file of eventFiles) {
 		bot.on(event.name, (...args) => event.execute(...args, bot, commandFiles, folder));
     	}
     }
-} 
+}
+bot.on("guildMemberAdd", async (member) => {
+
+  if(chx === null) {
+    return;
+  }
+const Canvacord = require('canvacord')
+const image = new Canvacord.Welcomer()
+  .setUsername(member.user.username)
+  .setDiscriminator(member.user.discriminator)
+  .setMemberCount(member.guild.memberCount)
+  .setGuildName(member.guild.name)
+  .setAvatar(member.user.displayAvatarURL({ format: "jpg", size: 1024 }))
+  .setColor("border", "#00FF00")
+  .setColor("username-box", "#00FF00")
+  .setColor("discriminator-box", "#00FF00")
+  .setColor("message-box", "#00FF00")
+  .setColor("title", "#00FF00")
+  .setColor("avatar", "#00FF00")
+  .setBackground("https://wallpapercave.com/wp/wp7951233.jpg")
+
+image.build()
+  .then(data => {
+    bot.channels.cache.get('811222075053572106').send(new Discord.MessageAttachment(data, 'welcome-image.png'))
+  })
+})
 const EventEmitter = require('events')
 const emitter = new EventEmitter()
 emitter.setMaxListeners(0)
