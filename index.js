@@ -33,10 +33,7 @@ for (const file of eventFiles) {
     }
 }
 bot.on("guildMemberAdd", async (member) => {
-
-  if(chx === null) {
-    return;
-  }
+if(member.guild.id !== '795393018764591134') return
 const Canvacord = require('canvacord')
 const image = new Canvacord.Welcomer()
   .setUsername(member.user.username)
