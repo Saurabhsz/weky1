@@ -1,8 +1,8 @@
 
 const { MessageEmbed } = require('discord.js');//require the packages
 module.exports = {
-  name: "setPremium",
-  aliases: ["addPremium"],
+  name: "setpremium",
+  aliases: ["addpremium"],
   dmOnly: false, //or false
   guildOnly: true, //or false
   usage: '..setPremium',
