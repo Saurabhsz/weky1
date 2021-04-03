@@ -10,6 +10,8 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
+        const inventory = require("../../schemas/inventory")
+        inventory.findOne({ User: message.author.id }, async (err, data) => {
         if(!args[0]) return message.reply(`No item specificated :/`)
         const itemToBuy = args[0].toLowerCase()
         const validItem = !!items.find(
@@ -35,11 +37,11 @@ if(sell == false || se == false){
             }}
             if(!args[1]) return message.channel.send(`Please use this format:\n\`..sell amount <item>\``)
 
-if(bot.item(message.author.id, validName) < num) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
+if(data[validName] < num) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
 bot.removeItem(message.author.id, validName, num)
 bot.add(message.author.id, num*sell)
 const embed = new Discord.MessageEmbed()
 .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
 .setDescription(`You sold ${itemIcon} ${num} ${validName} for **${sell*num}** coins.`)
 message.channel.send(embed)
-}}}}
+}}})}}
