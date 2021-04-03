@@ -11,10 +11,15 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
       const m = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
-
+var e;
+      if(m.id === message.author.id){
+  e = m.tag
+} else {
+  e = m.user.tag
+}
 const gambleEmbed = new Discord.MessageEmbed()
 .setColor(`RANDOM`)
-.setTitle(m.tag + `'s profile`)
+.setTitle(e + `'s profile`)
 .setDescription('**Stats in games**\n' +
 '🃏 Blackjack wins: ' + await bot.bjWin(m.id) + `\n` +
 '🎰 Slots wins: ' + await bot.sWin(m.id) + `\n` +
