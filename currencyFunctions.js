@@ -144,21 +144,133 @@ bot.createProfile(id)
       }
    })
   }
-  bot.item = (id, item, amount) => {
-    const inventory = require("./schemas/inventory")
-    inventory.findOne({
-      User: id
-  }, 
-  (err, data) => {
-      if(!data) {
-bot.createProfile(id)
+  //counts
+  bot.ADDcmdsUSED = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+        data.usedCommands++
+        data.save()
       } else {
-          if(amount > data[item] ){
-            return false
-          }else if(amount < data[item] ){
-            return true
-          }
+          bot.createBalance(id)
       }
-   })
-}
+          })
+  }
+  bot.ADDbjWin = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+        data.blackjackWins++
+        data.save()
+      } else {
+          bot.createBalance(id)
+      }
+          })
+  }
+  bot.ADDfsWin = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+        data.fasttypeWins++
+        data.save()
+      } else {
+          bot.createBalance(id)
+      }
+          })
+  }
+  bot.ADDfWin = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+        data.fightWins++
+        data.save()
+      } else {
+          bot.createBalance(id)
+      }
+          })
+  }
+  bot.ADDsgWin = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+        data.shuffleGuessWins++
+        data.save()
+      } else {
+          bot.createBalance(id)
+      }
+          })
+  }
+  bot.ADDtttWin = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+        data.tictactoeWins++
+        data.save()
+      } else {
+          bot.createBalance(id)
+      }
+          })
+  }
+  bot.ADDtWin = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+        data.triviaWins++
+        data.save()
+      } else {
+          bot.createBalance(id)
+      }
+          })
+  }
+  bot.ADDsWin = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+        data.slotsWins++
+        data.save()
+      } else {
+          bot.createBalance(id)
+      }
+          })
+  }
+  bot.cmdsUSED = (id) => new Promise(async ful => {
+    const data = await eco.findOne({ id })
+    if(!data) {bot.createBalance(id)}
+    ful(data.usedCommands)
+  })
+  bot.bjWin = (id) => new Promise(async ful => {
+    const data = await eco.findOne({ id })
+    if(!data) {bot.createBalance(id)}
+    ful(data.blackjackWins)
+  })
+  bot.fsWin = (id) => new Promise(async ful => {
+    const data = await eco.findOne({ id })
+    if(!data) {bot.createBalance(id)}
+    ful(data.fasttypeWins)
+  })
+  bot.fWin = (id) => new Promise(async ful => {
+    const data = await eco.findOne({ id })
+    if(!data) {bot.createBalance(id)}
+    ful(data.fightWins)
+  })
+  bot.sgWin = (id) => new Promise(async ful => {
+    const data = await eco.findOne({ id })
+    if(!data) {bot.createBalance(id)}
+    ful(data.shuffleGuessWins)
+  })
+  bot.tttWin = (id) => new Promise(async ful => {
+    const data = await eco.findOne({ id })
+    if(!data) {bot.createBalance(id)}
+    ful(data.tictactoeWins)
+  })
+  bot.tWin = (id) => new Promise(async ful => {
+    const data = await eco.findOne({ id })
+    if(!data) {bot.createBalance(id)}
+    ful(data.triviaWins)
+  })
+  bot.sWin = (id) => new Promise(async ful => {
+    const data = await eco.findOne({ id })
+    if(!data) {bot.createBalance(id)}
+    ful(data.slotsWins)
+  })
 }

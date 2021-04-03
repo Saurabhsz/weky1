@@ -16,6 +16,7 @@ module.exports = {
 if(membe.id === message.author.id) return message.reply(`Learn what you cant rob urself means`);
 var ran;
     if(100 >= await bot.bal(membe.id)) {return message.reply(`This kid don't even have 100 coins.`)}else
+    if(membe.user.bot) {return message.reply(`This kid think bots are robbable lol.`)}
     if(250 >= await bot.bal(message.author.id)) {return message.reply(`You need 250 coins to rob mf.`)}else {
     var num;
     const inventory = require("../../schemas/inventory")

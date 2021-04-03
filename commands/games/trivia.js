@@ -94,6 +94,7 @@ module.exports = {
         { time: 15000, max: 1, errors: ["time"] }
       );
       if (parseInt(msgs.first().content) == q.correct) {
+        bot.ADDtWin(message.author.id)
         return message.channel.send(`✅ | You got it correct!`);
       } else {
         return message.channel.send(`❌ | You got it incorrect.`);

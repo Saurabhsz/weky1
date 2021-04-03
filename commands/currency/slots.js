@@ -62,6 +62,7 @@ if (slotOne === slotTwo && slotOne === slotThree || slotfour === slotfive && slo
         .setFooter("Winner");
     message.channel.send(won)
     bot.add(message.author.id, Math.round(number*okk))
+    bot.ADDsWin(message.author.id)
 } else {
     const lost = new Discord.MessageEmbed()
     .setColor("RANDOM")

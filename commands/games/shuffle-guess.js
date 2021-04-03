@@ -25,6 +25,7 @@ module.exports = {
         if(msg.author.bot) return
             const selection = msg.content.toLowerCase();
 if (selection === word) {
+  bot.ADDsgWin(message.author.id)
 message.reply(`GG! It was \`${word}\``)
 gameCollector.stop()
             } else if (selection === 'cancel') {

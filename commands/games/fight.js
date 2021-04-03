@@ -78,9 +78,11 @@ module.exports = {
             if (checkHealth(player)) {
               gameCollector.stop();
               const tempPlayer = (player + 1) % 2;
+              bot.ADDfWin(gameData[tempPlayer].member.id)
               message.channel.send(`🏆 Game ended!, ${gameData[tempPlayer].member} has won`);
             }
           } else {
+            bot.ADDfWin(gameData[player].member.id)
             message.channel.send(`🏆 ${gameData[player].member} has won the game!`);
           }
         }

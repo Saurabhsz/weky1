@@ -41,6 +41,7 @@ module.exports = {
                 break
             } else if (msg.first().content.toLowerCase().trim() === ogSentence.toLowerCase()) {
                 message.channel.send(`Good job!\nIt took you ${ms(Date.now() - time, {long: true})} to type it!`)
+                bot.ADDfsWin(message.author.id)
             } else {
                 message.channel.send('You failed!')
                 inGame.delete(message.author.id)

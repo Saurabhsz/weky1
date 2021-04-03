@@ -132,6 +132,7 @@ const prefix = data.prefix
                })
             } else {return} }, 60000)
           }
+          bot.ADDcmdsUSED(message.author.id)
     const black = require('./schemas/Ban')
     black.findOne({
       id: message.author.id
@@ -215,6 +216,7 @@ const prefix = data.prefix
                 || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         
                 try{
+                  bot.ADDcmdsUSED(message.author.id)
         if(!cmd) return;
                     //+ cooldown 1, //seconds(s)
                     if (!cooldowny.has(cmd.name)) {
