@@ -17,9 +17,41 @@ const profileSchema = mongoose.Schema({
       type: Number,
       default: 5000
     },
-      premium: {
+    premium: {
         type: Number,
         default: 0
       },
+    usedCommands: {
+      type: Number,
+      default: 0
+    },
+    blackjackWins: {
+      type: Number,
+      default: 0
+    },
+    fasttypeWins: {
+      type: Number,
+      default: 0
+    },
+    fightWins: {
+      type: Number,
+      default: 0
+    },
+    shuffleGuessWins: {
+      type: Number,
+      default: 0
+    },
+    tictactoeWins: {
+      type: Number,
+      default: 0
+    },
+    triviaWins: {
+      type: Number,
+      default: 0
+    },
+    slotsWins: {
+      type: Number,
+      default: 0
+    },
 })
 module.exports = mongoose.model('MoneyData', profileSchema)
