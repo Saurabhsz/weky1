@@ -27,13 +27,13 @@ if(sell == false || se == false){
 } else{
             var num = parseFloat(args[1])
             if(!num) {
-                if(bot.item(message.author.id, validName) == 0) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
+                if(data[validName] == 0) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
                     bot.removeItem(message.author.id, validName, 1)
                     bot.add(message.author.id, sell)
                     const embed = new Discord.MessageEmbed()
                     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                     .setDescription(`You sold ${itemIcon} 1 ${validName} for **${sell}** coins.`)
-                    message.channel.send(embed) 
+                    message.channel.send(embed)
             }}
             if(!args[1]) return message.channel.send(`Please use this format:\n\`..sell amount <item>\``)
 
