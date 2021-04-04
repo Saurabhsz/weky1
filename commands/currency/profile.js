@@ -20,14 +20,14 @@ var e;
   e = m.user.tag
 }
 var a;
-if(data.BreadEffect !== 0){ a += `<:good:821393129999171626>`}else
-if(data.BreadEffect == 0) {a += `<:offline:821392620982632489>`}
+if(data.BreadEffect !== 0){ a = `<:good:821393129999171626>`}else
+if(data.BreadEffect == 0) {a = `<:offline:821392620982632489>`}
 var b;
-if(data.EnergyBolt !== 0) {b += `<:good:821393129999171626>`}else 
-if(data.EnergyBolt == 0) {b += `<:offline:821392620982632489>`}
+if(data.EnergyBolt !== 0) {b= `<:good:821393129999171626>`}else 
+if(data.EnergyBolt == 0) {b= `<:offline:821392620982632489>`}
 var c;
-if(data.BoosterEffect !== 0) {c += `<:good:821393129999171626>`}else
-if(data.BoosterEffect == 0) {c += `<:offline:821392620982632489>`}
+if(data.BoosterEffect !== 0) {c = `<:good:821393129999171626>`}else
+if(data.BoosterEffect == 0) {c = `<:offline:821392620982632489>`}
 const gambleEmbed = new Discord.MessageEmbed()
 .setColor(`RANDOM`)
 .setTitle(e + `'s profile`)
