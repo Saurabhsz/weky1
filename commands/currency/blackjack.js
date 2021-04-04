@@ -13,8 +13,8 @@ module.exports = {
     const money = parseInt(args[0])
     const userId = message.author
 
-      if (100 >= money || isNaN(money) || !money) {
-          message.channel.send("Please provide a valid numnber of coins.")
+      if (100 > money || isNaN(money) || !money) {
+          message.channel.send("Please provide a valid number of coins.")
           return
       }
 

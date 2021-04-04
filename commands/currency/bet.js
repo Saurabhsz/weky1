@@ -51,9 +51,9 @@ const brr = `0.${br}`
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
-  }}else if(bot.item(message.author.id, "BunEffect") !== 0){
+  }}else if(data.BunEffect !== 0){
     var resp = '';
-    if(bot.item(message.author.id, "BunEffect") !== 0) resp += `<:bready:820948539823226901>`
+    if(data.BunEffect !== 0) resp += `<:bready:820948539823226901>`
     const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
     let rate = 70;
     if (rate < random) {
