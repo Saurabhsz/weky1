@@ -50,7 +50,7 @@ if(data){
   inventory.findOne({User: id},(err, b) => {
     if(!b) {
 bot.createProfile(id)
-    } else if(b.Booster !== 0){
+    } else if(b.BoosterEffect !== 0){
       const brr = `0.10`
       data.Wallet += Math.round(amount*brr)
       data.save()

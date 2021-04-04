@@ -28,5 +28,6 @@ User: {
     EnergyBolt: {type: Number, default: 0},
     Booster: {type: Number, default: 0},
     SunGlasses: {type: Number, default: 0},
+    BoosterEffect: {type: Number, default: 0},
 })
 module.exports = mongoose.model('inventories', profileSchema)
