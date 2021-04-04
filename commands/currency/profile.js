@@ -44,8 +44,8 @@ const gambleEmbed = new Discord.MessageEmbed()
 '👀 Commands Used: ' + await bot.cmdsUSED(m.id) + `\n`,
 true)
 .addField('Perks', 
-'Bread: ' + a + `\n`,
-'Energy Drink: ' + b + `\n`,
+'Bread: ' + a + `\n` +
+'Energy Drink: ' + b + `\n` +
 'Booster: ' + c + `\n`,
 true)
 message.channel.send(gambleEmbed);
