@@ -104,15 +104,6 @@ module.exports = {
         }
     }
 
-      function resetGame() {
-          numCardsPulled = 0;
-          player.cards = [];
-          dealer.cards = [];
-          player.score = 0;
-          dealer.score = 0;
-          deck.initialize();
-      }
-
       function endMsg(f, msg, cl, dealerC) {
           let cardsMsg = "";
           player.cards.forEach(function(card) {

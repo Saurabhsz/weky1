@@ -26,8 +26,9 @@ Money.findOne({
     let buyArray = message.content.split(" ");
     let useArgs = buyArray.slice(1);
 
-    if(!useArgs[0] || useArgs[0] === '1') {
-        const embed = new Discord.MessageEmbed()
+    if(!useArgs[0]) {
+
+        const embed1 = new Discord.MessageEmbed()
                         .addField(`<:laptop:814147340947554314> **Laptop** -> \`4,000\``,`This item is used to play on it, not doing many things,it just give some coins`)
                         .addField(`<:spacescript:814122006437167134> **Space Script** -> \`100,000\``,` Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
                         .addField(`**🌝 Weky's Moon** -> \`2,000,000\``,`This item is used to flex on the kids who can\`t get it`)
@@ -36,10 +37,20 @@ Money.findOne({
                         .addField(`**<:Sniper:818044125580492800> Sniper** -> \`20,000\``,`A item, a new command, with this item u can go to hunting`)
                         .addField(`**<:life:820648609741668392> Life Shield** -> \`14,000\``,`Some coins for a life sounds good.`)
                         .addField(`**<:energydrink:826100589426769990> Energy Drink** -> \`20,000\``,`With this item you move faster and see the robber, means 40% shield on robbers >:)))`)
+                        .setFooter(`Run ..item (item) for more info. PAGE 2 AVAILABLE`)
+                        const embed2 = new Discord.MessageEmbed()
+                        .addField(`<:laptop:814147340947554314> **Sun Glasses** -> \`10\``,`Deal with it`)
+                        .addField(`<a:booster:828168509112188938> **Booster** -> \`1000\``,`Automatically removes after a money, but with 10% more`)
                         .setFooter(`Run ..item (item) for more info.`)
-                        message.channel.send(embed)
-        
-    }
+const recon = require("reconlx");
+const ReactionPages = recon.ReactionPages;
+const pages = [embed1, embed2];
+const textPageChange = false;
+const emojis = ["⏪", "⏩"];
+const time = 30000;
+ReactionPages(message, pages, textPageChange, emojis, time);
+                      }
+
 if(useArgs[0] === 'laptop'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Laptop`)
@@ -289,6 +300,30 @@ if(useArgs[0] === 'energydrink' || useArgs[0] === 'energy' || useArgs[0] === 'dr
                    Sell: \`2,000\`\n
                    ID: \`bread\`\n\n
                    Description: With this item you move faster and see the robber, means 40% shield on robbers >:)))`)
+  .setTimestamp() 
+  message.channel.send(embed)
+}
+if(useArgs[0] === 'sun' || useArgs[0] === 'glasses' || useArgs[0] === 'sunglasses'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Sun Glasses`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/828232494558085160/584999937b7d4d76317f5ffd-removebg-preview.png`)
+  .addField(`${message.author.username} Owns: ${data.SunGlasses}\n`,
+                   `Cost: \`10\`\n
+                   Sell: \`NON SELLABLE\`\n
+                   ID: \`bread\`\n\n
+                   Description: Deal with it`)
+  .setTimestamp() 
+  message.channel.send(embed)
+}
+if(useArgs[0] === 'booster'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Booster`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/781514778593460224/828168124267888650/ezgif.com-gif-maker.gif`)
+  .addField(`${message.author.username} Owns: ${data.Booster}\n`,
+                   `Cost: \`1000\`\n
+                   Sell: \`NON SELLABLE\`\n
+                   ID: \`booster\`\n\n
+                   Description: Automatically removes after a money, but with 10% more`)
   .setTimestamp() 
   message.channel.send(embed)
 }

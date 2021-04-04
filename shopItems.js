@@ -210,6 +210,26 @@ module.exports = [
         collectable: false
     },
     {
+        aliases: ["booster"],
+        emoji: "<a:booster:828168509112188938>",
+        price: 1000,
+        sell: false,
+        realItem: "Booster",
+        sellable: false,
+        buyable: true,
+        collectable: false
+    },
+    {
+        aliases: ["sun", "glasses", "sunglasses"],
+        emoji: "<:sunglasses:828232580854972477>",
+        price: 10,
+        sell: false,
+        realItem: "SunGlasses",
+        sellable: false,
+        buyable: true,
+        collectable: true
+    },
+    {
         aliases: ["bun"],
         emoji: "💩",
         price: false,

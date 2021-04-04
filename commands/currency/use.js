@@ -118,17 +118,14 @@ return message.channel.send(`You dont have that item, sorry buddy.`)
 } else {
 message.reply(`${message.author} flex on y'all with their weky rip off :muscle::rage:`)
 }}   
-if(useArgs[0] === 'facebut' || useArgs[0] === 'face' || useArgs[0] === 'facebutlie'|| useArgs[0] === 'rip') {
-    if(0 >= data.FaceButLie){
-    return message.channel.send(`You dont have that item, sorry buddy.`)
-    } else {
-    message.reply(`You got ||never gonna give|| for ||u||d ;)`)
-    data.FaceButLie -= data.FaceButLie
-    data.save()
-    }}   
-    if(!useArgs[0]) {
-message.channel.send(`What you want to use? like bruh`);
-    }
+    if(useArgs[0] === 'booster') {
+        if(0 >= data.Booster){
+        return message.channel.send(`You dont have that item, sorry buddy.`)
+         } else {
+        bot.removeItem(message.author.id, "Booster", 1)
+         bot.addItem(message.author.id, "BoosterEffect", 1)
+        message.reply(`You used a <a:booster:828168509112188938> booster, your next money-gain command will give you 10% more!`)
+                                            }}
 })
 }
 }

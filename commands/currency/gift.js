@@ -28,7 +28,6 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
     if(num > data[validName]) {
     return message.channel.send("You dont have " + num + " " + validName);
   } else {
-    console.log(bot.item(message.author.if, validName))
 bot.addItem(member.id, validName, num)
 bot.removeItem(message.author.id, validName, num)
 message.reply(message.author.username + ` gave ` + member.user.tag + ` ` + itemIcon + ` ` + num + ` ` + validName)

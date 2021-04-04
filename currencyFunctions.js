@@ -2,6 +2,17 @@ const { Message } = require('discord.js')
 
 module.exports = async (bot, message) => {
 const eco = require('./schemas/Money')
+bot.createProfile = (id) => {
+  const inventory = require("./schemas/inventory")
+  inventory.findOne({
+    User: id
+}, 
+(err, data) => {
+        new inventory({
+            User: id
+        }).save();
+ })
+}
 // Creating balance document
 bot.createBalance = (id) => {
     const inventory = require("./schemas/Money")
@@ -35,8 +46,21 @@ bot.createBalance = (id) => {
     eco.findOne({ id }, async(err, data) => {
 if(err) console.log(err)
 if(data){
-  data.Wallet += amount
-  data.save()
+  const inventory = require("./schemas/inventory")
+  inventory.findOne({User: id},(err, b) => {
+    if(!b) {
+bot.createProfile(id)
+    } else if(b.Booster !== 0){
+      const brr = `0.10`
+      data.Wallet += Math.round(amount*brr)
+      data.save()
+      b.BoosterEffect -= 1;
+      b.save()
+    } else {
+      data.Wallet += amount
+      data.save()
+    }
+ })
 } else {
     bot.createBalance(id)
 }
@@ -103,17 +127,6 @@ data.save()
     })
   }
 //Creating inventory document
-  bot.createProfile = (id) => {
-    const inventory = require("./schemas/inventory")
-    inventory.findOne({
-      User: id
-  }, 
-  (err, data) => {
-          new inventory({
-              User: id
-          }).save();
-   })
-  }
 //Adding item
   bot.addItem = (id, item, amount) => {
     const inventory = require("./schemas/inventory")
