@@ -39,7 +39,7 @@ Money.findOne({
                         .addField(`**<:energydrink:826100589426769990> Energy Drink** -> \`20,000\``,`With this item you move faster and see the robber, means 40% shield on robbers >:)))`)
                         .setFooter(`Run ..item (item) for more info. PAGE 2 AVAILABLE`)
                         const embed2 = new Discord.MessageEmbed()
-                        .addField(`<:laptop:814147340947554314> **Sun Glasses** -> \`10\``,`Deal with it`)
+                        .addField(`<:sunglasses:828232580854972477> **Sun Glasses** -> \`10\``,`Deal with it`)
                         .addField(`<a:booster:828168509112188938> **Booster** -> \`1000\``,`Automatically removes after a money, but with 10% more`)
                         .setFooter(`Run ..item (item) for more info.`)
 const recon = require("reconlx");
@@ -310,7 +310,7 @@ if(useArgs[0] === 'sun' || useArgs[0] === 'glasses' || useArgs[0] === 'sunglasse
   .addField(`${message.author.username} Owns: ${data.SunGlasses}\n`,
                    `Cost: \`10\`\n
                    Sell: \`NON SELLABLE\`\n
-                   ID: \`bread\`\n\n
+                   ID: \`sunglasses\`\n\n
                    Description: Deal with it`)
   .setTimestamp() 
   message.channel.send(embed)
