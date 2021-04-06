@@ -35,7 +35,7 @@ if (msgs.first().content == ra) {
 message.reply(`You made that fish to lick that hook, and he died because you pissed on the hook, you got <:legedary_fish:820642438360072192> 1 Legendary Fish`)
 bot.addItem(message.author.id, "LegendaryFish", 1)
 } else {
-    if(bot.item(message.author.id, "LifeShield") == 0){
+    if(data.LifeShield == 0){
         message.channel.send(`The fish has been killed you, idk how but yes, you died`)
 bot.rmv(message.author.id, await bot.bal(message.author.id))
 } else {
@@ -44,7 +44,7 @@ bot.removeItem(message.author.id, "LifeShield", 1)
 }
 }
 } catch (e) {
-if(bot.item(message.author.id, "LifeShield") == 0){
+if(data.LifeShield== 0){
 message.channel.send(`The fish has been killed you, idk how but yes, you died`)
 bot.rmv(message.author.id, await bot.bal(message.author.id))
 }else{
