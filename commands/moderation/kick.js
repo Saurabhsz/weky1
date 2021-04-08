@@ -1,34 +1,34 @@
 const Discord = require('discord.js')
 module.exports = {
-  name: "ban",
+  name: "kick",
   aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
-  usage: '..ban',
+  usage: '..kick',
   cooldown: 3, //seconds(s)
   cooldowny: 0,
   guarded: true, //or false
-  permissions: ["BAN_MEMBERS"],
+  permissions: ["KICK_MEMBERS"],
   async execute(bot, message, args) {
-    if(!message.member.hasPermission('BAN_MEMBERS')){
+    if(!message.member.hasPermission('KICK_MEMBERS')){
         return message.channel.send("You don't have permission to use that command.")
     }
-    if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send('I dont have permission to ban members.')
+    if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('I dont have permission to ban members.')
     //lets
 
     let question = message.content.split(" ").slice(2).join(" ");
     const user = message.mentions.users.first();
     //if
     if (!user){
-        return message.channel.send('Who you want to ban?')
+        return message.channel.send('Who you want to kick?')
     }
     if(!question){
-        return message.channel.send(`You didnt approved any reasons for me to ban that user`)
+        return message.channel.send(`You didnt approved any reasons for me to kick that user`)
     }
     if(user.id === message.author.id) return
-    if(!user.bannable) return;
+    if(!user.kickable) return;
     let embed = new Discord.MessageEmbed()
-    .setDescription(`<:banhammer:815941402469990440> ${user.username}#${user.discriminator} banning for **${question}**?`)
+    .setDescription(`${user.username}#${user.discriminator} kicking for **${question}**?`)
     const newMessage = await message.channel.send(embed)
                
                   newMessage.react("✅").then(() => newMessage.react("❌"));
@@ -45,10 +45,10 @@ module.exports = {
                          
                          //embed
                          let embed = new Discord.MessageEmbed()
-                         .setDescription(`<:banhammer:815941402469990440> ${user.username}#${user.discriminator} has been banned for **${question}**`)
+                         .setDescription(`${user.username}#${user.discriminator} has been kicked for **${question}**`)
                          message.channel.send(embed);
                          //action
-                         message.guild.members.ban(user);
+                         message.guild.members.kick(user);
                       } else {
                           let embed = new Discord.MessageEmbed()
                           .setColor('RANDOM')

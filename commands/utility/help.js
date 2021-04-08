@@ -24,17 +24,17 @@ module.exports = {
     }
     if(helpArgs[0] === 'currency') {
         let em = new Discord.MessageEmbed()
-        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `sell`, `fish`, `turn`, `slots`, `hunt`')
+        .addField('💰 Currency', '`beg`, `buy`, `shop`, `dep`, `with`, `daily`, `bet`, `bal`, `use`, `share`, `inventory`, `sell`, `fish`, `turn`, `slots`, `hunt`, `walk`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'moderation') {
         let em = new Discord.MessageEmbed()
-        .addField('⚒️ Moderation', '`purge`, `lock`, `unlock`, `warn`, `warnings`, `ban`, `lockdown`, `slowmode`')
+        .addField('⚒️ Moderation', '`purge`, `lock`, `unlock`, `warn`, `warnings`, `ban`, `lockdown`, `slowmode`, `mute`, `unmute`, `kick`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'utility') {
         let em = new Discord.MessageEmbed()
-        .addField('🔩 Utility', '`ping`, `invite`, `uptime`, `poll`, `report`, `serveremoji`, `addemoji`, `stats`, `enlarge`, `config`')
+        .addField('🔩 Utility', '`ping`, `invite`, `uptime`, `poll`, `report`, `serveremoji`, `addemoji`, `stats`, `enlarge`, `config`, `color`')
         return message.channel.send(em)
     } 
     if(helpArgs[0] === 'image') {

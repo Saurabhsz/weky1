@@ -11,6 +11,7 @@
   "dependencies": {
     "@top-gg/sdk": "^3.0.9",
     "alexa-bot-api": "^0.2.1",
+    "axios": "^0.21.1",
     "beautify": "0.0.8",
     "canvacord": "^5.0.8",
     "canvas": "^2.6.0",
