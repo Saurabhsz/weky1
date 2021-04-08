@@ -327,6 +327,18 @@ if(useArgs[0] === 'booster'){
   .setTimestamp() 
   message.channel.send(embed)
 }
+if(useArgs[0] === 'slice' || useArgs[0] === 'sliceof' || useArgs[0] === 'sliceoftomato'||useArgs[0] === 'tomato' ){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Slice Of Tomato`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/829653315230367814/2pzzxk.png`)
+  .addField(`${message.author.username} Owns: ${data.SliceOfTomato}\n`,
+                   `Cost: \`NON BUYABLE\`\n
+                   Sell: \`75,000\`\n
+                   ID: \`slice\`\n\n
+                   Description: Made just to be sold, you get it by ..walk -ing xD`)
+  .setTimestamp() 
+  message.channel.send(embed)
+}
 }
 })
 

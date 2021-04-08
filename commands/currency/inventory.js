@@ -24,6 +24,7 @@ bot.createProfile(message.author.id)
         if(data.Phone) s+=`📱 **Phone**s — ${data.Phone}\n`
         if(data.FaceButLie) s+=`<:Facebutlie:827130020286955530> **Face But Lie**s — ${data.FaceButLie}\n`
         if(data.Bread) s+=`<:bready:820948539823226901> **Bread**s — ${data.Bread}\n`
+        if(data.SliceOfTomato)s+=`<:SliceOfTomato:829653483162304522> **Slice Of Tomato**es — ${data.SliceOfTomato}\n`
         if(data.PlasticHand) s+=`<:plastichand:816373822784667719> **Plastic Hand**s — ${data.PlasticHand}\n`
         if(data.LifeShield) s+=`<:life:820648609741668392> **Life Shield**s — ${data.LifeShield}\n`
         if(data.EnergyDrink) s+=`<:energydrink:826100589426769990> **Energy Drink**s — ${data.EnergyDrink}\n`

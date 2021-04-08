@@ -100,6 +100,16 @@ module.exports = [
         collectable: true
     },
     {
+        aliases: ["slice","tomato","sliceoftomato", 'sliceof'],
+        emoji: "<:SliceOfTomato:829653483162304522>",
+        price: false,
+        sell: 75000,
+        realItem: "SliceOfTomato",
+        sellable: true,
+        buyable: false,
+        collectable: true
+    },
+    {
         aliases: ["fox"],
         emoji: "🦊",
         price: false,
