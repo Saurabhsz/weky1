@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 module.exports = {
-  name: "withdraw",
-  aliases: ["with"],
+  name: "walk",
+  aliases: [],
   dmOnly: false, //or false
   guildOnly: true, //or false
-  usage: '..with amount',
+  usage: '..walk',
   cooldown: 60, //seconds(s)
   cooldowny: 45,
   guarded: true, //or false
