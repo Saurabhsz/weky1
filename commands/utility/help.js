@@ -48,6 +48,11 @@ module.exports = {
         .addField('🐒 Animals', '`cat`, `dog`, `panda`, `fox`')
         return message.channel.send(em)
     } 
+    if(helpArgs[0] === 'level') {
+        let em = new Discord.MessageEmbed()
+        .addField('⬆️ Level', '`rank`, `lbrank`')
+        return message.channel.send(em)
+    } 
     //Normal usage of (prefix)help without any args. (Shows all of the commands and you should set the commands yourself)
     if(!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
@@ -60,6 +65,7 @@ module.exports = {
         .addField("🎮 Games", "`..help games`\n", true)
         .addField("🐒 Animals", "`..help animals`\n", true)
         .addField("📷 Image", "`..help image`\n", true)
+        .addField('⬆️ Level', "`..help level`\n", true)
         .setColor('#FF2D00')
         .setThumbnail('https://cdn.discordapp.com/emojis/798365870148681729.png?v=1')
         .setTimestamp()
