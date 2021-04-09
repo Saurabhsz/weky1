@@ -155,7 +155,7 @@ if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox'){
              `Cost: \`NON BUYABLE\`\n
               Sell: \`NON SELLABLE\`\n
              ID: \`gotcha\`\n\n
-             Description: Basically a lootbox, but a special one, you can get a lot of things from it and the special Silver Moon item.`)
+             Description: Basically a lootbox, but a special one, you can get a lot of things from it and the special Silver Moon item.\n**Chances**\n100% 500 coins\n36% random amount of coins between 6000 and 20000\n30% of getting 1-3 laptops/scripts/plastic hand\n2% Silver Moon`)
                    
   .setTimestamp()
   message.channel.send(embed)
