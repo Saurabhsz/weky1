@@ -73,7 +73,18 @@ var num;
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
-
+if(user.level === 5){
+  message.member.roles.add("830003680991510648")
+} else if(user.level === 10){
+  message.member.roles.remove("830003680991510648")
+  message.member.roles.add("830003680991510649")
+} else if(user.level === 15){
+  message.member.roles.remove("830003680991510649")
+  message.member.roles.add("830003680991510650")
+} else if(user.level === 20){
+  message.member.roles.remove("830003680991510650")
+  message.member.roles.add("830003680991510651")
+}
 		message.channel.send(
 			new Discord.MessageEmbed()
 		.setTitle('Level Up')
