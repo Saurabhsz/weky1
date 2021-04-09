@@ -15,7 +15,7 @@ module.exports = {
       if(!member) return message.channel.send(`No user specified`)
       const number = Math.round(parseInt(args[0]))
         if(!number) return message.reply(`No amount`)
-        bot.channels.cache.get("824272046174765096").send(new Discord.MessageEmbed()
+        bot.channels.cache.get("830003681638350859").send(new Discord.MessageEmbed()
         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
         .setDescription(`Added to ${member.id} some coins`)
         .setFooter(number)

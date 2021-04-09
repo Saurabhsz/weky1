@@ -33,7 +33,7 @@ for (const file of eventFiles) {
     }
 }
 bot.on("guildMemberAdd", async (member) => {
-if(member.guild.id !== '795393018764591134') return
+if(member.guild.id !== '830003680983646278') return
 const Canvacord = require('canvacord')
 const image = new Canvacord.Welcomer()
   .setUsername(member.user.username)
@@ -51,7 +51,7 @@ const image = new Canvacord.Welcomer()
 
 image.build()
   .then(data => {
-    bot.channels.cache.get('811222075053572106').send(new Discord.MessageAttachment(data, 'welcome-image.png'))
+    bot.channels.cache.get('830003681402683415').send(new Discord.MessageAttachment(data, 'welcome-image.png'))
   })
 })
 const EventEmitter = require('events')
