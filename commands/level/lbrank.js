@@ -32,7 +32,11 @@ leaderboard.map(async e => {
 	ctx.font = 'normal normal bold 30px Arial';
 	ctx.fillStyle = '#ffffff';
     ctx.fillText(`${e.position}. ${e.username}#${e.discriminator} -- Level: ${e.level}`, canvas.width / 3.0, canvas.height / 5.0);
-	ctx.beginPath();
+    ctx.fillText(`${e.position}. ${e.username}#${e.discriminator} -- Level: ${e.level}`, canvas.width / 3.0, canvas.height / 5.0);
+    ctx.fillText(`${e.position}. ${e.username}#${e.discriminator} -- Level: ${e.level}`, canvas.width / 3.0, canvas.height / 5.0);
+    ctx.fillText(`${e.position}. ${e.username}#${e.discriminator} -- Level: ${e.level}`, canvas.width / 3.0, canvas.height / 5.0);
+    ctx.fillText(`${e.position}. ${e.username}#${e.discriminator} -- Level: ${e.level}`, canvas.width / 3.0, canvas.height / 5.0);
+    ctx.beginPath();
 	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.clip();
