@@ -44,7 +44,9 @@ bot.createBalance = (id) => {
 //Adding money to the user wallet
 bot.add = (id, amount, message) => {
   eco.findOne({ id }, async(err, data) => {
-    var brr = ''
+
+var brr = ''
+
 if(err) console.log(err)
 if(data){
 const inventory = require("./schemas/inventory")
@@ -52,12 +54,13 @@ inventory.findOne({User: id},(err, b) => {
   if(!b) {
 bot.createProfile(id)
   }
-if(b.BoosterEffect !== 0){brr += 0.10;
+if(b.BoosterEffect !== 0){
+  brr = brr+0.10;
     b.BoosterEffect -= 1;
     b.save()
 }
 if(message.guild.id === '830003680983646278') {
-  brr += 0.30
+  brr = brr+0.30
 }
 console.log(brr)
 if(brr === ''){
