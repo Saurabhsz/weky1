@@ -126,7 +126,8 @@ if(!data){
     GuildID: message.guild.id,
     prefix: "..",
     logs_channel: null,
-    chatbox_channel: null
+    chatbox_channel: null,
+    leveling: null
   });
   newD.save();
   message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the current one it ..`)

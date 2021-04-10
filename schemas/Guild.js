@@ -19,7 +19,6 @@ const PrefixSchema = new mongoose.Schema({
         },
     leveling: {
         type: String,
-        default: 'false'
         },
 });
 
