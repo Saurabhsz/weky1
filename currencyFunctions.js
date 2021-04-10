@@ -55,12 +55,12 @@ inventory.findOne({User: id},(err, b) => {
 bot.createProfile(id)
   }
 if(b.BoosterEffect !== 0){
-  brr = brr+0.10;
+  brr = 0.10;
     b.BoosterEffect -= 1;
     b.save()
 }
 if(message.guild.id === '830003680983646278') {
-  brr = brr+0.30
+  brr += (brr+0.30)
 }
 console.log(brr)
 if(brr === ''){
