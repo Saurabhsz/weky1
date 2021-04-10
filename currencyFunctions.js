@@ -55,8 +55,7 @@ if(b.BoosterEffect !== 0){ brr += `0.10`
     b.BoosterEffect -= 1;
     b.save()
 }
-if(id.guild.id === '830003680983646278'){ brr += `0.30`
-}
+
 if(brr === ''){
     data.Wallet += amount
     data.save()
