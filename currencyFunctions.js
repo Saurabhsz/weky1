@@ -53,7 +53,7 @@ inventory.findOne({User: id},(err, b) => {
   if(!b) {
 bot.createProfile(id)
   }
-if(b.BoosterEffect !== 0){brr = `${brr+0.30}`
+if(b.BoosterEffect !== 0){brr = `${brr+0.10}`;
     b.BoosterEffect -= 1;
     b.save()
 }
