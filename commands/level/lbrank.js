@@ -11,7 +11,7 @@ module.exports = {
     permissions: ["NONE"],
     async execute(bot, message, args) {
         const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id})
-        if(db.leveling === null) return message.reply(`Some mod turned leveling off or didnt even turned it on :rage:`)
+        if(db.leveling === "1") {
 message.reply(`Loading...`).then(m => m.delete({timeout: 3000}));
 const Levels = require("discord-xp");
 const Canvas = require('canvas');
@@ -39,5 +39,8 @@ const Canvas = require('canvas');
 	ctx.clip();
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `lb.jpg`);
     message.channel.send(attachment);
+        } else {
+            return message.reply(`Some mod turned leveling off or didnt even turned it on :rage:`)
+        }
 }
 }
