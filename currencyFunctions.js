@@ -44,6 +44,7 @@ bot.createBalance = (id) => {
 //Adding money to the user wallet
 bot.add = (id, amount) => {
   eco.findOne({ id }, async(err, data) => {
+    var brr = ''
 if(err) console.log(err)
 if(data){
 const inventory = require("./schemas/inventory")
