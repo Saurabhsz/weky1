@@ -51,12 +51,7 @@ message.channel.send(embed).then(msg => {
                     pizzaMsg = 'You found **'+randomCoins+' coins** while you were walking with the pizza'
                     bot.add(message.author.id, randomCoins)
                 }
-                collector.on('end', (collected) => {
-                    message.reactions.cache.each(r => {
-                        // remove all the reactions when it finish
-                        r.remove();
-                    })
-                });
+                collector.stop()
                 message.channel.send(pizzaMsg);
                 break;
             case '🍔':
@@ -76,12 +71,7 @@ message.channel.send(embed).then(msg => {
                     bot.add(message.author.id, randomCoins)
                 }
                 message.channel.send(burgerMsg);
-                collector.on('end', (collected) => {
-                    message.reactions.cache.each(r => {
-                        // remove all the reactions when it finish
-                        r.remove();
-                    })
-                });
+                collector.stop()
                 break;
             case '🍟':
                 fries = Math.floor(Math.random() * 101)+1
@@ -100,12 +90,7 @@ message.channel.send(embed).then(msg => {
                     bot.add(message.author.id, randomCoins)
                 }
                 message.channel.send(friesMsg);
-                collector.on('end', (collected) => {
-                    message.reactions.cache.each(r => {
-                        // remove all the reactions when it finish
-                        r.remove();
-                    })
-                });
+                collector.stop()
                 break;
                 case '🌯':
                     buritto = Math.floor(Math.random() * 130)+1
@@ -123,12 +108,7 @@ message.channel.send(embed).then(msg => {
                         burritoMsg = 'You found **'+randomCoins+' coins** while you were walking with the burrito'
                         bot.add(message.author.id, randomCoins)
                     }
-                    collector.on('end', (collected) => {
-                        message.reactions.cache.each(r => {
-                            // remove all the reactions when it finish
-                            r.remove();
-                        })
-                    });
+                    collector.stop()
                     message.channel.send(burritoMsg);
                     break;
         }
