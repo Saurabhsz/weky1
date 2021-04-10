@@ -29,7 +29,7 @@ if(sell == false || se == false){
             if(!num) {
                 if(data[validName] == 0) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
                     bot.removeItem(message.author.id, validName, 1)
-                    bot.add(message.author.id, sell)
+                    bot.add(message.author.id, sell, message)
                     const embed = new Discord.MessageEmbed()
                     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                     .setDescription(`You sold ${itemIcon} 1 ${validName} for **${sell}** coins.`)
@@ -39,7 +39,7 @@ if(sell == false || se == false){
 
 if(data[validName] < num) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
 bot.removeItem(message.author.id, validName, num)
-bot.add(message.author.id, num*sell)
+bot.add(message.author.id, num*sell, message)
 const embed = new Discord.MessageEmbed()
 .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
 .setDescription(`You sold ${itemIcon} ${num} ${validName} for **${sell*num}** coins.`)

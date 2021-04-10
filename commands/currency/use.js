@@ -59,37 +59,37 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
                 bot.removeItem(message.author.id, "GotchaBox", 1)
               } else if(random < 5){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC}\`\n\`1 Weky's Moon\``)
-                bot.add(message.author.id, randomC)
+                bot.add(message.author.id, randomC, message)
                 bot.addItem(message.author.id, "WekyMoon", 1)
                 bot.removeItem(message.author.id, "GotchaBox", 1)
               } else if(random < 30){
                   if(br === 0){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
-                bot.add(message.author.id, randomC)
+                bot.add(message.author.id, randomC, message)
                 bot.addItem(message.author.id, "PlasticHand", l)
                 bot.removeItem(message.author.id, "GotchaBox", 1)
             } else if(br === 1){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
-                    bot.add(message.author.id, randomC)
+                    bot.add(message.author.id, randomC, message)
                     bot.addItem(message.author.id, "SpaceScript", l)
                     bot.removeItem(message.author.id, "Laptop", 1)
                 } else if(br === 2){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
-                    bot.add(message.author.id, randomC)
+                    bot.add(message.author.id, randomC, message)
                     bot.addItem(message.author.id, "SpaceScript", l)
                     bot.removeItem(message.author.id, "GotchaBox", 1)
            }
             } else if(random < 36){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\``)
-                bot.add(message.author.id, randomC)
+                bot.add(message.author.id, randomC, message)
                 bot.removeItem(message.author.id, "GotchaBox", 1)
             } else if(random < 80){
                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
-                bot.add(message.author.id, 500)
+                bot.add(message.author.id, 500, message)
                 bot.removeItem(message.author.id, "GotchaBox", 1)
                       } else if(random < 101){
                     message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
-                    bot.add(message.author.id, 500)
+                    bot.add(message.author.id, 500, message)
                     bot.removeItem(message.author.id, "GotchaBox", 1)
                       }
         }

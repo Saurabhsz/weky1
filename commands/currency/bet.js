@@ -43,7 +43,7 @@ if(0 >= data.BunEffect){
   } else {
     const br = Math.floor(Math.random() * (70 - 50 + 1) + 50)
 const brr = `0.${br}`
-    bot.add(message.author.id, Math.round(number*brr))
+    bot.add(message.author.id, Math.round(number*brr), message)
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
@@ -71,7 +71,7 @@ const brr = `0.${br}`
 
     if(br > 100 || br === 100){
       const brr = 100
-    bot.add(message.author.id, Math.round(number*br/brr))
+    bot.add(message.author.id, Math.round(number*br/brr), message)
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
@@ -81,7 +81,7 @@ const brr = `0.${br}`
     message.channel.send(embed)
     } else {
 const brr = `0.${br}`
-bot.add(message.author.id, Math.round(number*brr)) 
+bot.add(message.author.id, Math.round(number*brr), message) 
 let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,

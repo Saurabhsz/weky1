@@ -49,7 +49,7 @@ message.channel.send(embed).then(msg => {
                 } else if(pizza < 101){
                     var randomCoins = Math.floor(Math.random() * 1000)
                     pizzaMsg = 'You found **'+randomCoins+' coins** while you were walking with the pizza'
-                    bot.add(message.author.id, randomCoins)
+                    bot.add(message.author.id, randomCoins, message)
                 }
                 collector.stop()
                 message.channel.send(pizzaMsg);
@@ -68,7 +68,7 @@ message.channel.send(embed).then(msg => {
                 } else if(burger < 101){
                     var randomCoins = Math.floor(Math.random() * 1300)
                     burgerMsg = 'You found **'+randomCoins+' coins** while you were walking with the hamburger'
-                    bot.add(message.author.id, randomCoins)
+                    bot.add(message.author.id, randomCoins, message)
                 }
                 message.channel.send(burgerMsg);
                 collector.stop()
@@ -87,7 +87,7 @@ message.channel.send(embed).then(msg => {
                 } else if(fries < 101){
                     var randomCoins = Math.floor(Math.random() * 400)
                     friesMsg = 'You found **'+randomCoins+' coins** while you were walking with the fries'
-                    bot.add(message.author.id, randomCoins)
+                    bot.add(message.author.id, randomCoins, message)
                 }
                 message.channel.send(friesMsg);
                 collector.stop()
@@ -106,7 +106,7 @@ message.channel.send(embed).then(msg => {
                     } else if(buritto < 101){
                         var randomCoins = Math.floor(Math.random() * 1500)
                         burritoMsg = 'You found **'+randomCoins+' coins** while you were walking with the burrito'
-                        bot.add(message.author.id, randomCoins)
+                        bot.add(message.author.id, randomCoins, message)
                     }
                     collector.stop()
                     message.channel.send(burritoMsg);

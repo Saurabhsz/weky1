@@ -96,7 +96,7 @@ module.exports = {
 
       async function bet(outcome) {
         if (outcome === "win") {
-        bot.add(userId.id, money)
+        bot.add(userId.id, money, message)
         bot.ADDbjWin(message.author.id)
         }
         if (outcome === "lose") {

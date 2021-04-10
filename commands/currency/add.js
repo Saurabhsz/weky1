@@ -21,5 +21,5 @@ module.exports = {
         .setFooter(number)
         .setColor("GREEN"))
         message.reply(`Added to **${member.user.tag}** ${number} coins :)`)
-        bot.add(member.id, number)
+        bot.add(member.id, number, message)
 }else{return}}}

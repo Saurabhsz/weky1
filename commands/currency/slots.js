@@ -61,7 +61,7 @@ if (slotOne === slotTwo && slotOne === slotThree || slotfour === slotfive && slo
         .addField(`Details:`,`Won: ${Math.round(number*okk)};\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${await bot.bal(message.author.id)}`)
         .setFooter("Winner");
     message.channel.send(won)
-    bot.add(message.author.id, Math.round(number*okk))
+    bot.add(message.author.id, Math.round(number*okk), message)
     bot.ADDsWin(message.author.id)
 } else {
     const lost = new Discord.MessageEmbed()

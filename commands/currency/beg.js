@@ -72,7 +72,7 @@ const okk = ok[o]
    var person = persons[persons1]
    var num = Math.floor(Math.random() * 2) +0;
 if(num != 1) {
-  bot.add(message.author.id, muni)    
+  bot.add(message.author.id, muni, message)    
   message.channel.send(`${person}${bruh}`)
 } else if (num != 0){
   message.channel.send(`${person}${okk}`)

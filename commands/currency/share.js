@@ -18,7 +18,7 @@ if(!member) return message.channel.send(`Use this blocked head :rolling_eyes:\n\
     if(!num) return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
   if(args[1] === 'all' && isNaN(num)){
     bot.rmv(message.author.id, await bot.bal(message.author.id))
-    bot.add(member.id, await bot.bal(message.author.id))
+    bot.add(member.id, await bot.bal(message.author.id), message)
     message.channel.send(`<@`+message.author + `> gave ${member.user.tag} **${num}** coins, you have now ${await bot.bal(message.author.id)} and they have ${await bot.bal(member.id)}`)
     member.user.send(`${message.author.username} gave you **` + await bot.bal(message.author.id) + `** coins in **${message.guild.name}**`).catch(e => {
       return;
@@ -28,7 +28,7 @@ if(!member) return message.channel.send(`Use this blocked head :rolling_eyes:\n\
   } else {
     if(num >= await bot.bal(message.author.id)) return message.reply(`You dont have that many coins lol`)
     bot.rmv(message.author.id, num)
-    bot.add(member.id, num)
+    bot.add(member.id, num, message)
     message.channel.send(`<@`+message.author + `> gave ${member.user.tag} **${num}** coins, you have now ${await bot.bal(message.author.id)} and they have ${await bot.bal(member.id)}`)
     member.user.send(`${message.author.username} gave you **` + num + `** coins in **${message.guild.name}**`).catch(e => {
       return;

@@ -29,7 +29,7 @@ module.exports = {
                var num = Math.floor(Math.random() * repp.length);
                const answerspost = repp[num]
                if(num != 0 && num != 1 && num != 2 && num != 3) {
-                  bot.add(message.author.id, randomCoins)
+                  bot.add(message.author.id, randomCoins, message)
                    }
                const filter = response => {
                    return quiz.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
