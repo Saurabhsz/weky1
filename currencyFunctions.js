@@ -42,30 +42,34 @@ bot.createBalance = (id) => {
     ful(data.Bank)
   })
 //Adding money to the user wallet
-  bot.add = (id, amount) => {
-    eco.findOne({ id }, async(err, data) => {
+bot.add = (id, amount) => {
+  eco.findOne({ id }, async(err, data) => {
 if(err) console.log(err)
 if(data){
-  const inventory = require("./schemas/inventory")
-  inventory.findOne({User: id},(err, b) => {
-    if(!b) {
+const inventory = require("./schemas/inventory")
+inventory.findOne({User: id},(err, b) => {
+  if(!b) {
 bot.createProfile(id)
-    } else if(b.BoosterEffect !== 0){
-      const brr = `0.10`
-      data.Wallet += Math.round(amount*brr)
-      data.save()
-      b.BoosterEffect -= 1;
-      b.save()
-    } else {
-      data.Wallet += amount
-      data.save()
-    }
- })
-} else {
-    bot.createBalance(id)
-}
-    })
   }
+if(b.BoosterEffect !== 0){ brr += `0.10`
+    b.BoosterEffect -= 1;
+    b.save()
+}
+if(id.guild.id === '830003680983646278'){ brr += `0.30`
+}
+if(brr === ''){
+    data.Wallet += amount
+    data.save()
+} else {
+    data.Wallet += Math.round(amount*brr)
+    data.save()
+}
+})
+} else {
+  bot.createBalance(id)
+}
+  })
+}
 //Removing money from the user wallet
   bot.rmv = (id, amount) => {
     eco.findOne({ id }, async(err, data) => {
