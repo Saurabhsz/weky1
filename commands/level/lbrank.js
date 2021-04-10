@@ -16,7 +16,7 @@ module.exports = {
 message.reply(`Loading...`).then(m => m.delete({timeout: 3000}));
 const Levels = require("discord-xp");
 const Canvas = require('canvas');
-    const canvas = Canvas.createCanvas(867, 892);
+    const canvas = Canvas.createCanvas(1080, 1920);
     const ctx = canvas.getContext('2d');
     const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
@@ -24,7 +24,7 @@ const Canvas = require('canvas');
 
     const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
 
-    const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/795647180995559434/811623870808588309/unknown_1.jpg');
+    const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/830003681402683419/830469537475330078/Untitled.jpg');
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 	ctx.strokeStyle = '#74037b';
