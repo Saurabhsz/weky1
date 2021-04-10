@@ -10,8 +10,9 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-        const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id})
-        if(db.leveling === null) return message.reply(`Some mod turned leveling off or didnt even turned it on :rage:`)
+        const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
+
+            if(data.leveling === "1") {
 const Levels = require('discord-xp')
     const canvacord = require('canvacord')
         const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
@@ -31,5 +32,9 @@ const Levels = require('discord-xp')
             const attachment = new Discord.MessageAttachment(data, "rank.png")
             message.channel.send(attachment)
         })
+    } else {
+        return message.reply(`Some mod turned leveling off or didnt even turned it on :rage:`)
+    }
+})
 }
 }

@@ -69,11 +69,12 @@ var num;
 		}else{
 		num = 10
 		}
+    const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
+
+      if(data.leveling === "1") {
     const randomXp = Math.floor(Math.random() * num) + 1; //Random amont of XP until the number you want + 1
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
-      const db = require('./schemas/Guild').findOne({ GuildID: message.guild.id})
-      if(db.leveling === null) return;
         const user = await Levels.fetch(message.author.id, message.guild.id);
 if(user.level === 5){
   message.member.roles.add("830003680991510648")
@@ -99,6 +100,8 @@ if(user.level === 5){
 		.setTimestamp()
 );
     }
+  }else return
+  })
   const Money = require('./schemas/Money')
   Money.findOne({
     id: message.author.id
