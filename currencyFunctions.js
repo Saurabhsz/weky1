@@ -44,7 +44,7 @@ bot.createBalance = (id) => {
 //Adding money to the user wallet
 bot.add = (id, amount) => {
   eco.findOne({ id }, async(err, data) => {
-    bot.on('message', async message => {
+
     var brr = ''
 if(err) console.log(err)
 if(data){
@@ -57,7 +57,7 @@ if(b.BoosterEffect !== 0){brr = `${brr+0.30}`
     b.BoosterEffect -= 1;
     b.save()
 }
-if(message.guild.id === '830003680983646278') {brr = `${brr+0.30}`}
+
 if(brr === ''){
     data.Wallet += amount
     data.save()
@@ -71,7 +71,7 @@ if(brr === ''){
 } else {
   bot.createBalance(id)
 }
-    })
+
   })
 }
 //Removing money from the user wallet
