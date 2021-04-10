@@ -53,21 +53,20 @@ inventory.findOne({User: id},(err, b) => {
 bot.createProfile(id)
   }
 if(b.BoosterEffect !== 0){brr = `${brr+'0.10'}`;
-console.log(brr)
     b.BoosterEffect -= 1;
     b.save()
 }
 if(message.guild.id === '830003680983646278') {
   brr = `${brr+'0.30'}`
-  console.log(brr)}
+}
 if(brr === ''){
     data.Wallet += amount
     data.save()
-    console.log(brr)
+    console.log(`I added ` +amount)
 } else {
     data.Wallet += Math.round(amount*brr)
     data.save()
-    console.log(brr)
+    console.log(`User had ` +brr+ ` i added ` +amount)
 }
 })
 } else {
