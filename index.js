@@ -69,7 +69,7 @@ var num;
 		}else{
 		num = 10
 		}
-    const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
+    const db = require('./schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
 
       if(data.leveling === "1") {
     const randomXp = Math.floor(Math.random() * num) + 1; //Random amont of XP until the number you want + 1
