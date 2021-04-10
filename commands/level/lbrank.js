@@ -24,7 +24,7 @@ const Canvas = require('canvas');
 
     const lb = leaderboard.map(e => `${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
 
-    const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/830003681402683419/830469537475330078/Untitled.jpg');
+    const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/797153663088590911/830474905611010109/Untitled_1.jpghttps://cdn.discordapp.com/attachments/797153663088590911/830474905611010109/Untitled_1.jpg');
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 	ctx.strokeStyle = '#74037b';
