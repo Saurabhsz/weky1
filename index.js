@@ -73,7 +73,7 @@ var num;
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
       const db = require('./schemas/Guild').findOne({ GuildID: message.guild.id})
-      if(db.leveling === 'false') return;
+      if(db.leveling === null) return;
         const user = await Levels.fetch(message.author.id, message.guild.id);
 if(user.level === 5){
   message.member.roles.add("830003680991510648")
@@ -121,6 +121,7 @@ if(user.level === 5){
   const data = await prefixModel.findOne({
     GuildID: message.guild.id
 });
+
 if(!data){
   newD = new prefixModel({
     GuildID: message.guild.id,

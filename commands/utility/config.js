@@ -120,7 +120,7 @@ module.exports = {
             message.channel.send(`Leveling has been setted to **on**`);
             
                 const data = await prefixModel.findOneAndUpdate({
-                    leveling: 'true',
+                    leveling: 1,
                     GuildID: message.guild.id
                 })
             data.save()
@@ -133,7 +133,7 @@ module.exports = {
             message.channel.send(`Leveling has been setted to **off**`);
             
                 const data = await prefixModel.findOneAndUpdate({
-                    leveling: 'false',
+                    leveling: null,
                     GuildID: message.guild.id
                 })
             data.save()
