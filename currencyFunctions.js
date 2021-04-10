@@ -66,6 +66,7 @@ if(brr === ''){
 } else {
     data.Wallet += Math.round(amount*brr+amount)
     data.save()
+    console.log(`User had ` +brr+ ` i added ` +amount*brr+amount)
 }
 })
 } else {
