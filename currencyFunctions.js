@@ -62,11 +62,11 @@ if(message.guild.id === '830003680983646278') {
 if(brr === ''){
     data.Wallet += amount
     data.save()
-    console.log(`I added ` +amount)
+    console.log(`I added ` +amount*brr)
 } else {
     data.Wallet += Math.round(amount*brr)
     data.save()
-    console.log(`User had ` +brr+ ` i added ` +amount)
+    console.log(`User had ` +brr+ ` i added ` +amount*brr)
 }
 })
 } else {
