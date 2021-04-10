@@ -18,7 +18,7 @@ const Levels = require("discord-xp");
 const Canvas = require('canvas');
     const canvas = Canvas.createCanvas(867, 892);
     const ctx = canvas.getContext('2d');
-    const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
+    const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 4);
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
@@ -29,11 +29,9 @@ const Canvas = require('canvas');
 
 	ctx.strokeStyle = '#74037b';
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
-	// Slightly smaller text placed above the member's display name
 	ctx.font = 'normal normal bold 30px Arial';
 	ctx.fillStyle = '#ffffff';
-    // nvm
-    ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 3.0, canvas.height / 5.0);
+    ctx.fillText(`${lb.join("\n")}`, canvas.width / 3.0, canvas.height / 5.0);
 	ctx.beginPath();
 	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
 	ctx.closePath();
