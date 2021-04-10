@@ -110,7 +110,37 @@ module.exports = {
             return message.channel.send('Incorrect format\nExample: `..config automemechannel (on || off) #weky`');
         }
     }
-
+    if(helpArgs[0] === 'level') {
+        if(args[1] === 'on'){
+            const prefixModel = require('../../schemas/Guild')
+            if(!message.member.hasPermission('MANAGE_MESSAGES')){
+                return message.channel.send(":x: | You don't have permission to use that command\n \`Required Permission\`: **MANAGE_MESSAGES**");
+             }
+            
+            message.channel.send(`Leveling has been setted to **on**`);
+            
+                const data = await prefixModel.findOneAndUpdate({
+                    leveling: 'true',
+                    GuildID: message.guild.id
+                })
+            data.save()
+        } else if(args[1] === 'off'){
+            const prefixModel = require('../../schemas/Guild')
+            if(!message.member.hasPermission('MANAGE_MESSAGES')){
+                return message.channel.send(":x: | You don't have permission to use that command\n \`Required Permission\`: **MANAGE_MESSAGES**");
+             }
+            
+            message.channel.send(`Leveling has been setted to **off**`);
+            
+                const data = await prefixModel.findOneAndUpdate({
+                    leveling: 'false',
+                    GuildID: message.guild.id
+                })
+            data.save()
+        } else {
+            return message.channel.send('Incorrect format\nExample: `..config level (on || off)`');
+        }
+    }
     //Normal usage of (prefix)help without any args. (Shows all of the commands and you should set the commands yourself)
     if(!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
@@ -119,6 +149,7 @@ module.exports = {
         .addField("🗳️ Chat Box", "`..config chatbox`\n", true)
         .addField("🌝 Prefix", "`..config prefix`\n", true)
         .addField("🧐 Auto Meme Channel", "`..config automemechannel`\n", true)
+        .addField("⬆️ Level", "`..config level`\n", true)
         .setTimestamp()
         
         message.channel.send(embed);

@@ -10,6 +10,8 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
+        const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id})
+        if(db.leveling === 'false') return message.reply(`Some mod turned leveling off or didnt even turned it on :rage:`)
 message.reply(`Loading...`).then(m => m.delete({timeout: 3000}));
 const Levels = require("discord-xp");
 const Canvas = require('canvas');

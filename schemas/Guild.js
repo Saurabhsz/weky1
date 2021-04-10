@@ -17,6 +17,10 @@ const PrefixSchema = new mongoose.Schema({
     automeme_channel: {
         type: String,
         },
+    leveling: {
+        type: String,
+        default: 'false'
+        },
 });
 
 const MessageModel = module.exports = mongoose.model('Guild', PrefixSchema);
