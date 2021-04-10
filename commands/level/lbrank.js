@@ -26,16 +26,17 @@ const Canvas = require('canvas');
 
     const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/795647180995559434/811623870808588309/unknown_1.jpg');
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
+leaderboard.map(async e => {
 	ctx.strokeStyle = '#74037b';
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
 	ctx.font = 'normal normal bold 30px Arial';
 	ctx.fillStyle = '#ffffff';
-    ctx.fillText(`${lb.join("\n")}`, canvas.width / 3.0, canvas.height / 5.0);
+    ctx.fillText(`${e.position}. ${e.username}#${e.discriminator} -- Level: ${e.level}`, canvas.width / 3.0, canvas.height / 5.0);
 	ctx.beginPath();
 	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.clip();
+})
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `lb.jpg`);
     message.channel.send(attachment);
         } else {
