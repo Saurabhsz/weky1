@@ -64,8 +64,7 @@ if(message.guild.id === '830003680983646278') {
   brr += 0.15
   console.log(`epic`)
 }
-let array = ['🌙','🌓','🌛','🌕','🌝','🌗','🌜','🌑','🌔','🌒','🌖','🌘','🌚']
-if (message.channel.name.includes(array)){
+if (message.channel.name.includes('🌝')){
   brr += 0.10
   console.log(array)
 }
