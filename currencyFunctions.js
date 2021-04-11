@@ -60,14 +60,14 @@ if(b.BoosterEffect !== 0){
     b.save()
 }
 if(message.guild.id === '830003680983646278') {
-  brr = (brr+0.15)
+  brr = Math.floor(brr+0.15)
 }
 let array = ['🌙','🌓','🌛','🌕','🌝','🌗','🌜','🌑','🌔','🌒','🌖','🌘','🌚']
 if (message.channel.name.includes(array)){
-  brr = (brr+0.10)
+  brr = Math.floor(brr+0.10)
 }
 if (message.channel.name.includes('weky')){
-  brr = (brr+0.10)
+  brr = Math.floor(brr+0.10)
 }
 console.log(brr)
 if(brr === ''){
