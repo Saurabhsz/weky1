@@ -29,7 +29,7 @@ const Canvas = require('canvas');
 
 	ctx.strokeStyle = '#74037b';
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
-	ctx.font = '30px Bold';
+	ctx.font = '10px Bold';
 	ctx.fillStyle = '#ffffff';
     ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 3.0, canvas.height / 5.0);
 	ctx.beginPath();
