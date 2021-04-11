@@ -13,9 +13,9 @@ const Discord = require('discord.js')
 let i;
 let e = 0
 const inventory = require("../../schemas/inventory")
-inventory.findOne({User: id},(err, b) => {
+inventory.findOne({User: message.author.id},(err, b) => {
   if(!b) {
-bot.createProfile(id)
+bot.createProfile(message.author.id)
   }
 if(b.BoosterEffect !== 0) {i += 'Booster effect - 10%\n'; e += 10};
 if(message.guild.id === '830003680983646278') {i += 'Commands ran in official server - 15%\n'; e += 15};
