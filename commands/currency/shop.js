@@ -70,8 +70,8 @@ if(useArgs[0] === 'script' || useArgs[0] === 'space'){
     .setTitle(`Space Script`)
     .setThumbnail(`https://cdn.discordapp.com/attachments/811222144997916692/814122580441038858/1f4dc.png`)
     .addField(`${message.author.username} Owns: ${data.SpaceScript}\n`,
-                     `Cost: \`100,000\`\n
-                     Sell: \`5,000\`\n
+                     `Cost: \`NON BUYABLE\`\n
+                     Sell: \`1,000\`\n
                      ID: \`spacescript\`\n\n
                      Description: Using this item will give you a space on the bank that is literally a shild on robbers,\ngiving you around 1000-15000 space per script`)
     .setTimestamp() 
