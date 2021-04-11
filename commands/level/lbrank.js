@@ -13,31 +13,17 @@ module.exports = {
         const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
 
         if(data.leveling === "1") {
-message.reply(`Loading...`).then(m => m.delete({timeout: 3000}));
+message.reply(`Loading...`).then(m => m.delete({timeout: 1000}));
 const Levels = require("discord-xp");
-const Canvas = require('canvas');
-    const canvas = Canvas.createCanvas(1500, 1500);
-    const ctx = canvas.getContext('2d');
-    const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
+
+    const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 15);
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
-    const lb = leaderboard.map(e => `${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
+    const lb = leaderboard.map(e => `${e.position}.  ${e.username}#${e.discriminator} - Level: ${e.level}}`);
 
-    const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/830003681402683419/830749080610668544/Untitled_2.jpg');
-	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-	ctx.strokeStyle = '#74037b';
-	ctx.strokeRect(0, 0, canvas.width, canvas.height);
-	ctx.font = '50px Bold';
-	ctx.fillStyle = '#ffffff';
-    ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 3.0, canvas.height / 5.0);
-	ctx.beginPath();
-	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
-	ctx.closePath();
-	ctx.clip();
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `lb.jpg`);
-    message.channel.send(attachment);
+    message.channel.send(new Discord.MessageEmbed().setTitle(`Leaderboard in ${message.guild.name}.`).setDescription(lb.join("\n")));
         } else {
             return message.reply(`Some mod turned leveling off or didnt even turned it on :rage:`)
         }
