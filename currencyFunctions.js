@@ -58,19 +58,15 @@ if(b.BoosterEffect !== 0){
   brr += 0.10;
     b.BoosterEffect -= 1;
     b.save()
-    console.log(`waaa`)
 }
 if(message.guild.id === '830003680983646278') {
   brr += 0.15
-  console.log(`epic`)
 }
 if (message.channel.name.includes('🌝')){
-  brr += 0.10
-  console.log(array)
+  brr += 0.01
 }
 if (message.channel.name.includes('weky')){
-  brr += 0.10
-  console.log(`xx`)
+  brr += 0.01
 }
 console.log(brr)
 if(brr === 0){
