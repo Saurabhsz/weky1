@@ -20,7 +20,7 @@ const Levels = require("discord-xp");
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
-    const lb = leaderboard.map(e => `${e.position}.  ${e.username}#${e.discriminator} - Level: ${e.level}}`);
+    const lb = leaderboard.map(e => `${e.position}.  ${e.username}#${e.discriminator} - Level: ${e.level}`);
 
 
     message.channel.send(new Discord.MessageEmbed().setTitle(`Leaderboard in ${message.guild.name}.`).setDescription(lb.join("\n")));
