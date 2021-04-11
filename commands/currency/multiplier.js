@@ -12,7 +12,7 @@ module.exports = {
 const Discord = require('discord.js')
 let i;
 let e = 0
-const inventory = require("./schemas/inventory")
+const inventory = require("../../schemas/inventory")
 inventory.findOne({User: id},(err, b) => {
   if(!b) {
 bot.createProfile(id)
