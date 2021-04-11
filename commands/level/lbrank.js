@@ -16,7 +16,7 @@ module.exports = {
 message.reply(`Loading...`).then(m => m.delete({timeout: 3000}));
 const Levels = require("discord-xp");
 const Canvas = require('canvas');
-    const canvas = Canvas.createCanvas(300, 300);
+    const canvas = Canvas.createCanvas(3000, 3000);
     const ctx = canvas.getContext('2d');
     const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
     const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
@@ -29,7 +29,7 @@ const Canvas = require('canvas');
 
 	ctx.strokeStyle = '#74037b';
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
-	ctx.font = '1px Bold';
+	ctx.font = '10px Bold';
 	ctx.fillStyle = '#ffffff';
     ctx.fillText(`${lb.join("\n\n")}`, canvas.width / 3.0, canvas.height / 5.0);
 	ctx.beginPath();
