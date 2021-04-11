@@ -45,7 +45,7 @@ bot.createBalance = (id) => {
 bot.add = (id, amount, message) => {
   eco.findOne({ id }, async(err, data) => {
 
-var brr = ''
+var brr = 0
 
 if(err) console.log(err)
 if(data){
@@ -70,7 +70,7 @@ if (message.channel.name.includes('weky')){
   brr += 0.10
 }
 console.log(brr)
-if(brr === ''){
+if(brr === 0){
     data.Wallet += amount
     data.save()
 } else {
