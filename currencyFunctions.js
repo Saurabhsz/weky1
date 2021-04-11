@@ -58,9 +58,11 @@ if(b.BoosterEffect !== 0){
   brr += 0.10;
     b.BoosterEffect -= 1;
     b.save()
+    console.log(`waaa`)
 }
 if(message.guild.id === '830003680983646278') {
   brr += 0.15
+  console.log(`epic`)
 }
 let array = ['🌙','🌓','🌛','🌕','🌝','🌗','🌜','🌑','🌔','🌒','🌖','🌘','🌚']
 if (message.channel.name.includes(array)){
