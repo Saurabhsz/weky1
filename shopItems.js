@@ -12,10 +12,10 @@ module.exports = [
     {
         aliases: ["spacescript", "script", "space"],
         emoji: "<:spacescript:814122006437167134>",
-        price: 100000,
+        price: false,
         realItem: "SpaceScript",
-        sell: 10000,
-        sellable: true,
+        sell: 1000,
+        sellable: false,
         buyable: true,
         collectable: false
     },
