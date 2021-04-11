@@ -60,7 +60,7 @@ if(b.BoosterEffect !== 0){
     b.save()
 }
 if(message.guild.id === '830003680983646278') {
-  brr += (brr+0.15)
+  brr = (brr+0.15)
 }
 let array = ['🌙','🌓','🌛','🌕','🌝','🌗','🌜','🌑','🌔','🌒','🌖','🌘','🌚']
 if (message.channel.name.includes(array)){
