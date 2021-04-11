@@ -65,9 +65,11 @@ if(message.guild.id === '830003680983646278') {
 let array = ['🌙','🌓','🌛','🌕','🌝','🌗','🌜','🌑','🌔','🌒','🌖','🌘','🌚']
 if (message.channel.name.includes(array)){
   brr += 0.10
+  console.log(array)
 }
 if (message.channel.name.includes('weky')){
   brr += 0.10
+  console.log(`xx`)
 }
 console.log(brr)
 if(brr === 0){
