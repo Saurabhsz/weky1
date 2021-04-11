@@ -10,8 +10,8 @@ module.exports = {
   permissions: ["NONE"],
   async execute(bot, message, args) {
 const Discord = require('discord.js')
-let i;
-let e = 0
+var i;
+var e = 0
 const inventory = require("../../schemas/inventory")
 inventory.findOne({User: message.author.id},(err, b) => {
   if(!b) {
