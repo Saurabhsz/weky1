@@ -244,17 +244,16 @@ const prefix = data.prefix
                             }
                             const o = require("./schemas/cmds")
                             let datab = o.findOne({ Guild: message.guild.id}, async (err, data) => {
-                              if(!data){ 
-                                new o({
-                                Guild: message.guild.id
-                              }).save()}
-  
-                              if(!data.Cmds.includes(cmd)){
-                                cmd.execute(bot, message, args);
-                              } else {
+  if(data){
+                              if(data.Cmds.includes(cmd)){
                                 return
+                              } else {
+                                cmd.execute(bot, message, args);
                               }
-                            })}
+                             } else {
+                              cmd.execute(bot, message, args);
+                     }
+                      })}
               }catch(err){
                   message.reply(`there was an error in the console.`);
                   console.log(err);
@@ -309,17 +308,16 @@ const prefix = data.prefix
                           }
                           const o = require("./schemas/cmds")
                           let datab = o.findOne({ Guild: message.guild.id}, async (err, data) => {
-                            if(!data){ 
-                              new o({
-                              Guild: message.guild.id
-                            }).save()}
-
-                            if(!data.Cmds.includes(cmd)){
-                              cmd.execute(bot, message, args);
-                            } else {
+if(data){
+                            if(data.Cmds.includes(cmd)){
                               return
+                            } else {
+                              cmd.execute(bot, message, args);
                             }
-                          })}
+                           } else {
+                            cmd.execute(bot, message, args);
+                   }
+                    })}
                 
                     
             }catch(err){
