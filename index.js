@@ -309,7 +309,7 @@ const prefix = data.prefix
                           const o = require("./schemas/cmds")
                           let datab = o.findOne({ Guild: message.guild.id}, async (err, data) => {
 if(data){
-                            if(data.Cmds.includes(cmd)){
+                            if(data.Cmds.includes(cmd.name)){
                               return
                             } else {
                               cmd.execute(bot, message, args);
