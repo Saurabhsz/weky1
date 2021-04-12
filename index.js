@@ -243,8 +243,14 @@ const prefix = data.prefix
                                 return
                             }
             
-            
-                    cmd.execute(bot, message, args);}
+                  let datab = require('./schemas/cmds').findOne({ Guild: message.guild.id}, async (err, data) => {
+if(data){
+                    cmd.execute(bot, message, args);
+} else {
+  return
+}
+                  })
+                  }
                       
               }catch(err){
                   message.reply(`there was an error in the console.`);
@@ -298,9 +304,14 @@ const prefix = data.prefix
                           if (cmd.dmOnly && message.channel.type === 'text') {
                               return
                           }
-          
-          
-                  cmd.execute(bot, message, args);}
+                          let datab = require('./schemas/cmds').findOne({ Guild: message.guild.id}, async (err, data) => {
+                            if(data){
+                              cmd.execute(bot, message, args);
+                            } else {
+                              return
+                            }
+                          })}
+                
                     
             }catch(err){
                 message.reply(`there was an error in the console.`);

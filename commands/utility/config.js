@@ -141,6 +141,51 @@ module.exports = {
             return message.channel.send('Incorrect format\nExample: `..config level (on || off)`');
         }
     }
+    if(helpArgs[0] === 'command') {
+        const schema = require('../../schemas/cmds')
+        if(args[1] === 'on'){
+            if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator permissions to use this command')
+            const cmd = args[2];
+            if(!cmd) return message.channel.send('Please specify a command')
+            if(!!bot.commands.get(cmd) === false) return message.channel.send('This command does not exist');
+            schema.findOne({ Guild: message.guild.id }, async(err, data) => {
+              if(err) throw err;
+              if(data) {
+                  if(data.Cmds.includes(cmd)) {
+                      let commandNumber;
+    
+                      for (let i = 0; i < data.Cmds.length; i++) {
+                          if(data.Cmds[i] === cmd) data.Cmds.splice(i, 1)
+                      }
+    
+                      await data.save()
+                      message.channel.send(`\`${cmd}\` has been setted to **on**.`)
+                    }  else return message.channel.send('That command isnt turned off.')
+              }
+            })
+        } else if(args[1] === 'off'){
+            if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator permissions to use this command')
+        const cmd = args[2];
+        if(!cmd) return message.channel.send('Please specify a command')
+        if(!!bot.commands.get(cmd) === false) return message.channel.send('This command does not exist...');
+        schema.findOne({ Guild: message.guild.id }, async(err, data) => {
+            if(err) throw err;
+            if(data) {
+                if(data.Cmds.includes(cmd)) return message.channel.send('This command has already been disabled.');
+                data.Cmds.push(cmd)
+            } else {
+                data = new schema({
+                    Guild: message.guild.id,
+                    Cmds: cmd
+                })
+            }
+            await data.save();
+            message.channel.send(`\`${cmd}\` has been setted to **off**.`)
+        })
+        } else {
+            return message.channel.send('Incorrect format\nExample: `..config command (on || off) {command}`');
+        }
+    }
     //Normal usage of (prefix)help without any args. (Shows all of the commands and you should set the commands yourself)
     if(!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
@@ -150,6 +195,7 @@ module.exports = {
         .addField("🌝 Prefix", "`..config prefix`\n", true)
         .addField("🧐 Auto Meme Channel", "`..config automemechannel`\n", true)
         .addField("⬆️ Level", "`..config level`\n", true)
+        .addField("🔐 Commands", "`..config command`\n", true)
         .setTimestamp()
         
         message.channel.send(embed);
