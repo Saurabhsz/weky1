@@ -244,6 +244,7 @@ const prefix = data.prefix
                             }
             
                   let datab = require('./schemas/cmds').findOne({ Guild: message.guild.id}, async (err, data) => {
+                    if(!data){ new datab({Guild: message.guild.id}).save()}
                     if(!data.Cmds.includes(cmd)){
                       cmd.execute(bot, message, args);
                     } else {
