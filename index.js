@@ -242,17 +242,19 @@ const prefix = data.prefix
                             if (cmd.dmOnly && message.channel.type === 'text') {
                                 return
                             }
-            
-                  let datab = require('./schemas/cmds').findOne({ Guild: message.guild.id}, async (err, data) => {
-                    if(!data){ new datab({Guild: message.guild.id}).save()}
-                    if(!data.Cmds.includes(cmd)){
-                      cmd.execute(bot, message, args);
-                    } else {
-                      return
-                    }
-                  })
-                  }
-                      
+                            const o = require("./schemas/cmds")
+                            let datab = o.findOne({ Guild: message.guild.id}, async (err, data) => {
+                              if(!data){ 
+                                new o({
+                                Guild: message.guild.id
+                              }).save()}
+  
+                              if(!data.Cmds.includes(cmd)){
+                                cmd.execute(bot, message, args);
+                              } else {
+                                return
+                              }
+                            })}
               }catch(err){
                   message.reply(`there was an error in the console.`);
                   console.log(err);
@@ -305,8 +307,12 @@ const prefix = data.prefix
                           if (cmd.dmOnly && message.channel.type === 'text') {
                               return
                           }
-                          let datab = require('./schemas/cmds').findOne({ Guild: message.guild.id}, async (err, data) => {
-                            if(!data){ new datab({Guild: message.guild.id}).save()}
+                          const o = require("./schemas/cmds")
+                          let datab = o.findOne({ Guild: message.guild.id}, async (err, data) => {
+                            if(!data){ 
+                              new o({
+                              Guild: message.guild.id
+                            }).save()}
 
                             if(!data.Cmds.includes(cmd)){
                               cmd.execute(bot, message, args);
