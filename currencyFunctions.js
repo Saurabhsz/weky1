@@ -159,6 +159,26 @@ bot.createProfile(id)
       }
    })
   }
+  bot.voted = (id) => {
+    eco.findOne({ id }, async(err, data) => {
+      if(err) console.log(err)
+      if(data){
+      const inventory = require("./schemas/inventory")
+      inventory.findOne({User: id},(err, b) => {
+        if(!b) {
+      bot.createProfile(id)
+        }
+        b.SpaceScript += 3
+        b.GotchaBox += 1
+        b.save()
+          data.Wallet += 30000
+          data.save()
+      })
+      } else {
+        bot.createBalance(id)
+      }
+        })
+  }
 //Removing item
   bot.removeItem = (id, item, amount) => {
     const inventory = require("./schemas/inventory")
