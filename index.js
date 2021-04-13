@@ -149,7 +149,7 @@ const prefix = data.prefix
               if (message.channel.id !== data.chatbox_channel) return;
               if(message.author.bot) return
                 const fetch = require('node-fetch')
-                fetch(`https://api.monkedev.com/fun/chat?msg=${message.content}&scNyfoysHunZd79reAL5VEsQV`)
+                fetch(`https://api.monkedev.com/fun/chat?msg=${encodeURIComponent(message.content)}&scNyfoysHunZd79reAL5VEsQV`)
                 .then(res => res.json())
                 .then(json => message.channel.send(json.response))
                 .catch(console.error);
