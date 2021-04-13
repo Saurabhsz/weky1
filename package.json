@@ -39,6 +39,7 @@
     "snakecord": "^1.0.5",
     "twemoji-parser": "^13.0.0",
     "txtgen": "^2.2.8",
-    "uninstall": "0.0.0"
+    "uninstall": "0.0.0",
+    "weky-npm": "^1.0.1"
   }
 }

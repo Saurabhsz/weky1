@@ -17,6 +17,13 @@ inventory.findOne({User: message.author.id},(err, b) => {
   if(!b) {
 bot.createProfile(message.author.id)
   }
+  const eco = require('../../schemas/Money')
+  eco.findOne({id: message.author.id}, async (err, data) => {
+    if(!data){
+      bot.createBalance(message.author.id)
+    }
+    if(data.premium === 1) {i += '\nPremium user - 25%\n'; e += 25};
+  })
 if(b.BoosterEffect !== 0) {i += '\nBooster effect - 10%\n'; e += 10};
 if(message.guild.id === '830003680983646278') {i += 'Official server - 15%\n'; e += 15};
 if (message.channel.name.includes('🌝')) {i += 'Channel name includes 🌝 - 1%\n'; e += 1};

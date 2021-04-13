@@ -68,14 +68,15 @@ if (message.channel.name.includes('🌝')){
 if (message.channel.name.includes('weky')){
   brr += 0.01
 }
-console.log(brr)
+if(data.premium === 1){
+  brr += 0.25
+}
 if(brr === 0){
     data.Wallet += amount
     data.save()
 } else {
     data.Wallet += Math.round(amount*brr+amount)
     data.save()
-    console.log(brr)
 }
 })
 } else {
