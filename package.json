@@ -40,6 +40,6 @@
     "twemoji-parser": "^13.0.0",
     "txtgen": "^2.2.8",
     "uninstall": "0.0.0",
-    "weky-npm": "^1.0.1"
+    "weky": "^1.0.4"
   }
 }
