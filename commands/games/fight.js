@@ -13,7 +13,7 @@ module.exports = {
     const challenger = message.author;
     const oppenent = message.mentions.users.first();
     if (!oppenent) return message.channel.send(`Please mention who you want to fight`);
-const { fight } = require('weky-npm')
+const { fight } = require('weky')
 const x = new fight({
     client: bot,
     message: message,
