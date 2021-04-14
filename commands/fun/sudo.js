@@ -14,17 +14,16 @@ module.exports = {
     guarded: true, //or false
     permissions: ["NONE"],
     async execute(bot, message, args) {
-        if (!args[0]) return message.reply('Mention someone you doofus!')
+        const { sudo } = require('weky')
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
         if (!member) return message.reply(`Couldn't find this user!`)
-
-        message.channel.createWebhook("FAKE | "+member.user.username, {
-            avatar: member.user.displayAvatarURL({ dynamic: true })
-        }).then(webhook => {
-            webhook.send(args.slice(1).join(" "))
-            setTimeout(() => {
-                webhook.delete()
-            }, 3000)
+        const msg = args.slice(1).join(" ")
+        if(!msg) return message.reply('What should the user say?')
+        const sud = new sudo({
+            message: message,
+            text: msg,
+            member: member,
         })
+        sud.start()
 }
 }
