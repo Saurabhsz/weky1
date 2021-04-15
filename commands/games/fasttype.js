@@ -1,7 +1,4 @@
-const Discord = require('discord.js')
 const txtgen = require('txtgen')
-const ms = require('ms')
-const inGame = new Set()
 module.exports = {
     name: "fasttype",
     aliases: ["typefast"],
