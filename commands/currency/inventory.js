@@ -68,10 +68,6 @@ bot.createProfile(message.author.id)
         if(s === "") {
         pages = [embed2, embed3, embed4, embed5]
         }else
-        if(s === "" && S !== "" && E !== "" && O !== "" && Q !== "") {pages = [embed2 ,embed3, embed4, embed5];}else
-        if(s === "" && S === "" && E !== "" && O !== "" && Q !== "") {pages = [embed3, embed4, embed5];}else
-        if(s === "" && S === "" && E === "" && O === "" && Q !== "") {pages = [embed4, embed5];}else
-        if(s === "" && S === "" && E === "" && O === "" && Q === "") {pages = [embed5];}
         const textPageChange = false;
         const emojis = ["🤛 ", "🤜"];
         const time = 30000;
