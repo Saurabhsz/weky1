@@ -40,60 +40,126 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
                     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                     .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Script and got **${muni*num} bank space**, gg lmao.`)
    )}}
-    if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox' ) {
-        if(0 >= data.GotchaBox){
+    if(useArgs[0] === 'common' || useArgs[0] === 'commonbox' ) {
+        if(0 >= data.CommonBox){
             return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
             const random = Math.floor(Math.random() * 100) + 1
-            const randomC = Math.floor(Math.random() * 20000) + 6000
+            const randomC = Math.floor(Math.random() * 1000) + 1
             const ar = [
                 "fishing",
                 "laptop",
-                "banknote"
+                "banknote",
+                "common",
+                "booster",
+                "bread",
+                "energy",
             ]
             const br = Math.floor(Math.random() * ar.length)
-        const l = Math.floor(Math.random() * 4) + 1
-            if(random < 2){
-                message.channel.send(`**${message.author} used a Gotcha Box**\n\`1 Silver Moon\`\nOMFG NO WAY<:silver_moon:816983800260067338>`)
-                bot.addItem(message.author.id, "SilverMoon", 1)
-                bot.removeItem(message.author.id, "GotchaBox", 1)
-              } else if(random < 5){
-                message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC}\`\n\`1 Weky's Moon\``)
+        const l = Math.floor(Math.random() * 8) + 1
+if(random < 5){
+                message.channel.send(`**${message.author} used a Common Box**\n\`${randomC}\`\n\`1 Slice Of Tomato\``)
                 bot.add(message.author.id, randomC, message)
                 bot.addItem(message.author.id, "WekyMoon", 1)
-                bot.removeItem(message.author.id, "GotchaBox", 1)
+                bot.removeItem(message.author.id, "CommonBox", 1)
               } else if(random < 30){
                   if(br === 0){
-                message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
+                message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
                 bot.add(message.author.id, randomC, message)
                 bot.addItem(message.author.id, "PlasticHand", l)
-                bot.removeItem(message.author.id, "GotchaBox", 1)
+                bot.removeItem(message.author.id, "CommonBox", 1)
             } else if(br === 1){
-                    message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
+                    message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
                     bot.add(message.author.id, randomC, message)
-                    bot.addItem(message.author.id, "SpaceScript", l)
-                    bot.removeItem(message.author.id, "Laptop", 1)
+                    bot.addItem(message.author.id, "Laptop", l)
+                    bot.removeItem(message.author.id, "CommonBox", 1)
                 } else if(br === 2){
-                    message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
+                    message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
                     bot.add(message.author.id, randomC, message)
                     bot.addItem(message.author.id, "SpaceScript", l)
-                    bot.removeItem(message.author.id, "GotchaBox", 1)
-           }
-            } else if(random < 36){
-                message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\``)
-                bot.add(message.author.id, randomC, message)
-                bot.removeItem(message.author.id, "GotchaBox", 1)
-            } else if(random < 80){
-                message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
-                bot.add(message.author.id, 500, message)
-                bot.removeItem(message.author.id, "GotchaBox", 1)
-                      } else if(random < 101){
-                    message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
-                    bot.add(message.author.id, 500, message)
-                    bot.removeItem(message.author.id, "GotchaBox", 1)
-                      }
-        }
+                    bot.removeItem(message.author.id, "CommonBox", 1)
+              } else if(br === 3){
+                      message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Common Box\` :joy: unlucky`)
+                      bot.add(message.author.id, randomC, message)
+                      bot.addItem(message.author.id, "CommonBox", l)
+                      bot.removeItem(message.author.id, "CommonBox", 1)
+                  } else if(br === 4){
+                      message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Booster\``)
+                      bot.add(message.author.id, randomC, message)
+                      bot.addItem(message.author.id, "Booster", l)
+                      bot.removeItem(message.author.id, "CommonBox", 1)
+                  } else if(br === 5){
+                    message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Bread\``)
+                    bot.add(message.author.id, randomC, message)
+                    bot.addItem(message.author.id, "Bread", l)
+                    bot.removeItem(message.author.id, "CommonBox", 1)
+                } else if(br === 6){
+                    message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Energy Drink\``)
+                    bot.add(message.author.id, randomC, message)
+                    bot.addItem(message.author.id, "EnergyDrink", l)
+                    bot.removeItem(message.author.id, "CommonBox", 1)
+                }                    }else if(random < 101){
+                    message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\``)
+                    bot.add(message.author.id, randomC, message)
+                    bot.removeItem(message.author.id, "CommonBox", 1)
                 }
+
+         }
+                    }
+                if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox' ) {
+                    if(0 >= data.GotchaBox){
+                        return message.channel.send(`You dont have that item, sorry buddy.`)
+                     } else {
+                        const random = Math.floor(Math.random() * 100) + 1
+                        const randomC = Math.floor(Math.random() * 20000) + 6000
+                        const ar = [
+                            "fishing",
+                            "laptop",
+                            "banknote"
+                        ]
+                        const br = Math.floor(Math.random() * ar.length)
+                    const l = Math.floor(Math.random() * 4) + 1
+                        if(random < 2){
+                            message.channel.send(`**${message.author} used a Gotcha Box**\n\`1 Silver Moon\`\nOMFG NO WAY<:silver_moon:816983800260067338>`)
+                            bot.addItem(message.author.id, "SilverMoon", 1)
+                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                          } else if(random < 5){
+                            message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC}\`\n\`1 Weky's Moon\``)
+                            bot.add(message.author.id, randomC, message)
+                            bot.addItem(message.author.id, "WekyMoon", 1)
+                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                          } else if(random < 30){
+                              if(br === 0){
+                            message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
+                            bot.add(message.author.id, randomC, message)
+                            bot.addItem(message.author.id, "PlasticHand", l)
+                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                        } else if(br === 1){
+                            message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
+                            bot.add(message.author.id, randomC, message)
+                            bot.addItem(message.author.id, "Laptop", l)
+                            bot.removeItem(message.author.id, "CommonBox", 1)
+                            } else if(br === 2){
+                                message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
+                                bot.add(message.author.id, randomC, message)
+                                bot.addItem(message.author.id, "SpaceScript", l)
+                                bot.removeItem(message.author.id, "GotchaBox", 1)
+                       }
+                        } else if(random < 36){
+                            message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\``)
+                            bot.add(message.author.id, randomC, message)
+                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                        } else if(random < 80){
+                            message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
+                            bot.add(message.author.id, 500, message)
+                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                                  } else if(random < 101){
+                                message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
+                                bot.add(message.author.id, 500, message)
+                                bot.removeItem(message.author.id, "GotchaBox", 1)
+                                  }
+                    }
+                            }
     if(useArgs[0] === 'bread' || useArgs[0] === 'bd' ) {
         if(0 >= data.Bread){
             return message.channel.send(`You dont have that item, sorry buddy.`)

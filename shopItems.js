@@ -15,8 +15,18 @@ module.exports = [
         price: false,
         realItem: "SpaceScript",
         sell: 1000,
+        sellable: true,
+        buyable: false,
+        collectable: false
+    },
+    {
+        aliases: ["common", "cbox", "commonbox"],
+        emoji: "<:common_box:832589376746815499>",
+        price: false,
+        realItem: "CommonBox",
+        sell: 1000,
         sellable: false,
-        buyable: true,
+        buyable: false,
         collectable: false
     },
     {

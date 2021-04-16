@@ -70,7 +70,7 @@ var num;
 		num = 10
 		}
     const db = require('./schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
-
+if(!data) return;
       if(data.leveling === "1") {
     const randomXp = Math.floor(Math.random() * num) + 1; //Random amont of XP until the number you want + 1
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);

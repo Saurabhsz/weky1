@@ -27,7 +27,7 @@ var ran;
     } else {
         ran = Math.floor(Math.random() * 20)
     }
-    if(ran < 2){
+    if(ran < 1){
         num = await bot.bal(membe.id)
         message.reply(`You stole ALL THEIR MONEYYY🤑🤑🤑🤑🤑, in total **${num}** coins, GG.`)
         bot.add(message.author.id, Math.round(num), message)
@@ -35,7 +35,7 @@ var ran;
         membe.user.send(`${message.author.username} stole from you **` + num + `** coins in **${message.guild.name}**`).catch(e => {
             return;
           })
-    } else if(ran < 3){
+    } else if(ran < 2){
         num = await bot.bal(membe.id)/2
         message.reply(`You stole a part of their money💸💸, in total **${num}** coins, gg bruh.`)
         bot.add(message.author.id, Math.round(num), message)
@@ -43,7 +43,7 @@ var ran;
         membe.user.send(`${message.author.username} stole from you **` + num + `** coins in **${message.guild.name}**`).catch(e => {
             return;
           })
-    } else if(ran < 5){
+    } else if(ran < 4){
         num = Math.floor(Math.random() * await bot.bal(membe.id)) + 100
         message.reply(`You stole some money💰💰💰, in total **${num}** coins, gg bruh.`)
         bot.add(message.author.id, Math.round(num), message)

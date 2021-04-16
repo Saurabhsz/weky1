@@ -339,6 +339,19 @@ if(useArgs[0] === 'slice' || useArgs[0] === 'sliceof' || useArgs[0] === 'sliceof
   .setTimestamp() 
   message.channel.send(embed)
 }
+if(useArgs[0] === 'common' || useArgs[0] === 'commonbox'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Common Box`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/832589278860017714/4.png`)
+  .addField(`${message.author.username} Owns: ${data.CommonBox}\n`,
+                   `Cost: \`NON BUYABLE\`\n
+                   Sell: \`NON SELLABLE\`\n
+                   ID: \`commonbox\`\n\n
+                   Description: Lootbox that is common, but gives more than the names says\n
+                   **Chances**\n100% 100 coins\n36% random amount of coins between 1 and 10000\n30% 1-8 laptops/scripts/plastic/common/booster/bread/energy\n2% Slice Of Pizza`)
+  .setTimestamp() 
+  message.channel.send(embed)
+}
 }
 })
 

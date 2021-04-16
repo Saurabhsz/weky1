@@ -170,7 +170,7 @@ bot.createProfile(id)
       bot.createProfile(id)
         }
         b.SpaceScript += 3
-        b.GotchaBox += 1
+        b.CommonBox += 2
         b.save()
           data.Wallet += 30000
           data.save()
