@@ -65,9 +65,7 @@ bot.createProfile(message.author.id)
         embed5 = new Discord.MessageEmbed().setTitle(`${membe}'s inventory`).setDescription(Q).setColor("RANDOM")
         const recon = require("reconlx");
         const ReactionPages = recon.ReactionPages;
-        if(s === "") {
-        pages = [embed2, embed3, embed4, embed5]
-        }else
+        pages = [embed1, embed2, embed3, embed4, embed5]
         const textPageChange = false;
         const emojis = ["🤛 ", "🤜"];
         const time = 30000;
