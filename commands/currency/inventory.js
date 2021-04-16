@@ -67,7 +67,7 @@ bot.createProfile(message.author.id)
         const recon = require("reconlx");
         const ReactionPages = recon.ReactionPages;
         const textPageChange = false;
-        const emojis = ["🤛 ", "🤜"];
+        const emojis = ["🤛", "🤜"];
         const time = 30000;
         ReactionPages(message, pages, textPageChange, emojis, time);
 })
