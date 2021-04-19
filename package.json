@@ -26,6 +26,7 @@
     "fs": "0.0.1-security",
     "got": "^11.8.1",
     "idiotic-api": "^0.2.11",
+    "koenie06-games": "^2.1.0",
     "mathjs": "^9.2.0",
     "mcapi": "^1.0.1",
     "moment": "^2.29.1",

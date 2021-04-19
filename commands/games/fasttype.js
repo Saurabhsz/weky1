@@ -22,3 +22,13 @@ const game = new FastType({
 game.start()
 }
 }
+const txtgen = require('txtgen')
+const { FastType } = require('weky') 
+
+module.exports = {
+name: "fastype",
+aliases: ["fast-type"],
+description: "fast type game",
+run: async (client, message, args) => {
+
+}}
