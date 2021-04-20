@@ -168,12 +168,13 @@ bot.createProfile(id)
       inventory.findOne({User: id},(err, b) => {
         if(!b) {
       bot.createProfile(id)
-        }
+        } else {
         b.SpaceScript += 3
         b.CommonBox += 2
         b.save()
           data.Wallet += 30000
           data.save()
+        }
       })
       } else {
         bot.createBalance(id)
