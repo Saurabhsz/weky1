@@ -11,6 +11,7 @@
   "dependencies": {
     "@top-gg/sdk": "^3.0.9",
     "alexa-bot-api": "^0.2.1",
+    "ascii-table": "^0.0.9",
     "axios": "^0.21.1",
     "beautify": "0.0.8",
     "canvacord": "^5.0.8",
@@ -21,6 +22,7 @@
     "discord-image-generation": "^1.4.7",
     "discord-xp": "^1.1.7",
     "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "figlet": "^1.5.0",
     "fs": "0.0.1-security",
@@ -41,6 +43,7 @@
     "twemoji-parser": "^13.0.0",
     "txtgen": "^2.2.8",
     "uninstall": "0.0.0",
+    "util": "^0.10.4",
     "weky": "^1.0.4"
   }
 }

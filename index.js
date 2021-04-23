@@ -1,9 +1,10 @@
+require('dotenv').config();
 const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const mongoose = require('mongoose')
 const { loadCommands } = require('./util/loadCommands');
 const bot = new Discord.Client({disableMentions: "everyone"});
-mongoose.connect('mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGO, {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.set('useFindAndModify', false)
 require(`./reply`)
 require('./currencyFunctions')(bot)
@@ -62,7 +63,7 @@ bot.on("message", async message=>{
   if(message.author.bot) return
 	const Discord = require('discord.js')
 const Levels = require('discord-xp')
-Levels.setURL("mongodb+srv://eusuntgabi:eusuntgabi@cluster0.0bpkf.mongodb.net/Data")
+Levels.setURL(process.env.MONGO)
 var num;
 	if(message.channel.id === '830003681402683415') {
 		num = 20
