@@ -104,7 +104,6 @@ const prefix = data.prefix
           }
           bot.ADDcmdsUSED(message.author.id)
             if(message.author.bot || !message.content.startsWith(prefix)) return;        
-            const cmd = bot.commands.get(commandName) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
             const cooldown = cmd.cooldown;
             const pcooldown = cmd.cooldowny
           
