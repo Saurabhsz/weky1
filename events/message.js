@@ -103,10 +103,7 @@ const prefix = data.prefix
             } else return
           }
           bot.ADDcmdsUSED(message.author.id)
-            if(message.author.bot || !message.content.startsWith(prefix)) return;
-            if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
-            const commandName = args.shift().toLowerCase();
-        
+            if(message.author.bot || !message.content.startsWith(prefix)) return;        
             const cmd = bot.commands.get(commandName) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
             const cooldown = cmd.cooldown;
             const pcooldown = cmd.cooldowny
