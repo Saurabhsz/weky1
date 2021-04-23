@@ -7,6 +7,7 @@ const ascii = require('ascii-table');
 const fs = require("fs");
 const util = require('util');
 const readdir = util.promisify(fs.readdir);
+const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO, {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.set('useFindAndModify', false)
 bot.commands = new Discord.Collection();
