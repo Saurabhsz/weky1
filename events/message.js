@@ -104,7 +104,6 @@ const prefix = data.prefix
           }
           bot.ADDcmdsUSED(message.author.id)
             if(message.author.bot || !message.content.startsWith(prefix)) return;
-            const args = message.content.slice(prefix.length).split(/ +/g);
             if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
             const commandName = args.shift().toLowerCase();
         
