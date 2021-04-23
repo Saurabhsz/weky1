@@ -1,3 +1,4 @@
+const bot = new Discord.Client({disableMentions: "everyone"});
 require('dotenv').config();
 require(`./reply`)
 require('./currencyFunctions')(bot)
@@ -6,7 +7,6 @@ const Discord = require('discord.js');
 const fs = require("fs");
 const util = require('util');
 const readdir = util.promisify(fs.readdir);
-const bot = new Discord.Client({disableMentions: "everyone"});
 mongoose.connect(process.env.MONGO, {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.set('useFindAndModify', false)
 bot.commands = new Discord.Collection();
