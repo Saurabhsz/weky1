@@ -1,9 +1,9 @@
+const Discord = require('discord.js');
 const bot = new Discord.Client({disableMentions: "everyone"});
 require('dotenv').config();
 require(`./reply`)
 require('./currencyFunctions')(bot)
 const ascii = require('ascii-table');
-const Discord = require('discord.js');
 const fs = require("fs");
 const util = require('util');
 const readdir = util.promisify(fs.readdir);
