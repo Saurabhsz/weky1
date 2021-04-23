@@ -30,7 +30,7 @@ const eventtable = new ascii('Event\'s');
 		.filter((file) => file.endsWith('.js'));
 	console.log(`Loading a total of ${eventFiles.length} events.`);
 	for (const file of eventFiles) {
-		const event = require(`./src/events/${file}`);
+		const event = require(`./events/${file}`);
 		const eventName = file.split('.')[0];
 		eventtable.addRow(eventName, '✔');
 		bot.on(eventName, event.bind(null, bot));
