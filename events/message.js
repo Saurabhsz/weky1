@@ -125,7 +125,7 @@ const prefix = data.prefix
             }
             if (cmd) {
                     try {
-                        if (client.user.id === '809496186905165834') {
+                        if (bot.user.id === '809496186905165834') {
                             if (!command) return;
                             const m = new Discord.MessageEmbed().setTitle(`Command used in ${message.guild.name}`).setColor('RANDOM').addField('User:', `${message.author.tag}`).addField('User ID:', `${message.author.id}`).addField('Command:', `${command}`).addField('Message Content:', `${message.content}`).addField('Guild ID:', `${message.guild.id}`);
                             await cmdhook.send(m);
