@@ -138,6 +138,7 @@ const prefix = data.prefix
                         if (bot.user.id === '809496186905165834') {
                             const errEmbed = new Discord.MessageEmbed().setTitle(`Command error in ${message.guild.name}`).addField('Additional Details', `**Guild ID :** ${message.guild.id}\n**Author :** ${message.author.tag}(${message.author.id})\n**Command :** ${cmd.name}\n**Content :** ${message.content}`, false).setDescription(`**Error:**\n\`\`\`js\n${error}\n\`\`\``).setTimestamp();
                             errhook.send(errEmbed);
+                            console.log(error)
                         }
                         return message.channel.send(new Discord.MessageEmbed().setTitle('Something went wrong!').setDescription('Report it in our [server](https://discord.gg/Sr2U5WuaSN)').setColor('RED'));
                     }
