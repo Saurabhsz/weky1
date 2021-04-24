@@ -13,16 +13,28 @@ mongoose.set('useFindAndModify', false)
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
-const cooldowns = new Discord.Collection();
-const cooldowny = new Discord.Collection();
-const commandFolders = fs.readdirSync('./commands');
-for (const folder of commandFolders) {
-	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
-	for (const file of commandFiles) {
-		const command = require(`./commands/${folder}/${file}`);
-        bot.commands.set(command.name, command);
-    } 
-}
+bot.cooldowns = new Discord.Collection();
+bot.cooldowny = new Discord.Collection();
+const tble = new ascii('Commands');
+	tble.setHeading('Command', 'Load status');
+	const folders = await readdir('./src/commands/');
+	console.log(`Loading a total of ${folders.length} categories.`);
+	folders.forEach((direct) => {
+		const commandFiles = fs.readdirSync('./commands/' + direct + '/').filter((file) => file.endsWith('.js'));
+		for (const file of commandFiles) {
+			const props = require(`./commands/${direct}/${file}`);
+			props.fileName = file;
+			bot.commands.set(props.name, props);
+			bot.cooldowns.set(props.name, new Discord.Collection());
+			bot.cooldowny.set(props.name, new Discord.Collection());
+			props.aliases.forEach((alias) => {
+				bot.aliases.set(alias, props.name);
+			});
+			tble.addRow(props.help.name, '✔');
+		}
+	});
+
+	console.log(tble.toString());
 const eventtable = new ascii('Event\'s');
 	eventtable.setHeading('Event', 'Load status');
 	const eventFiles = fs
