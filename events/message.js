@@ -89,7 +89,6 @@ const prefix = data.prefix
   const commandName = args.shift().toLowerCase();
           
               const cmd = bot.commands.get(commandName)
-                  //+ aliases: [""],
                   || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
           if(!cmd) {
             if(data.chatbox_channel !== null){
@@ -145,7 +144,7 @@ const prefix = data.prefix
                         return message.channel.send(new Discord.MessageEmbed().setTitle('Something went wrong!').setDescription('Report it in our [server](https://discord.gg/Sr2U5WuaSN)').setColor('RED'));
                     }
                 }
-                    }
+                    
                           if (message.channel.type === 'dm')return
                           const o = require("../schemas/cmds")
                           let datab = o.findOne({ Guild: message.guild.id}, async data => {
@@ -160,4 +159,5 @@ if(data){
                             cmd.execute(bot, message, args);
                    }                          
 })
+}
   return;}
