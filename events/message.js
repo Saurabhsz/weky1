@@ -146,12 +146,7 @@ const prefix = data.prefix
                     }
                 }
                     }
-                          if (cmd.guildOnly && message.channel.type === 'dm') {
-                             return
-                          }
-                          if (cmd.dmOnly && message.channel.type === 'text') {
-                              return
-                          }
+                          if (message.channel.type === 'dm')return
                           const o = require("../schemas/cmds")
                           let datab = o.findOne({ Guild: message.guild.id})
 if(datab){
