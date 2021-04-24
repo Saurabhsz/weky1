@@ -99,9 +99,9 @@ const prefix = data.prefix
                 fetch(`https://api.monkedev.com/fun/chat?msg=${encodeURIComponent(message.content)}&scNyfoysHunZd79reAL5VEsQV`)
                 .then(res => res.json())
                 .then(json => message.channel.send(json.response))
-                .catch(console.error);
             } else return
           }
+          if(!message.content.startsWith(prefix)) return
           bot.ADDcmdsUSED(message.author.id)
             const cooldown = cmd.cooldown;
             const pcooldown = cmd.cooldowny
