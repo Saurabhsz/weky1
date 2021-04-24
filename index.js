@@ -31,7 +31,7 @@ const tble = new ascii('Commands');
 			props.aliases.forEach((alias) => {
 				bot.aliases.set(alias, props.name);
 			});
-			tble.addRow(props.help.name, '✔');
+			tble.addRow(props.name, '✔');
 		}
 	});
 
