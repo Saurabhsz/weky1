@@ -74,7 +74,7 @@ module.exports = {
     }
     //Reads the moudle.exports.config (This line of code is on commands folder, each command will read automaticly) by the second argument (the command name) and shows the information of it.
     if(helpArgs[0]) {
-        let command = helpArgs[0];
+        const command = helpArgs[0];
         const commandName = helpArgs[0].toLowerCase();
           
         const cmd = bot.commands.get(commandName)
