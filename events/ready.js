@@ -1,12 +1,8 @@
 //ready event (ready.js)
-module.exports = {
-    name: 'ready',
-    once: true,
-    execute(bot, commandFiles, folder) {
+module.exports = (bot, message) => {
         commandFiles.forEach(cmd => {
             console.log('> ' + `${folder} | ` + `${cmd}`)
         })
         console.log(`----------------------------------------\n¡${bot.user.tag} has been successfully connected!`)
         bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers with ${bot.users.cache.size} users | ..vote`, {type: "PLAYING"});
     }
-}
