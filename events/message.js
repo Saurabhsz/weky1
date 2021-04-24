@@ -111,14 +111,14 @@ const prefix = data.prefix
               if(user.premium === '1') {
                 const expirationTime = timestamps.get(message.author.id) + pcooldown;
                 if (Date.now() < expirationTime) {
-                  const timeLeft = utils.timer(expirationTime);
+                  const timeLeft = bot.timer(expirationTime);
                   return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, ayo slow...`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${bot.timer(cooldown + Date.now())}\`** but since you are a [donator](https://rickroll), you only need to wait for **\`${bot.timer(pcooldown + Date.now())}!\`**`).setColor('RED'));
                 }
               }
               else {
                 const expirationTime = timestamps.get(message.author.id) + cooldown;
                 if (Date.now() < expirationTime) {
-                  const timeLeft = utils.timer(expirationTime);
+                  const timeLeft = boy.timer(expirationTime);
                   return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, ayo slow...`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${bot.timer(cooldown + Date.now())}\`** but for [__**donators**__](https://rickroll), its only **\`${bot.timer(pcooldown + Date.now())}\` !**`).setColor('RED'));
                 }
               }
@@ -131,6 +131,8 @@ const prefix = data.prefix
                             await cmdhook.send(m);
                         }
                         await timestamps.set(message.author.id, Date.now());
+                        setTimeout(
+                          async () => await timestamps.delete(message.author.id), cooldown);
                         await cmd.execute(bot, message, args);
                     }
                     catch (error) {
