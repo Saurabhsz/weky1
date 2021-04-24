@@ -107,7 +107,7 @@ const prefix = data.prefix
             const cooldown = cmd.cooldown;
             const pcooldown = cmd.cooldowny
           
-            const timestamps = bot.cooldown.get(commandName);
+            const timestamps = bot.cooldowns.get(commandName);
             if (timestamps.has(message.author.id)) {
               if(user.premium === '1') {
                 const expirationTime = timestamps.get(message.author.id) + pcooldown;
