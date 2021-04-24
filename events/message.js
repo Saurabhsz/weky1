@@ -148,14 +148,16 @@ const prefix = data.prefix
                     }
                           if (message.channel.type === 'dm')return
                           const o = require("../schemas/cmds")
-                          let datab = o.findOne({ Guild: message.guild.id})
-if(datab){
-  if(datab.Cmds.includes(cmd.name) || datab.Cmds.includes(cmd.aliases)){
+                          let datab = o.findOne({ Guild: message.guild.id}, async data => {
+
+if(data){
+  if(data.Cmds.includes(cmd.name) || data.Cmds.includes(cmd.aliases)){
                               return
                             } else {
                               cmd.execute(bot, message, args);
                             }
                            } else {
                             cmd.execute(bot, message, args);
-                   }
+                   }                          
+})
   return;}
