@@ -15,9 +15,10 @@ bot.aliases = new Discord.Collection();
 bot.snipes = new Discord.Collection();
 bot.cooldowns = new Discord.Collection();
 bot.cooldowny = new Discord.Collection();
+async function startUp() {
 const tble = new ascii('Commands');
 	tble.setHeading('Command', 'Load status');
-	const folders = await readdir('./src/commands/');
+	const folders = await readdir('./commands/');
 	console.log(`Loading a total of ${folders.length} categories.`);
 	folders.forEach((direct) => {
 		const commandFiles = fs.readdirSync('./commands/' + direct + '/').filter((file) => file.endsWith('.js'));
@@ -48,5 +49,6 @@ const eventtable = new ascii('Event\'s');
 		bot.on(eventName, event.bind(null, bot));
 	}
   console.log(eventtable.toString());
-
+}
+startUp()
 bot.login(process.env.token);
