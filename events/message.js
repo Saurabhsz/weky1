@@ -146,7 +146,6 @@ const prefix = data.prefix
                     }
                 }
                     }
-                      setTimeout(() => timestamps.delete(message.author.id), expirationTime);
                           if (cmd.guildOnly && message.channel.type === 'dm') {
                              return
                           }
