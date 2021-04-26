@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args, utils, data) => {
 	const channel = message.member.voice.channel;
 	if(!channel) return message.channel.send('Please connect to a voice channel to use soundboard');
 	channel.join().then(connection => {
-		const dispatcher = connection.play(path.join(__dirname + '/audio/error.mp3'));
+		const dispatcher = connection.play(path.join(__dirname + './audio/error.mp3'));
 		message.react('🎙️');
 		dispatcher.on('speaking', speaking => {
 			if(!speaking) {
