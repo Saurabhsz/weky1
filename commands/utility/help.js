@@ -33,6 +33,7 @@ module.exports.run = async (client, message, args, utils, data) => {
                 .addField("🎮 Games", `\`${prefix}help games\``, true)
                 .addField("📷 Image", `\`${prefix}help image\``, true)
                 .addField('⬆️ Level', `\`${prefix}help level\``, true)
+				.addField('<a:disk:836284406372499557> Soundboard', `\`${prefix}help soundboard\``, true)
 				//  .addField('<a:music_disc:826830791115931719>', `\`${prefix}help music\``, true)
 				// .setFooter('Check out our website:  https://nuggetdev.com/')
 				.setThumbnail(client.user.avatarURL({ type: 'png' }))
