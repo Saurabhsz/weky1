@@ -1,6 +1,6 @@
-
-const utils = require('../../utils/utils');
-const config = require('../../utils/config.json');
+const Discord = require('discord.js');
+const utils = require('../util/utils');
+const config = require('../util/config.json');
 const chatbase = 'https://api.affiliateplus.xyz/api';
 const fetch = require('node-fetch');
 const cmdhook = new Discord.WebhookClient(process.env.command_webhook_id, process.env.command_webhook_token);
