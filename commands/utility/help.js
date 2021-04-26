@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args, utils, data) => {
 			message.channel.send(a);
 		}
 		else {
-			const categoryArray = fs.readdirSync('../../commands');
+			const categoryArray = fs.readdirSync('./commands/');
 			const category = categoryArray.filter(x => x === args[0].toLowerCase()).join('');
 			if (category) {
 				const cmds = client.commands.filter(x => x.config.category.toLowerCase() === category.toLowerCase()).map(cmd => `\`${cmd.help.name}\``).join(', ');

@@ -73,7 +73,7 @@ module.exports.help = {
 };
 
 module.exports.config = {
-	restricted: true,
+	restricted: false,
 	category: 'owner',
 	disable: false,
 	cooldown: 0,
