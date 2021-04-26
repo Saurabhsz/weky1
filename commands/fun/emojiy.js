@@ -27,11 +27,12 @@
 
     if(!args[0]){
         return message.channel.send(`What to emojify jeez`)
-    }
+    }  
+    message.channel.send(args.slice(0).join(" ").split('').map(c => mapping[c] || c).join(''));
+
             };
 
 
-  message.channel.send(args.slice(0).join(" ").split('').map(c => mapping[c] || c).join(''));
             module.exports.help = {
                 aliases: [],
                   name: 'emojify',
