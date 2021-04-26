@@ -151,7 +151,7 @@ if(user.level === 5){
 			.setTitle('Hi, I\'m Weky !')
 			.setDescription('A currrncy bot on Discord !')
 			.addField('Prefix and Usage', 'My prefixes are ' + `\`${prefixx}\` and <@${bot.user.id}>` + `\n *Tip: Run \`${prefixx}help\` to get started! | use \`${prefixx}setprefix <prefix>\` to change prefix!*`)
-			.addField('Invites :', '[Support server](https://discord.gg/ut7PxgNdef) | [Bot invite](https://discord.com/oauth2/authorize?client_id=779741162465525790&permissions=1609952503&scope=bot%20applications.commands)')
+			.addField('Invites :', '[Support server](https://discord.gg/Sr2U5WuaSN) | [Bot invite](https://discord.com/oauth2/authorize?client_id=809496186905165834&permissions=1609952503&scope=bot%20applications.commands)')
 			.setColor('RANDOM');
 		message.channel.send(m);
 	}
