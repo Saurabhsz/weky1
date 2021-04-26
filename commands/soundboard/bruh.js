@@ -8,8 +8,8 @@ module.exports.run = async (client, message, args, utils, data) => {
 	if(!channel) return message.channel.send('Please connect to a voice channel to use soundboard');
 	channel.join().then(connection => {
 		const dispatcher = connection.play(path.join(__dirname + '/audio/bruh.mp3'));
-		message.react('🎙️');
-		dispatcher.on('speaking', speaking => {
+		const e = await message.react('🎙️');
+				dispatcher.on('speaking', speaking => {
 			if(!speaking) {
         channel.leave();
         e.remove()
