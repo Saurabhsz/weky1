@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const { prefix } = require('../utils/config.json');
+const { prefix } = require('../util/config.json');
 
 const guildsDB = new Schema({
 	id: String,
