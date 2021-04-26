@@ -1,6 +1,5 @@
 //                                               -- All our requirements --
 
-const Discord = require('discord.js');
 const utils = require('../../utils/utils');
 const config = require('../../utils/config.json');
 const fetch = require('node-fetch');
