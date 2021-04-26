@@ -6,7 +6,7 @@ const Weky = require('./util/Weky');
 const client = new Weky({ disableMentions: 'everyone' }, {fetchAllMembers: true});
 require(`./reply`)
 require('./currencyFunctions')(client)
-client.start(process.env.token, process.env.mongo);
+client.start(process.env.token, process.env.MONGO);
 
 // For any unhandled errors
 
