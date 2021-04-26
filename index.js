@@ -4,7 +4,6 @@ const unhhook = new Discord.WebhookClient(process.env.unhandled_rejection_webhoo
 require(`./reply`)
 require('./currencyFunctions')(client)
 
-const Discord = require('discord.js');
 const Weky = require('./utils/Weky');
 const client = new Weky({ disableMentions: 'everyone' }, {fetchAllMembers: true});
 
