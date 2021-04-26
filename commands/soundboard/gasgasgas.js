@@ -6,7 +6,7 @@ const checkifalreadyplaying = new Discord.Collection();
 module.exports.run = async (client, message, args, utils, data) => {
 	const channel = message.member.voice.channel;
 	if(!channel) return message.channel.send('Please connect to a voice channel to use soundboard');
-	channel.join().then(connection => {
+	channel.join().then(async connection => {
 		const dispatcher = connection.play(path.join(__dirname + '/audio/gasgasgas.mp3'));
 		const e = await message.react('🎙️');
 		dispatcher.on('speaking', speaking => {
