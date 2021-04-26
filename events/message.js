@@ -208,14 +208,14 @@ if(user.level === 5){
 			const expirationTime = timestamps.get(message.author.id) + pcooldown;
 			if (Date.now() < expirationTime) {
 				const timeLeft = utils.timer(expirationTime);
-				return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, ⏰ Hold up!`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${utils.timer(cooldown + Date.now())}\`** but since you are a [donator](https://bot.nuggetdev.com/premium), you only need to wait for **\`${utils.timer(pcooldown + Date.now())}!\`**`).setColor('RED'));
+				return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, wait...`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${utils.timer(cooldown + Date.now())}\`** but since you are a [donator](https://www.patreon.com/weky), you only need to wait for **\`${utils.timer(pcooldown + Date.now())}!\`**`).setColor('RED'));
 			}
 		}
 		else {
 			const expirationTime = timestamps.get(message.author.id) + cooldown;
 			if (Date.now() < expirationTime) {
 				const timeLeft = utils.timer(expirationTime);
-				return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, wait...`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${utils.timer(cooldown + Date.now())}\`** but for [__**donators**__](https://bot.nuggetdev.com/premium), its only **\`${utils.timer(pcooldown + Date.now())}\` !**`).setColor('RED'));
+				return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, wait...`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${utils.timer(cooldown + Date.now())}\`** but for [__**donators**__](https://www.patreon.com/weky), its only **\`${utils.timer(pcooldown + Date.now())}\` !**`).setColor('RED'));
 			}
 		}
 	}

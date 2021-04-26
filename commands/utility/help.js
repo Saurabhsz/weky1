@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args, utils, data) => {
 		if (!args[0]) {
 			const a = new Discord.MessageEmbed()
 				.setTitle('Hello!')
-				.setDescription('I\'m Weky!\n[Invite Me](https://discord.com/api/oauth2/authorize?client_id=779741162465525790&permissions=1609952759&scope=applications.commands%20bot) | [Support Server](https://discord.gg/Sr2U5WuaSN)')
+				.setDescription('I\'m Weky!\n[Invite Me](https://discord.com/api/oauth2/authorize?client_id=809496186905165834&permissions=1609952759&scope=applications.commands%20bot) | [Support Server](https://discord.gg/Sr2U5WuaSN) | [Premium](https://www.patreon.com/weky)')
                 .addField("😂 Fun", `\`${prefix}help fun\``, true)
                 .addField("💰 Currency", `\`${prefix}help currency\``, true)
                 .addField("⚒️ Moderation", `\`${prefix}help moderation\``, true)
