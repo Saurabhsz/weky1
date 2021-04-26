@@ -1,6 +1,5 @@
 
 
-        message.channel.send(embed)
             /* eslint-disable no-unused-vars */
             const Discord = require('discord.js');
             const config = require('../../util/config.json');
@@ -16,6 +15,8 @@
         .setTitle("CRINGE MACHINE")
         .setDescription(`You are ${rate}% cringe <:lol:695581441471545374>`)
         .setTimestamp()
+        
+        message.channel.send(embed)
             };
             
             module.exports.help = {
