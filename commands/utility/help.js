@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const Discord = require('discord.js');
 // const help = require('../../../data/helpmessages.json');
-const config = require('../../../utils/config.json');
+const config = require('../../util/config.json');
 const fs = require('fs');
 
 module.exports.help = {
