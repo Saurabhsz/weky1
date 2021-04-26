@@ -1,17 +1,12 @@
 
+                    /* eslint-disable no-unused-vars */
+                    const Discord = require('discord.js');
+                    const config = require('../../util/config.json');
+                    
+                    module.exports.run = async (client, message, args, utils, data) => {
+        
 const Discord = require('discord.js')
 const midDuel = new Set()
-module.exports = {
-    name: "tictactoe",
-    aliases: ["ttt"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..tictactoe @user',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {  
         const author = message.author.id // Player1
         const member = message.mentions.members.first() // Player2
         const authorName = message.author.username // Player 1 Username
@@ -28,7 +23,7 @@ module.exports = {
             return message.channel.send(`You're currently in a duel!`)
         } else if (midDuel.has(member.id)) { // Player tries to match a player who's mid-game
             return message.channel.send(`<@${member.id}> is currently in a duel!`)
-        } if (member.id === message.bot.user.id) { // User tries to duel the bot
+        } if (member.id === message.client.user.id) { // User tries to duel the bot
             return message.channel.send("You can't duel me lol!")
         }
         
@@ -198,49 +193,49 @@ module.exports = {
                 // All possible winning outcomes
                 if (a1 == '❌' && b1 == '❌' && c1 == '❌' || a1 == '🔴' && b1 == '🔴' && c1 == '🔴') {
                     message.channel.send(`${winner} wins!`)
-                    bot.ADDtWin(winner.id)
+                    client.ADDtWin(winner.id)
                     midDuel.delete(author)
                     midDuel.delete(member.id)
                     break
                 } else if (a2 == '❌' && b2 == '❌' && c2 == '❌' || a2 == '🔴' && b2 == '🔴' && c2 == '🔴') {
                     message.channel.send(`${winner} wins!`)
-                    bot.ADDtWin(winner.id)
+                    client.ADDtWin(winner.id)
                     midDuel.delete(author)
                     midDuel.delete(member.id)
                     break
                 } else if (a3 == '❌' && b3 == '❌' && c3 == '❌' || a3 == '🔴' && b3 == '🔴' && c3 == '🔴') {
                     message.channel.send(`${winner} wins!`)
-                    bot.ADDtWin(winner.id)
+                    client.ADDtWin(winner.id)
                     midDuel.delete(author)
                     midDuel.delete(member.id)
                     break
                 } else if (a1 == '❌' && a2 == '❌' && a3 == '❌' || a1 == '🔴' && a2 == '🔴' && a3 == '🔴') {
                     message.channel.send(`${winner} wins!`)
-                    bot.ADDtWin(winner.id)
+                    client.ADDtWin(winner.id)
                     midDuel.delete(author)
                     midDuel.delete(member.id)
                     break
                 } else if (b1 == '❌' && b2 == '❌' && b3 == '❌' || b1 == '🔴' && b2 == '🔴' && b3 == '🔴') {
                     message.channel.send(`${winner} wins!`)
-                    bot.ADDtWin(winner.id)
+                    client.ADDtWin(winner.id)
                     midDuel.delete(author)
                     midDuel.delete(member.id)
                     break
                 } else if (c1 == '❌' && c2 == '❌' && c3 == '❌' || c1 == '🔴' && c2 == '🔴' && c3 == '🔴') {
                     message.channel.send(`${winner} wins!`)
-                    bot.ADDtWin(winner.id)
+                    client.ADDtWin(winner.id)
                     midDuel.delete(author)
                     midDuel.delete(member.id)
                     break
                 } else if (a1 == '❌' && b2 == '❌' && c3 == '❌' || a1 == '🔴' && b2 == '🔴' && c3 == '🔴') {
                     message.channel.send(`${winner} wins!`)
-                    bot.ADDtWin(winner.id)
+                    client.ADDtWin(winner.id)
                     midDuel.delete(author)
                     midDuel.delete(member.id)
                     break
                 } else if (a3 == '❌' && b2 == '❌' && c1 == '❌' || a3 == '🔴' && b2 == '🔴' && c1 == '🔴') {
                     message.channel.send(`${winner} wins!`)
-                    bot.ADDtWin(winner.id)
+                    client.ADDtWin(winner.id)
                     midDuel.delete(author)
                     midDuel.delete(member.id)
                     break
@@ -254,5 +249,19 @@ module.exports = {
                 }
             }
         })
-    }
-}
+                    };
+                    
+                    module.exports.help = {
+                        aliases: ['ttt'],
+                          name: 'tictactoe',
+                          description: 'Tic Tac Toe other users.',
+                          usage: config.prefix + 'ttt @user',
+                      };
+                    
+                    module.exports.config = {
+                      args: false,
+                      restricted: false,
+                      category: 'games',
+                      disable: false,
+                      cooldown: 1000,
+                    };

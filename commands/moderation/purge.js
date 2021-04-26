@@ -1,16 +1,10 @@
+           /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
 const { MessageEmbed } = require("discord.js")
-module.exports = {
-    name: "purge",
-    aliases: ["clear"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..purge (amount)',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["MANAGE_MESSAGES"],
-    async execute(bot, message, args) {
-        if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You don\'t have permission to use this command').then(m => m.delete({timeout: 5000}));
+    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You don\'t have permission to use this command').then(m => m.delete({timeout: 5000}));
         if (!message.guild.me.hasPermission(['MANAGE_MESSAGES'])) return message.channel.send('I don\'t have permission to use that command').then(m => m.delete({timeout: 5000}))
         
         let deleteAmount;
@@ -25,5 +19,21 @@ module.exports = {
 
         message.channel.bulkDelete(deleteAmount + 1, true);
         await message.channel.send(`Successfully Deleted **${deleteAmount}** Messages.`).then(m => m.delete({timeout: 5000}))
-    }
-}
+
+     
+                };
+                
+                module.exports.help = {
+                    aliases: ['delete', 'clear'],
+                      name:'purge',
+                      description: 'Clearing an amount of messages.',
+                      usage: config.prefix + 'purge %amount%',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

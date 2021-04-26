@@ -1,15 +1,10 @@
-const txtgen = require('txtgen')
-module.exports = {
-    name: "fasttype",
-    aliases: ["typefast"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..fasttype',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
+
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            const txtgen = require('txtgen')
         const { FastType } = require('weky')
 const game = new FastType({
     message: message,
@@ -20,5 +15,20 @@ const game = new FastType({
     startMessage: 'Good Luck!' //message sent when user starts playing
 })
 game.start()
-}
-}
+            };
+            
+            module.exports.help = {
+                aliases: ['ff'],
+                  name: 'fasttype',
+                  description: 'Fast type game.',
+                  usage: config.prefix + 'fasttype',
+              };
+            
+            module.exports.config = {
+                args: false,
+                restricted: false,
+                category: 'games',
+                disable: false,
+                cooldown: 1000,
+            };
+            

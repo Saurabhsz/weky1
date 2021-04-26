@@ -1,16 +1,12 @@
+
+        /* eslint-disable no-unused-vars */
 const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+
 const { MessageEmbed } = require("discord.js")
-module.exports = {
-  name: "rob",
-  aliases: ["steal"],
-  dmOnly: false,
-  guildOnly: true,
-  usage: '..rob @user',
-  cooldown: 50,
-  cooldowny: 30,
-  guarded: true,
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
+
     const membe = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
     if(!membe) return message.channel.send(`Who,The fk, the lord,wants to rob :rolling_eyes:`)
 if(membe.id === message.author.id) return message.reply(`Learn what you cant rob urself means`);
@@ -58,4 +54,20 @@ var ran;
             membe.user.send(`${message.author.username} TRIED TO steal from you coins in **${message.guild.name}**`).catch(e => {
                 return;
               })
-        }})}}}
+        }})}
+};
+
+module.exports.help = {
+    aliases: ['steal'],
+      name: 'rob',
+      description: 'Robbing users.',
+      usage: config.prefix + 'rob @user',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 40000,
+};

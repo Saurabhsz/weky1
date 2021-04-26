@@ -1,17 +1,11 @@
+
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const Discord = require("discord.js");
 const inventory = require("../../schemas/inventory")
-const items = require("../../shopItems")
-module.exports = {
-    name: "inventory",
-    aliases: ["inv"],
-    dmOnly: false,
-    guildOnly: true,
-    usage: '..inventory @user',
-    cooldown: 6,
-    cooldowny: 3,
-    guarded: true,
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
         let embed1, embed2, embed3, embed4, embed5, pages, member, membe
         member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author
         if(member.id === message.author.id){
@@ -22,7 +16,7 @@ module.exports = {
 inventory.findOne({ User: member.id }, async(err, data) => {
     if(!data) {
 message.reply(new Discord.MessageEmbed().setTitle(`${membe}'s inventory`).setDescription(`Empty :(`).setColor("RANDOM"))
-bot.createProfile(message.author.id)    
+client.createProfile(message.author.id)    
 }
 
 
@@ -70,5 +64,19 @@ bot.createProfile(message.author.id)
         const time = 30000;
         ReactionPages(message, pages, textPageChange, emojis, time);
 })
-}
-}
+};
+
+module.exports.help = {
+    aliases: ['inv'],
+      name: 'inventory',
+      description: 'Displaying all your items',
+      usage: config.prefix + 'inventory {none OR @user}',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};

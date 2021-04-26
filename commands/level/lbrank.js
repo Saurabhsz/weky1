@@ -1,16 +1,10 @@
-const Discord = require('discord.js');
-module.exports = {
-    name: "leaderboardrank",
-    aliases: ["lbrank", 'lbr'],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..lbrank',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
-        const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
+
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
+  const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
 
         if(data.leveling === "1") {
 message.reply(`Loading...`).then(m => m.delete({timeout: 1000}));
@@ -28,5 +22,19 @@ const Levels = require("discord-xp");
             return message.reply(`Some mod turned leveling off or didnt even turned it on :rage:`)
         }
     })
-}
-}
+                };
+                
+                module.exports.help = {
+                    aliases: ['lbrank', 'lbr'],
+                      name:'leaderboardrank',
+                      description: 'Displaying top 15 users by level.',
+                      usage: config.prefix + 'lbr',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'level',
+                  disable: false,
+                  cooldown: 1000,
+                };

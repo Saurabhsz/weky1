@@ -1,17 +1,12 @@
 
-module.exports = {
-  name: "emojify",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..emojify',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-    const discord = require("discord.js");
-const mapping = {
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            
+            };
+            const mapping = {
   ' ': '   ',
   '0': ':zero:',
   '1': ':one:',
@@ -37,5 +32,17 @@ const mapping = {
         return message.channel.send(`What to emojify jeez`)
     }
   message.channel.send(args.slice(0).join(" ").split('').map(c => mapping[c] || c).join(''));
-
-      }}
+            module.exports.help = {
+                aliases: [],
+                  name: 'emojify',
+                  description: 'Text to Emoji.',
+                  usage: config.prefix + 'emojify %text%',
+              };
+            
+            module.exports.config = {
+              args: false,
+              restricted: false,
+              category: 'fun',
+              disable: false,
+              cooldown: 1000,
+            };

@@ -1,16 +1,12 @@
+
+
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
 var ms = require('ms')
-module.exports = {
-    name: "mute",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..mute',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["ONLY_IN_WEKY_SUPPORT_SERVER"],
-    async execute(bot, message, args) {
-        if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('You do not have the correct permissions to use this command.')
+      if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('You do not have the correct permissions to use this command.')
         const Member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
         const time = args[1]
         if(!Member) return message.channel.send('Member is not found!')
@@ -47,5 +43,19 @@ module.exports = {
             await Member.roles.remove(role2)
             message.channel.send(`${Member.user.tag} is now unmuted`)
         }, ms(time))
-    }
-}
+                };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name:'mute',
+                      description: 'Mute a user/bot.',
+                      usage: config.prefix + 'mute @user %time%',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

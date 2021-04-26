@@ -1,17 +1,12 @@
-const Discord = require("discord.js");
+
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const { numberDependencies } = require("mathjs");
 const inventory = require("../../schemas/inventory")
 const items = require("../../shopItems")
-module.exports = {
-    name: "buy",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..buy (item) {amount}',
-    cooldown: 6, //seconds(s)
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
         if(!args[0]) return message.reply(`Well buy smth bruh`)
         const itemToBuy = args[0].toLowerCase()
     var num = parseFloat(args[1])
@@ -26,7 +21,7 @@ const itemName = items.find((val) => val.aliases.includes(itemToBuy))
 const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
 const buyable = items.find((val) => val.aliases.includes(itemToBuy)).buyable
 if(buyable == false)  {message.reply(`${itemIcon + ' ' + validName} is not buyable`)}else {
-const userBalance = await bot.bal(message.author.id);
+const userBalance = await client.bal(message.author.id);
 if(!num){
 if(userBalance < itemPrice) return message.reply(`Sorry bro, you need ${itemPrice-userBalance} more coins to buy a ${itemIcon + ' ' + validName}`)
 const params = {
@@ -37,14 +32,14 @@ inventory.findOne(params, async(err, data) => {
 const hasItem = Object.keys(data).includes(validName);
 if(!hasItem){
     data[validName] += 1;
-    bot.rmv(message.author.id, itemPrice)
+    client.rmv(message.author.id, itemPrice)
 } else {
     data[validName]++
-    bot.rmv(message.author.id, itemPrice)
+    client.rmv(message.author.id, itemPrice)
 } 
 await inventory.findOneAndUpdate(params, data)
     } else {
-        bot.createProfile(message.author.id)
+        client.createProfile(message.author.id)
         message.channel.send(`Thanks for starting using our currency sytem! :)`)
     }
     message.reply( new Discord.MessageEmbed()
@@ -63,10 +58,10 @@ await inventory.findOneAndUpdate(params, data)
     const hasItem = Object.keys(data).includes(validName);
     if(!hasItem){
         data[validName] += num;
-        bot.rmv(message.author.id, itemPrice*num)
+        client.rmv(message.author.id, itemPrice*num)
     } else {
         data[validName] += num
-        bot.rmv(message.author.id, itemPrice*num)
+        client.rmv(message.author.id, itemPrice*num)
     } 
     await inventory.findOneAndUpdate(params, data)
         } else {
@@ -82,5 +77,19 @@ return message.channel.send(`You didnt even did \`..start\` bruh, there is no pr
     return message.channel.send(`You can't buy ${num} ${itemToBuy} BRUH`)
 }
 }
-}
-}
+};
+
+module.exports.help = {
+	aliases: [],
+	name: 'buy',
+	description: 'Buying items',
+	usage: config.prefix + 'buy /item/ ~amount~',
+};
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 5000,
+};

@@ -62,18 +62,12 @@ let questions = [
   },
 ];
 
-module.exports = {
-  name: "trivia",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..trivia',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-    let q = questions[Math.floor(Math.random() * questions.length)];
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
+        let q = questions[Math.floor(Math.random() * questions.length)];
     let i = 0;
     const Embed = new MessageEmbed()
       .setTitle(q.title)
@@ -94,7 +88,7 @@ module.exports = {
         { time: 15000, max: 1, errors: ["time"] }
       );
       if (parseInt(msgs.first().content) == q.correct) {
-        bot.ADDtWin(message.author.id)
+        client.ADDtWin(message.author.id)
         return message.channel.send(`✅ | You got it correct!`);
       } else {
         return message.channel.send(`❌ | You got it incorrect.`);
@@ -102,5 +96,19 @@ module.exports = {
     } catch (e) {
       return message.channel.send(`⏲️ | Your time has been expired.`);
     }
-  }
-}
+                };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name: 'trivia',
+                      description: 'Trivia game.',
+                      usage: config.prefix + 'trivia',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'games',
+                  disable: false,
+                  cooldown: 1000,
+                };

@@ -1,15 +1,11 @@
-const Discord = require('discord.js')
+
+
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const items = require("../../shopItems")
-module.exports = {
-    name: "sell",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..sell (item) {amount}',
-    cooldown: 6, //seconds(s)
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
         const inventory = require("../../schemas/inventory")
         inventory.findOne({ User: message.author.id }, async (err, data) => {
         if(!args[0]) return message.reply(`No item specificated :/`)
@@ -44,4 +40,20 @@ const embed = new Discord.MessageEmbed()
 .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
 .setDescription(`You sold ${itemIcon} ${num} ${validName} for **${sell*num}** coins.`)
 message.channel.send(embed)
-}}})}}
+}}})
+};
+
+module.exports.help = {
+    aliases: [],
+      name: 'sell',
+      description: 'Selling items.',
+      usage: config.prefix + 'sell /item/ ~amount~',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 7000,
+};

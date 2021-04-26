@@ -1,16 +1,9 @@
-const { MessageEmbed } = require("discord.js")
-
-module.exports = {
-  name: "howsimp",
-  aliases: ["simprate", "simp"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..howsimp',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            const { MessageEmbed } = require("discord.js")
 
         let rate = (Math.floor(Math.random() * Math.floor(100)));
 
@@ -23,5 +16,20 @@ module.exports = {
         .setTimestamp()
 
         message.channel.send(embed)
-      }
-    }
+            };
+            
+            module.exports.help = {
+                aliases: ['sr'],
+                  name: 'simprate',
+                  description: 'Rating your simpy.',
+                  usage: config.prefix + 'simprate',
+              };
+            
+            module.exports.config = {
+              args: false,
+              restricted: false,
+              category: 'fun',
+              disable: false,
+              cooldown: 1000,
+            };
+            

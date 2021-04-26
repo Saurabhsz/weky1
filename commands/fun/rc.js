@@ -1,17 +1,9 @@
-const Discord = require("discord.js")
-
-module.exports = {
-  name: "randomcaps",
-  aliases: ["rc"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..randomcaps',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-    let msg = args.slice(0).join(" "), Case = "";
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+                let msg = args.slice(0).join(" "), Case = "";
     if (!msg) return message.channel.send("Please Give Your Message!");
 
     for (let i in msg) {
@@ -20,5 +12,21 @@ module.exports = {
     };
 
     return message.channel.send(Case);
-}
-}
+
+            };
+            
+            module.exports.help = {
+                aliases: [],
+                  name: 'mock',
+                  description: 'Mock.',
+                  usage: config.prefix + 'mock %text%',
+              };
+            
+            module.exports.config = {
+              args: false,
+              restricted: false,
+              category: 'fun',
+              disable: false,
+              cooldown: 1000,
+            };
+            

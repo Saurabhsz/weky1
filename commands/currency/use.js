@@ -1,16 +1,10 @@
-const Discord = require("discord.js");
-const { MessageEmbed } = require("discord.js")
-module.exports = {
-  name: "use",
-  aliases: [],
-  dmOnly: false,
-  guildOnly: true,
-  usage: '..use',
-  cooldown: 4,
-  cooldowny: 1,
-  guarded: true,
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
+
+                       /* eslint-disable no-unused-vars */
+                       const Discord = require('discord.js');
+                       const config = require('../../util/config.json');
+                       
+                       module.exports.run = async (client, message, args, utils, data) => {
+                       const { MessageEmbed } = require("discord.js")
     let buyArray = message.content.split(" ");
     let useArgs = buyArray.slice(1);
     const inventory = require("../../schemas/inventory")
@@ -22,8 +16,8 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
                     if(0 >= data.SpaceScript){
                        return message.channel.send(`You dont have that item, sorry buddy.`)
                     } else {
-                        bot.removeItem(message.author.id, "SpaceScript", 1)
-                        bot.addSpace(message.author.id, muni)
+                        client.removeItem(message.author.id, "SpaceScript", 1)
+                        client.addSpace(message.author.id, muni)
                     }
                         message.channel.send(new Discord.MessageEmbed()
                         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
@@ -33,8 +27,8 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
                     if(num > data.SpaceScript){
                        return message.channel.send(`You dont have that many item, sorry buddy.`)
                     } else {
-                        bot.removeItem(message.author.id, "SpaceScript", num)
-                        bot.addSpace(message.author.id, muni*num)
+                        client.removeItem(message.author.id, "SpaceScript", num)
+                        client.addSpace(message.author.id, muni*num)
                     }
                     message.channel.send(new Discord.MessageEmbed()
                     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
@@ -59,49 +53,49 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
         const l = Math.floor(Math.random() * 8) + 1
 if(random < 5){
                 message.channel.send(`**${message.author} used a Common Box**\n\`${randomC}\`\n\`1 Slice Of Tomato\``)
-                bot.add(message.author.id, randomC, message)
-                bot.addItem(message.author.id, "WekyMoon", 1)
-                bot.removeItem(message.author.id, "CommonBox", 1)
+                client.add(message.author.id, randomC, message)
+                client.addItem(message.author.id, "WekyMoon", 1)
+                client.removeItem(message.author.id, "CommonBox", 1)
               } else if(random < 30){
                   if(br === 0){
                 message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
-                bot.add(message.author.id, randomC, message)
-                bot.addItem(message.author.id, "PlasticHand", l)
-                bot.removeItem(message.author.id, "CommonBox", 1)
+                 client.add(message.author.id, randomC, message)
+                client.addItem(message.author.id, "PlasticHand", l)
+                client.removeItem(message.author.id, "CommonBox", 1)
             } else if(br === 1){
                     message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
-                    bot.add(message.author.id, randomC, message)
-                    bot.addItem(message.author.id, "Laptop", l)
-                    bot.removeItem(message.author.id, "CommonBox", 1)
+                    client.add(message.author.id, randomC, message)
+                    client.addItem(message.author.id, "Laptop", l)
+                    client.removeItem(message.author.id, "CommonBox", 1)
                 } else if(br === 2){
                     message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
-                    bot.add(message.author.id, randomC, message)
-                    bot.addItem(message.author.id, "SpaceScript", l)
-                    bot.removeItem(message.author.id, "CommonBox", 1)
+                    client.add(message.author.id, randomC, message)
+                    client.addItem(message.author.id, "SpaceScript", l)
+                    client.removeItem(message.author.id, "CommonBox", 1)
               } else if(br === 3){
                       message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Common Box\` :joy: unlucky`)
-                      bot.add(message.author.id, randomC, message)
-                      bot.addItem(message.author.id, "CommonBox", l)
-                      bot.removeItem(message.author.id, "CommonBox", 1)
+                      client.add(message.author.id, randomC, message)
+                      client.addItem(message.author.id, "CommonBox", l)
+                      client.removeItem(message.author.id, "CommonBox", 1)
                   } else if(br === 4){
                       message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Booster\``)
-                      bot.add(message.author.id, randomC, message)
-                      bot.addItem(message.author.id, "Booster", l)
-                      bot.removeItem(message.author.id, "CommonBox", 1)
+                      client.add(message.author.id, randomC, message)
+                      client.addItem(message.author.id, "Booster", l)
+                      client.removeItem(message.author.id, "CommonBox", 1)
                   } else if(br === 5){
                     message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Bread\``)
-                    bot.add(message.author.id, randomC, message)
-                    bot.addItem(message.author.id, "Bread", l)
-                    bot.removeItem(message.author.id, "CommonBox", 1)
+                    client.add(message.author.id, randomC, message)
+                    client.addItem(message.author.id, "Bread", l)
+                    client.removeItem(message.author.id, "CommonBox", 1)
                 } else if(br === 6){
                     message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\`\n\`${l} Energy Drink\``)
-                    bot.add(message.author.id, randomC, message)
-                    bot.addItem(message.author.id, "EnergyDrink", l)
-                    bot.removeItem(message.author.id, "CommonBox", 1)
+                    client.add(message.author.id, randomC, message)
+                    client.addItem(message.author.id, "EnergyDrink", l)
+                    client.removeItem(message.author.id, "CommonBox", 1)
                 }                    }else if(random < 101){
                     message.channel.send(`**${message.author} used a Common Box**\n\`${randomC} coins\``)
-                    bot.add(message.author.id, randomC, message)
-                    bot.removeItem(message.author.id, "CommonBox", 1)
+                    client.add(message.author.id, randomC, message)
+                    c;ient.removeItem(message.author.id, "CommonBox", 1)
                 }
 
          }
@@ -121,42 +115,42 @@ if(random < 5){
                     const l = Math.floor(Math.random() * 4) + 1
                         if(random < 2){
                             message.channel.send(`**${message.author} used a Gotcha Box**\n\`1 Silver Moon\`\nOMFG NO WAY<:silver_moon:816983800260067338>`)
-                            bot.addItem(message.author.id, "SilverMoon", 1)
-                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                            client.addItem(message.author.id, "SilverMoon", 1)
+                            client.removeItem(message.author.id, "GotchaBox", 1)
                           } else if(random < 5){
                             message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC}\`\n\`1 Weky's Moon\``)
-                            bot.add(message.author.id, randomC, message)
-                            bot.addItem(message.author.id, "WekyMoon", 1)
-                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                            client.add(message.author.id, randomC, message)
+                            client.addItem(message.author.id, "WekyMoon", 1)
+                            client.removeItem(message.author.id, "GotchaBox", 1)
                           } else if(random < 30){
                               if(br === 0){
                             message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Plastic Hand\``)
-                            bot.add(message.author.id, randomC, message)
-                            bot.addItem(message.author.id, "PlasticHand", l)
-                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                            client.add(message.author.id, randomC, message)
+                            client.addItem(message.author.id, "PlasticHand", l)
+                            client.removeItem(message.author.id, "GotchaBox", 1)
                         } else if(br === 1){
                             message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Laptops\``)
-                            bot.add(message.author.id, randomC, message)
-                            bot.addItem(message.author.id, "Laptop", l)
-                            bot.removeItem(message.author.id, "CommonBox", 1)
+                            client.add(message.author.id, randomC, message)
+                            client.addItem(message.author.id, "Laptop", l)
+                            client.removeItem(message.author.id, "CommonBox", 1)
                             } else if(br === 2){
                                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\`\n\`${l} Space Scripts\``)
-                                bot.add(message.author.id, randomC, message)
-                                bot.addItem(message.author.id, "SpaceScript", l)
-                                bot.removeItem(message.author.id, "GotchaBox", 1)
+                                client.add(message.author.id, randomC, message)
+                                client.addItem(message.author.id, "SpaceScript", l)
+                                client.removeItem(message.author.id, "GotchaBox", 1)
                        }
                         } else if(random < 36){
                             message.channel.send(`**${message.author} used a Gotcha Box**\n\`${randomC} coins\``)
-                            bot.add(message.author.id, randomC, message)
-                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                            client.add(message.author.id, randomC, message)
+                            client.removeItem(message.author.id, "GotchaBox", 1)
                         } else if(random < 80){
                             message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
-                            bot.add(message.author.id, 500, message)
-                            bot.removeItem(message.author.id, "GotchaBox", 1)
+                            client.add(message.author.id, 500, message)
+                            client.removeItem(message.author.id, "GotchaBox", 1)
                                   } else if(random < 101){
                                 message.channel.send(`**${message.author} used a Gotcha Box**\n\`500 coins\``)
-                                bot.add(message.author.id, 500, message)
-                                bot.removeItem(message.author.id, "GotchaBox", 1)
+                                client.add(message.author.id, 500, message)
+                                client.removeItem(message.author.id, "GotchaBox", 1)
                                   }
                     }
                             }
@@ -164,19 +158,19 @@ if(random < 5){
         if(0 >= data.Bread){
             return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
-                        bot.removeItem(message.author.id, "Bread", 1)
-                        bot.addItem(message.author.id, "BunEffect", 1)
+                        client.removeItem(message.author.id, "Bread", 1)
+                        client.addItem(message.author.id, "BunEffect", 1)
                         message.reply(`You used a <:bready:820948539823226901> Bread to get the bun tentation, now your mind can think faster giving you 50% multiplier 50 seconds.`)
-                        setTimeout(function() {  bot.removeItem(message.author.id, "BunEffect", 1)}, 50000)
+                        setTimeout(function() {  client.removeItem(message.author.id, "BunEffect", 1)}, 50000)
                     }}
                     if(useArgs[0] === 'energy' || useArgs[0] === 'drink'  || useArgs[0] === 'energydrink') {
 if(0 >= data.EnergyDrink){
 return message.channel.send(`You dont have that item, sorry buddy.`)
  } else {
-bot.removeItem(message.author.id, "EnergyDrink", 1)
- bot.addItem(message.author.id, "EnergyBolt", 1)
+client.removeItem(message.author.id, "EnergyDrink", 1)
+client.addItem(message.author.id, "EnergyBolt", 1)
 message.reply(`You used a <:energydrink:826100589426769990> Energy Drink to move fast brrr, now you can catch robbers >:) for 6h`)
-setTimeout(function() {  bot.removeItem(message.author.id, "EnergyBolt", 1)}, 21600000)
+setTimeout(function() {  client.removeItem(message.author.id, "EnergyBolt", 1)}, 21600000)
                                     }}
 if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyripoff' || useArgs[0] === 'wekyrip'|| useArgs[0] === 'rip') {
 if(0 >= data.WekyRipOff){
@@ -188,10 +182,24 @@ message.reply(`${message.author} flex on y'all with their weky rip off :muscle::
         if(0 >= data.Booster){
         return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
-        bot.removeItem(message.author.id, "Booster", 1)
-         bot.addItem(message.author.id, "BoosterEffect", 1)
+        client.removeItem(message.author.id, "Booster", 1)
+         client.addItem(message.author.id, "BoosterEffect", 1)
         message.reply(`You used a <a:booster:828168509112188938> booster, your next money-gain command will give you 10% more!`)
                                             }}
 })
-}
-}
+                       };
+                       
+                       module.exports.help = {
+                           aliases: [],
+                             name: 'use',
+                             description: 'Use a item.',
+                             usage: config.prefix + 'use /item/',
+                         };
+                       
+                       module.exports.config = {
+                           args: false,
+                           restricted: false,
+                           category: 'currency',
+                           disable: false,
+                           cooldown: 5000,
+                       }

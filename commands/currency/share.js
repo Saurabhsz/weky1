@@ -1,17 +1,10 @@
+/* eslint-disable no-unused-vars */
 const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const { MessageEmbed } = require("discord.js")
 
-module.exports = {
-  name: "share",
-  aliases: ["pay", "give"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..share @user amount',
-  cooldown: 15, //seconds(s)
-  cooldowny: 5,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
     const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0])
 if(!member) return message.channel.send(`Use this blocked head :rolling_eyes:\n\`..share @mymom [number]\``)
     var num = Math.round(parseFloat(args[1]))
@@ -34,5 +27,19 @@ if(!member) return message.channel.send(`Use this blocked head :rolling_eyes:\n\
       return;
     })
   }
-  }
-}
+};
+
+module.exports.help = {
+    aliases: ['share','pay'],
+      name: 'give',
+      description: 'Sharing coins to users',
+      usage: config.prefix + 'share ~amount~ @user',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};

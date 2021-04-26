@@ -1,17 +1,11 @@
-const Discord = require('discord.js');
 
-module.exports = {
-    name: "warn",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..warn @user reason',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["MANAGE_MESSAGES"],
-    async execute(bot, message, args) {
-    const ErrEmbed = new Discord.MessageEmbed()
+
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
+const ErrEmbed = new Discord.MessageEmbed()
 .setDescription(`<:downWeky:815202675868172308> | You didn't approve any reasons to warn that user.`)
 const mentionEmbed = new Discord.MessageEmbed()
 .setDescription(`<:downWeky:815202675868172308> | You didnt mentionated someone, or your arguments are not valid.`)
@@ -40,7 +34,7 @@ if(data) {
     });
     data.save();
          const embed = new Discord.MessageEmbed()
-         .setDescription(`<:upWeky:815202285100597260> | **${toWarn}** has been warned for \`${reason}\``)
+         .setDescription(`**${toWarn}** has been warned for \`${reason}\``)
          message.channel.send(embed)
         } else if (!data) {
             let newData = new punishments({
@@ -54,8 +48,22 @@ if(data) {
             });
             newData.save();
              const embed = new Discord.MessageEmbed()
-             .setDescription(`<:upWeky:815202285100597260> | **${toWarn}** has been warned for \`${reason}\``)
+             .setDescription(`**${toWarn}** has been warned for \`${reason}\``)
              message.channel.send(embed)
             }
-  }
-}
+                };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name:'warn',
+                      description: 'Warn a user/bot.',
+                      usage: config.prefix + 'warn @user %reason%',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

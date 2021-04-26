@@ -1,16 +1,10 @@
-const Discord = require('discord.js')
-module.exports = {
-  name: "rmv",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..rmv',
-  cooldown: 4, //seconds(s)
-  cooldown: 1,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-    if(message.author.id === "778518819055861761" || message.author.id === "700988024770789376" || message.author.id === "619498919763640330"){
+
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+
       const member = message.mentions.members.first() || message.guild.members.cache.get(args[1]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(1).join(" ") || x.user.username === args[1])
       if(!member) return message.channel.send(`No user specified`)
       const number = Math.round(parseInt(args[0]))
@@ -21,5 +15,20 @@ module.exports = {
         .setFooter(number)
         .setColor("RED"))
         message.reply(`Removed from ${member} ${number} coins :)`)
-        bot.rmv(member.id, number)
-}else{return}}}
+        client.rmv(member.id, number)
+};
+
+module.exports.help = {
+    aliases: ['rmv'],
+      name: 'remove',
+      description: 'Removing coins from users',
+      usage: config.prefix + 'remove ~amount~ @user',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: true,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};

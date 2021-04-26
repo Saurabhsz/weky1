@@ -1,14 +1,10 @@
-module.exports = {
-    name: "ascii",
-    aliases: ["asciiart"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..ascii',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
+
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            
     const figlet = require('figlet');
 
             if(!args[0]) return message.channel.send('Please provide some text');
@@ -24,5 +20,20 @@ module.exports = {
     
                 message.channel.send('```' + data + '```')
             })
-}
-}
+            };
+            
+            module.exports.help = {
+                aliases: [],
+                  name: 'ascii',
+                  description: 'Converts text into ascii art.',
+                  usage: config.prefix + 'ascii %text%',
+              };
+            
+            module.exports.config = {
+                args: false,
+                restricted: false,
+                category: 'fun',
+                disable: false,
+                cooldown: 1000,
+            };
+            

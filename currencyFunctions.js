@@ -1,23 +1,24 @@
 const { Message } = require('discord.js')
 
-module.exports = async (bot, message) => {
-  bot.timer = (timestamp) => {
-    const timeLeft = timestamp - Date.now();
-    const days = Math.floor(timeLeft / 86400000);
-    const hours = Math.floor(timeLeft / 3600000) - (days * 24);
-    const minutes = Math.floor(timeLeft / 60000) - (days * 1440) - (hours * 60);
-    const seconds = Math.floor(timeLeft / 1000) - (days * 86400) - (hours * 3600) - (minutes * 60);
-    const mseconds = (timeLeft / 1000) - (days * 86400) - (hours * 3600) - (minutes * 60);
-    let string = '';
-    if (days) string = string + `${days} ${days == 1 ? 'day ' : 'days '}`;
-    if (hours) string = string + `${hours} ${hours == 1 ? 'hour ' : 'hours '}`;
-    if (minutes) string = string + `${minutes} ${minutes == 1 ? 'minute ' : 'minutes '}`;
-    if (seconds) string = string + `${seconds} ${seconds == 1 ? 'second ' : 'seconds '}`;
-    if (!string.length) string = `${mseconds.toFixed(1)} second`;
-    return string;
-  };
+module.exports = async (client, message) => {
+  const bot = client
+  // bot.timer = (timestamp) => {
+  //   const timeLeft = timestamp - Date.now();
+  //   const days = Math.floor(timeLeft / 86400000);
+  //   const hours = Math.floor(timeLeft / 3600000) - (days * 24);
+  //   const minutes = Math.floor(timeLeft / 60000) - (days * 1440) - (hours * 60);
+  //   const seconds = Math.floor(timeLeft / 1000) - (days * 86400) - (hours * 3600) - (minutes * 60);
+  //   const mseconds = (timeLeft / 1000) - (days * 86400) - (hours * 3600) - (minutes * 60);
+  //   let string = '';
+  //   if (days) string = string + `${days} ${days == 1 ? 'day ' : 'days '}`;
+  //   if (hours) string = string + `${hours} ${hours == 1 ? 'hour ' : 'hours '}`;
+  //   if (minutes) string = string + `${minutes} ${minutes == 1 ? 'minute ' : 'minutes '}`;
+  //   if (seconds) string = string + `${seconds} ${seconds == 1 ? 'second ' : 'seconds '}`;
+  //   if (!string.length) string = `${mseconds.toFixed(1)} second`;
+  //   return string;
+  // };
 const eco = require('./schemas/Money')
-bot.createProfile = (id) => {
+client.createProfile = (id) => {
   const inventory = require("./schemas/inventory")
   inventory.findOne({
     User: id
@@ -29,7 +30,7 @@ bot.createProfile = (id) => {
  })
 }
 // Creating balance document
-bot.createBalance = (id) => {
+client.createBalance = (id) => {
     const inventory = require("./schemas/Money")
     inventory.findOne({
       id: id
@@ -41,23 +42,23 @@ bot.createBalance = (id) => {
    })
   }
 //Checking user's balance
-  bot.bal = (id) => new Promise(async ful => {
+client.bal = (id) => new Promise(async ful => {
     const data = await eco.findOne({ id })
     if(!data) {bot.createBalance(id)}
     ful(data.Wallet)
   })
-  bot.space = (id) => new Promise(async ful => {
+  client.space = (id) => new Promise(async ful => {
     const data = await eco.findOne({ id })
     if(!data) {bot.createBalance(id)}
     ful(data.space)
   })
-  bot.Bank = (id) => new Promise(async ful => {
+  client.Bank = (id) => new Promise(async ful => {
     const data = await eco.findOne({ id })
     if(!data) {bot.createBalance(id)}
     ful(data.Bank)
   })
 //Adding money to the user wallet
-bot.add = (id, amount, message) => {
+client.add = (id, amount, message) => {
   eco.findOne({ id }, async(err, data) => {
 
 var brr = 0
@@ -67,7 +68,7 @@ if(data){
 const inventory = require("./schemas/inventory")
 inventory.findOne({User: id},(err, b) => {
   if(!b) {
-bot.createProfile(id)
+    client.createProfile(id)
   }
 if(b.BoosterEffect !== 0){
   brr += 0.10;
@@ -95,36 +96,36 @@ if(brr === 0){
 }
 })
 } else {
-  bot.createBalance(id)
+  client.createBalance(id)
 }
   })
 }
 //Removing money from the user wallet
-  bot.rmv = (id, amount) => {
+client.rmv = (id, amount) => {
     eco.findOne({ id }, async(err, data) => {
 if(err) throw err
 if(data){
   data.Wallet -= amount
   data.save()
 } else {
-    bot.createBalance(id)
+  client.createBalance(id)
 }
     })
   }
 //Adding space into bank
-  bot.addSpace = (id, amount) => {
+client.addSpace = (id, amount) => {
     eco.findOne({ id }, async(err, data) => {
 if(err) throw err
 if(data){
   data.space += amount
   data.save()
 } else {
-    bot.createBalance(id)
+  client.createBalance(id)
 }
     })
   }
 //Removing space from bank
-  bot.removeSpace = (id, amount) => {
+client.removeSpace = (id, amount) => {
     eco.findOne({ id }, async(err, data) => {
 if(err) throw err
 if(data){

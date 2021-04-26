@@ -1,16 +1,11 @@
-const Discord = module.require("discord.js");
-module.exports = {
-    name: "lockdown",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..lockdown',
-    cooldown: 6, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["MANAGE_CHANNELS"],
-    async execute(bot, message, args) {
-      const { MessageEmbed } = require('discord.js');
+
+
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
+  const { MessageEmbed } = require('discord.js');
       const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
       if(!message.member.hasPermission("ADMINISTRATOR") || !message.guild.owner) return message.channel.send("You dont have permission to use this command.");
       if(!args[0]) return message.reply(`Please use \`..lockdown on\` or \`..lockdown off\` `)
@@ -34,5 +29,19 @@ module.exports = {
           })
           return message.channel.send('Unlocked all channels')
       }
-}
-}
+                };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name:'lockdown',
+                      description: 'Locking all channels.',
+                      usage: config.prefix + 'lockdown %on OR off%',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

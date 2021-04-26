@@ -1,18 +1,9 @@
-const { DiscordAPIError } = require("discord.js");
 
-module.exports = {
-    name: "report",
-    aliases: ["bug"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..report',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
 
-const channel = bot.channels.cache.get('795647180995559434')
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+const channel = bot.channels.cache.get('835185415224950794')
 
 
 const query = args.slice(0).join(' ');
@@ -28,5 +19,19 @@ const embed = new Discord.MessageEmbed()
 .setTimestamp()
 channel.send(embed);
 message.channel.send("**Bug report has been sent!**")
-}
-}
+};
+
+module.exports.help = {
+    aliases: ['report', 'reportbug'],
+    name: 'bug',
+    description: 'Report a bug',
+    usage: config.prefix + 'report %bug%',
+};
+
+module.exports.config = {
+    args: false,
+    restricted: false,
+    category: 'utility',
+    disable: false,
+    cooldown: 1000,
+};

@@ -1,22 +1,16 @@
-const Discord = require('discord.js')
-const { MessageEmbed } = require("discord.js")
 
-module.exports = {
-  name: "slots",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..slots',
-  cooldown: 6, //seconds(s)
-  cooldowny: 3,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+
+const { MessageEmbed } = require("discord.js")
       if(message.content.includes(',')) return message.channel.send(`In your message CAN'T be . and ,`)
     var number = parseFloat(args[0])
     if(!number) return message.channel.send(`Please specify how much you want to bet!`)
     if (isNaN(number)) return message.channel.send("Thats not a valid number");
-    if(number > await bot.bal(message.author.id)) {
+    if(number > await client.bal(message.author.id)) {
         return message.channel.send("You dont have that much money why you bad at me bro :/");
     }
     if(number < 100){
@@ -58,11 +52,11 @@ if (slotOne === slotTwo && slotOne === slotThree || slotfour === slotfive && slo
         `\n|${slotOne}|${slotTwo}|${slotThree} |\n|———-—|\n` +
         `|${slotfour}|${slotfive}|${slotsix} |\n|———-—|\n` +
         `|${slotseven}|${sloteight}|${slotnine} |\n`)
-        .addField(`Details:`,`Won: ${Math.round(number*okk)};\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${await bot.bal(message.author.id)}`)
+        .addField(`Details:`,`Won: ${Math.round(number*okk)};\nGambled: ${Math.round(number)};\nMupliplier: x${okk}\nNew balance: ${await client.bal(message.author.id)}`)
         .setFooter("Winner");
     message.channel.send(won)
-    bot.add(message.author.id, Math.round(number*okk), message)
-    bot.ADDsWin(message.author.id)
+    client.add(message.author.id, Math.round(number*okk), message)
+    client.ADDsWin(message.author.id)
 } else {
     const lost = new Discord.MessageEmbed()
     .setColor("RANDOM")
@@ -73,5 +67,21 @@ if (slotOne === slotTwo && slotOne === slotThree || slotfour === slotfive && slo
     .addField(`Details`,`Lost : ${Math.round(number)}`)
     .setFooter("Loser");
     message.channel.send(lost)
-    bot.rmv(message.author.id, Math.round(number))
-}}}
+    client.rmv(message.author.id, Math.round(number))
+}
+};
+
+module.exports.help = {
+    aliases: ['slot'],
+      name: 'slots',
+      description: 'Betting coins in slots game.',
+      usage: config.prefix + 'slots ~amount~',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};

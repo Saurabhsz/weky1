@@ -1,15 +1,8 @@
-const Discord = require('discord.js')
-module.exports = {
-  name: "beg",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..beg',
-  cooldown: 35, //seconds(s)
-  cooldowny: 30,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
     const muni = Math.floor(Math.random() * 300) + 60;
     const persons = [
         `**Thanos**`,
@@ -72,8 +65,24 @@ const okk = ok[o]
    var person = persons[persons1]
    var num = Math.floor(Math.random() * 2) +0;
 if(num != 1) {
-  bot.add(message.author.id, muni, message)    
+  client.add(message.author.id, muni, message)    
   message.channel.send(`${person}${bruh}`)
 } else if (num != 0){
   message.channel.send(`${person}${okk}`)
-}}}
+}
+};
+
+module.exports.help = {
+	aliases: [],
+	name: 'beg',
+	description: 'Begging for coins',
+	usage: config.prefix + 'beg',
+};
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 35000,
+};

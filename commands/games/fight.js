@@ -1,15 +1,10 @@
 
-module.exports = {
-  name: "fight",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..fight',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {  
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            
     const challenger = message.author;
     const oppenent = message.mentions.users.first();
     if (!oppenent) return message.channel.send(`Please mention who you want to fight`);
@@ -22,5 +17,20 @@ const x = new fight({
     opponent: message.mentions.users.first()
 })
 x.start()
-  }
-}
+            };
+            
+            module.exports.help = {
+                aliases: [],
+                  name: 'fight',
+                  description: 'Fight.',
+                  usage: config.prefix + 'fight @user',
+              };
+            
+            module.exports.config = {
+              args: false,
+              restricted: false,
+              category: 'games',
+              disable: false,
+              cooldown: 1000,
+            };
+            

@@ -1,16 +1,9 @@
-const Discord = require("discord.js")
-module.exports = {
-    name: "blackjack",
-    aliases: ['bj'],
-    dmOnly: false,
-    guildOnly: true,
-    usage: '..blackjack (amount)',
-    cooldown: 9,
-    cooldowny: 1,
-    guarded: true,
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
-    const money = parseInt(args[0])
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+const money = parseInt(args[0])
     const userId = message.author
 
       if (100 > money || isNaN(money) || !money) {
@@ -18,7 +11,7 @@ module.exports = {
           return
       }
 
-      if (await bot.bal(userId.id) < bet) {
+      if (await client.bal(userId.id) < bet) {
           message.channel.send("You dont have enough money")
           return
       }
@@ -96,11 +89,11 @@ module.exports = {
 
       async function bet(outcome) {
         if (outcome === "win") {
-        bot.add(userId.id, money, message)
-        bot.ADDbjWin(message.author.id)
+        client.add(userId.id, money, message)
+        client.ADDbjWin(message.author.id)
         }
         if (outcome === "lose") {
-        bot.rmv(userId.id, money)
+        client.rmv(userId.id, money)
         }
     }
 
@@ -255,4 +248,19 @@ module.exports = {
       }
 
       await loop()
-  }}
+};
+
+module.exports.help = {
+	aliases: ['bj'],
+	name: 'blackjack',
+	description: 'Blackjacking coins, win or nothing',
+	usage: config.prefix + 'blackjack ~amount~',
+};
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};

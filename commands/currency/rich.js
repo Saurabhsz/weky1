@@ -1,17 +1,10 @@
+
+      /* eslint-disable no-unused-vars */
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const { Discord, Collection, MessageEmbed} = require("discord.js")
-module.exports = {
-    name: "rich",
-    aliases: ["lb", "leaderboard"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..rich',
-    cooldown: 6, //seconds(s)
-    cooldown: 3,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
       const collection = new Collection()
-      try {
       await Promise.all(
         message.guild.members.cache.map(async (member) => {
             const id = member.id
@@ -35,7 +28,19 @@ module.exports = {
        })
      )
       )
-      }catch(error){
-        message.reply(`Some users was not logged, try again.`)
-      }
-}}
+};
+
+module.exports.help = {
+    aliases: ['leaderboard','lb', 'leader'],
+      name: 'rich',
+      description: 'Displaying top 10 users.',
+      usage: config.prefix + 'rich',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};

@@ -1,17 +1,9 @@
-const Discord = require("discord.js")
-
-module.exports = {
-  name: "fart",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..fart',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-    message.channel
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+                message.channel
     .send({embed: {description: "Uh i think **" + message.author.username +"** feels bad man", color: "RANDOM", timestamp: new Date()}})
     .then((msg) => {
       setTimeout(() => {
@@ -45,5 +37,20 @@ module.exports = {
         msg.edit({embed: {description: "the world have been expoled since " + `${message.author.username} has been farted on all. 👼👼`, color: "RANDOM", timestamp: new Date()}});
       }, 20000);
     });
-}
-}
+            };
+            
+            module.exports.help = {
+                aliases: [],
+                  name: 'fart',
+                  description: 'Fart.',
+                  usage: config.prefix + 'fart',
+              };
+            
+            module.exports.config = {
+              args: false,
+              restricted: false,
+              category: 'fun',
+              disable: false,
+              cooldown: 1000,
+            };
+            

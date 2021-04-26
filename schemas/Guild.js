@@ -1,25 +1,45 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const { prefix } = require('../utils/config.json');
 
-const PrefixSchema = new mongoose.Schema({
-    prefix: {
-        type: String,
-        default: ".."
-        },
-    GuildID: {
-    type: String
-    },
-    logs_channel: {
-    type: String,
-    },
-    chatbox_channel: {
-        type: String,
-        },
-    automeme_channel: {
-        type: String,
-        },
-    leveling: {
-        type: String,
-        },
+const guildsDB = new Schema({
+	id: String,
+	prefix: {
+		type: String,
+		default: prefix,
+	},
+	registeredAt: {
+		type: Number,
+		default: Date.now(),
+	},
+	chatbot_enabled: {
+		type: Boolean,
+		default: false,
+	},
+	chatbot_channel: {
+		type: String,
+		default: 'null',
+	},
+	automeme_enabled: {
+		type: Boolean,
+		default: false,
+	},
+	automeme_channel: {
+		type: String,
+		default: 'null',
+	},
+	mute_role: {
+		type: String,
+		default: 'null',
+	},
+	premium: {
+		type: Boolean,
+		default: false,
+	},
+	leveling: {
+		type: Boolean,
+		default: false,
+	},
 });
 
-const MessageModel = module.exports = mongoose.model('Guild', PrefixSchema);
+module.exports = mongoose.model('guildsDB', guildsDB);

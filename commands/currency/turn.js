@@ -1,15 +1,10 @@
-module.exports = {
-  name: "turn",
-  aliases: ["tn"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..turn',
-  cooldown: 35, //seconds(s)
-  cooldowny: 25,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-    const inventory = require("../../schemas/inventory")
+
+                       /* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+const inventory = require("../../schemas/inventory")
     inventory.findOne({ User: message.author.id }, async (err, data) => {
         const quiz = require('../../turn.json');
     const randomCoins = Math.floor(Math.random() * 1300) + 200;
@@ -41,4 +36,20 @@ module.exports = {
                        })
                        .catch(collected => {
                            message.channel.send('C\'mon u didnt answer bruh');
-                       })})}})}}
+                       })})}})
+};
+
+module.exports.help = {
+    aliases: ['tn'],
+      name: 'turn',
+      description: 'Turning laptop on.',
+      usage: config.prefix + 'turn',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 45000,
+};

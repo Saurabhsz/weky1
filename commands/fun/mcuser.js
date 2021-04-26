@@ -1,16 +1,9 @@
-module.exports = {
-    name: "mcuser",
-    aliases: ['minecraftuser'],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..mcuser USER',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
-const Discord = require('discord.js');
-const mcapi = require('mcapi');
+        /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            const mcapi = require('mcapi');
 let embed1 = new Discord.MessageEmbed()
 .setTitle('Error!')
 .setDescription(`**Required Arguments** \n \`\`\`..mcuser <username> \`\`\``)
@@ -34,4 +27,20 @@ try{
     let embed2 = new Discord.MessageEmbed()
     .setDescription('The specified user was not found!')
     message.channel.send(embed2)
-}}}
+}
+            };
+            
+            module.exports.help = {
+                aliases: ['mc-user'],
+                  name: 'mcuser',
+                  description: 'Searching minecraft users.',
+                  usage: config.prefix + 'mcuser %user%',
+              };
+            
+            module.exports.config = {
+                args: false,
+                restricted: false,
+                category: 'fun',
+                disable: false,
+                cooldown: 1000,
+            };            

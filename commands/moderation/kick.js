@@ -1,16 +1,10 @@
-const Discord = require('discord.js')
-module.exports = {
-  name: "kick",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..kick',
-  cooldown: 3, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["KICK_MEMBERS"],
-  async execute(bot, message, args) {
-    if(!message.member.hasPermission('KICK_MEMBERS')){
+
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
+ if(!message.member.hasPermission('KICK_MEMBERS')){
         return message.channel.send("You don't have permission to use that command.")
     }
     if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('I dont have permission to ban members.')
@@ -64,5 +58,19 @@ module.exports = {
           
                       message.channel.send(embed);
                   });
-                }
-                            }
+                };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name:'kick',
+                      description: 'Kicking a user/bot.',
+                      usage: config.prefix + 'kick @user %reason%',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

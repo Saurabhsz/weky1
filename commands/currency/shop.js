@@ -1,18 +1,11 @@
+
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const Money = require("../../schemas/inventory")
 const Discord = require("discord.js");
-const { MessageEmbed } = require("discord.js")
-
-module.exports = {
-  name: "shop",
-  aliases: ["item"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..shop',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
 
 Money.findOne({
   User: message.author.id
@@ -354,6 +347,19 @@ if(useArgs[0] === 'common' || useArgs[0] === 'commonbox'){
 }
 }
 })
+};
 
-}
-}
+module.exports.help = {
+    aliases: ['store'],
+      name: 'shop',
+      description: 'Displaying items that can be bought.',
+      usage: config.prefix + 'shop',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};

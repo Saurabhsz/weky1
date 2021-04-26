@@ -1,28 +1,30 @@
+
+                    /* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const { MessageEmbed } = require("discord.js")
-
-module.exports = {
-  name: "hownoob",
-  aliases: ["noobrate"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..hownoob',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-
         let rate = (Math.floor(Math.random() * Math.floor(100)));
-
-        let user = message.mentions.users.first() || message.author;
-
         const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle("NOOB MACHINE")
         .setDescription(`You are ${rate}% noob 🇳 🇴 🇴 🇧`)
         .setTimestamp()
-
         message.channel.send(embed)
-      }
+};
 
-          }
+module.exports.help = {
+    aliases: ['nr'],
+      name: 'noobrate',
+      description: 'Rating your nooby.',
+      usage: config.prefix + 'noobrate',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'fun',
+	disable: false,
+	cooldown: 1000,
+};

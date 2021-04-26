@@ -1,14 +1,9 @@
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const items = require("../../shopItems")
-module.exports = {
-    name: "gift",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..gift (item) {amount}',
-    cooldown: 6, //seconds(s)
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
         if(!args[1]) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[2]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(2).join(" ") || x.user.username === args[2]);
         if(member.id === message.author.id) return message.reply(`Learn what you cant gift urself means`);
@@ -28,10 +23,26 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
     if(num > data[validName]) {
     return message.channel.send("You dont have " + num + " " + validName);
   } else {
-bot.addItem(member.id, validName, num)
-bot.removeItem(message.author.id, validName, num)
+client.addItem(member.id, validName, num)
+client.removeItem(message.author.id, validName, num)
 message.reply(message.author.username + ` gave ` + member.user.tag + ` ` + itemIcon + ` ` + num + ` ` + validName)
 member.user.send(`${message.author.username} gave you ` + itemIcon + ` ` + num + ` ` + validName).catch(e => {
     return;
   })
-}})}}
+}})
+};
+
+module.exports.help = {
+  aliases: [],
+	name: 'gift',
+	description: 'Gifting items to users',
+	usage: config.prefix + 'gift /item/ ~amount~ @user',
+};
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 15000,
+};

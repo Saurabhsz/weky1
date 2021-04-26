@@ -1,18 +1,26 @@
-const { MessageEmbed } = require("discord.js")
-module.exports = {
-    name: "say",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..say',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
-    if (!args[0]){
+
+            /* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+if (!args[0]){
         return message.channel.send('What should i say?')
     }
     message.channel.send(args.slice(0).join(" ") + `\n_ _ _ _ _ _ **- ${message.author.username}#${message.author.discriminator}**`)
+};
 
-}}
+module.exports.help = {
+    aliases: ['repeat'],
+      name: 'say',
+      description: 'Says.',
+      usage: config.prefix + 'say %text%',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'fun',
+	disable: false,
+	cooldown: 1000,
+};

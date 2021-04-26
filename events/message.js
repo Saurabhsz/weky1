@@ -1,12 +1,14 @@
-const Discord = require('discord.js');
+//                                               -- All our requirements --
 
-const cmdhook = new Discord.WebhookClient('835185763452846140', '5P8wtrLsF1bfJ_9o53AovmBzFxUMuNTNURtuSygJ9hGWBm95SBesY_K7I2i57NROkI9T');
-const errhook = new Discord.WebhookClient('835185449072984074', 'bGkv8gaP-VuvvaPP46r0eYmHIbNLfbLFLQrRho_AT-9l_N3r17QuBIjPoBzeKOpZSreW');
+const Discord = require('discord.js');
+const utils = require('../../utils/utils');
+const config = require('../../utils/config.json');
+const fetch = require('node-fetch');
+const cmdhook = new Discord.WebhookClient(process.env.command_webhook_id, process.env.command_webhook_token);
+const errhook = new Discord.WebhookClient(process.env.err_webhook_id, process.env.err_webhook_token);
+
 module.exports = async (bot, message) => {
-if(message.author.bot) return
-if (!message.guild) return;
-	const Discord = require('discord.js')
-const Levels = require('discord-xp')
+	const Levels = require('discord-xp')
 Levels.setURL(process.env.MONGO)
 var num;
 	if(message.channel.id === '830003681402683415') {
@@ -65,99 +67,181 @@ if(user.level === 5){
     }
   }
 })
-  const prefixModel = require("../schemas/Guild")
-  const data = await prefixModel.findOne({
-    GuildID: message.guild.id
-});
+	//                                               -- Message Event Function --
+	if (!message.guild) return;
 
-if(!data){
-  newD = new prefixModel({
-    GuildID: message.guild.id,
-    prefix: "..",
-    logs_channel: null,
-    chatbox_channel: null,
-    leveling: null
-  });
-  newD.save();
-  message.channel.send(`Thanks for adding me in ${message.guild.name}, use \`..help\` for more categories and commands!\nUse \`..setprefix\` to set a new prefix, the current one it ..`)
-} else {
-const prefix = data.prefix
-  const args = message.content.slice(prefix.length).split(/ +/g);
-  const black = require('../schemas/Ban')
-  const blacklist = await black.findOne({id: message.author.id})
-  if(blacklist) return;
-  const commandName = args.shift().toLowerCase();
-          
-              const cmd = bot.commands.get(commandName)
-                  || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-          if(!cmd) {
-            if(data.chatbox_channel !== null){
-              if (message.channel.id !== data.chatbox_channel) return;
-              if(message.author.bot) return
-                const fetch = require('node-fetch')
-                fetch(`https://api.monkedev.com/fun/chat?msg=${encodeURIComponent(message.content)}&scNyfoysHunZd79reAL5VEsQV`)
-                .then(res => res.json())
-                .then(json => message.channel.send(json.response))
-            } else return
-          }
-          if(!message.content.startsWith(prefix)) return
-          bot.ADDcmdsUSED(message.author.id)
-            const cooldown = cmd.cooldown;
-            const pcooldown = cmd.cooldowny
-          const user = require('../schemas/Money').findOne({id: message.author.id})
-            const timestamps = bot.cooldowns.get(commandName);
-            if (timestamps.has(message.author.id)) {
-              if(user.premium === '1') {
-                const expirationTime = timestamps.get(message.author.id) + pcooldown;
-                if (Date.now() < expirationTime) {
-                  const timeLeft = bot.timer(expirationTime);
-                  return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, ayo slow...`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${bot.timer(cooldown + Date.now())}\`** but since you are a [donator](https://rickroll), you only need to wait for **\`${bot.timer(pcooldown + Date.now())}!\`**`).setColor('RED'));
-                }
-              }
-              else {
-                const expirationTime = timestamps.get(message.author.id) + cooldown;
-                if (Date.now() < expirationTime) {
-                  const timeLeft = boy.timer(expirationTime);
-                  return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, ayo slow...`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${bot.timer(cooldown + Date.now())}\`** but for [__**donators**__](https://rickroll), its only **\`${bot.timer(pcooldown + Date.now())}\` !**`).setColor('RED'));
-                }
-              }
-            }
-            if (cmd) {
-                    try {
-                        if (bot.user.id === '809496186905165834') {
-                            if (!cmd) return;
-                            const m = new Discord.MessageEmbed().setTitle(`Command used in ${message.guild.name}`).setColor('RANDOM').addField('User:', `${message.author.tag}`).addField('User ID:', `${message.author.id}`).addField('Command:', `${cmd}`).addField('Message Content:', `${message.content}`).addField('Guild ID:', `${message.guild.id}`);
-                            await cmdhook.send(m);
-                        }
-                        await timestamps.set(message.author.id, Date.now());
-                        setTimeout(
-                          async () => await timestamps.delete(message.author.id), cooldown);
-                        await cmd.execute(bot, message, args);
-                    }
-                    catch (error) {
-                        // Command Errors
-                        if (bot.user.id === '809496186905165834') {
-                            const errEmbed = new Discord.MessageEmbed().setTitle(`Command error in ${message.guild.name}`).addField('Additional Details', `**Guild ID :** ${message.guild.id}\n**Author :** ${message.author.tag}(${message.author.id})\n**Command :** ${cmd.name}\n**Content :** ${message.content}`, false).setDescription(`**Error:**\n\`\`\`js\n${error}\n\`\`\``).setTimestamp();
-                            errhook.send(errEmbed);
-                            console.log(error)
-                        }
-                        return message.channel.send(new Discord.MessageEmbed().setTitle('Something went wrong!').setDescription('Report it in our [server](https://discord.gg/Sr2U5WuaSN)').setColor('RED'));
-                    }
-                }
-                    
-                          if (message.channel.type === 'dm')return
-                          const o = require("../schemas/cmds")
-                          let datab = o.findOne({ Guild: message.guild.id}, async data => {
 
-if(data){
-  if(data.Cmds.includes(cmd.name) || data.Cmds.includes(cmd.aliases)){
-                              return
-                            } else {
-                              cmd.execute(bot, message, args);
-                            }
-                           } else {
-                            cmd.execute(bot, message, args);
-                   }                          
-})
-}
-  return;}
+	if (message.author.bot) return;
+
+	// Fetch database
+
+	const guildDB = await bot.data.getGuildDB(message.guild.id);
+	const userDB = await bot.data.getUserDB(message.author.id);
+	const data = {};
+	data.guild = guildDB;
+	data.user = userDB;
+
+	// check if user is blacklisted
+
+	if (data.user.blacklisted) return;
+
+	// AFK thingy
+
+	if (userDB.is_afk) {
+		await bot.data.removeAfk(message.author.id);
+		message.channel.send(Discord.Util.removeMentions('Welcome back **' + message.author.username + '**! You are no longer afk.'))
+		// eslint-disable-next-line no-unused-vars
+			.catch((error) => {
+				return true;
+			});
+	}
+
+	message.mentions.users.forEach(async (u) => {
+		const userData = await bot.data.getUserDB(u.id);
+		if (userData.is_afk) {
+			message.channel.send(`**${u.tag}** is currently afk for: **${userData.afkReason}**`)
+			// eslint-disable-next-line no-unused-vars
+				.catch((error) => {
+					return true;
+				});
+		}
+	});
+
+	// Chatbot thingy
+
+	if (data.guild.chatbot_enabled && data.guild.chatbot_channel == message.channel.id) {
+		const badwords = ['nigger', 'nigga', 'nibba', 'nibber'];
+		const bl_log_channel = bot.channels.cache.get('809317042058035241');
+		const reason = 'saying a blacklisted word.';
+		if (badwords.some((word) => message.content.toLowerCase().includes(word))) {
+			const blacklist = await bot.data.blacklist(message.author.id, 'true', reason);
+			const logEmbed = new Discord.MessageEmbed().setTitle('User Blacklisted').setDescription(`**${message.author.username}#${message.author.discriminator}** was blacklisted from using the bot.\n\nResponsible Moderator : **${message.author.username}**\n\nReason : **${blacklist.reason}** \n **message**: ${message.content}`).setFooter('Blacklist registered').setColor('RED').setTimestamp();
+			bl_log_channel.send(logEmbed);
+			message.author.send(`You have been blacklisted from using the bot! \n **Reason:** ${reason}\n **Moderator:** ${message.author.tag} \n**Join Weky Development to appeal:** https://discord.gg/Sr2U5WuaSN`).catch((err) => {
+				message.channel.send(`${message.author.username} has DM's disabled. I was unable to send him a message - but blacklist has been registered!`);
+				console.log(err);
+				return;
+			});
+		}
+
+		const channel = data.guild.chatbot_channel;
+		if (!channel) return;
+		const sChannel = message.guild.channels.cache.get(channel);
+		if (message.author.bot || sChannel.id !== message.channel.id) return;
+		sChannel.startTyping();
+		if(!message.content) return sChannel.stopTyping();
+		try {
+			const basefetch = await fetch(`${chatbase}/chatbot?message=${encodeURIComponent(message.content)}&botname=${encodeURIComponent('Weky')}&ownername=${encodeURIComponent('Face')}&user=${message.author.id}`, {});
+			const response = await basefetch.json();
+			message.reply(response.message);
+		}
+		catch (e) {
+			message.reply('Something went wrong! Please report it on our support server https://discord.gg/Sr2U5WuaSN');
+			console.log(e);
+			return sChannel.stopTyping;
+		}
+		sChannel.stopTyping();
+	}
+	if (message.author.bot) return;
+
+	// Ping Embed
+	// Get prefix from guild else get from config file
+	const prefixx = !guildDB.prefix ? config.prefix : guildDB.prefix;
+	if (!message.author.bot && message.content.match(new RegExp(`^<@!?${bot.user.id}>( |)$`))) {
+		const m = new Discord.MessageEmbed()
+			.setTitle('Hi, I\'m Weky !')
+			.setDescription('A currrncy bot on Discord !')
+			.addField('Prefix and Usage', 'My prefixes are ' + `\`${prefixx}\` and <@${bot.user.id}>` + `\n *Tip: Run \`${prefixx}help\` to get started! | use \`${prefixx}setprefix <prefix>\` to change prefix!*`)
+			.addField('Invites :', '[Support server](https://discord.gg/ut7PxgNdef) | [Bot invite](https://discord.com/oauth2/authorize?client_id=779741162465525790&permissions=1609952503&scope=bot%20applications.commands)')
+			.setColor('RANDOM');
+		message.channel.send(m);
+	}
+	// Basic command checks and argument definitions
+
+	const prefixMention = new RegExp(`^<@!?${bot.user.id}> `);
+	const prefix = !message.author.bot && message.content.match(prefixMention) ? !message.author.bot && message.content.match(prefixMention)[0] : prefixx;
+
+	if (!message.content.startsWith(prefix)) return;
+
+	const args = message.content.slice(prefix.length).trim().split(/ +/g);
+	let command = args.shift().toLowerCase();
+
+	// Command Handler Dynamic Checks
+
+	if (bot.aliases.has(command)) {
+		command = bot.commands.get(bot.aliases.get(command)).help.name;
+	}
+
+	const commandFile = bot.commands.get(command);
+
+	if (!commandFile) return;
+	// if(client.commands.get(command).config.category === 'Actions') return message.channel.send('due to some difficulties, Actions commands are disabled for atleast a day, please join discord.gg/d98jT3mgxf for updates (we also do premium giveaways)');
+	if (bot.commands.get(command).config.developers == true) {
+		if (data.user.developer == false) {
+			return utils.errorEmbed(message, ':warning: This command is restricted only to bot owners.');
+		}
+	}
+
+	if (bot.commands.get(command).config.restricted == true) {
+		if (data.user.moderator == false) {
+			return utils.errorEmbed(message, ':warning: This command is restricted only to bot moderators / owners.');
+		}
+	}
+
+	if (bot.commands.get(command).config.disable == true) {
+		return utils.errorEmbed(message, ':warning: This command is disabled for a short period of time! :warning:');
+	}
+
+	if (bot.commands.get(command).config.args == true) {
+		if (!args[0]) {
+			return utils.errorEmbed(message, `Invalid arguments. Use: ${prefix + 'help ' + bot.commands.get(command).help.name}`);
+		}
+	}
+
+	// Core Command Handler and Cooldown Checks
+
+	const cooldown = bot.commands.get(command).config.cooldown;
+	const pcooldown = bot.commands.get(command).config.cooldown / 2;
+
+	const timestamps = bot.cooldowns.get(command);
+	if (timestamps.has(message.author.id)) {
+		if(data.user.premium == true) {
+			const expirationTime = timestamps.get(message.author.id) + pcooldown;
+			if (Date.now() < expirationTime) {
+				const timeLeft = utils.timer(expirationTime);
+				return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, ⏰ Hold up!`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${utils.timer(cooldown + Date.now())}\`** but since you are a [donator](https://bot.nuggetdev.com/premium), you only need to wait for **\`${utils.timer(pcooldown + Date.now())}!\`**`).setColor('RED'));
+			}
+		}
+		else {
+			const expirationTime = timestamps.get(message.author.id) + cooldown;
+			if (Date.now() < expirationTime) {
+				const timeLeft = utils.timer(expirationTime);
+				return message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, wait...`).setDescription(`This command is on cooldown for **${timeLeft}** \nThe default cooldown for this command is **\`${utils.timer(cooldown + Date.now())}\`** but for [__**donators**__](https://bot.nuggetdev.com/premium), its only **\`${utils.timer(pcooldown + Date.now())}\` !**`).setColor('RED'));
+			}
+		}
+	}
+
+	// Command Logs
+
+	if (commandFile) {
+		try {
+			if (bot.user.id === '809496186905165834') {
+				if (!command) return;
+				const m = new Discord.MessageEmbed().setTitle(`Command used in ${message.guild.name}`).setColor('RANDOM').addField('User:', `${message.author.tag}`).addField('User ID:', `${message.author.id}`).addField('Command:', `${command}`).addField('Message Content:', `${message.content}`).addField('Guild ID:', `${message.guild.id}`);
+				await cmdhook.send(m);
+			}
+			await timestamps.set(message.author.id, Date.now());
+			setTimeout(
+				async () => await timestamps.delete(message.author.id), cooldown);
+			await commandFile.run(bot, message, args, utils, data);
+		}
+		catch (error) {
+			// Command Errors
+			if (bot.user.id === '809496186905165834') {
+				const errEmbed = new Discord.MessageEmbed().setTitle(`Command error in ${message.guild.name}`).addField('Additional Details', `**Guild ID :** ${message.guild.id}\n**Author :** ${message.author.tag}(${message.author.id})\n**Command :** ${commandFile.help.name}\n**Content :** ${message.content}`, false).setDescription(`**Error:**\n\`\`\`js\n${error}\n\`\`\``).setTimestamp();
+				errhook.send(errEmbed);
+			}
+			return message.channel.send(new Discord.MessageEmbed().setTitle('Something went wrong!').setDescription('Please report it in [our server](https://discord.gg/Sr2U5WuaSN)').setColor('RED'));
+		}
+	}
+};

@@ -1,17 +1,12 @@
-const Discord = module.require("discord.js");
-module.exports = {
-    name: "unlock",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..unlock',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["MANAGE_CHANNELS"],
-    async execute(bot, message, args) {
 
-    if (!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send('You don\'t have permission (MANAGE_CHANNELS) to use this command').then(m => m.delete({timeout: 5000}));
+
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
+
+             if (!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send('You don\'t have permission (MANAGE_CHANNELS) to use this command').then(m => m.delete({timeout: 5000}));
     if (!message.guild.me.hasPermission(['MANAGE_CHANNELS'])) return message.channel.send('I don\'t have permission to use that command').then(m => m.delete({timeout: 5000}))
    message.channel.overwritePermissions([
      {
@@ -20,10 +15,23 @@ module.exports = {
      },
     ],);
    const embed = new Discord.MessageEmbed()
-   .setTitle("Channel Updates")
-   .setDescription(`<:upWeky:815202285100597260> | ${message.channel} has been Unlocked`)
+   .setTitle("Warning")
+   .setDescription(`:unlock: | ${message.channel} has been unlocked`)
    .setColor("RANDOM");
    await message.channel.send(embed);
-   message.delete();
-}
-}
+   message.delete();    };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name:'unlock',
+                      description: 'Unlocking a channel.',
+                      usage: config.prefix + 'unlock',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

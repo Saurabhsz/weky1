@@ -1,17 +1,9 @@
-const Discord = require('discord.js');
-const talkedRecently = new Set();
-module.exports = {
-  name: "deposit",
-  aliases: ["dep"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..deposit',
-  cooldown: 4, //seconds(s)
-  cooldowny: 1,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
 
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
     var num = parseFloat(args[0])
     const Money = require('../../schemas/Money')
 Money.findOne({
@@ -65,5 +57,19 @@ if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot
       }
 }
 });
-}
-}
+};
+
+module.exports.help = {
+  aliases : [],
+	name: 'deposit',
+	description: 'Depositing in bank your coins.',
+	usage: config.prefix + 'dep {amount OR all OR half}',
+};
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};

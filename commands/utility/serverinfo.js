@@ -1,16 +1,9 @@
-const Discord = require('discord.js')
+
+   const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+
 const moment = require('moment');
-module.exports = {
-  name: "serverinfo",
-  aliases: ["infoserver"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..serverinfo',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
        const then = moment(message.guild.createdAt);
        const time = then.from(moment());
        const ca = then.format("MMM Do, YYYY");
@@ -32,5 +25,19 @@ module.exports = {
      .addField('**Channels**', `⌨️ ${message.guild.channels.cache.filter(channel => channel.type == 'text').size} \| 🔈 ${message.guild.channels.cache.filter(channel => channel.type == 'voice').size} \| 📁 ${message.guild.channels.cache.filter(channel => channel.type == 'category').size} \| 📢 ${message.guild.channels.cache.filter(channel => channel.type == 'news').size}`, true)
      .addField('**Community Features**', `${message.guild.features.join(", ") || "No Community Features!"}`, false)
    message.channel.send(embed);
- }
-}
+};
+
+module.exports.help = {
+    aliases: ['si', 'serveri'],
+    name: 'serverinfo',
+    description: 'Info about da server',
+    usage: config.prefix + 'serverinfo',
+};
+
+module.exports.config = {
+    args: false,
+    restricted: false,
+    category: 'utility',
+    disable: false,
+    cooldown: 1000,
+};

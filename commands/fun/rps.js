@@ -1,16 +1,9 @@
-const discord = require("discord.js")
-module.exports = {
-    name: "rps",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..rps',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {   
-let embed = new discord.MessageEmbed()
+            /* eslint-disable no-unused-vars */
+            const discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            let embed = new discord.MessageEmbed()
 		.setTitle("RPS GAME")
 		.setDescription("```Add a reaction to one of these emojis to play the game!```")
 		.setTimestamp()
@@ -46,4 +39,20 @@ let embed = new discord.MessageEmbed()
         .catch(collected => {
                 message.reply('Process has been cancelled since you did not respond in time!');
             })
-        }}
+            };
+            
+            module.exports.help = {
+                aliases: ['rps'],
+                  name: 'rockpaperscissors',
+                  description: 'Playing RPS.',
+                  usage: config.prefix + 'rps',
+              };
+            
+            module.exports.config = {
+                args: false,
+                restricted: false,
+                category: 'fun',
+                disable: false,
+                cooldown: 1000,
+            };
+            

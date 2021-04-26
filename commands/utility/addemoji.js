@@ -1,18 +1,12 @@
+
+    /* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 const { Util, MessageEmbed } = require("discord.js");
 const { parse } = require("twemoji-parser");
-module.exports = {
-  name: "addemoji",
-  aliases: ["emojiadd"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..addemoji',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["MANAGE_EMOJIS"],
-  async execute(bot, message, args) {
-
-    if(!message.member.hasPermission("MANAGE_EMOJIS")) return message.channel.send('<:downWeky:815202675868172308> | You don\'t have the permissions to manage emojis')
+ if(!message.member.hasPermission("MANAGE_EMOJIS")) return message.channel.send('<:downWeky:815202675868172308> | You don\'t have the permissions to manage emojis')
     const emoji = args[0];
     const name = args.slice(1).join(" ");
     if (!emoji) {
@@ -25,9 +19,9 @@ module.exports = {
     }
     try {
       if (emoji.startsWith("https://cdn.discordapp.com")) {
-        await message.guild.emojis.create(emoji, name || name);
+       const fb = await message.guild.emojis.create(emoji, name || name);
 
-        return message.channel.send(emoji + ` has been added as "${name}"`);
+        return message.channel.send(fb + ` has been added as "${name}"`);
       }
 
       const customEmoji = Util.parseEmoji(emoji);
@@ -63,5 +57,19 @@ module.exports = {
         );
       }
     }
-}
-}
+};
+
+module.exports.help = {
+	aliases: ['ae'],
+	name: 'addemoji',
+	description: 'Add a emoji',
+	usage: config.prefix + 'addemoji %link%',
+};
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'utility',
+	disable: false,
+	cooldown: 1000,
+};

@@ -1,17 +1,10 @@
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            const { MessageEmbed } = require("discord.js")
 
-const Discord = require('discord.js')
-const { MessageEmbed } = require("discord.js")
-module.exports = {
-  name: "ship",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..ship',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
     const shipTarget1 = (args[0])
     const shipTarget2 = (args[1])
 
@@ -38,12 +31,26 @@ module.exports = {
             `))
             .setFooter('Ship Command', message.guild.iconURL())
             message.channel.send(shipEmbed)
-      }
-
-    }
 
 function ship() {
     const hearts = Math.floor(Math.random() * 10) + 0; // u can remove + 0
     const str = `${heart.repeat(hearts)}${block.repeat(10 - hearts)} ${hearts * 10}%`;
     return str;
 }
+            };
+            
+            module.exports.help = {
+                aliases: ['ship'],
+                  name: 'loverate',
+                  description: 'Shipping users.',
+                  usage: config.prefix + 'ship @user @user',
+              };
+            
+            module.exports.config = {
+              args: false,
+              restricted: false,
+              category: 'fun',
+              disable: false,
+              cooldown: 1000,
+            };
+            

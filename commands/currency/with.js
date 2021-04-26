@@ -1,16 +1,10 @@
+
+        
+                       /* eslint-disable no-unused-vars */
 const Discord = require('discord.js');
-const talkedRecently = new Set();
-module.exports = {
-  name: "withdraw",
-  aliases: ["with"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..with amount',
-  cooldown: 4, //seconds(s)
-  cooldowny: 1,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
 
     var num = parseFloat(args[0])
     const Money = require('../../schemas/Money')
@@ -46,4 +40,20 @@ Money.findOne({
           data.Wallet += Math.round(num)
           data.save();
           message.channel.send("Withdrawn **" + Math.round(num) + '** coins.')
-        }})}}
+        }})
+};
+
+module.exports.help = {
+    aliases: ['with'],
+      name: 'withdraw',
+      description: 'Withdrawing money from bank.',
+      usage: config.prefix + 'withdraw ~amount~',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 5000,
+};

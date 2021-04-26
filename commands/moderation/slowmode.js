@@ -1,14 +1,9 @@
-module.exports = {
-    name: "slowmode",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..slowmode (amount)',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["MANAGE_MESSAGES"],
-    async execute(bot, message, args) {
+
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${message.author}, you don't have permission to run this command.\nPermission: \`MANAGE_MESSAGES\``);
   String.prototype.toHHMMSS = function () {
     var sec_num = parseInt(this, 10);
@@ -28,4 +23,19 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send
 
   message.channel.setRateLimitPerUser(time)
   message.channel.send(`Slowmode in ${message.channel} set to \`${time.toHHMMSS()}\``);
-}}
+                };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name:'slowmode',
+                      description: 'Setting a slowmode.',
+                      usage: config.prefix + 'slowmode %s | m | d%',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

@@ -17,10 +17,6 @@ const profileSchema = mongoose.Schema({
       type: Number,
       default: 5000
     },
-    premium: {
-        type: Number,
-        default: 0
-      },
     usedCommands: {
       type: Number,
       default: 0

@@ -1,16 +1,9 @@
 
-const Discord = require("discord.js");
-module.exports = {
-    name: "enlarge",
-    aliases: ["large"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..enlarge',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
+
+
+/* eslint-disable no-unused-vars */
+
+module.exports.run = async (client, message, args, utils, data) => {
 const { parse } = require('twemoji-parser')
 const emoji = args[0]
 
@@ -35,4 +28,19 @@ else {
   embed.setImage(parsed[0].url);
   return message.channel.send(embed)
 }
-}}
+};
+
+module.exports.help = {
+	aliases: ['large'],
+	name: 'enlarge',
+	description: 'Getting the img of an emoji',
+	usage: '..enlarge %emoji%',
+};
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'utility',
+	disable: false,
+	cooldown: 1000,
+};

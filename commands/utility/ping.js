@@ -1,15 +1,7 @@
-const Discord = require('discord.js');
-module.exports = {
-    name: "ping",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..ping',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
+
+    const config = require('../../util/config.json');
+
+    module.exports.run = async (client, message, args, utils, data) => {
     const msg = await message.channel.send("Pinging...");
 
     const apiLatency = Math.round(bot.ws.ping);
@@ -19,5 +11,20 @@ module.exports = {
 
     // Send 'Pong!' with the api and the bot latency
     msg.edit(`Pong! API latency is **${apiLatency}ms**, bot latency is **${botLatency}ms**`);
-}
-}
+    
+    };
+    
+    module.exports.help = {
+        aliases: [],
+        name: 'invite',
+        description: 'Links of da bot',
+        usage: config.prefix + 'invite',
+    };
+    
+    module.exports.config = {
+        args: false,
+        restricted: false,
+        category: 'utility',
+        disable: false,
+        cooldown: 1000,
+    };

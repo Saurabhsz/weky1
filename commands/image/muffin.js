@@ -1,16 +1,9 @@
-const Discord = require('discord.js');
+            /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
 const Canvas = require('canvas');
-module.exports = {
-    name: "muff",
-    aliases: ["muffin"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..muff',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
 const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
 const canvas = Canvas.createCanvas(867, 892);
 const ctx = canvas.getContext('2d');
@@ -24,5 +17,20 @@ const ctx = canvas.getContext('2d');
     ctx.drawImage(avatar, 300, 320, 205, 205);
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `muffin_${member.user.username}.jpg`);
     message.channel.send(attachment);
-}
-}
+    
+                };
+                
+                module.exports.help = {
+                    aliases: ['muff'],
+                      name:'muffin',
+                      description: 'Putting your pfp in a muffin.',
+                      usage: config.prefix + 'muffin {none OR @user}',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'image',
+                  disable: false,
+                  cooldown: 1000,
+                };

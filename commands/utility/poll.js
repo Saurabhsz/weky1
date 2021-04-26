@@ -1,15 +1,9 @@
-const Discord = require('discord.js')
-module.exports = {
-        name: "poll",
-        aliases: [],
-        dmOnly: false, //or false
-        guildOnly: true, //or false
-        usage: '..poll',
-        cooldown: 4, //seconds(s)
-        cooldowny: 0,
-        guarded: true, //or false
-        permissions: ["NONE"],
-        async execute(bot, message, args) {
+
+        
+    const config = require('../../util/config.json');
+
+    module.exports.run = async (client, message, args, utils, data) => {
+
         let pollDescription = args.slice(0).join(' ');
 if(!pollDescription) return message.reply(`What you want to put in this poll :D?`)
         let embedPoll = new Discord.MessageEmbed()
@@ -19,5 +13,19 @@ if(!pollDescription) return message.reply(`What you want to put in this poll :D?
         let msgEmbed = await message.channel.send(embedPoll);
         await msgEmbed.react('👍')
         await msgEmbed.react('👎')
-}
-}
+    };
+    
+    module.exports.help = {
+        aliases: ['ask'],
+        name: 'poll',
+        description: 'Quick poll',
+        usage: config.prefix + 'poll &text&',
+    };
+    
+    module.exports.config = {
+        args: false,
+        restricted: false,
+        category: 'utility',
+        disable: false,
+        cooldown: 1000,
+    };

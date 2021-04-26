@@ -1,16 +1,10 @@
-const Discord = require('discord.js')
-const got = require('got')
-module.exports = {
-    name: "meme",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..meme',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {    const embed = new Discord.MessageEmbed()
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            const got = require('got')
+const embed = new Discord.MessageEmbed()
     got('https://www.reddit.com/r/memes/random/.json').then(response => {
         let content = JSON.parse(response.body);
         let permalink = content[0].data.children[0].data.permalink;
@@ -27,6 +21,20 @@ module.exports = {
         embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
         message.channel.send(embed);
     })
-}
-
-}
+            };
+            
+            module.exports.help = {
+                aliases: [],
+                  name: 'meme',
+                  description: 'Sending reddit memes.',
+                  usage: config.prefix + 'meme',
+              };
+            
+            module.exports.config = {
+                args: false,
+                restricted: false,
+                category: 'fun',
+                disable: false,
+                cooldown: 1000,
+            };
+            

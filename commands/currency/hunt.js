@@ -1,16 +1,10 @@
+
+/* eslint-disable no-unused-vars */
 const Discord = require('discord.js');
-const { rmdir } = require('fs');
-module.exports = {
-    name: "hunt",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..hunt',
-    cooldown: 45, //seconds(s),
-    cooldowny: 35,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+
             const inventory = require("../../schemas/inventory")
             inventory.findOne({ User: message.author.id }, async (err, data) => {
             if(0 >= data.Sniper) {
@@ -21,7 +15,7 @@ module.exports = {
            if(random < 5){
             if(0 >= data.LifeShield){
                 message.reply(`You saw a bear coming, but you was lazy to shot on it so you shooted yourself`)
-bot.rmv(message.author.id, await bot.bal(message.author.id))
+client.rmv(message.author.id, await client.bal(message.author.id))
                                } else {
                                 message.reply(`You saw a bear coming, but you was lazy to shot on it so you shooted yourself\nBut your <:life:820648609741668392> Life Shield saved you.`)
 data.LifeShield -= 1
@@ -65,4 +59,21 @@ data.save()
            data.save()
            } else if(random < 101){
             message.reply(`You went hunting but didnt caught anything :rolling_eyes:`)
-           }}})}}
+           }}})
+           
+};
+
+module.exports.help = {
+    aliases: [],
+      name: 'hunt',
+      description: 'Hunting animals',
+      usage: config.prefix + 'hunt',
+  };
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 50000,
+};

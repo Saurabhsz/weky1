@@ -1,16 +1,9 @@
-const { MessageEmbed } = require("discord.js")
-module.exports = {
-    name: "reverse",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..reverse',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {   
-         msg = message.content.split(" ").slice(1).join(" ");
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+                     msg = message.content.split(" ").slice(1).join(" ");
     if(!msg){
         return message.channel.send(`You need to gib me a word or more to reverse`)
     }
@@ -23,6 +16,20 @@ module.exports = {
     }
     
     reverseStr(msg, true); // Output: yppah eB
-    
-
-    }}
+            };
+            
+            module.exports.help = {
+                aliases: [],
+                  name: 'reverse',
+                  description: 'Reversing letters.',
+                  usage: config.prefix + 'reverse %text%',
+              };
+            
+            module.exports.config = {
+                args: false,
+                restricted: false,
+                category: 'fun',
+                disable: false,
+                cooldown: 1000,
+            };
+             

@@ -1,15 +1,11 @@
-module.exports = {
-    name: "color",
-    aliases: ["hex"],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..color',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["NONE"],
-    async execute(bot, message, args) {
-const Canvas = require('canvas')
+
+
+    /* eslint-disable no-unused-vars */
+    const Discord = require('discord.js');
+    const config = require('../../util/config.json');
+    
+    module.exports.run = async (client, message, args, utils, data) => {
+    const Canvas = require('canvas')
 const Discord = require('discord.js')
 const axios = require('axios')
     let color;
@@ -70,4 +66,20 @@ const axios = require('axios')
     message.channel.send('Oops something happened!')
 } finally {
     message.channel.stopTyping()
-}}}
+}
+    };
+    
+    module.exports.help = {
+        aliases: ['hex'],
+        name: 'color',
+        description: 'Displaying a color hex.',
+        usage: config.prefix + 'color %hex | color | others%',
+    };
+    
+    module.exports.config = {
+        args: false,
+        restricted: false,
+        category: 'utility',
+        disable: false,
+        cooldown: 1000,
+    };

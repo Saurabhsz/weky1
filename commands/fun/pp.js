@@ -1,16 +1,10 @@
-const Discord = require('discord.js')
-module.exports = {
-  name: "pp",
-  aliases: ["penis"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..pp',
-  cooldown: 4, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-    const target = message.mentions.users.first() || message.author
+
+            /* eslint-disable no-unused-vars */
+            const Discord = require('discord.js');
+            const config = require('../../util/config.json');
+            
+            module.exports.run = async (client, message, args, utils, data) => {
+            const target = message.mentions.users.first() || message.author
     const targetId = target.id
     const emo = [
         `8>`,
@@ -79,5 +73,20 @@ module.exports = {
    var emoji1 = Math.floor(Math.random() * emo.length);
    var emoji = emo[emoji1]
 message.channel.send(emoji)
-}
-}
+            };
+            
+            module.exports.help = {
+                aliases: ['pp', 'ppsize'],
+                  name: 'penis',
+                  description: 'PP.',
+                  usage: config.prefix + 'pp',
+              };
+            
+            module.exports.config = {
+              args: false,
+              restricted: false,
+              category: 'fun',
+              disable: false,
+              cooldown: 1000,
+            };
+            

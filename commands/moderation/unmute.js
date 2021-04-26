@@ -1,16 +1,10 @@
-var ms = require('ms')
-module.exports = {
-    name: "mute",
-    aliases: [],
-    dmOnly: false, //or false
-    guildOnly: true, //or false
-    usage: '..mute',
-    cooldown: 4, //seconds(s)
-    cooldowny: 0,
-    guarded: true, //or false
-    permissions: ["MANAGE_MESSAGES"],
-    async execute(bot, message, args) {
 
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
+var ms = require('ms')
     let Discord = require('discord.js')
 //checking if the member has the mute perms
 if (!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.send("You can not use this command");
@@ -25,5 +19,19 @@ if (!mentionedMember) return message.channel.send("Please state a member that is
     await mentionedMember.roles.remove(muteRole).then(message.channel.send(`<@${mentionedMember.id}> has been unmuted`));
     await mentionedMember.send(`You have been unmuted.`).catch(err => console.log(err));
 
-    }
-}
+                };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name:'unmute',
+                      description: 'Banning a user/bot.',
+                      usage: config.prefix + 'ban @user %reason%',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

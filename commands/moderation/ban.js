@@ -1,16 +1,10 @@
-const Discord = require('discord.js')
-module.exports = {
-  name: "ban",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..ban',
-  cooldown: 3, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["BAN_MEMBERS"],
-  async execute(bot, message, args) {
-    if(!message.member.hasPermission('BAN_MEMBERS')){
+
+                /* eslint-disable no-unused-vars */
+                const Discord = require('discord.js');
+                const config = require('../../util/config.json');
+                
+                module.exports.run = async (client, message, args, utils, data) => {
+  if(!message.member.hasPermission('BAN_MEMBERS')){
         return message.channel.send("You don't have permission to use that command.")
     }
     if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send('I dont have permission to ban members.')
@@ -63,5 +57,20 @@ module.exports = {
           
                       message.channel.send(embed);
                   });
-                }
-                            }
+
+                };
+                
+                module.exports.help = {
+                    aliases: [],
+                      name:'ban',
+                      description: 'Banning a user/bot.',
+                      usage: config.prefix + 'ban @user %reason%',
+                  };
+                
+                module.exports.config = {
+                  args: false,
+                  restricted: false,
+                  category: 'moderation',
+                  disable: false,
+                  cooldown: 1000,
+                };

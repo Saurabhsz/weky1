@@ -1,19 +1,12 @@
-const Discord = require('discord.js')
-module.exports = {
-  name: "bet",
-  aliases: ["gamble"],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..beg',
-  cooldown: 9, //seconds(s)
-  cooldowny: 6,
-  guarded: true, //or false
-  permissions: ["NONE"],
-  async execute(bot, message, args) {
-    var number = Math.round(parseFloat(args[0]))
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+
+module.exports.run = async (client, message, args, utils, data) => {
+   var number = Math.round(parseFloat(args[0]))
     if(!number) return message.channel.send(`Please specify how much you want to bet!`)
     if (number.isNaN) return message.channel.send("Thats not a valid number");
-    if(number > await bot.bal(message.author.id)) {
+    if(number > await client.bal(message.author.id)) {
         return message.channel.send("You dont have that much money why you bad at me bro :/");
     }
     if(number < 100){
@@ -31,23 +24,23 @@ if(0 >= data.BunEffect){
   const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
   let rate = 65;
   if (rate < random) {
-    bot.rmv(message.author.id, number)    
+    client.rmv(message.author.id, number)    
     let embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
     .addField(`**You lost!**`,
                 `Lost: ${number}`,
-                     `**New balance: ${await bot.bal(message.author.id)}**`)
+                     `**New balance: ${await client.bal(message.author.id)}**`)
     .setColor(`RED`)
     .setFooter(`Loser`)
   message.channel.send(embed)
   } else {
     const br = Math.floor(Math.random() * (70 - 50 + 1) + 50)
 const brr = `0.${br}`
-    bot.add(message.author.id, Math.round(number*brr), message)
+    client.add(message.author.id, Math.round(number*brr), message)
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${await bot.bal(message.author.id)}\n**Power-ups**: ${resp}`)
+                  `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${await client.bal(message.author.id)}\n**Power-ups**: ${resp}`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
@@ -57,12 +50,12 @@ const brr = `0.${br}`
     const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
     let rate = 70;
     if (rate < random) {
-      bot.rmv(message.author.id, number)
+      client.rmv(message.author.id, number)
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You lost!**`,
                   `Lost: ${number}`,
-                       `**New balance: ${await bot.bal(message.author.id)}**`)
+                       `**New balance: ${await client.bal(message.author.id)}**`)
       .setColor(`RED`)
       .setFooter(`Loser`)
     message.channel.send(embed)
@@ -71,22 +64,39 @@ const brr = `0.${br}`
 
     if(br > 100 || br === 100){
       const brr = 100
-    bot.add(message.author.id, Math.round(number*br/brr), message)
+    client.add(message.author.id, Math.round(number*br/brr), message)
       let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-                  `**Won**: ${Math.round(number*br/brr)}\n**Multiplier**: ${br}%\n**New balance: ${await bot.bal(message.author.id)}**\n**Power-ups**: ${resp}`)
+                  `**Won**: ${Math.round(number*br/brr)}\n**Multiplier**: ${br}%\n**New balance: ${await client.bal(message.author.id)}**\n**Power-ups**: ${resp}`)
                   .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
     } else {
 const brr = `0.${br}`
-bot.add(message.author.id, Math.round(number*brr), message) 
+client.add(message.author.id, Math.round(number*brr), message) 
 let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
       .addField(`**You won!**`,
-      `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${await bot.bal(message.author.id)}\n**Power-ups**: ${resp}`)
+      `**Won**: ${Math.round(number*brr)}\n**Multiplier**: ${br}%\n**New balance**: ${await client.bal(message.author.id)}\n**Power-ups**: ${resp}`)
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
-}}}})}}
+}}}})
+};
+
+module.exports.help = {
+	aliases: ['gamble'],
+	name: 'bet',
+	description: 'Betting coins, everything is random!',
+	usage: config.prefix + 'bet ~amount~',
+};
+
+module.exports.config = {
+	args: false,
+	restricted: false,
+	category: 'currency',
+	disable: false,
+	cooldown: 3000,
+};
+ 

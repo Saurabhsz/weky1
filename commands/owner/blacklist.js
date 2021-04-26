@@ -1,55 +1,51 @@
+/* eslint-disable no-unused-vars */
+const Discord = require('discord.js');
+const config = require('../../util/config.json');
+module.exports.run = async (client, message, [target, ...args], utils, data) => {
+	target = await client.users.fetch(target);
 
-const { MessageEmbed } = require('discord.js');//require the packages
-module.exports = {
-  name: "blacklist",
-  aliases: [],
-  dmOnly: false, //or false
-  guildOnly: true, //or false
-  usage: '..blacklist',
-  cooldown: 0, //seconds(s)
-  cooldowny: 0,
-  guarded: true, //or false
-  permissions: ["BOT_OWNER"],
-  async execute(bot, message, args) {
-        if(message.author.id != 778518819055861761) return message.channel.send("This can only be ran by the bot owner!") //add your id without quotes
-        const target = message.mentions.members.first()
-        if(!target)return message.channenl.send(`No user mentionated`)
+	if(!target) return utils.errorEmbed(message, 'Invalid user.');
 
-        const targetId = target.id
-        const black = require('../../schemas/Ban')
-        black.findOne({
-          id: targetId
-        }, (err,data) => {
-          if(err) console.log(err);
-          if(!data){
-            newD = new black({
-              id: targetId
-            });
-            newD.save();
-            if(!target) return message.channel.send("You forgot to specify a user!")
-  
+	const channel = client.channels.cache.get('835142311838744626');
+	const checkbl = await client.data.getUserDB(target.id);
 
-            const embed = new MessageEmbed()
-            .setTitle('IMPORTANT!')
-            .setDescription('**You have been blacklisted from Weky**, sad.\nIf you dont know why and you think there was an error, please friend and dm ImFace#5652')
-            .setTimestamp()
-            target.send(embed)
-    
-            message.channel.send(`${target} is now blacklisted`)
-            
-          } else {
-            if(!target) return message.channel.send("You forgot to specify a user!")
-  
+	if(checkbl.blacklisted) return message.reply(`That user is already blacklisted!\n**User:** ${target.username + '#' + target.discriminator}\n**Reason:** \`${checkbl.blacklisted_reason}\``);
 
-            const embed = new MessageEmbed()
-            .setTitle('IMPORTANT!')
-            .setDescription('**You have been blacklisted from Weky**, sad.\nIf you dont know why and you think there was an error, please friend and dm ImFace#5652')
-            .setTimestamp()
-            target.send(embed)
-    
-            message.channel.send(`${target} is now blacklisted`)
+	let reason = args.join(' ');
+	if(!reason) reason = 'Not specified';
 
-          }
-        });
-}
-}
+	const blacklist = await client.data.blacklist(target.id, 'true', reason);
+	const logEmbed = new Discord.MessageEmbed()
+		.setTitle('User Blacklisted')
+		.setDescription(`**${target.username}#${target.discriminator}** was blacklisted from using the bot.\n\nResponsible Moderator : **${message.author.username}**\n\nReason : **${blacklist.reason}**`)
+		.setFooter('Blacklist registered')
+		.setColor('RED')
+		.setTimestamp();
+
+	target.send(`You have been blacklisted from using the bot! \n **Reason:** ${reason}\n **Moderator:** ${message.author.tag} \n**Join our support server (https://discord.gg/Sr2U5WuaSN) to appeal** `).catch(err => {
+		message.channel.send(`${target.username} has DM's disabled. I was unable to send him a message - but blacklist has been registered!`);
+		console.log(err);
+	});
+
+	message.reply(
+		`Blacklisted **${target.username + '#' + target.discriminator}**\n` +
+			`Reason: \`${blacklist.reason}\``, +`Moderator: \`${message.author.tag}\``,
+	);
+	channel.send(logEmbed);
+	message.delete();
+};
+
+module.exports.help = {
+	aliases: [],
+	name: 'blacklist',
+	description: 'Blacklist a person from the bot',
+	usage: 'y ?',
+};
+
+module.exports.config = {
+	restricted: true,
+	args: true,
+	category: 'owner',
+	disable: false,
+	cooldown: 0,
+};
