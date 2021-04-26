@@ -4,10 +4,7 @@
             const config = require('../../util/config.json');
             
             module.exports.run = async (client, message, args, utils, data) => {
-            
-            };
-            const mapping = {
-  ' ': '   ',
+               const mapping = {           ' ': '   ',
   '0': ':zero:',
   '1': ':one:',
   '2': ':two:',
@@ -31,6 +28,9 @@
     if(!args[0]){
         return message.channel.send(`What to emojify jeez`)
     }
+            };
+
+
   message.channel.send(args.slice(0).join(" ").split('').map(c => mapping[c] || c).join(''));
             module.exports.help = {
                 aliases: [],
