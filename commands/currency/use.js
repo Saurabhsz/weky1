@@ -8,12 +8,12 @@
     let buyArray = message.content.split(" ");
     let useArgs = buyArray.slice(1);
     const inventory = require("../../schemas/inventory")
-inventory.findOne({ User: message.author.id }, async (err, data) => {
+inventory.findOne({ User: message.author.id }, async (err, ata) => {
     if(useArgs[0] === 'script' || useArgs[0] === 'space' ) {
         const muni = Math.floor(Math.random() * 15000) + 1000;
         var num = parseFloat(args[1])
                 if(!num){
-                    if(0 >= data.SpaceScript){
+                    if(0 >= ata.SpaceScript){
                        return message.channel.send(`You dont have that item, sorry buddy.`)
                     } else {
                         client.removeItem(message.author.id, "SpaceScript", 1)
@@ -24,7 +24,7 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
                         .setDescription(`You used <:spacescript:814122006437167134> 1 Space Script and got **${muni} bank space**, gg lmao.`)
        )
                 } else {
-                    if(num > data.SpaceScript){
+                    if(num > ata.SpaceScript){
                        return message.channel.send(`You dont have that many item, sorry buddy.`)
                     } else {
                         client.removeItem(message.author.id, "SpaceScript", num)
@@ -35,7 +35,7 @@ inventory.findOne({ User: message.author.id }, async (err, data) => {
                     .setDescription(`You used <:spacescript:814122006437167134> ${num} Space Script and got **${muni*num} bank space**, gg lmao.`)
    )}}
     if(useArgs[0] === 'common' || useArgs[0] === 'commonbox' ) {
-        if(0 >= data.CommonBox){
+        if(0 >= ata.CommonBox){
             return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
             const random = Math.floor(Math.random() * 100) + 1
@@ -101,7 +101,7 @@ if(random < 5){
          }
                     }
                 if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox' ) {
-                    if(0 >= data.GotchaBox){
+                    if(0 >= ata.GotchaBox){
                         return message.channel.send(`You dont have that item, sorry buddy.`)
                      } else {
                         const random = Math.floor(Math.random() * 100) + 1
@@ -155,7 +155,7 @@ if(random < 5){
                     }
                             }
     if(useArgs[0] === 'bread' || useArgs[0] === 'bd' ) {
-        if(0 >= data.Bread){
+        if(0 >= ata.Bread){
             return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
                         client.removeItem(message.author.id, "Bread", 1)
@@ -164,7 +164,7 @@ if(random < 5){
                         setTimeout(function() {  client.removeItem(message.author.id, "BunEffect", 1)}, 50000)
                     }}
                     if(useArgs[0] === 'energy' || useArgs[0] === 'drink'  || useArgs[0] === 'energydrink') {
-if(0 >= data.EnergyDrink){
+if(0 >= ata.EnergyDrink){
 return message.channel.send(`You dont have that item, sorry buddy.`)
  } else {
 client.removeItem(message.author.id, "EnergyDrink", 1)
@@ -173,13 +173,13 @@ message.reply(`You used a <:energydrink:826100589426769990> Energy Drink to move
 setTimeout(function() {  client.removeItem(message.author.id, "EnergyBolt", 1)}, 21600000)
                                     }}
 if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyripoff' || useArgs[0] === 'wekyrip'|| useArgs[0] === 'rip') {
-if(0 >= data.WekyRipOff){
+if(0 >= ata.WekyRipOff){
 return message.channel.send(`You dont have that item, sorry buddy.`)
 } else {
 message.reply(`${message.author} flex on y'all with their weky rip off :muscle::rage:`)
 }}   
     if(useArgs[0] === 'booster') {
-        if(0 >= data.Booster){
+        if(0 >= ata.Booster){
         return message.channel.send(`You dont have that item, sorry buddy.`)
          } else {
         client.removeItem(message.author.id, "Booster", 1)

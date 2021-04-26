@@ -27,17 +27,17 @@ if(userBalance < itemPrice) return message.reply(`Sorry bro, you need ${itemPric
 const params = {
     User: message.author.id
 }
-inventory.findOne(params, async(err, data) => {
-    if(data) {
-const hasItem = Object.keys(data).includes(validName);
+inventory.findOne(params, async(err, ata) => {
+    if(ata) {
+const hasItem = Object.keys(ata).includes(validName);
 if(!hasItem){
-    data[validName] += 1;
+    ata[validName] += 1;
     client.rmv(message.author.id, itemPrice)
 } else {
-    data[validName]++
+    ata[validName]++
     client.rmv(message.author.id, itemPrice)
 } 
-await inventory.findOneAndUpdate(params, data)
+await inventory.findOneAndUpdate(params, ata)
     } else {
         client.createProfile(message.author.id)
         message.channel.send(`Thanks for starting using our currency sytem! :)`)
@@ -53,17 +53,17 @@ await inventory.findOneAndUpdate(params, data)
     const params = {
         User: message.author.id
     }
-    inventory.findOne(params, async(err, data) => {
-        if(data) {
-    const hasItem = Object.keys(data).includes(validName);
+    inventory.findOne(params, async(err, ata) => {
+        if(ata) {
+    const hasItem = Object.keys(ata).includes(validName);
     if(!hasItem){
-        data[validName] += num;
+        ata[validName] += num;
         client.rmv(message.author.id, itemPrice*num)
     } else {
-        data[validName] += num
+        ata[validName] += num
         client.rmv(message.author.id, itemPrice*num)
     } 
-    await inventory.findOneAndUpdate(params, data)
+    await inventory.findOneAndUpdate(params,ata)
         } else {
 return message.channel.send(`You didnt even did \`..start\` bruh, there is no profile called ${message.author.username}`)
         }

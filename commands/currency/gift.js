@@ -19,8 +19,8 @@ if(!validItem) return message.channel.send(`This item is not a real item :rollin
 const itemIcon = items.find((val) => val.aliases.includes(itemToBuy)).emoji
 const validName = items.find((val) => val.aliases.includes(itemToBuy)).realItem
 const inventory = require("../../schemas/inventory")
-inventory.findOne({ User: message.author.id }, async (err, data) => {
-    if(num > data[validName]) {
+inventory.findOne({ User: message.author.id }, async (err, ata) => {
+    if(num > ata[validName]) {
     return message.channel.send("You dont have " + num + " " + validName);
   } else {
 client.addItem(member.id, validName, num)

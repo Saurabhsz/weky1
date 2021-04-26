@@ -17,13 +17,13 @@ const { Discord, Collection, MessageEmbed} = require("discord.js")
              : null;
           })
       );
-      const data = collection.sort((a, b) => b.bal - a.bal).first(10);
+      const ata = collection.sort((a, b) => b.bal - a.bal).first(10);
 
       message.channel.send(
         new MessageEmbed()
       .setTitle(`Leaderboard in ${message.guild.name}`)
      .setDescription(
-       data.map((v, i) => {
+       ata.map((v, i) => {
          return `${i+1}. ${bot.users.cache.get(v.id).tag} => **${v.bal} coins**`
        })
      )

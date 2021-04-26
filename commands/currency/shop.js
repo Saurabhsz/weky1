@@ -9,9 +9,9 @@ const Discord = require("discord.js");
 
 Money.findOne({
   User: message.author.id
-}, (err,data) => {
+}, (err,ata) => {
   if(err) console.log(err);
-  if(!data){
+  if(!ata){
     newD = new Money({
       User: message.author.id
     });
@@ -48,7 +48,7 @@ if(useArgs[0] === 'laptop'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Laptop`)
     .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/815180330846781440/lmo.png`)
-    .addField(`${message.author.username} Owns: ${data.Laptop}\n`,
+    .addField(`${message.author.username} Owns: ${ata.Laptop}\n`,
                `Cost: \`4,000\`\n
                 Sell: \`1,000\`\n
                ID: \`laptop\`\n\n
@@ -62,7 +62,7 @@ if(useArgs[0] === 'script' || useArgs[0] === 'space'){
     const embed = new Discord.MessageEmbed()
     .setTitle(`Space Script`)
     .setThumbnail(`https://cdn.discordapp.com/attachments/811222144997916692/814122580441038858/1f4dc.png`)
-    .addField(`${message.author.username} Owns: ${data.SpaceScript}\n`,
+    .addField(`${message.author.username} Owns: ${ata.SpaceScript}\n`,
                      `Cost: \`NON BUYABLE\`\n
                      Sell: \`1,000\`\n
                      ID: \`spacescript\`\n\n
@@ -75,7 +75,7 @@ if(useArgs[0] === 'moon' || useArgs[0] === 'wekymoon'){
     .setTitle(`Weky's Moon`)
     .setThumbnail(`https://cdn.discordapp.com/attachments/795647180995559434/815180567783931904/moon.png`)
 
-    .addField(`${message.author.username} Owns: ${data.WekyMoon}\n`,
+    .addField(`${message.author.username} Owns: ${ata.WekyMoon}\n`,
                      `Cost: \`2,000,000\`\n
                      Sell: \`NON SELLABLE\`\n
                      ID: \`wekymoon\`\n\n
@@ -88,7 +88,7 @@ if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyrip' || useArgs[0] === 'wekyof
   const embed = new Discord.MessageEmbed()
   .setTitle(`Weky's Rip Off`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/815192821539405834/rip-pixel-art-bit-79618441-removebg-preview_1.png`)
-  .addField(`${message.author.username} Owns: ${data.WekyRipOff}\n`,
+  .addField(`${message.author.username} Owns: ${ata.WekyRipOff}\n`,
              `Cost: \`12,000,000\`\n
              Sell: \`NON SELLABLE\`\n
              ID: \`wekyrip\`\n\n
@@ -102,7 +102,7 @@ if(useArgs[0] === 'fi' || useArgs[0] === 'fis' || useArgs[0] === 'fish'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Fish`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816367894715170926/fish.png`)
-  .addField(`${message.author.username} Owns: ${data.Fish}\n`,
+  .addField(`${message.author.username} Owns: ${ata.Fish}\n`,
              `Cost: \`NON BUYABLE\`\n
              Sell: \`250\`\n
              ID: \`fish\`\n\n
@@ -116,7 +116,7 @@ if(useArgs[0] === 'rarefi' || useArgs[0] === 'rareis' || useArgs[0] === 'rarefis
   const embed = new Discord.MessageEmbed()
   .setTitle(`Rare Fish`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816367989111652352/rare_fish.png`)
-  .addField(`${message.author.username} Owns: ${data.RareFish}\n`,
+  .addField(`${message.author.username} Owns: ${ata.RareFish}\n`,
              `Cost: \`NON BUYABLE\`\n
              Sell: \`500\`\n
              ID: \`rarefish\`\n\n
@@ -130,7 +130,7 @@ if(useArgs[0] === 'hand' || useArgs[0] === 'plastichand' || useArgs[0] === 'hand
   const embed = new Discord.MessageEmbed()
   .setTitle(`Plastic Hand`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816373722290061342/plastic_hand_1.png`)
-  .addField(`${message.author.username} Owns: ${data.PlasticHand}\n`,
+  .addField(`${message.author.username} Owns: ${ata.PlasticHand}\n`,
              `Cost: \`15,000\`\n
              Sell: \`1,500\`\n
              ID: \`hand\`\n\n
@@ -144,7 +144,7 @@ if(useArgs[0] === 'gotcha' || useArgs[0] === 'gotchabox'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Gotcha Box`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816989970727698432/we.png`)
-  .addField(`${message.author.username} Owns: ${data.GotchaBox}\n`,
+  .addField(`${message.author.username} Owns: ${ata.GotchaBox}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`NON SELLABLE\`\n
              ID: \`gotcha\`\n\n
@@ -158,7 +158,7 @@ if(useArgs[0] === 'silver' || useArgs[0] === 'silvermoon'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Silver Moon`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/816983702227517450/lol.png`)
-  .addField(`${message.author.username} Owns: ${data.SilverMoon}\n`,
+  .addField(`${message.author.username} Owns: ${ata.SilverMoon}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`NON SELLABLE\`\n
              ID: \`silver\`\n\n
@@ -171,7 +171,7 @@ if(useArgs[0] === 'sniper'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Sniper`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/795394146143043584/818043754539384832/Sniper_1.png`)
-  .addField(`${message.author.username} Owns: ${data.Sniper}\n`,
+  .addField(`${message.author.username} Owns: ${ata.Sniper}\n`,
              `Cost: \`15,000\`\n
               Sell: \`1,500\`\n
              ID: \`sniper\`\n\n
@@ -184,7 +184,7 @@ if(useArgs[0] === 'fox'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Fox`)
   .setThumbnail(`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/71/fox-face_1f98a.png`)
-  .addField(`${message.author.username} Owns:${data.Fox}}\n`,
+  .addField(`${message.author.username} Owns:${ata.Fox}}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`50\`\n
              ID: \`laptop\`\n\n
@@ -198,7 +198,7 @@ if(useArgs[0] === 'tiger'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Tiger`)
   .setThumbnail(`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/tiger-face_1f42f.png`)
-  .addField(`${message.author.username} Owns: ${data.Tiger}\n`,
+  .addField(`${message.author.username} Owns: ${ata.Tiger}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`200\`\n
              ID: \`tiger\`\n\n
@@ -212,7 +212,7 @@ if(useArgs[0] === 'eagle'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Eagle`)
   .setThumbnail(`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/eagle_1f985.png`)
-  .addField(`${message.author.username} Owns: ${data.Eagle}\n`,
+  .addField(`${message.author.username} Owns: ${ata.Eagle}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`500\`\n
              ID: \`eagle\`\n\n
@@ -226,7 +226,7 @@ if(useArgs[0] === 'bear'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Bear`)
   .setThumbnail(`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/bear_1f43b.png`)
-  .addField(`${message.author.username} Owns: ${data.Bear}\n`,
+  .addField(`${message.author.username} Owns: ${ata.Bear}\n`,
              `Cost: \`NON BUYABLE\`\n
               Sell: \`1,200\`\n
              ID: \`bear\`\n\n
@@ -240,7 +240,7 @@ if(useArgs[0] === 'leg' || useArgs[0] === 'legendary' || useArgs[0] === 'legenda
   const embed = new Discord.MessageEmbed()
   .setTitle(`Legendary Fish`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/820642337272234014/legendarz_fish.png`)
-  .addField(`${message.author.username} Owns: ${data.LegendaryFish}\n`,
+  .addField(`${message.author.username} Owns: ${ata.LegendaryFish}\n`,
                    `Cost: \`NON BUYABLE\`\n
                    Sell: \`15,000\`\n
                    ID: \`legendary\`\n\n
@@ -252,7 +252,7 @@ if(useArgs[0] === 'facebut' || useArgs[0] === 'face' || useArgs[0] === 'facebutl
   const embed = new Discord.MessageEmbed()
   .setTitle(`Face but lie`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/789145025288077324/827136431260172338/muff_jerrichs_preview_DRAWING.png`)
-  .addField(`${message.author.username} Owns: ${data.FaceButLie}\n`,
+  .addField(`${message.author.username} Owns: ${ata.FaceButLie}\n`,
                    `Cost: \`NON BUYABLE\`\n
                    Sell: \`200,000\`\n
                    ID: \`facebutlie\`\n\n
@@ -264,7 +264,7 @@ if(useArgs[0] === 'life' || useArgs[0] === 'shield' || useArgs[0] === 'lifeshiel
   const embed = new Discord.MessageEmbed()
   .setTitle(`Life Shield`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/820648557388234772/unknown__2_-removebg-preview_1.png`)
-  .addField(`${message.author.username} Owns: ${data.LifeShield}\n`,
+  .addField(`${message.author.username} Owns: ${ata.LifeShield}\n`,
                    `Cost: \`14,000\`\n
                    Sell: \`1,400\`\n
                    ID: \`life\`\n\n
@@ -276,7 +276,7 @@ if(useArgs[0] === 'bread' || useArgs[0] === 'bd'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Bread`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/820948443823865907/unknown__3_-removebg-preview_1.png`)
-  .addField(`${message.author.username} Owns: ${data.Bread}\n`,
+  .addField(`${message.author.username} Owns: ${ata.Bread}\n`,
                    `Cost: \`15,000\`\n
                    Sell: \`NON SELLABLE\`\n
                    ID: \`bread\`\n\n
@@ -288,7 +288,7 @@ if(useArgs[0] === 'energydrink' || useArgs[0] === 'energy' || useArgs[0] === 'dr
   const embed = new Discord.MessageEmbed()
   .setTitle(`Energy Drink`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/811222075053572106/826100381968760832/2pzzxk_1.png`)
-  .addField(`${message.author.username} Owns: ${data.EnergyDrink}\n`,
+  .addField(`${message.author.username} Owns: ${ata.EnergyDrink}\n`,
                    `Cost: \`20,000\`\n
                    Sell: \`2,000\`\n
                    ID: \`bread\`\n\n
@@ -300,7 +300,7 @@ if(useArgs[0] === 'sun' || useArgs[0] === 'glasses' || useArgs[0] === 'sunglasse
   const embed = new Discord.MessageEmbed()
   .setTitle(`Sun Glasses`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/828232494558085160/584999937b7d4d76317f5ffd-removebg-preview.png`)
-  .addField(`${message.author.username} Owns: ${data.SunGlasses}\n`,
+  .addField(`${message.author.username} Owns: ${ata.SunGlasses}\n`,
                    `Cost: \`10\`\n
                    Sell: \`NON SELLABLE\`\n
                    ID: \`sunglasses\`\n\n
@@ -312,7 +312,7 @@ if(useArgs[0] === 'booster'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Booster`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/781514778593460224/828168124267888650/ezgif.com-gif-maker.gif`)
-  .addField(`${message.author.username} Owns: ${data.Booster}\n`,
+  .addField(`${message.author.username} Owns: ${ata.Booster}\n`,
                    `Cost: \`1000\`\n
                    Sell: \`NON SELLABLE\`\n
                    ID: \`booster\`\n\n
@@ -324,7 +324,7 @@ if(useArgs[0] === 'slice' || useArgs[0] === 'sliceof' || useArgs[0] === 'sliceof
   const embed = new Discord.MessageEmbed()
   .setTitle(`Slice Of Tomato`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/829653315230367814/2pzzxk.png`)
-  .addField(`${message.author.username} Owns: ${data.SliceOfTomato}\n`,
+  .addField(`${message.author.username} Owns: ${ata.SliceOfTomato}\n`,
                    `Cost: \`NON BUYABLE\`\n
                    Sell: \`75,000\`\n
                    ID: \`slice\`\n\n
@@ -336,7 +336,7 @@ if(useArgs[0] === 'common' || useArgs[0] === 'commonbox'){
   const embed = new Discord.MessageEmbed()
   .setTitle(`Common Box`)
   .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/832589278860017714/4.png`)
-  .addField(`${message.author.username} Owns: ${data.CommonBox}\n`,
+  .addField(`${message.author.username} Owns: ${ata.CommonBox}\n`,
                    `Cost: \`NON BUYABLE\`\n
                    Sell: \`NON SELLABLE\`\n
                    ID: \`commonbox\`\n\n

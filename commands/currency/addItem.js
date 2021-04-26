@@ -23,15 +23,15 @@ if(!num){
 const params = {
     User: member.id
 }
-inventory.findOne(params, async(err, data) => {
-    if(data) {
-const hasItem = Object.keys(data).includes(validName);
+inventory.findOne(params, async(err, Data) => {
+    if(Data) {
+const hasItem = Object.keys(Data).includes(validName);
 if(!hasItem){
-    data[validName] += 1;
+    Data[validName] += 1;
 } else {
-    data[validName]++
+    Data[validName]++
 } 
-await inventory.findOneAndUpdate(params, data)
+await inventory.findOneAndUpdate(params, Data)
     } else {
         client.createProfile(member.id)
         message.channel.send(`Thanks for starting using our currency sytem! :)`)
@@ -46,15 +46,15 @@ await inventory.findOneAndUpdate(params, data)
     const params = {
         User: member.id
     }
-    inventory.findOne(params, async(err, data) => {
-        if(data) {
-    const hasItem = Object.keys(data).includes(validName);
+    inventory.findOne(params, async(err, Data) => {
+        if(Data) {
+    const hasItem = Object.keys(Data).includes(validName);
     if(!hasItem){
-        data[validName] += num;
+        Data[validName] += num;
     } else {
-        data[validName] += num
+        Data[validName] += num
     } 
-    await inventory.findOneAndUpdate(params, data)
+    await inventory.findOneAndUpdate(params, Data)
         } else {
           client.createProfile(member.id)
           message.channel.send(`Thanks for starting using our currency sytem! :)`)

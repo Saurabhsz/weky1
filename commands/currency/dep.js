@@ -8,50 +8,50 @@ module.exports.run = async (client, message, args, utils, data) => {
     const Money = require('../../schemas/Money')
 Money.findOne({
   id: message.author.id
-}, (err,data) => {
+}, (err,ata) => {
   if(err) console.log(err);
-  if(!data){
+  if(!ata){
     newD = new Money({
       id: message.author.id
     });
-  } else if(num >= data.Wallet) {
+  } else if(num >= ata.Wallet) {
     return message.channel.send("You dont have that much money why you bad at me bro :/");
   }
-  const thesame = data.Bank >= data.space
+  const thesame = ata.Bank >= ata.space
   if(thesame){
-    data.Wallet += data.Bank - data.space
-    data.Bank -= data.Bank - data.space
-    data.save()
-  }else if(Math.round(num) >= Math.round(data.space)){
+    ata.Wallet += ata.Bank - ata.space
+    ata.Bank -= ata.Bank - ata.space
+    ata.save()
+  }else if(Math.round(num) >= Math.round(ata.space)){
       return message.channel.send(`Looks like your bank is full :) go get some scripts`)
      } else {
       if(args[0] === 'all' && isNaN(num)) {
-if(data.space < Math.round(data.Wallet)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-        data.Bank += Math.round(data.Wallet)
-        message.channel.send("Deposited **" + Math.round(data.Bank) + '** coins.')
-        data.Wallet -= Math.round(data.Wallet)
-        data.save()
+if(ata.space < Math.round(ata.Wallet)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
+        ata.Bank += Math.round(ata.Wallet)
+        message.channel.send("Deposited **" + Math.round(ata.Bank) + '** coins.')
+        ata.Wallet -= Math.round(ata.Wallet)
+        ata.save()
         } else if(args[0] === 'half' && isNaN(num)){
-    if(data.space < Math.round(data.Wallet/2)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-            data.Bank += Math.round(data.Wallet/2)
-            message.channel.send("Deposited **" + Math.round(data.Wallet/2) + '** coins.')
-            data.Wallet -= Math.round(data.Wallet/2)
-            data.save()
+    if(ata.space < Math.round(ata.Wallet/2)) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
+            ata.Bank += Math.round(ata.Wallet/2)
+            message.channel.send("Deposited **" + Math.round(ata.Wallet/2) + '** coins.')
+            ata.Wallet -= Math.round(ata.Wallet/2)
+            ata.save()
             } else if(isNaN(num)){
               return message.channel.send(`You didnt said \`all\`, \`half\` or ,\`number\``)
 
         } else if(!isNaN(num)){
-        if(Math.round(num) >= Math.round(data.space)){
+        if(Math.round(num) >= Math.round(ata.space)){
           return message.channel.send(`Looks like your bank is full :) go get some scripts`)
         }else if(thesame){
-          data.Wallet += data.Bank - data.space
-          data.Bank -= data.Bank - data.space
-          data.save()
+          ata.Wallet += ata.Bank - ata.space
+          ata.Bank -= ata.Bank - ata.space
+          ata.save()
         } else {
-          if(Math.round(num) >= data.space || data.space === data.Bank) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
-          data.Wallet -= Math.round(num)
-          data.Bank += Math.round(num)
-          data.save();
+          if(Math.round(num) >= ata.space || ata.space === ata.Bank) return message.channel.send(`You cannot deposit that much coins, your bank is full`)
+          ata.Wallet -= Math.round(num)
+          ata.Bank += Math.round(num)
+          ata.save();
           message.channel.send("Deposited **" + Math.round(num) + '** coins.')
         }
       }

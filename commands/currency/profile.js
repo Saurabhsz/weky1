@@ -6,7 +6,7 @@ const config = require('../../util/config.json');
 module.exports.run = async (client, message, args, utils, data) => {
 
       const inventory = require("../../schemas/inventory")
-      inventory.findOne({ User: message.author.id }, async (err, data) => {
+      inventory.findOne({ User: message.author.id }, async (err, ata) => {
       const m = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
 var e;
       if(m.id === message.author.id){
@@ -15,14 +15,14 @@ var e;
   e = m.user.tag
 }
 var a;
-if(data.BreadEffect !== 0){ a = `<:good:821393129999171626>`}else
-if(data.BreadEffect == 0) {a = `<:offline:821392620982632489>`}
+if(ata.BreadEffect !== 0){ a = `<:good:821393129999171626>`}else
+if(ata.BreadEffect == 0) {a = `<:offline:821392620982632489>`}
 var b;
-if(data.EnergyBolt !== 0) {b= `<:good:821393129999171626>`}else 
-if(data.EnergyBolt == 0) {b= `<:offline:821392620982632489>`}
+if(ata.EnergyBolt !== 0) {b= `<:good:821393129999171626>`}else 
+if(ata.EnergyBolt == 0) {b= `<:offline:821392620982632489>`}
 var c;
-if(data.BoosterEffect !== 0) {c = `<:good:821393129999171626>`}else
-if(data.BoosterEffect == 0) {c = `<:offline:821392620982632489>`}
+if(ata.BoosterEffect !== 0) {c = `<:good:821393129999171626>`}else
+if(ata.BoosterEffect == 0) {c = `<:offline:821392620982632489>`}
 const gambleEmbed = new Discord.MessageEmbed()
 .setColor(`RANDOM`)
 .setTitle(e + `'s profile`)

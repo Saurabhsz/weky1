@@ -5,8 +5,8 @@ const config = require('../../util/config.json');
 
 module.exports.run = async (client, message, args, utils, data) => {
     const inventory = require('../../schemas/inventory')
-inventory.findOne({ User: message.author.id }, async (err, data) => {
-            if(0 >= data.PlasticHand) {
+inventory.findOne({ User: message.author.id }, async (err, ata) => {
+            if(0 >= ata.PlasticHand) {
         return message.channel.send(`U dont have a Plastic Hand what a poor`);
         } else {
             const random = Math.floor(Math.random() * 101)
@@ -31,7 +31,7 @@ if (msgs.first().content == ra) {
 message.reply(`You made that fish to lick that hook, and he died because you pissed on the hook, you got <:legedary_fish:820642438360072192> 1 Legendary Fish`)
 client.addItem(message.author.id, "LegendaryFish", 1)
 } else {
-    if(data.LifeShield == 0){
+    if(ata.LifeShield == 0){
         message.channel.send(`The fish has been killed you, idk how but yes, you died`)
 client.rmv(message.author.id, await client.bal(message.author.id))
 } else {
@@ -40,7 +40,7 @@ client.removeItem(message.author.id, "LifeShield", 1)
 }
 }
 } catch (e) {
-if(data.LifeShield== 0){
+if(ata.LifeShield== 0){
 message.channel.send(`The fish has been killed you, idk how but yes, you died`)
 client.rmv(message.author.id, await client.bal(message.author.id))
 }else{

@@ -7,7 +7,7 @@ const config = require('../../util/config.json');
 module.exports.run = async (client, message, args, utils, data) => {
 const items = require("../../shopItems")
         const inventory = require("../../schemas/inventory")
-        inventory.findOne({ User: message.author.id }, async (err, data) => {
+        inventory.findOne({ User: message.author.id }, async (err, ata) => {
         if(!args[0]) return message.reply(`No item specificated :/`)
         const itemToBuy = args[0].toLowerCase()
         const validItem = !!items.find(
@@ -23,7 +23,7 @@ if(sell == false || se == false){
 } else{
             var num = parseFloat(args[1])
             if(!num) {
-                if(data[validName] == 0) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
+                if(ata[validName] == 0) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
                     bot.removeItem(message.author.id, validName, 1)
                     bot.add(message.author.id, sell, message)
                     const embed = new Discord.MessageEmbed()
@@ -33,7 +33,7 @@ if(sell == false || se == false){
             }}
             if(!args[1]) return message.channel.send(`Please use this format:\n\`..sell amount <item>\``)
 
-if(data[validName] < num) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
+if(ata[validName] < num) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
 bot.removeItem(message.author.id, validName, num)
 bot.add(message.author.id, num*sell, message)
 const embed = new Discord.MessageEmbed()

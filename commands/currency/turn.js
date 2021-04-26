@@ -5,10 +5,10 @@ const config = require('../../util/config.json');
 
 module.exports.run = async (client, message, args, utils, data) => {
 const inventory = require("../../schemas/inventory")
-    inventory.findOne({ User: message.author.id }, async (err, data) => {
+    inventory.findOne({ User: message.author.id }, async (err, ata) => {
         const quiz = require('../../turn.json');
     const randomCoins = Math.floor(Math.random() * 1300) + 200;
-            if(0>=data.Laptop) {
+            if(0>=ata.Laptop) {
         return message.channel.send(`You dont have any laptops, sorry dude!`);
         } else {
                 const repp = [

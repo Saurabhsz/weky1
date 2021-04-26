@@ -16,10 +16,10 @@ module.exports.run = async (client, message, args, utils, data) => {
       return message.channel.send(`You can't gamble more than 500,000 coins.`)
   }
   const inventory = require("../../schemas/inventory")
-            inventory.findOne({ User: message.author.id }, async (err, data) => {
-if(0 >= data.BunEffect){
+            inventory.findOne({ User: message.author.id }, async (err, Data) => {
+if(0 >= Data.BunEffect){
   var resp = '';
-  if(data.BunEffect !== 0) resp += `<:bready:820948539823226901>`
+  if(Data.BunEffect !== 0) resp += `<:bready:820948539823226901>`
 
   const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
   let rate = 65;
@@ -44,9 +44,9 @@ const brr = `0.${br}`
       .setColor(`GREEN`)
       .setFooter(`Winner`)
     message.channel.send(embed)
-  }}else if(data.BunEffect !== 0){
+  }}else if(Data.BunEffect !== 0){
     var resp = '';
-    if(data.BunEffect !== 0) resp += `<:bready:820948539823226901>`
+    if(Data.BunEffect !== 0) resp += `<:bready:820948539823226901>`
     const random = Math.floor(Math.random() * 100) + 1; // get a random num between 1 and 100
     let rate = 70;
     if (rate < random) {
