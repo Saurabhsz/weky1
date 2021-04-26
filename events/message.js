@@ -1,7 +1,7 @@
 //                                               -- All our requirements --
 
-const Discord = require('discord.js');
-const { WebhookClient } = require('discord.js');
+var Discord = require('discord.js');
+var { WebhookClient } = require('discord.js');
 const utils = require('../../utils/utils');
 const config = require('../../utils/config.json');
 const chatbase = 'https://api.affiliateplus.xyz/api';
