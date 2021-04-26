@@ -6,6 +6,7 @@ const Weky = require('./util/Weky');
 const client = new Weky({ disableMentions: 'everyone' }, {fetchAllMembers: true});
 require(`./reply`)
 require('./currencyFunctions')(client)
+require('dotenv').config()
 client.start(process.env.token, process.env.MONGO);
 
 // For any unhandled errors
