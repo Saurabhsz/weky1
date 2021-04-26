@@ -1,12 +1,11 @@
 const Discord = require('discord.js');
 const unhhook = new Discord.WebhookClient(process.env.unhandled_rejection_webhook_id, process.env.command_webhook_token);
 
-require(`./reply`)
-require('./currencyFunctions')(client)
 
 const Weky = require('./utils/Weky');
 const client = new Weky({ disableMentions: 'everyone' }, {fetchAllMembers: true});
-
+require(`./reply`)
+require('./currencyFunctions')(client)
 client.start(process.env.token, process.env.mongo);
 
 // For any unhandled errors
