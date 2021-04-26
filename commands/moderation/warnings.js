@@ -13,16 +13,16 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) {
   if (!user) return message.reply(`No user specified!`);
     warns.find(
       { GuildID: message.guild.id, UserID: user.id },
-      async (err, data) => {
+      async (err, ata) => {
         if (err) console.log(err);
-        if (!data.length)
+        if (!ata.length)
           return message.reply(
             `${user.user.tag} doesn\`t have any warnings in this server.`
           );
         let Embed = new MessageEmbed()
           .setTitle(`${user.user.tag}'s warns in ${message.guild.name}.. `)
           .setDescription(
-            data.map((d) => {
+            ata.map((d) => {
               return d.Punishments.map(
                 (w, i) =>
                   `${i} - \`Moderator:\` ${

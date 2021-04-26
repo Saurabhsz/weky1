@@ -21,22 +21,22 @@ if(!reason)
 return message.channel.send(ErrEmbed)
 const punishments = require('../../schemas/wanings')
 
-let data = await punishments.findOne({
+let ata = await punishments.findOne({
     GuildID: message.guild.id,
     UserID: toWarn.id
 });
 
-if(data) {
-    data.Punishments.unshift({
+if(ata) {
+    ata.Punishments.unshift({
         PunishType: 'Warn',
         Moderator: message.author.id,
         Reason: reason,
     });
-    data.save();
+    ata.save();
          const embed = new Discord.MessageEmbed()
          .setDescription(`**${toWarn}** has been warned for \`${reason}\``)
          message.channel.send(embed)
-        } else if (!data) {
+        } else if (!ata) {
             let newData = new punishments({
                 GuildID: message.guild.id,
                 UserID: toWarn.id,
