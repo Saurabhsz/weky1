@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const Discord = require('discord.js');
-const config = require('../../../utils/config.json');
+const config = require('../../util/config.json');
 
 module.exports.run = async (client, message, args, utils, data) => {
     const member = message.mentions.members.first() || message.guild.members.cache.get(args[1]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(1).join(" ") || x.user.username === args[1])
