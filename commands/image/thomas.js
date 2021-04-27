@@ -8,7 +8,6 @@
         let avatar
         if(member.id === message.author.id) {
         avatar = member.displayAvatarURL({format: 'jpg',size: 128 });}else {avatar = member.user.displayAvatarURL({format: 'jpg',size: 128 })}      
-                let img = await new DIG.Tatoo().getImage(avatar)
           let img = await new DIG.Thomas().getImage(avatar)
         let attach = new Discord.MessageAttachment(img, 'thomas.png');;
         message.channel.send(attach)
