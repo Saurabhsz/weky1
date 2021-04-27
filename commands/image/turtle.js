@@ -13,7 +13,9 @@ const ctx = canvas.getContext('2d');
     // // ctx.arc(350, 150, 100, 0, Math.PI * 2, true);
     // ctx.closePath();
     // ctx.clip();
-    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+    let avatar
+    if(member.id === message.author.id) {
+    avatar = await Canvas.loadImage(member.displayAvatarURL({ format: 'jpg' }));}else {avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));}      
     ctx.drawImage(avatar, 60, 320, 205, 205);
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `turtle_${member.user.username}.jpg`);
     message.channel.send(attachment);

@@ -16,6 +16,10 @@ const member = message.mentions.members.first() || message.guild.members.cache.g
     // ctx.closePath();
     // ctx.clip();
     const avatar = await Canvas.loadImage(member.user.displayAvatarURL({size: 256, format: 'jpg' }));
+    let avatar
+if(member.id === message.author.id) {
+avatar =await Canvas.loadImage(member.displayAvatarURL({size: 256, format: 'jpg' }));}else {avatar =await Canvas.loadImage(member.user.displayAvatarURL({size: 256, format: 'jpg' }));}      
+
     ctx.drawImage(avatar, 250, 10, 205, 205);
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `sock_${member.user.username}.jpg`);
     message.channel.send(attachment);

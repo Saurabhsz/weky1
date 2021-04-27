@@ -11,7 +11,9 @@ const member =message.mentions.members.first() || message.guild.members.cache.ge
     const ctx = canvas.getContext('2d');
     const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/812590454821355543/815638766252195860/moment.jpg');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({format: 'jpg' }));
+    let avatar
+    if(member.id === message.author.id) {
+    avatar = await Canvas.loadImage(member.displayAvatarURL({format: 'jpg',size: 128 }));}else {avatar = await Canvas.loadImage(member.user.displayAvatarURL({format: 'jpg',size: 128 }))}      
     ctx.drawImage(avatar, 150, 100, 205, 205);
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `doggo_${member.user.username}.jpg`);
     message.channel.send(attachment);

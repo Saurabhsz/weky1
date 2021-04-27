@@ -9,7 +9,9 @@
                         const ctx = canvas.getContext('2d');
                         const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/811222144997916692/815827712270663700/Screenshot_532_1.png');
                         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-                        const avatar = await Canvas.loadImage(member.user.displayAvatarURL({size: 4096, format: 'jpg' }));
+                        let avatar
+                        if(member.id === message.author.id) {
+                        avatar = await Canvas.loadImage(member.displayAvatarURL({format: 'jpg',size: 128 }));}else {avatar = await Canvas.loadImage(member.user.displayAvatarURL({format: 'jpg',size: 128 }))}
                         ctx.drawImage(avatar, 150, 100, 205, 205);
                         const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `awesome_${member.user.username}.jpg`);
                         message.channel.send(attachment);

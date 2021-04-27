@@ -17,7 +17,7 @@
             let attach = new Discord.MessageAttachment(img, 'slap.png');;
             message.channel.send(attach)
         } else if(secondMentionedUser){
-            let avatar = user.displayAvatarURL({size: 1024, dynamic: false, format: 'png' });
+            let avatar = user.user.displayAvatarURL({size: 1024, dynamic: false, format: 'png' });
             let img = await new DIG.Batslap().getImage(avatar, secondMentionedUser.displayAvatarURL({size: 1024, dynamic: false, format: 'png' }))
             let attach = new Discord.MessageAttachment(img, 'slap.png');;
             message.channel.send(attach) 

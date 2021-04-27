@@ -8,7 +8,9 @@
 
         const DIG = require('discord-image-generation');
         let user =  message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
-        let avatar = user.displayAvatarURL({size: 1024, dynamic: false, format: 'png' });
+        let avatar
+        if(user.id === message.author.id) {
+        avatar = user.displayAvatarURL({ format: 'jpg' });}else {avatar = user.user.displayAvatarURL({ format: 'jpg' })}
         let img = await new DIG.Ad().getImage(avatar)
         let attach = new Discord.MessageAttachment(img, 'ad.png');;
         message.channel.send(attach)

@@ -5,8 +5,10 @@
                 module.exports.run = async (client, message, args, utils, data) => {
       const DIG = require('discord-image-generation');
         let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
-        let avatar = user.displayAvatarURL({size: 1024, dynamic: false, format: 'png' });
-        let img = await new DIG.Wanted().getImage(avatar)
+        let avatar
+        if(member.id === message.author.id) {
+        avatar = member.displayAvatarURL({format: 'jpg',size: 128 });}else {avatar = member.user.displayAvatarURL({format: 'jpg',size: 128 })}      
+          let img = await new DIG.Wanted().getImage(avatar)
         let attach = new Discord.MessageAttachment(img, 'wanted.png');;
         message.channel.send(attach)
                 };

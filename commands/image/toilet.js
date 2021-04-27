@@ -13,7 +13,10 @@ const member = message.mentions.members.first() || message.guild.members.cache.g
     // // ctx.arc(350, 150, 100, 0, Math.PI * 2, true);
     // ctx.closePath();
     // ctx.clip();
-    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+    let avatar
+    if(member.id === message.author.id) {
+    avatar = await Canvas.loadImage(member.displayAvatarURL({ format: 'jpg' }));}else {avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));}      
+
     ctx.drawImage(avatar, 135, 350, 205, 205);
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `toilet_${member.user.username}.jpg`);
     message.channel.send(attachment);

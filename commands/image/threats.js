@@ -4,11 +4,10 @@
                 
                 module.exports.run = async (client, message, args, utils, data) => {
        let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
-        let avatar = user.avatarURL({
-          format: 'png',
-          dynamic: false,
-          size: 128
-        })
+       let avatar
+       if(member.id === message.author.id) {
+       avatar = member.displayAvatarURL({format: 'jpg',size: 128 });}else {avatar = member.user.displayAvatarURL({format: 'jpg',size: 128 })}      
+ 
         message.channel.send('Loading...')
         const e = Math.floor(Math.random() * 10) +1
           const res = `https://nekobot.xyz/api/imagegen?type=threats&url=${avatar}&raw=1`

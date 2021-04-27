@@ -16,7 +16,9 @@ const Canvas = require('canvas');
     // // ctx.arc(350, 150, 100, 0, Math.PI * 2, true);
     // ctx.closePath();
     // ctx.clip();
-    const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+    let avatar
+    if(member.id === message.author.id) {
+    avatar = Canvas.loadImage(member.displayAvatarURL({format: 'jpg',size: 128 }));}else {avatar = Canvas.loadImage(member.user.displayAvatarURL({format: 'jpg',size: 128 }))}      
     ctx.drawImage(avatar, 350, 150, 205, 205);
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `Drip${member.user.username}.jpg`);
     message.channel.send(attachment);
