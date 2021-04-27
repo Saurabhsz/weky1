@@ -8,7 +8,7 @@ const { Discord, Collection, MessageEmbed} = require("discord.js")
       await Promise.all(
         message.guild.members.cache.map(async (member) => {
             const id = member.id
-            const bal = await bot.bal(id)
+            const bal = await client.bal(id)
             return bal !== 0
              ? collection.set(id, {
                id,
@@ -24,7 +24,7 @@ const { Discord, Collection, MessageEmbed} = require("discord.js")
       .setTitle(`Leaderboard in ${message.guild.name}`)
      .setDescription(
        ata.map((v, i) => {
-         return `${i+1}. ${bot.users.cache.get(v.id).tag} => **${v.bal} coins**`
+         return `${i+1}. ${client.users.cache.get(v.id).tag} => **${v.bal} coins**`
        })
      )
       )
