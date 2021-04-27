@@ -10,7 +10,7 @@
     if (!oppenent) return message.channel.send(`Please mention who you want to fight`);
 const { fight } = require('weky')
 const x = new fight({
-    client: bot,
+    client: client,
     message: message,
     acceptMessage: 'Click to fight with ' + message.author,
     challenger: message.author,
