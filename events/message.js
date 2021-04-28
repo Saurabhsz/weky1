@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 const cmdhook = new Discord.WebhookClient(process.env.command_webhook_id, process.env.command_webhook_token);
 const errhook = new Discord.WebhookClient(process.env.err_webhook_id, process.env.err_webhook_token);
 
-module.exports = async (bot, message) => {
+module.exports = async (client, message) => {
 	const Levels = require('discord-xp')
 Levels.setURL(process.env.MONGO)
 var num;
@@ -74,8 +74,8 @@ if(user.level === 5){
 
 	// Fetch database
 
-	const guildDB = await bot.data.getGuildDB(message.guild.id);
-	const userDB = await bot.data.getUserDB(message.author.id);
+	const guildDB = await client.data.getGuildDB(message.guild.id);
+	const userDB = await client.data.getUserDB(message.author.id);
 	const data = {};
 	data.guild = guildDB;
 	data.user = userDB;
@@ -87,7 +87,7 @@ if(user.level === 5){
 	// AFK thingy
 
 	if (userDB.is_afk) {
-		await bot.data.removeAfk(message.author.id);
+		await client.data.removeAfk(message.author.id);
 		message.channel.send(Discord.Util.removeMentions('Welcome back **' + message.author.username + '**! You are no longer afk.'))
 		// eslint-disable-next-line no-unused-vars
 			.catch((error) => {
@@ -96,7 +96,7 @@ if(user.level === 5){
 	}
 
 	message.mentions.users.forEach(async (u) => {
-		const userData = await bot.data.getUserDB(u.id);
+		const userData = await client.data.getUserDB(u.id);
 		if (userData.is_afk) {
 			message.channel.send(`**${u.tag}** is currently afk for: **${userData.afkReason}**`)
 			// eslint-disable-next-line no-unused-vars
@@ -110,10 +110,10 @@ if(user.level === 5){
 
 	if (data.guild.chatbot_enabled && data.guild.chatbot_channel == message.channel.id) {
 		const badwords = ['nigger', 'nigga', 'nibba', 'nibber'];
-		const bl_log_channel = bot.channels.cache.get('809317042058035241');
+		const bl_log_channel = client.channels.cache.get('809317042058035241');
 		const reason = 'saying a blacklisted word.';
 		if (badwords.some((word) => message.content.toLowerCase().includes(word))) {
-			const blacklist = await bot.data.blacklist(message.author.id, 'true', reason);
+			const blacklist = await client.data.blacklist(message.author.id, 'true', reason);
 			const logEmbed = new Discord.MessageEmbed().setTitle('User Blacklisted').setDescription(`**${message.author.username}#${message.author.discriminator}** was blacklisted from using the bot.\n\nResponsible Moderator : **${message.author.username}**\n\nReason : **${blacklist.reason}** \n **message**: ${message.content}`).setFooter('Blacklist registered').setColor('RED').setTimestamp();
 			bl_log_channel.send(logEmbed);
 			message.author.send(`You have been blacklisted from using the bot! \n **Reason:** ${reason}\n **Moderator:** ${message.author.tag} \n**Join Weky Development to appeal:** https://discord.gg/Sr2U5WuaSN`).catch((err) => {
@@ -146,19 +146,19 @@ if(user.level === 5){
 	// Ping Embed
 	// Get prefix from guild else get from config file
 	const prefixx = !guildDB.prefix ? config.prefix : guildDB.prefix;
-	if (!message.author.bot && message.content.match(new RegExp(`^<@!?${bot.user.id}>( |)$`))) {
+	if (!message.author.bot && message.content.match(new RegExp(`^<@!?${client.user.id}>( |)$`))) {
 		const m = new Discord.MessageEmbed()
 			.setTitle('Hi, I\'m Weky !')
 			.setDescription('A currrncy bot on Discord !')
-			.addField('Prefix and Usage', 'My prefixes are ' + `\`${prefixx}\` and <@${bot.user.id}>` + `\n *Tip: Run \`${prefixx}help\` to get started! | use \`${prefixx}setprefix <prefix>\` to change prefix!*`)
+			.addField('Prefix and Usage', 'My prefixes are ' + `\`${prefixx}\` and <@${client.user.id}>` + `\n *Tip: Run \`${prefixx}help\` to get started! | use \`${prefixx}setprefix <prefix>\` to change prefix!*`)
 			.addField('Invites :', '[Support server](https://discord.gg/Sr2U5WuaSN) | [Bot invite](https://discord.com/oauth2/authorize?client_id=809496186905165834&permissions=1609952503&scope=bot%20applications.commands)')
 			.setColor('RANDOM');
 		message.channel.send(m);
 	}
 	// Basic command checks and argument definitions
 
-	const prefixMention = new RegExp(`^<@!?${bot.user.id}> `);
-	const prefix = !message.author.bot && message.content.match(prefixMention) ? !message.author.bot && message.content.match(prefixMention)[0] : prefixx;
+	const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+	const prefix = !message.author.client && message.content.match(prefixMention) ? !message.author.bot && message.content.match(prefixMention)[0] : prefixx;
 
 	if (!message.content.startsWith(prefix)) return;
 
@@ -167,42 +167,42 @@ if(user.level === 5){
 
 	// Command Handler Dynamic Checks
 
-	if (bot.aliases.has(command)) {
-		command = bot.commands.get(bot.aliases.get(command)).help.name;
+	if (client.aliases.has(command)) {
+		command = client.commands.get(client.aliases.get(command)).help.name;
 	}
 
-	const commandFile = bot.commands.get(command);
+	const commandFile = client.commands.get(command);
 
 	if (!commandFile) return;
 	// if(client.commands.get(command).config.category === 'Actions') return message.channel.send('due to some difficulties, Actions commands are disabled for atleast a day, please join discord.gg/d98jT3mgxf for updates (we also do premium giveaways)');
-	if (bot.commands.get(command).config.developers == true) {
+	if (client.commands.get(command).config.developers == true) {
 		if (data.user.developer == false) {
 			return utils.errorEmbed(message, ':warning: This command is restricted only to bot owners.');
 		}
 	}
 
-	if (bot.commands.get(command).config.restricted == true) {
+	if (client.commands.get(command).config.restricted == true) {
 		if (data.user.moderator == false) {
 			return utils.errorEmbed(message, ':warning: This command is restricted only to bot moderators / owners.');
 		}
 	}
 
-	if (bot.commands.get(command).config.disable == true) {
+	if (client.commands.get(command).config.disable == true) {
 		return utils.errorEmbed(message, ':warning: This command is disabled for a short period of time! :warning:');
 	}
 
-	if (bot.commands.get(command).config.args == true) {
+	if (client.commands.get(command).config.args == true) {
 		if (!args[0]) {
-			return utils.errorEmbed(message, `Invalid arguments. Use: ${prefix + 'help ' + bot.commands.get(command).help.name}`);
+			return utils.errorEmbed(message, `Invalid arguments. Use: ${prefix + 'help ' + client.commands.get(command).help.name}`);
 		}
 	}
 
 	// Core Command Handler and Cooldown Checks
 
-	const cooldown = bot.commands.get(command).config.cooldown;
-	const pcooldown = bot.commands.get(command).config.cooldown / 2;
+	const cooldown = client.commands.get(command).config.cooldown;
+	const pcooldown = client.commands.get(command).config.cooldown / 2;
 
-	const timestamps = bot.cooldowns.get(command);
+	const timestamps = client.cooldowns.get(command);
 	if (timestamps.has(message.author.id)) {
 		if(data.user.premium == true) {
 			const expirationTime = timestamps.get(message.author.id) + pcooldown;
@@ -224,7 +224,7 @@ if(user.level === 5){
 
 	if (commandFile) {
 		try {
-			if (bot.user.id === '809496186905165834') {
+			if (client.user.id === '809496186905165834') {
 				if (!command) return;
 				const m = new Discord.MessageEmbed().setTitle(`Command used in ${message.guild.name}`).setColor('RANDOM').addField('User:', `${message.author.tag}`).addField('User ID:', `${message.author.id}`).addField('Command:', `${command}`).addField('Message Content:', `${message.content}`).addField('Guild ID:', `${message.guild.id}`).setImage(message.author.displayAvatarURL({ format: 'jpg'}))
 				await cmdhook.send(m);
@@ -232,12 +232,12 @@ if(user.level === 5){
 			await timestamps.set(message.author.id, Date.now());
 			setTimeout(
 				async () => await timestamps.delete(message.author.id), cooldown);
-			await commandFile.run(bot, message, args, utils, data);
+			await commandFile.run(client, message, args, utils, data);
 			client.ADDcmdsUSED(message.author.id)
 		}
 		catch (error) {
 			// Command Errors
-			if (bot.user.id === '809496186905165834') {
+			if (client.user.id === '809496186905165834') {
 				const errEmbed = new Discord.MessageEmbed().setTitle(`Command error in ${message.guild.name}`).addField('Additional Details', `**Guild ID :** ${message.guild.id}\n**Author :** ${message.author.tag}(${message.author.id})\n**Command :** ${commandFile.help.name}\n**Content :** ${message.content}`, false).setDescription(`**Error:**\n\`\`\`js\n${error}\n\`\`\``).setTimestamp();
 				errhook.send(errEmbed);
 			}
