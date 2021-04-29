@@ -108,8 +108,8 @@ module.exports = async (client, message) => {
 	if (!message.author.bot && message.content.match(new RegExp(`^<@!?${client.user.id}>( |)$`))) {
 		const m = new Discord.MessageEmbed()
 			.setTitle('Hi, I\'m Weky !')
-			.setDescription('A currrncy bot on Discord !')
-			.addField('Prefix and Usage', 'My prefixes are ' + `\`${prefixx}\` and <@${client.user.id}>` + `\n *Tip: Run \`${prefixx}help\` to get started! | use \`${prefixx}setprefix <prefix>\` to change prefix!*`)
+			.setDescription('A currency bot on Discord !')
+			.addField('Prefix and Usage', 'My prefix is ' + `\`${prefixx}\`` + `\n *Run \`${prefixx}help\` to get started! | use \`${prefixx}setprefix <prefix>\` to change prefix!*`)
 			.addField('Invites :', '[Support server](https://discord.gg/Sr2U5WuaSN) | [Bot invite](https://discord.com/oauth2/authorize?client_id=809496186905165834&permissions=1609952503&scope=bot%20applications.commands)')
 			.setColor('RANDOM');
 		message.channel.send(m);
