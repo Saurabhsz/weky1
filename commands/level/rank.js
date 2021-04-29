@@ -5,9 +5,9 @@
                 const config = require('../../util/config.json');
                 
                 module.exports.run = async (client, message, args, utils, data) => {
-                    const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
+                    const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, ata) => {
 
-                        if(data.leveling === "1") {
+                        if(ata.leveling === true) {
             const Levels = require('discord-xp')
                 const canvacord = require('canvacord')
                     const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
@@ -23,8 +23,8 @@
                     .setUsername(target.username)
                     .setDiscriminator(target.discriminator)
                     rank.build()
-                    .then(data => {
-                        const attachment = new Discord.MessageAttachment(data, "rank.png")
+                    .then(x => {
+                        const attachment = new Discord.MessageAttachment(x, "rank.png")
                         message.channel.send(attachment)
                     })
                 } else {

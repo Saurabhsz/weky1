@@ -4,14 +4,14 @@
                 const config = require('../../util/config.json');
                 
                 module.exports.run = async (client, message, args, utils, data) => {
-  const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
+  const db = require('../../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, ata) => {
 
-        if(data.leveling === "1") {
+        if(ata.leveling === true) {
 message.reply(`Loading...`).then(m => m.delete({timeout: 1000}));
 const Levels = require("discord-xp");
 
     const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 15);
-    const leaderboard = await Levels.computeLeaderboard(bot, rawLeaderboard);     
+    const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard);     
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
     const lb = leaderboard.map(e => `${e.position}.  ${e.username}#${e.discriminator} - Level: ${e.level}`);

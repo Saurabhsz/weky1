@@ -11,6 +11,7 @@ let embed = new MessageEmbed()
 .addField(`__Uptime__\n`,`**Bot**: ${client.uptime}\n**Process**: ${prettyMs(process.uptime() * 1000)}`, true)
 .addField(`__Movement__\n`,`**API Latency**: ${Math.round(client.ws.ping)}\n**Bot Latency**: ${msg.createdTimestamp - message.createdTimestamp}ms`, true)
 message.reply(embed)
+
 };
 
 module.exports.help = {
