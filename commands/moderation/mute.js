@@ -34,16 +34,19 @@ var ms = require('ms')
                 console.log(error)
             }
         };
-        let role2 = message.guild.roles.cache.find(r => r.name.toLowerCase() === 'Muted')
-        if(!role2) return message.reply(`Error , role Muted not found`)
-        if(Member.roles.cache.has(role2.id)) return message.channel.send(`${Member.user.tag} has already been muted`)
-        await Member.roles.add(role2)
-        message.channel.send(`${Member.displayName} is now muted`)
+        try{
+            let role2 = message.guild.roles.cache.find(r => r.name.toLowerCase() === 'Muted')
+            if(!role2) return message.reply(`Error , role Muted not found`)
+            if(Member.roles.cache.has(role2.id)) return message.channel.send(`${Member.user.tag} has already been muted`)
+            await Member.roles.add(role2)
+            message.channel.send(`${Member.displayName} is now muted`)
+    
+            setTimeout(async () => {
+                await Member.roles.remove(role2)
+                message.channel.send(`${Member.user.tag} is now unmuted`)
+            }, ms(time))
+        }catch(err){console.log(err)}
 
-        setTimeout(async () => {
-            await Member.roles.remove(role2)
-            message.channel.send(`${Member.user.tag} is now unmuted`)
-        }, ms(time))
                 };
                 
                 module.exports.help = {
