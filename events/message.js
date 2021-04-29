@@ -7,47 +7,6 @@ const cmdhook = new Discord.WebhookClient(process.env.command_webhook_id, proces
 const errhook = new Discord.WebhookClient(process.env.err_webhook_id, process.env.err_webhook_token);
 
 module.exports = async (client, message) => {
-	const Levels = require('discord-xp')
-Levels.setURL(process.env.MONGO)
-var num;
-	if(message.channel.id === '830003681402683415') {
-		num = 20
-		}else{
-		num = 10
-		}
-    const db = require('../schemas/Guild').findOne({ GuildID: message.guild.id}, async (err, data) => {
-if(!data) return;
-      if(data.leveling === "1") {
-    const randomXp = Math.floor(Math.random() * num) + 1; //Random amont of XP until the number you want + 1
-    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
-    if (hasLeveledUp) {
-        const user = await Levels.fetch(message.author.id, message.guild.id);
-if(user.level === 5){
-  message.member.roles.add("830003680991510648")
-} else if(user.level === 10){
-  message.member.roles.remove("830003680991510648")
-  message.member.roles.add("830003680991510649")
-} else if(user.level === 15){
-  message.member.roles.remove("830003680991510649")
-  message.member.roles.add("830003680991510650")
-} else if(user.level === 20){
-  message.member.roles.remove("830003680991510650")
-  message.member.roles.add("830003680991510651")
-}
-		message.channel.send(
-			new Discord.MessageEmbed()
-		.setTitle('Level Up')
-		.setDescription(`
-		You have been upgraded to level ${user.level}!
-		`)
-		.setThumbnail(message.author.displayAvatarURL({dynamic: true}))
-		.setColor('RANDOM')
-		.setFooter(`..lbrank for leaderboard!`)
-		.setTimestamp()
-);
-    }
-  }else return
-  })
   const Money = require('../schemas/Money')
   Money.findOne({
     id: message.author.id
