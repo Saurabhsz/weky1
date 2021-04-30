@@ -11,7 +11,7 @@ const money = parseInt(args[0])
           return
       }
 
-      if (await client.bal(userId.id) < bet) {
+      if (await client.bal(userId.id) < money) {
           message.channel.send("You dont have enough money")
           return
       }
