@@ -14,8 +14,11 @@ const member =message.mentions.members.first() || message.guild.members.cache.ge
     let avatar
     if(member.id === message.author.id) {
     avatar = await Canvas.loadImage(member.displayAvatarURL({format: 'jpg',size: 128 }));}else {avatar = await Canvas.loadImage(member.user.displayAvatarURL({format: 'jpg',size: 128 }))}      
+    let user
+if(member.id === message.author.id) {
+user = member.usermane;}else {user =member.user.username}
     ctx.drawImage(avatar, 150, 100, 205, 205);
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `doggo_${member.user.username}.jpg`);
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `doggo_${user}.jpg`);
     message.channel.send(attachment);
                     };
                     

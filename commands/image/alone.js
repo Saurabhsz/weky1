@@ -16,7 +16,10 @@ const ctx = canvas.getContext('2d');
     let avatar
 if(member.id === message.author.id) {
 avatar = await Canvas.loadImage(member.displayAvatarURL({format: 'jpg',size: 128 }));}else {avatar = await Canvas.loadImage(member.user.displayAvatarURL({format: 'jpg',size: 128 }))}
-    ctx.drawImage(avatar, 480, 350, 205, 205);
+let user
+if(member.id === message.author.id) {
+user = member.usermane;}else {user =member.user.username}
+ctx.drawImage(avatar, 480, 350, 205, 205);
     const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `alone_${member.user.username}.jpg`);
     message.channel.send(attachment);
                 };

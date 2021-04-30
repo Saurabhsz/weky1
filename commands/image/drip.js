@@ -19,8 +19,11 @@ const Canvas = require('canvas');
     let avatar
     if(member.id === message.author.id) {
     avatar = Canvas.loadImage(member.displayAvatarURL({format: 'jpg',size: 128 }));}else {avatar = Canvas.loadImage(member.user.displayAvatarURL({format: 'jpg',size: 128 }))}      
+    let user
+if(member.id === message.author.id) {
+user = member.usermane;}else {user =member.user.username}
     ctx.drawImage(avatar, 350, 150, 205, 205);
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `Drip${member.user.username}.jpg`);
+    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), `Drip${user}.jpg`);
     message.channel.send(attachment);
                 };
                 
