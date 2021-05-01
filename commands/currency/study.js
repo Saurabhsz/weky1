@@ -5,7 +5,7 @@ const config = require('../../util/config.json');
 module.exports.run = async (client, message, args, utils, data) => {
     const ae = Math.floor(Math.random() * 20)
 let uwu = new Discord.MessageEmbed()
-      .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
+      .setAuthor(message.author.username+`#`+message.author.discriminator, message.author.displayAvatarURL())
       .setDescription(`Your brain exploded from that much learning, so u bought a new one.`)
       .setFooter(`Got ${ae} IQ ;)`)
       .setColor("GREEN")
