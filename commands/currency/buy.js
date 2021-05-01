@@ -40,7 +40,7 @@ if(!hasItem){
 await inventory.findOneAndUpdate(params, ata)
     } else {
         client.createProfile(message.author.id)
-        message.channel.send(`Thanks for starting using our currency sytem! :)`)
+        message.channel.send(`Thanks for starting using our currency system! :)`)
     }
     message.reply( new Discord.MessageEmbed()
     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
@@ -64,9 +64,9 @@ await inventory.findOneAndUpdate(params, ata)
         client.rmv(message.author.id, itemPrice*num)
     } 
     await inventory.findOneAndUpdate(params,ata)
-        } else {
-return message.channel.send(`You didnt even did \`..start\` bruh, there is no profile called ${message.author.username}`)
-        }
+        }else {client.createProfile(message.author.id)
+        message.channel.send(`Thanks for starting using our currency system! :)`)
+    }
         message.reply( new Discord.MessageEmbed()
         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
         .setDescription(`Successfully bought ${itemIcon} ${num} ${validName} with ${itemPrice*num} coins`)

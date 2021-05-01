@@ -34,7 +34,7 @@ if(!hasItem){
 await inventory.findOneAndUpdate(params, Data)
     } else {
         client.createProfile(member.id)
-        message.channel.send(`Thanks for starting using our currency sytem! :)`)
+        message.channel.send(`Thanks for starting using our currency system! :)`)
     }
     client.channels.cache.get("830003681638350859").send(new Discord.MessageEmbed()
     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
@@ -57,7 +57,7 @@ await inventory.findOneAndUpdate(params, Data)
     await inventory.findOneAndUpdate(params, Data)
         } else {
           client.createProfile(member.id)
-          message.channel.send(`Thanks for starting using our currency sytem! :)`)
+          message.channel.send(`Thanks for starting using our currency system! :)`)
         }
         client.channels.cache.get("830003681638350859").send( new Discord.MessageEmbed()
         .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())

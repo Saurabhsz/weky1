@@ -3,7 +3,7 @@
 const config = require('../../util/config.json');
 
 module.exports.run = async (client, message, args, utils, data) => {
-const channel = bot.channels.cache.get('835185415224950794')
+const channel = client.channels.cache.get('835185415224950794')
 
 
 const query = args.slice(0).join(' ');

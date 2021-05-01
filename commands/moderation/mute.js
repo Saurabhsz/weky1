@@ -54,6 +54,6 @@
                   args: false,
                   restricted: false,
                   category: 'moderation',
-                  disable: false,
+                  disable: true,
                   cooldown: 1000,
                 };

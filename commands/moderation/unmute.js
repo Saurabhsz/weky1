@@ -30,7 +30,7 @@ if (!mentionedMember) return message.channel.send("Please state a member that is
                 
                 module.exports.config = {
                   args: false,
-                  restricted: false,
+                  restricted: true,
                   category: 'moderation',
                   disable: false,
                   cooldown: 1000,

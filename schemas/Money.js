@@ -49,5 +49,21 @@ const profileSchema = mongoose.Schema({
       type: Number,
       default: 0
     },
+    status: {
+      type: String,
+      default: 'None'
+    },
+    IQ: {
+      type: Number,
+      default: 0
+    },
+    Evilness: {
+      type: Number,
+      default: 0
+    },
+    Goodness: {
+      type: Number,
+      default: 0
+    },
 })
 module.exports = mongoose.model('MoneyData', profileSchema)

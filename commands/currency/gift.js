@@ -4,6 +4,8 @@ const config = require('../../util/config.json');
 
 module.exports.run = async (client, message, args, utils, data) => {
 const items = require("../../shopItems")
+const ae = Math.floor(Math.random() * 20)
+
         if(!args[1]) return message.channel.send(`Please use this format:\n\`..gift amount <item> @user\``)
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[2]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(2).join(" ") || x.user.username === args[2]);
         if(member.id === message.author.id) return message.reply(`Learn what you cant gift urself means`);
@@ -25,7 +27,9 @@ inventory.findOne({ User: message.author.id }, async (err, ata) => {
   } else {
 client.addItem(member.id, validName, num)
 client.removeItem(message.author.id, validName, num)
-message.reply(message.author.username + ` gave ` + member.user.tag + ` ` + itemIcon + ` ` + num + ` ` + validName)
+message.reply(message.author.username + ` gave ` + member.user.tag + ` ` + itemIcon + ` ` + num + ` ` + validName + `||Lost ${ae} evilness & got ${ae} goodness||`)
+client.ADDGoodness(message.author.id, ae)
+client.RMVEvilness(message.author.id, ae)
 member.user.send(`${message.author.username} gave you ` + itemIcon + ` ` + num + ` ` + validName).catch(e => {
     return;
   })

@@ -6,7 +6,7 @@ const schema = require('../../schemas/cmds')
             if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator permissions to use this command')
             const cmd = args[2];
             if(!cmd) return message.channel.send('Please specify a command')
-            if(!!bot.commands.get(cmd) === false || !!bot.aliases.get(cmd) === false) return message.channel.send('This command does not exist');
+            if(!!clien4.commands.get(cmd) === false || !!client.aliases.get(cmd) === false) return message.channel.send('This command does not exist');
             schema.findOne({ Guild: message.guild.id }, async(err, data) => {
               if(err) throw err;
               if(data) {
@@ -26,7 +26,7 @@ const schema = require('../../schemas/cmds')
             if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You need administrator permissions to use this command')
         const cmd = args[2];
         if(!cmd) return message.channel.send('Please specify a command')
-        if(!!bot.commands.get(cmd) === false || !!bot.aliases.get(cmd) === false) return message.channel.send('This command does not exist...');
+        if(!!client.commands.get(cmd) === false || !!client.aliases.get(cmd) === false) return message.channel.send('This command does not exist...');
         schema.findOne({ Guild: message.guild.id }, async(err, data) => {
             if(err) throw err;
             if(data) {

@@ -24,8 +24,8 @@ if(sell == false || se == false){
             var num = parseFloat(args[1])
             if(!num) {
                 if(ata[validName] == 0) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
-                    bot.removeItem(message.author.id, validName, 1)
-                    bot.add(message.author.id, sell, message)
+                    client.removeItem(message.author.id, validName, 1)
+                    client.add(message.author.id, sell, message)
                     const embed = new Discord.MessageEmbed()
                     .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
                     .setDescription(`You sold ${itemIcon} 1 ${validName} for **${sell}** coins.`)
@@ -34,8 +34,8 @@ if(sell == false || se == false){
             if(!args[1]) return message.channel.send(`Please use this format:\n\`..sell amount <item>\``)
 
 if(ata[validName] < num) {return message.reply(`You dont have ${num} ${validName} bruh`)}else{
-bot.removeItem(message.author.id, validName, num)
-bot.add(message.author.id, num*sell, message)
+client.removeItem(message.author.id, validName, num)
+client.add(message.author.id, num*sell, message)
 const embed = new Discord.MessageEmbed()
 .setAuthor(message.author.username+`#`+message.author.discriminator, message.member.user.displayAvatarURL())
 .setDescription(`You sold ${itemIcon} ${num} ${validName} for **${sell*num}** coins.`)
