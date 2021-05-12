@@ -3,10 +3,11 @@
 const Discord = require('discord.js');
 const config = require('../../util/config.json');
 
-module.exports.run = async (client, member, message, args, utils, data) => {
+module.exports.run = async (client, message, args, utils, data) => {
 
   const { MessageEmbed } = require("discord.js")
 
+  const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
   if (!member) return message.channel.send(`Who,The fk, the lord,wants to rob :rolling_eyes:`)
   if (member.id === message.author.id) return message.reply(`Are you good? Are you really trying to rob yourself right now? <:LMFAO:841935653305843724>`);
   if (member.id === '778518819055861761') return message.reply('Wow, you really tried to rob me? I will commit ban on you if you try again! (jk)')
