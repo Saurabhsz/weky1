@@ -24,5 +24,5 @@ module.exports = async (client, message) => {
    webhook.on('vote', vote => {
      console.log(`User id: ${vote.user}\nAll data: ${vote}\nTotal votes: ${votes}`);
    });
-       bot.user.setActivity(`Playing in ${bot.guilds.cache.size} servers with ${bot.users.cache.size} users | ..vote`, {type: "PLAYING"});
+       client.user.setActivity(`Playing in ${client.guilds.cache.size} servers with ${client.users.cache.size} users | ..vote`, {type: "PLAYING"});
     }
