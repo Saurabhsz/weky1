@@ -19,10 +19,16 @@ module.exports = async (client, message) => {
      console.log(data);
    });
    
-   webhook.login('/topggVote', 3000); //you can edit the port (only numbers) NOTE: PUT .login METHOD BEFORE THE .on('vote') METHOD
    
-   webhook.on('vote', vote => {
-     console.log(`User id: ${vote.user}\nAll data: ${vote}\nTotal votes: ${votes}`);
+   const express = require('express');
+   const app = express();
+   
+   app.post('/topggVote', webhook.advanced(), (req, res) => {
+       console.log(req.vote);
+   });
+   
+   app.listen('3000', () => {
+       console.log('App listening on port 3000');
    });
        client.user.setActivity(`Playing in ${client.guilds.cache.size} servers with ${client.users.cache.size} users | ..vote`, {type: "PLAYING"});
     }
