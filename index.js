@@ -36,7 +36,7 @@ app.post('/topggVote', webhook.advanced(), (req, res) => {
                     user.send(
                     'Thanks for voting for me!\n**Rewards**~~\n'+
                     '- <:common_box:832589376746815499> 2 Common Boxes \n'+
-                    '- <:spacescript:814122006437167134 3 Space Script \n'+
+                    '- <:spacescript:814122006437167134> 3 Space Script \n'+
                     '- 40000 coins\n'
 )
 client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`.')
@@ -54,7 +54,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     user.send(
                     'Thanks for voting for me!\n**Rewards**~~\n'+
                     '- <:common_box:832589376746815499> 5 Common Boxes (2 bonus from weekend)\n'+
-                    '- <:spacescript:814122006437167134 4 Space Script (1 bonus from weekend)\n'+
+                    '- <:spacescript:814122006437167134> 4 Space Script (1 bonus from weekend)\n'+
                     '- 50000 coins (10000 bonus from weekend)\n'
 )
 client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
@@ -75,7 +75,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     user.send(
                     'Thanks for voting for me!\n**Rewards**~~\n'+
                     '- <:common_box:832589376746815499> 2 Common Boxes \n'+
-                    '- <:spacescript:814122006437167134 3 Space Script \n'+
+                    '- <:spacescript:814122006437167134> 3 Space Script \n'+
                     '- 40000 coins\n'
 )
 client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`.')
@@ -93,7 +93,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     user.send(
                     'Thanks for voting for me!\n**Rewards**~~\n'+
                     '- <:common_box:832589376746815499> 5 Common Boxes (2 bonus from weekend)\n'+
-                    '- <:spacescript:814122006437167134 4 Space Script (1 bonus from weekend)\n'+
+                    '- <:spacescript:814122006437167134> 4 Space Script (1 bonus from weekend)\n'+
                     '- 50000 coins (10000 bonus from weekend)\n'
 )
 client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
