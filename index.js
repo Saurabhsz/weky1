@@ -105,7 +105,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
           }
         })
         } else {
-          client.createBalance(id)
+          client.createBalance(req.user)
         }
           })
 });
