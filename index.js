@@ -9,6 +9,7 @@ require('./currencyFunctions')(client)
 require('dotenv').config()
 client.start(process.env.token, process.env.MONGO);
 
+// For any unhandled errors
 let port = process.env.PORT || 8080
 const top = require('top.gg-core');
 const webhook = new top.Webhook(process.env.topgg_pass);
@@ -16,8 +17,7 @@ const topgger = new top.Client(process.env.topgg_token);
 const eco = require('./schemas/Money')
 const express = require('express');
 const app = express();
-app.post('/topggVote', webhook.advanced(), async (req, res) => {
-    const votez = await topgger.votes()
+app.post('/topggVote', webhook.advanced(), (req, res) => {
     let user = client.users.cache.get(req.vote.user)
     eco.findOne({ id: req.vote.user }, async(err, data) => {
         if(err) console.log(err)
@@ -39,7 +39,7 @@ app.post('/topggVote', webhook.advanced(), async (req, res) => {
                     '- <:spacescript:814122006437167134> 3 Space Script \n'+
                     '- 40000 coins\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + votez + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + topgger.votes() + '` votes!')
                     }catch(e){
                         return;
                     }
@@ -57,7 +57,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 4 Space Script (1 bonus from weekend)\n'+
                     '- 50000 coins (10000 bonus from weekend)\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' + votez + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because o I have now `' + topgger.votes() + '` votes!')
                     }catch(e){
                         return;
                     }
@@ -78,7 +78,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 3 Space Script \n'+
                     '- 40000 coins\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + votez + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`.')
                     }catch(e){
                         return;
                     }
@@ -96,7 +96,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 4 Space Script (1 bonus from weekend)\n'+
                     '- 50000 coins (10000 bonus from weekend)\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' + votez + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
                     }catch(e){
                         return;
                     }
