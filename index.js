@@ -18,6 +18,7 @@ const express = require('express');
 const app = express();
  
 app.post('/topggVote', webhook.advanced(), (req, res) => {
+console.log(req.user)
     let user = client.users.cache.get(req.user)
     eco.findOne({ id: req.user }, async(err, data) => {
         if(err) console.log(err)
