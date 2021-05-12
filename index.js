@@ -39,7 +39,7 @@ app.post('/topggVote', webhook.advanced(), (req, res) => {
                     '- <:spacescript:814122006437167134> 3 Space Script \n'+
                     '- 40000 coins\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + topgger.votes() + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + await topgger.votes() + '` votes!')
                     }catch(e){
                         return;
                     }
@@ -57,7 +57,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 4 Space Script (1 bonus from weekend)\n'+
                     '- 50000 coins (10000 bonus from weekend)\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' + topgger.votes() + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' +await topgger.votes() + '` votes!')
                     }catch(e){
                         return;
                     }
@@ -78,7 +78,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 3 Space Script \n'+
                     '- 40000 coins\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + topgger.votes() + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' +await topgger.votes() + '` votes!')
                     }catch(e){
                         return;
                     }
@@ -96,7 +96,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 4 Space Script (1 bonus from weekend)\n'+
                     '- 50000 coins (10000 bonus from weekend)\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' + topgger.votes() + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' +await topgger.votes() + '` votes!')
                     }catch(e){
                         return;
                     }
