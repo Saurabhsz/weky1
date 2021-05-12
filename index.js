@@ -17,8 +17,8 @@ const topgger = new top.Client(process.env.topgg_token);
 const eco = require('./schemas/Money')
 const express = require('express');
 const app = express();
-const votez = await topgger.votes()
-app.post('/topggVote', webhook.advanced(), (req, res) => {
+app.post('/topggVote', webhook.advanced(), async (req, res) => {
+    const votez = await topgger.votes()
     let user = client.users.cache.get(req.vote.user)
     eco.findOne({ id: req.vote.user }, async(err, data) => {
         if(err) console.log(err)
