@@ -9,7 +9,6 @@ require('./currencyFunctions')(client)
 require('dotenv').config()
 client.start(process.env.token, process.env.MONGO);
 
-// For any unhandled errors
 let port = process.env.PORT || 8080
 const top = require('top.gg-core');
 const webhook = new top.Webhook(process.env.topgg_pass);
