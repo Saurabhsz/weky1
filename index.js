@@ -17,6 +17,7 @@ const topgger = new top.Client(process.env.topgg_token);
 const eco = require('./schemas/Money')
 const express = require('express');
 const app = express();
+const votez = await topgger.votes()
 app.post('/topggVote', webhook.advanced(), (req, res) => {
     let user = client.users.cache.get(req.vote.user)
     eco.findOne({ id: req.vote.user }, async(err, data) => {
@@ -39,7 +40,7 @@ app.post('/topggVote', webhook.advanced(), (req, res) => {
                     '- <:spacescript:814122006437167134> 3 Space Script \n'+
                     '- 40000 coins\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + await topgger.votes() + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + votez + '` votes!')
                     }catch(e){
                         return;
                     }
@@ -57,7 +58,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 4 Space Script (1 bonus from weekend)\n'+
                     '- 50000 coins (10000 bonus from weekend)\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' +await topgger.votes() + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' + votez + '` votes!')
                     }catch(e){
                         return;
                     }
@@ -78,7 +79,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 3 Space Script \n'+
                     '- 40000 coins\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' +await topgger.votes() + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. I have now `' + votez + '` votes!')
                     }catch(e){
                         return;
                     }
@@ -96,7 +97,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134> 4 Space Script (1 bonus from weekend)\n'+
                     '- 50000 coins (10000 bonus from weekend)\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' +await topgger.votes() + '` votes!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on top.gg. And got more rewards because of weekend. I have now `' + votez + '` votes!')
                     }catch(e){
                         return;
                     }
