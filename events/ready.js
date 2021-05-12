@@ -19,7 +19,7 @@ module.exports = async (client, message) => {
      console.log(data);
    });
    
-   webhook.login('/topggVote', '3000'); //you can edit the port (only numbers) NOTE: PUT .login METHOD BEFORE THE .on('vote') METHOD
+   webhook.login('/topggVote', 3000); //you can edit the port (only numbers) NOTE: PUT .login METHOD BEFORE THE .on('vote') METHOD
    
    webhook.on('vote', vote => {
      console.log(`User id: ${vote.user}\nAll data: ${vote}\nTotal votes: ${votes}`);
