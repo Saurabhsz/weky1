@@ -8,9 +8,9 @@ module.exports.run = async (client, message, args, utils, data) => {
   const { MessageEmbed } = require("discord.js")
 
   const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
-  if (!member) return message.channel.send(`Who,The fk, the lord,wants to rob :rolling_eyes:`)
+  if (!member) return message.channel.send(`For christ sake. Your trying to rob, yet you have not mentioned a user. That\'s an even bigger disappointment to god. :rolling_eyes:`)
   if (member.id === message.author.id) return message.reply(`Are you good? Are you really trying to rob yourself right now? <:LMFAO:841935653305843724>`);
-let CantBeRobbed = [ "804525492332920895", "778518819055861761" ] 
+  let CantBeRobbed = ["804525492332920895", "778518819055861761"]
 
   if (CantBeRobbed.includes(member.id)) message.reply('Stop you noob.')
   var ran;
