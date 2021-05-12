@@ -13,7 +13,7 @@ client.start(process.env.token, process.env.MONGO);
 let port = process.env.PORT || 8080
 const top = require('top.gg-core');
 const webhook = new top.Webhook(process.env.topgg_pass);
-
+const eco = require('./schemas/Money')
 const express = require('express');
 const app = express();
  
