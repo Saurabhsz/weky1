@@ -18,7 +18,6 @@ const express = require('express');
 const app = express();
  
 app.post('/topggVote', webhook.advanced(), (req, res) => {
-console.log(req)
     let user = client.users.cache.get(req.vote.user)
     eco.findOne({ id: req.vote.user }, async(err, data) => {
         if(err) console.log(err)
@@ -40,7 +39,7 @@ console.log(req)
                     '- <:spacescript:814122006437167134 3 Space Script \n'+
                     '- 40000 coins\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`.')
                     }catch(e){
                         return;
                     }
@@ -79,7 +78,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
                     '- <:spacescript:814122006437167134 3 Space Script \n'+
                     '- 40000 coins\n'
 )
-client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`.')
                     }catch(e){
                         return;
                     }
