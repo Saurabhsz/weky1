@@ -18,11 +18,100 @@ const express = require('express');
 const app = express();
  
 app.post('/topggVote', webhook.advanced(), (req, res) => {
-    console.log(req.vote);
+    let user = client.users.cache.get(req.user)
+    eco.findOne({ id: req.user }, async(err, data) => {
+        if(err) console.log(err)
+        if(data){
+        const inventory = require("./schemas/inventory")
+        inventory.findOne({User: req.user},(err, b) => {
+          if(!b) {
+            client.createProfile(req.user).then(() => {
+            if(req.isWeekend === false){
+                b.SpaceScript += 3
+                b.CommonBox += 2
+                b.save()
+                data.Wallet += 30000
+                data.save().then(() => {
+                    try{
+                    user.send(
+                    'Thanks for voting for me!\n**Rewards**~~\n'+
+                    '- <:common_box:832589376746815499> 2 Common Boxes \n'+
+                    '- <:spacescript:814122006437167134 3 Space Script \n'+
+                    '- 40000 coins\n'
+)
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
+                    }catch(e){
+                        return;
+                    }
+                })
+            }else{
+                b.SpaceScript += 4
+                b.CommonBox += 5
+                b.save()
+                data.Wallet += 50000
+                data.save().then(() => {
+                    try{
+                    user.send(
+                    'Thanks for voting for me!\n**Rewards**~~\n'+
+                    '- <:common_box:832589376746815499> 5 Common Boxes (2 bonus from weekend)\n'+
+                    '- <:spacescript:814122006437167134 4 Space Script (1 bonus from weekend)\n'+
+                    '- 50000 coins (10000 bonus from weekend)\n'
+)
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
+                    }catch(e){
+                        return;
+                    }
+                })
+            }
+            })
+          } else {
+            if(req.isWeekend === false){
+                b.SpaceScript += 3
+                b.CommonBox += 2
+                b.save()
+                data.Wallet += 30000
+                data.save().then(() => {
+                    try{
+                    user.send(
+                    'Thanks for voting for me!\n**Rewards**~~\n'+
+                    '- <:common_box:832589376746815499> 2 Common Boxes \n'+
+                    '- <:spacescript:814122006437167134 3 Space Script \n'+
+                    '- 40000 coins\n'
+)
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
+                    }catch(e){
+                        return;
+                    }
+                })
+            }else{
+                b.SpaceScript += 4
+                b.CommonBox += 5
+                b.save()
+                data.Wallet += 50000
+                data.save().then(() => {
+                    try{
+                    user.send(
+                    'Thanks for voting for me!\n**Rewards**~~\n'+
+                    '- <:common_box:832589376746815499> 5 Common Boxes (2 bonus from weekend)\n'+
+                    '- <:spacescript:814122006437167134 4 Space Script (1 bonus from weekend)\n'+
+                    '- 50000 coins (10000 bonus from weekend)\n'
+)
+client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted for me on `top.gg`. They got more because of weekend!')
+                    }catch(e){
+                        return;
+                    }
+                })
+            }
+          }
+        })
+        } else {
+          client.createBalance(id)
+        }
+          })
 });
 
 app.listen(port, () => {
-    console.log('App listening on port 3000');
+    console.log('App listening on port 8080');
 });
 
 process.on('unhandledRejection', async (err) => {
