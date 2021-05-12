@@ -19,15 +19,15 @@ const app = express();
  
 app.post('/topggVote', webhook.advanced(), (req, res) => {
 console.log(req)
-    let user = client.users.cache.get(req.user)
-    eco.findOne({ id: req.user }, async(err, data) => {
+    let user = client.users.cache.get(req.vote.user)
+    eco.findOne({ id: req.vote.user }, async(err, data) => {
         if(err) console.log(err)
         if(data){
         const inventory = require("./schemas/inventory")
-        inventory.findOne({User: req.user},(err, b) => {
+        inventory.findOne({User: req.vote.user},(err, b) => {
           if(!b) {
-            client.createProfile(req.user).then(() => {
-            if(req.isWeekend === false){
+            client.createProfile(req.vote.user).then(() => {
+            if(req.vote.isWeekend === false){
                 b.SpaceScript += 3
                 b.CommonBox += 2
                 b.save()
@@ -66,7 +66,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
             }
             })
           } else {
-            if(req.isWeekend === false){
+            if(req.vote.isWeekend === false){
                 b.SpaceScript += 3
                 b.CommonBox += 2
                 b.save()
@@ -106,7 +106,7 @@ client.channels.cache.get('830799737967738910').send('**'+user.tag+ '** voted fo
           }
         })
         } else {
-          client.createBalance(req.user)
+          client.createBalance(req.vote.user)
         }
           })
 });
