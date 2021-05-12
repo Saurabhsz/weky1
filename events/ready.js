@@ -1,8 +1,7 @@
 //ready event (ready.js)
-module.exports = (bot, message) => {
+module.exports = async (client, message) => {
    const top = require('top.gg-core');
 
-   const client = new discord.Client();
    const topgg = new top.Client(process.env.topgg_token);
    const webhook = new top.Webhook(process.env.topgg_pass);
    let votes = await topgg.votes(); 
