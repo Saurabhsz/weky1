@@ -11,12 +11,26 @@ client.start(process.env.token, process.env.MONGO);
 
 // For any unhandled errors
 
+const top = require('top.gg-core');
+const webhook = new top.Webhook(process.env.topgg_pass);
+
+const express = require('express');
+const app = express();
+ 
+app.post('/topggVote', webhook.advanced(), (req, res) => {
+    console.log(req.vote);
+});
+   
+app.listen('3000', () => {
+    console.log('App listening on port 3000');
+});
+
 process.on('unhandledRejection', async (err) => {
-	if (client.user) {
-		if (client.user.id === '809496186905165834') {
-			const errEmbed = new Discord.MessageEmbed().setTitle('unhandledRejection Error').setDescription(err.stack, { code: 'ini' }).setTimestamp();
-			unhhook.send(errEmbed);
-		}
-	}
-	return console.log(err);
+    if (client.user) {
+        if (client.user.id === '809496186905165834') {
+            const errEmbed = new Discord.MessageEmbed().setTitle('unhandledRejection Error').setDescription(err.stack, { code: 'ini' }).setTimestamp();
+            unhhook.send(errEmbed);
+        }
+    }
+    return console.log(err);
 });
