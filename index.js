@@ -10,7 +10,7 @@ require('dotenv').config()
 client.start(process.env.token, process.env.MONGO);
 
 // For any unhandled errors
-
+let port = process.env.PORT || 8080
 const top = require('top.gg-core');
 const webhook = new top.Webhook(process.env.topgg_pass);
 
@@ -20,8 +20,8 @@ const app = express();
 app.post('/topggVote', webhook.advanced(), (req, res) => {
     console.log(req.vote);
 });
-   
-app.listen('3000', () => {
+
+app.listen(port, () => {
     console.log('App listening on port 3000');
 });
 
