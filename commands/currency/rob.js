@@ -9,8 +9,9 @@ const { MessageEmbed } = require("discord.js")
 
     const membe = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
     if(!membe) return message.channel.send(`Who,The fk, the lord,wants to rob :rolling_eyes:`)
-if(membe.id === message.author.id) return message.reply(`Learn what you cant rob urself means`);
-if(membe.id === '778518819055861761') return message.reply('no.')
+if(membe.id === message.author.id) return message.reply(`Are you good? Are you really trying to rob yourself right now? <:LMFAO:841935653305843724>`);
+if(membe.id === '778518819055861761') return message.reply('Wow, you really tried to rob me? I will commit ban on you if you try again! (jk)')
+if(membe.id === '804525492332920895') return message.reply('Stop you noob.')
 var ran;
     if(100 >= await client.bal(membe.id)) {return message.reply(`This kid don't even have 100 coins.`)}else
     if(membe.user.bot) {return message.reply(`This kid think bots are robbable lol.`)}
