@@ -12,7 +12,9 @@ module.exports.run = async (client, message, args, utils, data) => {
   if (member.id === message.author.id) return message.reply(`Are you good? Are you really trying to rob yourself right now? <:LMFAO:841935653305843724>`);
   let CantBeRobbed = ["804525492332920895", "778518819055861761"]
 
-  if (CantBeRobbed.includes(member.id)) message.reply('Stop you noob.')
+  if (CantBeRobbed.includes(member.id)) {
+  message.reply('Stop you noob.')
+  }else {
   var ran;
   if (100 >= await client.bal(member.id)) { return message.reply(`This kid don't even have 100 coins.`) } else
     if (member.user.bot) { return message.reply(`This kid think bots are robbable lol.`) }
@@ -64,6 +66,7 @@ module.exports.run = async (client, message, args, utils, data) => {
         })
       }
     })
+  }
   }
 };
 
