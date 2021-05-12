@@ -40,10 +40,10 @@ const inventory = require("../../schemas/inventory")
 };
 
 module.exports.help = {
-    aliases: ['tn'],
-      name: 'turn',
-      description: 'Turning laptop on.',
-      usage: config.prefix + 'turn',
+    aliases: ['lt'],
+      name: 'laptop',
+      description: 'Turn on your Dare laptop and see if you get coins or not!',
+      usage: config.prefix + 'laptop',
   };
 
 module.exports.config = {
