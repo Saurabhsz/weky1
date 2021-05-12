@@ -228,11 +228,11 @@ const money = parseInt(args[0])
               errors: ['time']
           }).then(message => {
               message = message.first()
-              if (message.content === "h" || message.content === "hit") {
+              if (message.content.toLowerCase() === "h" || message.content.toLowerCase() === "hit") {
                   hit();
                   loop();
                   return
-              } else if (message.content === "s" || message.content === "stand") {
+              } else if (message.content.toLowerCase() === "s" || message.content.toLowerCase() === "stand") {
                   stand();
                   loop();
                   return
