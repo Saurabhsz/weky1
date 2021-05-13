@@ -1,2 +1,5 @@
 node_modules
+# Local .env Files! Thanks to yCyanx!
 .env
+.env.local
+.env.*.local
