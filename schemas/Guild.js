@@ -40,6 +40,10 @@ const guildsDB = new Schema({
 		type: Boolean,
 		default: false,
 	},
+        language: {
+		type: String,
+		default: 'english'
+	},
 });
 
 module.exports = mongoose.model('guildsDB', guildsDB);
