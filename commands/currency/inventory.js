@@ -49,8 +49,9 @@ client.createProfile(message.author.id)
         if(ata.WekyMoon) O+=`🌝 **Weky Moon**s — ${ata.WekyMoon}\nType: *Collectable*\n`
         
         var Q = ""
-        if(ata.WekyRipOff) Q+=`<:ripoff:815192242331451423> **Weky Rip Off**s — ${ata.WekyRipOff}\nType: *Collectable*\n`
         if(ata.SilverMoon) Q+=`<:silver_moon:816983800260067338> **Silver Moon**s — ${ata.SilverMoon}\nType: *Collectable*\n`
+        if(ata.WekyRipOff) Q+=`<:ripoff:815192242331451423> **Weky Rip Off**s — ${ata.WekyRipOff}\nType: *Collectable*\n`
+        if(ata.WekyArmor) Q+=`<:wekyArmor:842330972305227777> **Weky Armor**s — ${ata.WekyArmor}\nType: *Collectable*\n`
         embed1 = new Discord.MessageEmbed().setTitle(`${membe}'s inventory`).setDescription(s).setColor("RANDOM")
         embed2 = new Discord.MessageEmbed().setTitle(`${membe}'s inventory`).setDescription(S).setColor("RANDOM")
         embed3 = new Discord.MessageEmbed().setTitle(`${membe}'s inventory`).setDescription(E).setColor("RANDOM")

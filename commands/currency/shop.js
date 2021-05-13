@@ -34,6 +34,7 @@ Money.findOne({
                         const embed2 = new Discord.MessageEmbed()
                         .addField(`<:sunglasses:828232580854972477> **Sun Glasses** -> \`10\``,`Deal with it`)
                         .addField(`<a:booster:828168509112188938> **Booster** -> \`1000\``,`Automatically removes after a money, but with 10% more`)
+                        .addField(`<:wekyArmor:842330972305227777> **Weky Armor** -> \`10,000,000\``,`Only for richest asses`)
                         .setFooter(`Run ..item (item) for more info.`)
 const recon = require("reconlx");
 const ReactionPages = recon.ReactionPages;
@@ -329,6 +330,18 @@ if(useArgs[0] === 'slice' || useArgs[0] === 'sliceof' || useArgs[0] === 'sliceof
                    Sell: \`75,000\`\n
                    ID: \`slice\`\n\n
                    Description: Made just to be sold, you get it by ..walk -ing xD`)
+  .setTimestamp() 
+  message.channel.send(embed)
+}
+if(useArgs[0] === 'wekyarmor' || useArgs[0] === 'armor'){
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Weky Armor`)
+  .setThumbnail(`https://cdn.discordapp.com/attachments/797153662195466312/842330911193169960/armor.png`)
+  .addField(`${message.author.username} Owns: ${ata.WekyArmor}\n`,
+                   `Cost: \`100,000,000\`\n
+                   Sell: \`NON SELLABLE\`\n
+                   ID: \`slice\`\n\n
+                   Description: Only for richest asses`)
   .setTimestamp() 
   message.channel.send(embed)
 }

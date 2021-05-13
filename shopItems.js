@@ -10,6 +10,16 @@ module.exports = [
         collectable: false
     },
     {
+        aliases: ["armor", "wekyarmor"],
+        emoji: "<:wekyArmor:842330972305227777>",
+        price: 100000000,
+        realItem: "WekyArmor",
+        sell: false,
+        sellable: false,
+        buyable: true,
+        collectable: false
+    },
+    {
         aliases: ["spacescript", "script", "space"],
         emoji: "<:spacescript:814122006437167134>",
         price: false,

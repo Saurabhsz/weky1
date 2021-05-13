@@ -176,8 +176,14 @@ if(useArgs[0] === 'ripoff' || useArgs[0] === 'wekyripoff' || useArgs[0] === 'wek
 if(0 >= ata.WekyRipOff){
 return message.channel.send(`You dont have that item, sorry buddy.`)
 } else {
-message.reply(`${message.author} flex on y'all with their weky rip off :muscle::rage:`)
-}}   
+message.reply(`${message.author} flex on y'all with ${ata.WekyRipOff} weky rip off :muscle::rage:`)
+}}
+if(useArgs[0] === 'wekyarmor' || useArgs[0] === 'armor') {
+    if(0 >= ata.WekyArmor){
+    return message.channel.send(`You dont have that item, sorry buddy.`)
+    } else {
+    message.reply(`No one can beat with ${message.author} and their ${ata.WekyArmor} armors :sword:`)
+    }}
     if(useArgs[0] === 'booster') {
         if(0 >= ata.Booster){
         return message.channel.send(`You dont have that item, sorry buddy.`)

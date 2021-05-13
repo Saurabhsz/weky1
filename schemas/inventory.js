@@ -31,5 +31,6 @@ User: {
     BoosterEffect: {type: Number, default: 0},
     SliceOfTomato: {type: Number, default: 0},
     CommonBox: {type: Number, default: 0},
+    WekyArmor: {type: Number, default: 0},
 })
 module.exports = mongoose.model('inventories', profileSchema)
