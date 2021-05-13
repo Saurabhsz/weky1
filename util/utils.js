@@ -10,6 +10,8 @@ module.exports.uCWarning = function(warningMessage) {
 
 module.exports.prefix = require('./config.json').prefix;
 
+module.exports.emoji = "<:wek:837667218757910588>"
+
 module.exports.errorEmbed = function(message, errorMessage) {
 	const errorEmbed = new Discord.MessageEmbed()
 		.setColor('RED')
