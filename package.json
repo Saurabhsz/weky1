@@ -1,14 +1,14 @@
 {
-  "name": "the_bot",
+  "name": "WekyMain",
+  "author": "Weky Development",
+  "license": "ISC",
   "version": "1.0.0",
-  "description": "",
+  "description": "Weky Bot! An all in one bot that you need to add to your server right now!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "ImFace",
-  "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.5.0",
     "@top-gg/sdk": "^3.0.9",
