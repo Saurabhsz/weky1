@@ -33,8 +33,8 @@ Money.findOne({
                         .setFooter(`Run ..item (item) for more info. PAGE 2 AVAILABLE`)
                         const embed2 = new Discord.MessageEmbed()
                         .addField(`<:sunglasses:828232580854972477> **Sun Glasses** -> \`10\``,`Deal with it`)
-                        .addField(`<a:booster:828168509112188938> **Booster** -> \`1000\``,`Automatically removes after a money, but with 10% more`)
-                        .addField(`<:wekyArmor:842330972305227777> **Weky Armor** -> \`10,000,000\``,`Only for richest asses`)
+                        .addField(`<a:booster:828168509112188938> **Booster** -> \`1,000\``,`Automatically removes after a money, but with 10% more`)
+                        .addField(`<:wekyArmor:842330972305227777> **Weky Armor** -> \`100,000,000\``,`Only for richest asses`)
                         .setFooter(`Run ..item (item) for more info.`)
 const recon = require("reconlx");
 const ReactionPages = recon.ReactionPages;
@@ -340,7 +340,7 @@ if(useArgs[0] === 'wekyarmor' || useArgs[0] === 'armor'){
   .addField(`${message.author.username} Owns: ${ata.WekyArmor}\n`,
                    `Cost: \`100,000,000\`\n
                    Sell: \`NON SELLABLE\`\n
-                   ID: \`slice\`\n\n
+                   ID: \`armor\`\n\n
                    Description: Only for richest asses`)
   .setTimestamp() 
   message.channel.send(embed)
