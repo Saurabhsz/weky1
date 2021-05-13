@@ -167,27 +167,6 @@ client.createProfile(id)
    })
   }
 // Misc
-client.voted = (id) => {
-    eco.findOne({ id }, async(err, data) => {
-      if(err) console.log(err)
-      if(data){
-      const inventory = require("./schemas/inventory")
-      inventory.findOne({User: id},(err, b) => {
-        if(!b) {
-          client.createProfile(id)
-        } else {
-        b.SpaceScript += 3
-        b.CommonBox += 2
-        b.save()
-          data.Wallet += 30000
-          data.save()
-        }
-      })
-      } else {
-        client.createBalance(id)
-      }
-        })
-  }
 client.setStatus = (id, string) => {
     eco.findOne({ id }, async(err, data) => {
 if(err) throw err
